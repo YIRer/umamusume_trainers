@@ -1,0 +1,88 @@
+{
+  "umamusume": [
+    {
+      "id": "01",
+      "name": {
+        "defalut": "symbolirudolf",
+        "ko": "symbolirudolf",
+        "ja": "symbolirudolf"
+      },
+      "imageSrc": ""
+    },
+    {
+      "name": {
+        "default": "스페셜위크",
+        "ko": "스페셜위크",
+        "ja": "스페셜위크"
+      },
+      "imageSrc": "sad",
+      "id": "ylu_Gdv"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card_001",
+      "star": 3,
+      "type": "common",
+      "playable": true,
+      "limited": false,
+      "skills": [],
+      "events": [],
+      "imageSrc": "",
+      "targetID": "01"
+    },
+    {
+      "id": "card_002",
+      "star": 3,
+      "type": "common",
+      "playable": true,
+      "limited": false,
+      "skills": [],
+      "events": [],
+      "imageSrc": "",
+      "targetID": "02"
+    }
+  ],
+  "events": [
+    {
+      "id": "event_01",
+      "targetID": "card_001",
+      "oneTime": [
+        {
+          "title": "道半ば、顧みて",
+          "conditionID": "condition_01",
+          "tags": [
+            "speed",
+            "symbolirudolf"
+          ],
+          "choices": [
+            {
+              "description": "『経過報告』にすればいい",
+              "result": "스피드+20"
+            }
+          ]
+        }
+      ],
+      "multiTimes": []
+    }
+  ],
+  "skills": [
+    {
+      "id": "skill_01",
+      "name": "임기응변",
+      "effect": "속도증가",
+      "targetID": "card_001",
+      "imageSrc": "",
+      "tags": [
+        "speed",
+        "symbolirudolf"
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "condition_01",
+      "description": "트레이닝 실패"
+    }
+  ]
+}
