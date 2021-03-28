@@ -1,15 +1,27 @@
-import { InMemoryCache, ApolloClient, ApolloProvider } from "@apollo/client";
-import UmamusumeList from "./components/UmamusumeList";
-
-const client = new ApolloClient({ cache: new InMemoryCache({}), uri: "http://localhost:4000/graphql" });
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Paper from "@material-ui/core/Paper";
+import Main from "./pages/Main";
+import Admin from "pages/Admin";
+import AddUmamusume from "./components/forms/Admin/Umamusume/AddUmamusume";
+import EditUmamusume from "./components/forms/Admin/Umamusume/EditUmamusume";
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <UmamusumeList />
-      </div>
-    </ApolloProvider>
+    <Paper elevation={0}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin/umamusume/new" component={AddUmamusume} />
+          <Route
+            exact
+            path="/admin/umamusume/:id/edit"
+            component={EditUmamusume}
+          />
+        </Switch>
+      </Router>
+    </Paper>
   );
 }
 

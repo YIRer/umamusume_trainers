@@ -16,9 +16,7 @@ const addUmamusume = {
   resolve(_parentValue, { input }) {
     return axios
       .post(`${dbServer}/umamusume`, {
-        params: {
-          ...input,
-        },
+        ...input,
       })
       .then((res) => res.data);
   },
@@ -34,12 +32,7 @@ const editUmamusume = {
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/umamusume/${id}`, {
-        params: {
-          id,
-          ...input,
-        },
-      })
+      .patch(`${dbServer}/umamusume/${id}`, { ...input })
       .then((res) => res.data);
   },
 };
