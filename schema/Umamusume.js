@@ -18,6 +18,7 @@ const UmamusumeNameInputType = new GraphQLInputObjectType({
     default: { type: new GraphQLNonNull(GraphQLString) },
     ko: { type: GraphQLString },
     ja: { type: GraphQLString },
+    en: { type: GraphQLString },
   }),
 });
 
@@ -36,6 +37,7 @@ const UmamusumeNameType = new GraphQLObjectType({
     default: { type: GraphQLString },
     ko: { type: GraphQLString },
     ja: { type: GraphQLString },
+    en: { type: GraphQLString },
   }),
 });
 

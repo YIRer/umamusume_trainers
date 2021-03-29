@@ -31,28 +31,26 @@ export default function Admin() {
       <List component="ul">
         <ListSubheader>우마무스메 관리</ListSubheader>
         <ListItem>
+          <Link to="/admin/umamusume">
+            <ListItemText primary="우마무스메 리스트" />
+          </Link>
+        </ListItem>
+        <ListItem>
           <Link to="/admin/umamusume/new">
-            <ListItemText primary="추가" />
+            <ListItemText primary="우마무스메 추가" />
           </Link>
-        </ListItem>
-        <ListItem>
-          <Link to="/admin/umamusume/10/edit">
-            <ListItemText primary="수정" />
-          </Link>
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="삭제" />
         </ListItem>
         <Divider />
         <ListSubheader>카드 관리</ListSubheader>
         <ListItem>
-          <ListItemText primary="추가" />
+          <Link to="/cards">
+            <ListItemText primary="카드 리스트" />
+          </Link>
         </ListItem>
         <ListItem>
-          <ListItemText primary="수정" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="삭제" />
+          <Link to="/admin/cards/new">
+            <ListItemText primary="카드 추가" />
+          </Link>
         </ListItem>
         <Divider />
         <ListSubheader>이벤트 관리</ListSubheader>

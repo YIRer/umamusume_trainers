@@ -6,7 +6,9 @@ import App from "./App";
 const { graphqlServer } = require("../constants.js");
 
 const client = new ApolloClient({
-  cache: new InMemoryCache({}),
+  cache: new InMemoryCache({
+    addTypename: false,
+  }),
   uri: graphqlServer,
   ssrMode: true,
 });

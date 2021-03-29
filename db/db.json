@@ -2,104 +2,14 @@
   "umamusume": [
     {
       "name": {
-        "default": "sddsda",
-        "ko": "sds",
-        "ja": "dsd"
+        "default": "SymboliRudolf",
+        "ko": "심볼리 루돌프",
+        "ja": "シンボリルドルフ",
+        "en": "Symboli Rudolf"
       },
+      "imageSrc": "/image/SymboliRudolf/main.png",
       "cards": [],
       "id": 1
-    },
-    {
-      "name": {
-        "default": "adsadsads",
-        "ko": "sadsa",
-        "ja": "dsads"
-      },
-      "cards": [],
-      "id": 2
-    },
-    {
-      "name": {
-        "default": "ssssss",
-        "ko": "ssss",
-        "ja": "sssss"
-      },
-      "cards": [],
-      "id": 3
-    },
-    {
-      "name": {
-        "default": "dsadsa",
-        "ko": "sadsad",
-        "ja": "sadsa"
-      },
-      "cards": [],
-      "id": 4
-    },
-    {
-      "name": {
-        "default": "sadsad",
-        "ko": "sadsa",
-        "ja": "dsad"
-      },
-      "cards": [],
-      "id": 5
-    },
-    {
-      "name": {
-        "default": "sadsad",
-        "ko": "ss",
-        "ja": "ssd"
-      },
-      "cards": [],
-      "id": 6
-    },
-    {
-      "name": {
-        "default": "ddcccccccccccccc",
-        "ko": "sssssssssssssss",
-        "ja": "sddddddddddddddd"
-      },
-      "cards": [],
-      "id": 7
-    },
-    {
-      "name": {
-        "default": "111",
-        "ko": "sadsad11",
-        "ja": "sads"
-      },
-      "cards": [],
-      "id": 8
-    },
-    {
-      "name": {
-        "default": "ffdsf",
-        "ko": "2323",
-        "ja": "44214"
-      },
-      "cards": [],
-      "id": 9
-    },
-    {
-      "name": {
-        "default": "special",
-        "ko": "스페셜위크2",
-        "ja": "스페셜위크3"
-      },
-      "imageSrc": "",
-      "cards": [],
-      "id": 10
-    },
-    {
-      "name": {
-        "default": "dsadsa",
-        "ko": "sadsa",
-        "ja": "asdsa"
-      },
-      "imageSrc": "",
-      "cards": [],
-      "id": 11
     }
   ],
   "cards": [
@@ -112,7 +22,7 @@
       "skills": [],
       "events": [],
       "imageSrc": "",
-      "targetID": "01"
+      "targetID": null
     },
     {
       "id": "card_002",

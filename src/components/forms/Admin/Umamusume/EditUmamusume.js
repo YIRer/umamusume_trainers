@@ -9,11 +9,7 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import clsx from "clsx";
 
-import {
-  GET_UMAMUSUME,
-  GET_UMAMUSUMES,
-  EDIT_UMAMUSUME,
-} from "queries/umamusume";
+import { GET_UMAMUSUME, EDIT_UMAMUSUME } from "queries/umamusume";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -48,16 +44,20 @@ const EditUmamusume = (props) => {
       ko: "",
       ja: "",
       en: "",
+      default: "",
       cards: [],
     }
   );
+
   const setInitData = () => {
     if (data && data.umamusume) {
       const { name, cards, imageSrc } = umamusume;
+
       setFormInput({
         ko: name.ko,
         ja: name.ja,
-        en: name.default,
+        en: name.en,
+        default: name.default,
         cards,
         imageSrc,
       });
@@ -78,17 +78,21 @@ const EditUmamusume = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { ko, ja, en, cards } = formData;
-    console.log(formData);
-    const input = { name: { ko, ja, default: en.trim() }, cards };
+
+    const removeSpace = en.replace(" ", "");
+    const input = {
+      name: { ko, ja, en, default: removeSpace },
+      cards,
+    };
     editUmamusume({
       variables: {
         id,
         input,
       },
-      refetchQueries: [{ query: GET_UMAMUSUMES }],
+      refetchQueries: [{ query: GET_UMAMUSUME, variables: { id } }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/");
+      props.history.push(`/umamusume/${id}`);
     });
   };
 
@@ -124,7 +128,7 @@ const EditUmamusume = (props) => {
           id="name-en"
           name="en"
           label="영문 이름"
-          defaultValue={umamusume.name.default}
+          defaultValue={umamusume.name.en}
           onChange={handleChange}
         />
         <Button

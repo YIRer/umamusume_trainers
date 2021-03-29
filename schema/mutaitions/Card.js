@@ -3,10 +3,7 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../../constants.js");
 
-const {
-  GraphQLNonNull,
-  GraphQLID,
-} = graphql;
+const { GraphQLNonNull, GraphQLID } = graphql;
 
 const { CardType, CardInputType } = require("../Card.js");
 
@@ -30,7 +27,7 @@ const editCard = {
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/cards/${id}`, { params: { id, ...input } })
+      .patch(`${dbServer}/cards/${id}`, { id, ...input })
       .then((res) => res.data);
   },
 };

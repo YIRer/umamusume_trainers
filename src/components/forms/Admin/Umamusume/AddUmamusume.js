@@ -52,7 +52,12 @@ const AddUmamusume = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { ko, ja, en, cards } = formData;
-    const input = { name: { ko, ja, default: en.trim() }, cards };
+    const removeSpace = en.replace(" ", "");
+    const input = {
+      name: { ko, ja, en, default: removeSpace },
+      cards,
+      imageSrc: `/image/${removeSpace}/main.png`,
+    };
 
     addUmamusume({
       variables: {
@@ -61,7 +66,7 @@ const AddUmamusume = (props) => {
       refetchQueries: [{ query: GET_UMAMUSUMES }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/");
+      props.history.push("/umamusume");
     });
   };
 
