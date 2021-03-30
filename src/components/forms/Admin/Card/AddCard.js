@@ -8,15 +8,19 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import MenuItem from "@material-ui/core/MenuItem";
+import Card from "@material-ui/core/Card";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
+import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
+import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
 import { ranks, stars, cardTypes, initialStatusData } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
+import SearchSkills from "../Skills/SearchSkills";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -42,14 +46,43 @@ const useStyles = makeStyles((_theme) => ({
     backgroundRepeat: "no-repeat",
     marginBottom: "10px",
   },
+
+  skillCard: {
+    width: "100%",
+    maxWidth: "250px",
+    height: "100px",
+    marginBottom: "10px",
+    marginRight: "16px",
+  },
+
+  skillWrapper: {
+    display: "flex",
+    padding: "10px",
+  },
+  skillIcon: {
+    width: "80px",
+    height: "80px",
+    marginRight: "10px",
+  },
+  skillInfoWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  button: {
+    marginBottom: "16px",
+  },
 }));
 
 const AddCard = (props) => {
   const classes = useStyles();
   const [isTrainingType, checkCardtype] = useState(true);
   const [targetInfo, setTarget] = useState(null);
+  const [relatedSkills, setRelatedSkills] = useState([]);
   const [modalOpened, setModalState] = useState(false);
+  const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
   const [addCard, _mutationData] = useMutation(ADD_CARD);
+  const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
   const [formData, setFormInput] = useReducer(
     (state, newState) => ({
@@ -128,7 +161,7 @@ const AddCard = (props) => {
       name,
       type,
       imageSrc,
-      targetID: targetInfo.id,
+      targetID: targetInfo?.id || null,
       status: {
         ground: {
           grass,
@@ -144,8 +177,28 @@ const AddCard = (props) => {
       },
       refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
-    }).then(() => {
-      props.history.push("/cards");
+    }).then(({ data }) => {
+      const { addCard } = data;
+      const params = {
+        ids: [],
+        skillsTargetIDs: [],
+      };
+      relatedSkills.forEach((skillData) => {
+        params.ids.push(skillData.id);
+        params.skillsTargetIDs.push(
+          _.uniq([...skillData.targetIDs, addCard.id])
+        );
+      });
+
+      editSkills({
+        variables: {
+          ...params,
+        },
+        refetchQueries: [{ query: GET_SKILLS }],
+        awaitRefetchQueries: true,
+      }).then(() => {
+        props.history.push("/cards");
+      });
     });
   };
 
@@ -154,6 +207,13 @@ const AddCard = (props) => {
   };
   const hideSearchModal = () => {
     setModalState(false);
+  };
+
+  const showSkillSearchModal = () => {
+    setSkillSearchModalState(true);
+  };
+  const hideSkillSearchModal = () => {
+    setSkillSearchModalState(false);
   };
 
   const renderStatus = () => {
@@ -338,6 +398,25 @@ const AddCard = (props) => {
     );
   };
 
+  const renderSkillIcons = ({ name, imageSrc, effect }) => {
+    return (
+      <Card
+        key={name}
+        classes={{
+          root: clsx(classes.skillCard),
+        }}
+      >
+        <div className={classes.skillWrapper}>
+          <img className={classes.skillIcon} src={imageSrc} alt={name} />
+          <div className={classes.skillInfoWrapper}>
+            <b>{name}</b>
+            <span>{effect}</span>
+          </div>
+        </div>
+      </Card>
+    );
+  };
+
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
       <FormControl>
@@ -351,7 +430,6 @@ const AddCard = (props) => {
         />
         <TextField
           className={clsx(classes.root)}
-          required
           id="imageName"
           name="imageName"
           label="이미지 파일 이름"
@@ -424,14 +502,36 @@ const AddCard = (props) => {
           variant="outlined"
           color="primary"
           onClick={showSearchModal}
+          className={classes.button}
         >
           관련된 우마무스메 선택
         </Button>
+
         <SearchUmamusume
           open={modalOpened}
           onSelect={setTarget}
           onClose={hideSearchModal}
         />
+
+        {relatedSkills &&
+          relatedSkills.map((skillData) => renderSkillIcons(skillData))}
+
+        <Button
+          type="button"
+          variant="outlined"
+          color="primary"
+          onClick={showSkillSearchModal}
+          className={classes.button}
+        >
+          관련된 스킬 선택
+        </Button>
+
+        <SearchSkills
+          open={skillSearchModalOpened}
+          onSelect={setRelatedSkills}
+          onClose={hideSkillSearchModal}
+        />
+
         <Button
           type="submit"
           className={clsx(classes.button)}

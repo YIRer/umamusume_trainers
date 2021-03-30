@@ -12,145 +12,20 @@
       "id": 1
     }
   ],
-  "cards": [
-    {
-      "star": 3,
-      "name": "심볼리 루돌프",
-      "targetID": "1",
-      "imageSrc": "/image/SymboliRudolf/cards/training/common_01.png",
-      "type": "training",
-      "playable": true,
-      "limited": false,
-      "status": {
-        "ground": {
-          "grass": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "duct": {
-            "rank": "G",
-            "bonus": "0"
-          }
-        },
-        "status": {
-          "speed": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "stamina": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "power": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "guts": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "intelligence": {
-            "rank": "G",
-            "bonus": "0"
-          }
-        }
-      },
-      "id": 1
-    },
-    {
-      "star": 3,
-      "name": "토카이 테이오",
-      "targetID": "1",
-      "imageSrc": "/image/SymboliRudolf/cards/training/common_01.png",
-      "type": "training",
-      "playable": true,
-      "limited": false,
-      "status": {
-        "ground": {
-          "grass": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "duct": {
-            "rank": "G",
-            "bonus": "0"
-          }
-        },
-        "status": {
-          "speed": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "stamina": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "power": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "guts": {
-            "rank": "G",
-            "bonus": "0"
-          },
-          "intelligence": {
-            "rank": "G",
-            "bonus": "0"
-          }
-        }
-      },
-      "id": 2
-    }
-  ],
-  "events": [
-    {
-      "id": "event_01",
-      "targetID": "card_001",
-      "oneTime": [
-        {
-          "title": "道半ば、顧みて",
-          "conditionID": "condition_01",
-          "tags": [
-            "speed",
-            "symbolirudolf"
-          ],
-          "choices": [
-            {
-              "description": "『経過報告』にすればいい",
-              "result": "스피드+20"
-            }
-          ]
-        }
-      ],
-      "multiTimes": []
-    }
-  ],
+  "cards": [],
   "skills": [
     {
-      "name": "ㄴㅁㅇ",
+      "name": "sadd",
       "targetIDs": [
-        "2"
+        "1"
       ],
-      "effect": "ㄴㅁㅇ",
+      "effect": "ddd",
       "type": "training",
-      "imageSrc": "/image/skill/i_skill_003.png",
+      "imageSrc": "/image/skill/i_skill_025.png",
       "tags": [
-        "ㄴㄴ"
+        ""
       ],
-      "id": "1"
-    },
-    {
-      "name": "sadsa",
-      "targetIDs": [
-        "2"
-      ],
-      "effect": "dsad",
-      "type": "support",
-      "imageSrc": "/image/skill/i_skill_001.png",
-      "tags": [
-        "sadsa"
-      ],
-      "id": "mbGzbOG"
+      "id": 1
     }
   ],
   "conditions": [

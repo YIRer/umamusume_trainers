@@ -3,9 +3,10 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../../constants.js");
 
-const { GraphQLNonNull, GraphQLID } = graphql;
+const { GraphQLNonNull, GraphQLID, GraphQLList } = graphql;
 
 const { CardType, CardInputType } = require("../Card.js");
+const { SkillInputType } = require("../Skill.js");
 
 const addCard = {
   type: CardType,
@@ -36,11 +37,20 @@ const deleteCard = {
   type: CardType,
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
+    skills: { type: new GraphQLList(SkillInputType) },
   },
-  resolve(_parentValue, { id }) {
-    return axios
-      .delete(`${dbServer}/cards/${id}`)
-      .then((_res) => ({ deleted: true }));
+  resolve(_parentValue, { id, skills = [] }) {
+    return Promise.all([
+      axios.delete(`${dbServer}/cards/${id}`),
+      skills.map((skill) => {
+        const removedID = _.remove(skill.targetIDs, id);
+
+        return axios.patch(`${dbServer}/skills/${skill.id}`, {
+          ...skill,
+          targetIDs: removedID,
+        });
+      }),
+    ]).then((_res) => ({ deleted: true }));
   },
 };
 

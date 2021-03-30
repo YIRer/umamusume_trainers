@@ -78,6 +78,11 @@ const Umamusume = (props) => {
     });
   };
 
+  const handleClickBack = (e) => {
+    e.preventDefault();
+    props.history.goBack();
+  };
+  
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   const { umamusume } = data;
@@ -90,12 +95,12 @@ const Umamusume = (props) => {
           {umamusume.name.ko}({umamusume.name.ja})
         </h3>
         <div className={classes.icons}>
-          <Link to="/umamusume" className={classes.link}>
+          <IconButton onClick={handleClickBack}>
             <ArrowBackRoundedIcon
               className={clsx(classes.iconArrow)}
               color="primary"
             />
-          </Link>
+          </IconButton>
           <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
             <BorderColorRoundedIcon
               className={clsx(classes.icon)}

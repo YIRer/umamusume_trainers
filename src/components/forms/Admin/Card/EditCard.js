@@ -165,7 +165,7 @@ const EditCard = (props) => {
       name,
       type,
       imageSrc,
-      targetID: targetInfo.id,
+      targetID: targetInfo?.id,
       status: {
         ground: {
           grass,
@@ -181,11 +181,11 @@ const EditCard = (props) => {
         input,
       },
       refetchQueries: [
-        { query: GET_CARDS },
         {
           query: GET_CARD,
           variables: { id },
         },
+        { query: GET_CARDS },
       ],
       awaitRefetchQueries: true,
     }).then(() => {

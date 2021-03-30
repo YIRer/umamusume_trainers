@@ -9,7 +9,7 @@ const {
   GraphQLNonNull,
 } = graphql;
 
-const SkillTypeInputType = new GraphQLInputObjectType({
+const SkillInputType = new GraphQLInputObjectType({
   name: "SkillInputType",
   fields: () => ({
     name: { type: new GraphQLNonNull(GraphQLString) },
@@ -35,4 +35,4 @@ const SkillType = new GraphQLObjectType({
   }),
 });
 
-module.exports = { SkillType, SkillTypeInputType };
+module.exports = { SkillType, SkillInputType };

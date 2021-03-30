@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { withRouter } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
-import { GET_SKill, GET_SKillS, DELTE_Skill } from "queries/skills";
+import { GET_SKill, GET_SKILLS, DELTE_Skill } from "queries/skills";
 import { FIND_CARDS } from "queries/cards";
 
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
@@ -13,8 +13,6 @@ import Paper from "@material-ui/core/Paper";
 import Chip from "@material-ui/core/Chip";
 
 import { makeStyles } from "@material-ui/core/styles";
-
-// import CardTags from "./CardTags";
 
 import clsx from "clsx";
 
@@ -68,12 +66,6 @@ const useStyles = makeStyles((_theme) => ({
     backgroundRepeat: "no-repeat",
     marginBottom: "10px",
   },
-  tableRoot: {
-    backgroundColor: "#333333",
-  },
-  tableRow: {
-    color: "#fff",
-  },
 }));
 
 const SkillInfo = (props) => {
@@ -98,11 +90,16 @@ const SkillInfo = (props) => {
       variables: {
         id,
       },
-      refetchQueries: [{ query: GET_SKillS }],
+      refetchQueries: [{ query: GET_SKILLS }],
       awaitRefetchQueries: true,
     }).then(() => {
       props.history.replace(`/skills`);
     });
+  };
+
+  const handleClickBack = (e) => {
+    e.preventDefault();
+    props.history.goBack();
   };
 
   if (loading) return <p>Loading...</p>;
@@ -114,12 +111,12 @@ const SkillInfo = (props) => {
     <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
         <div className={classes.icons}>
-          <Link to="/skills" className={classes.link}>
+          <IconButton onClick={handleClickBack}>
             <ArrowBackRoundedIcon
               className={clsx(classes.iconArrow)}
               color="primary"
             />
-          </Link>
+          </IconButton>
           <Link to={`/admin/skills/${id}/edit`} className={classes.link}>
             <BorderColorRoundedIcon
               className={clsx(classes.icon)}
@@ -136,9 +133,9 @@ const SkillInfo = (props) => {
         <h3 className={classes.name}>{skill.name}</h3>
         <p>{skill.effect}</p>
         <div>
-          {skill.tags.map((tag) => (
-            <Chip key={tag} variant="outlined" label={tag} />
-          ))}
+          {skill.tags.map(
+            (tag) => tag && <Chip key={tag} variant="outlined" label={tag} />
+          )}
         </div>
       </section>
       <section className={classes.section}>

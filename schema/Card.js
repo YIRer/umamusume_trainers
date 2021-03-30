@@ -3,7 +3,7 @@ const graphql = require("graphql");
 const axios = require("axios");
 const { dbServer } = require("../constants.js");
 
-const { SkillType, SkillTypeInputType } = require("./Skill.js");
+const { SkillType, SkillInputType } = require("./Skill.js");
 const { EventType, EventInputType } = require("./Events.js");
 
 const {
@@ -65,7 +65,7 @@ const CardInputType = new GraphQLInputObjectType({
     limited: { type: new GraphQLNonNull(GraphQLBoolean) },
     status: { type: CardStatusObjectInput },
     skills: {
-      type: new GraphQLList(SkillTypeInputType),
+      type: new GraphQLList(SkillInputType),
     },
     events: {
       type: new GraphQLList(EventInputType),

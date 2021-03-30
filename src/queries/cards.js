@@ -78,6 +78,13 @@ export const GET_CARD = gql`
       type
       playable
       limited
+      skills {
+        name
+        imageSrc
+        id
+        effect
+        type
+      }
       status {
         ground {
           duct {

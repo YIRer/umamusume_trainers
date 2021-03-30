@@ -13,7 +13,7 @@ import clsx from "clsx";
 import SearchCards from "../Card/SearchCards";
 
 import { FIND_CARDS } from "queries/cards";
-import { GET_SKillS, GET_SKill, EDIT_SKILL } from "queries/skills";
+import { GET_SKILLS, GET_SKill, EDIT_SKILL } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData, skillTypes } from "./constants";
@@ -116,7 +116,7 @@ const EditSkill = (props) => {
         input,
       },
       refetchQueries: [
-        { query: GET_SKillS },
+        { query: GET_SKILLS },
         {
           query: GET_SKill,
           variables: { id },

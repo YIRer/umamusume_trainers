@@ -75,6 +75,7 @@ const RootQuery = new GraphQLObjectType({
           .then((res) => res.data);
       },
     },
+    
     skills: {
       type: new GraphQLList(SkillType),
       args: {},
@@ -82,6 +83,17 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`${dbServer}/skills`).then((res) => res.data);
       },
     },
+
+    findSkills: {
+      type: new GraphQLList(SkillType),
+      args: { ids: { type: new GraphQLList(GraphQLID) } },
+      resolve(_parentValue, { ids }) {
+        const query = ids.map((id) => `id_like=${id}`).join("&");
+
+        return axios.get(`${dbServer}/skills?${query}`).then((res) => res.data);
+      },
+    },
+
     skill: {
       type: SkillType,
       args: { id: { type: GraphQLID } },

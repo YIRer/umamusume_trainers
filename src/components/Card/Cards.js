@@ -55,10 +55,10 @@ export const CardList = (_props) => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-
+  
   return (
     <div>
-      {data.cards.map(({ name, id, imageSrc, star, type, limited }) => {
+      {data?.cards.map(({ name, id, imageSrc, star, type, limited }) => {
         return (
           <Card className={clsx(classes.cardRoot)} key={`${name}-${id}`}>
             {limited && (

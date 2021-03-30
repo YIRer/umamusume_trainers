@@ -2,15 +2,15 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../../constants.js");
 
-const { GraphQLID, GraphQLNonNull } = graphql;
+const { GraphQLID, GraphQLNonNull, GraphQLList, GraphQLString } = graphql;
 
-const { SkillType, SkillTypeInputType } = require("../Skill.js");
+const { SkillType, SkillInputType } = require("../Skill.js");
 
 const addSkill = {
   type: SkillType,
   args: {
     input: {
-      type: SkillTypeInputType,
+      type: SkillInputType,
     },
   },
   resolve(_parentValue, { input }) {
@@ -25,13 +25,30 @@ const editSkill = {
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
     input: {
-      type: SkillTypeInputType,
+      type: SkillInputType,
     },
   },
   resolve(_parentValue, { id, input }) {
     return axios
       .patch(`${dbServer}/skills/${id}`, { ...input })
       .then((res) => res.data);
+  },
+};
+
+const editSkills = {
+  type: new GraphQLList(SkillType),
+  args: {
+    ids: { type: new GraphQLList(GraphQLID) },
+    skillsTargetIDs: {
+      type: new GraphQLList(new GraphQLList(GraphQLString)),
+    },
+  },
+  resolve(_parentValue, { ids, skillsTargetIDs }) {
+    return Promise.all([
+      skillsTargetIDs.map((targetIDs, index) =>
+        axios.patch(`${dbServer}/skills/${ids[index]}`, { targetIDs })
+      ),
+    ]).then((res) => res.data);
   },
 };
 
@@ -47,4 +64,4 @@ const deleteSkill = {
   },
 };
 
-module.exports = { addSkill, editSkill, deleteSkill };
+module.exports = { addSkill, editSkill, editSkills, deleteSkill };

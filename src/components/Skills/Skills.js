@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { GET_SKillS } from "queries/skills";
+import { GET_SKILLS } from "queries/skills";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -37,7 +37,7 @@ const useStyles = makeStyles((_theme) => ({
 
 export const Skills = (_props) => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery(GET_SKillS, []);
+  const { loading, error, data } = useQuery(GET_SKILLS, []);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

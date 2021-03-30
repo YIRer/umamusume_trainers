@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_SKillS = gql`
+export const GET_SKILLS = gql`
   query {
     skills {
       id
@@ -52,6 +52,16 @@ export const EDIT_SKILL = gql`
       imageSrc
       type
       tags
+    }
+  }
+`;
+
+export const EDIT_SKILLS = gql`
+  mutation EditSkillS($ids: [ID] $skillsTargetIDs: [[String]]) {
+    editSkills(ids:$ids skillsTargetIDs: $skillsTargetIDs) {
+      id
+      name
+      targetIDs
     }
   }
 `;
