@@ -14,7 +14,7 @@ const addCard = {
   },
   resolve(_parentValue, { input }) {
     return axios
-      .post(`${dbServer}/cards`, { params: { ...input } })
+      .post(`${dbServer}/cards`, { ...input })
       .then((res) => res.data);
   },
 };

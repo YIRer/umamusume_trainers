@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { GET_UMAMUSUMES } from "../queries/umamusume";
+import { GET_UMAMUSUMES } from "queries/umamusume";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -51,7 +51,7 @@ export const UmamusumeList = (_props) => {
             <Link className={clsx(classes.linkWrapper)} to={`/umamusume/${id}`}>
               <CardMedia
                 className={clsx(classes.cardMedia)}
-                image={imageSrc}
+                image={imageSrc || "/image/temp.png"}
                 title={name.en}
               />
               <CardContent>{name.ko}</CardContent>

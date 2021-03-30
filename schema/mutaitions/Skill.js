@@ -13,9 +13,9 @@ const addSkill = {
       type: SkillTypeInputType,
     },
   },
-  resolve(_parentValue, args) {
+  resolve(_parentValue, { input }) {
     return axios
-      .post(`${dbServer}/skills`, { params: { ...args } })
+      .post(`${dbServer}/skills`, { ...input })
       .then((res) => res.data);
   },
 };
@@ -30,7 +30,7 @@ const editSkill = {
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/skills/${id}`, { params: { id, ...input } })
+      .patch(`${dbServer}/skills/${id}`, { ...input })
       .then((res) => res.data);
   },
 };

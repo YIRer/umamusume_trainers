@@ -14,26 +14,92 @@
   ],
   "cards": [
     {
-      "id": "card_001",
       "star": 3,
-      "type": "common",
+      "name": "심볼리 루돌프",
+      "targetID": "1",
+      "imageSrc": "/image/SymboliRudolf/cards/training/common_01.png",
+      "type": "training",
       "playable": true,
       "limited": false,
-      "skills": [],
-      "events": [],
-      "imageSrc": "",
-      "targetID": null
+      "status": {
+        "ground": {
+          "grass": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "id": 1
     },
     {
-      "id": "card_002",
       "star": 3,
-      "type": "common",
+      "name": "토카이 테이오",
+      "targetID": "1",
+      "imageSrc": "/image/SymboliRudolf/cards/training/common_01.png",
+      "type": "training",
       "playable": true,
       "limited": false,
-      "skills": [],
-      "events": [],
-      "imageSrc": "",
-      "targetID": "02"
+      "status": {
+        "ground": {
+          "grass": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "id": 2
     }
   ],
   "events": [
@@ -61,15 +127,18 @@
   ],
   "skills": [
     {
-      "id": "skill_01",
-      "name": "임기응변",
-      "effect": "속도증가",
-      "targetID": "card_001",
-      "imageSrc": "",
+      "name": "ㄴㅁㅇ",
+      "targetIDs": [
+        "1",
+        "2"
+      ],
+      "effect": "ㄴㅁㅇ",
+      "type": "training",
+      "imageSrc": "/image/skill/i_skill_003.png",
       "tags": [
-        "speed",
-        "symbolirudolf"
-      ]
+        "ㄴㄴ"
+      ],
+      "id": "1"
     }
   ],
   "conditions": [

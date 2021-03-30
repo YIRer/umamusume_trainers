@@ -1,12 +1,9 @@
 import React, { useReducer, useEffect } from "react";
 import { withRouter } from "react-router";
 import { useParams, Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import {
-  GET_UMAMUSUME,
-  GET_UMAMUSUMES,
-  DELTE_UMAMUSUME,
-} from "../queries/umamusume";
+import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
+import { GET_CARD, GET_CARDS, DELTE_CARD } from "queries/cards";
+import { GET_UMAMUSUME } from "queries/umamusume";
 
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
@@ -15,11 +12,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
 
 import { makeStyles } from "@material-ui/core/styles";
+
+import CardTags from "./CardTags";
+import StatusTable from "./StatusTable";
+
 import clsx from "clsx";
 
 const useStyles = makeStyles((_theme) => ({
-  root: {
-    maxWidth: "50%",
+  paperRoot: {
+    padding: "10px",
   },
   header: {
     display: "flex",
@@ -53,50 +54,70 @@ const useStyles = makeStyles((_theme) => ({
   iconArrow: {
     fontSize: "1.8rem",
   },
+  umamusume: {
+    width: "100px",
+    height: "100px",
+    border: "5px solid #ebd834",
+    boxSizing: "border-box",
+    backgroundPosition: "top center",
+    backgroundSize: "80%",
+    backgroundRepeat: "no-repeat",
+    marginBottom: "10px",
+  },
+  tableRoot: {
+    backgroundColor: "#333333",
+  },
+  tableRow: {
+    color: "#fff",
+  },
 }));
 
-const Umamusume = (props) => {
+const CardInfo = (props) => {
   const classes = useStyles();
   const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_UMAMUSUME, {
+  const { loading, error, data } = useQuery(GET_CARD, {
     variables: { id },
   });
 
-  const [deleteUmamusume, _mutationData] = useMutation(DELTE_UMAMUSUME);
+  const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
+  const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
+
+  useEffect(() => {
+    if (data?.card.targetID && !targetData) {
+      getTargetInfo({ variables: { id: data.card.targetID } });
+    }
+  }, [data, targetData]);
 
   const handleDelete = (e) => {
     e.preventDefault();
-    deleteUmamusume({
+    deleteCard({
       variables: {
         id,
-        cards: data.umamusume.cards,
       },
-      refetchQueries: [{ query: GET_UMAMUSUMES }],
+      refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.replace(`/umamusume`);
+      props.history.replace(`/cards`);
     });
   };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  const { umamusume } = data;
-  if (!umamusume) return <p>Error :(</p>;
+  const { card } = data;
+  if (!card) return <p>Error :(</p>;
 
   return (
-    <Paper>
+    <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
-        <h3>
-          {umamusume.name.ko}({umamusume.name.ja})
-        </h3>
+        <h3>{card.name}</h3>
         <div className={classes.icons}>
-          <Link to="/umamusume" className={classes.link}>
+          <Link to="/cards" className={classes.link}>
             <ArrowBackRoundedIcon
               className={clsx(classes.iconArrow)}
               color="primary"
             />
           </Link>
-          <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
+          <Link to={`/admin/cards/${id}/edit`} className={classes.link}>
             <BorderColorRoundedIcon
               className={clsx(classes.icon)}
               color="primary"
@@ -108,18 +129,27 @@ const Umamusume = (props) => {
         </div>
       </div>
 
-      <img className={classes.image} src={umamusume.imageSrc} />
+      <img className={classes.image} src={card.imageSrc} />
+      <CardTags type={card.type} limited={card.limited} />
+      <StatusTable data={card} />
       <section className={classes.section}>
-        <h4>카드</h4>
-        <div>
-          <span>육성</span>
-        </div>
-        <div>
-          <span>서포터</span>
-        </div>
+        <h4>관련 우마무스메</h4>
+        {targetData?.umamusume ? (
+          <Link to={`/umamusume/${targetData.umamusume.id}`}>
+            <div
+              className={classes.umamusume}
+              style={{
+                backgroundImage: `url(${targetData.umamusume.imageSrc})`,
+              }}
+            />
+            <span>{targetData.umamusume.name.ko}</span>
+          </Link>
+        ) : (
+          <span>없음</span>
+        )}
       </section>
     </Paper>
   );
 };
 
-export default withRouter(Umamusume);
+export default withRouter(CardInfo);

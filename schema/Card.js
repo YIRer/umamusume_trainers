@@ -20,9 +20,8 @@ const {
 const StatusObjectInput = new GraphQLInputObjectType({
   name: "StatusObjectInput",
   fields: () => ({
-    name: { type: GraphQLString },
     rank: { type: GraphQLString },
-    bonus: { type: GraphQLInt },
+    bonus: { type: GraphQLString },
   }),
 });
 
@@ -57,6 +56,7 @@ const CardInputType = new GraphQLInputObjectType({
   name: "CardInputType",
   fields: () => ({
     star: { type: new GraphQLNonNull(GraphQLInt) },
+    name: { type: new GraphQLNonNull(GraphQLString) },
     id: { type: GraphQLID },
     targetID: { type: GraphQLID },
     imageSrc: { type: GraphQLString },
@@ -78,7 +78,7 @@ const StatusObject = new GraphQLObjectType({
   fields: () => ({
     name: { type: GraphQLString },
     rank: { type: GraphQLString },
-    bonus: { type: GraphQLInt },
+    bonus: { type: GraphQLString },
   }),
 });
 
@@ -115,6 +115,7 @@ const CardType = new GraphQLObjectType({
     id: { type: GraphQLID },
     star: { type: GraphQLInt },
     targetID: { type: GraphQLID },
+    name: { type: GraphQLString },
     imageSrc: { type: GraphQLString },
     type: { type: GraphQLString },
     playable: { type: GraphQLBoolean },
@@ -124,7 +125,7 @@ const CardType = new GraphQLObjectType({
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {
         return axios
-          .get(`${dbServer}/skills`, { targetID: parentValue.targetID })
+          .get(`${dbServer}/skills`, { targetIDs_like: parentValue.id })
           .then((res) => res.data)
           .catch((_err) => []);
       },
@@ -133,7 +134,7 @@ const CardType = new GraphQLObjectType({
       type: new GraphQLList(EventType),
       resolve(parentValue, _args) {
         return axios
-          .get(`${dbServer}/events`, { targetID: parentValue.targetID })
+          .get(`${dbServer}/events`, { targetID: parentValue.id })
           .then((res) => res.data)
           .catch((_err) => []);
       },
