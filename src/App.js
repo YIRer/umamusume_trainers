@@ -11,6 +11,8 @@ import AddCard from "./components/forms/Admin/Card/AddCard";
 import EditCard from "./components/forms/Admin/Card/EditCard";
 import CardList from "./components/Card/Cards";
 import CardInfo from "./components/Card/CardInfo";
+import Skills from "./components/Skills/Skills";
+import SkillInfo from "./components/Skills/SkillInfo";
 import AddSkill from "./components/forms/Admin/Skills/AddSkill";
 import EditSkill from "./components/forms/Admin/Skills/EditSkill";
 
@@ -24,6 +26,8 @@ function App() {
           <Route exact path="/umamusume/:id" component={Umamusume} />
           <Route exact path="/cards" component={CardList} />
           <Route exact path="/cards/:id" component={CardInfo} />
+          <Route exact path="/skills" component={Skills} />
+          <Route exact path="/skills/:id" component={SkillInfo} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin/umamusume" component={UmamusumeList} />
           <Route exact path="/admin/umamusume/new" component={AddUmamusume} />

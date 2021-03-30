@@ -129,7 +129,6 @@
     {
       "name": "ㄴㅁㅇ",
       "targetIDs": [
-        "1",
         "2"
       ],
       "effect": "ㄴㅁㅇ",
@@ -139,6 +138,19 @@
         "ㄴㄴ"
       ],
       "id": "1"
+    },
+    {
+      "name": "sadsa",
+      "targetIDs": [
+        "2"
+      ],
+      "effect": "dsad",
+      "type": "support",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "sadsa"
+      ],
+      "id": "mbGzbOG"
     }
   ],
   "conditions": [

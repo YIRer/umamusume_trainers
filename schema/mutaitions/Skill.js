@@ -42,7 +42,7 @@ const deleteSkill = {
   },
   resolve(_parentValue, { id }) {
     return axios
-      .post(`${dbServer}/skills/${id}`)
+      .delete(`${dbServer}/skills/${id}`)
       .then((_res) => ({ deleted: true }));
   },
 };

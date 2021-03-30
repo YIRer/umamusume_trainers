@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import SearchCards from "../Card/SearchCards";
 
-import { GET_SKills, ADD_Sklill } from "queries/skills";
+import { GET_SKillS, ADD_Sklill } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData, skillTypes } from "./constants";
@@ -86,7 +86,7 @@ const AddSkill = (props) => {
       variables: {
         input,
       },
-      refetchQueries: [{ query: GET_SKills }],
+      refetchQueries: [{ query: GET_SKillS }],
       awaitRefetchQueries: true,
     }).then(() => {
       props.history.push("/skills");

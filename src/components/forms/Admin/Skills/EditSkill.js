@@ -13,7 +13,7 @@ import clsx from "clsx";
 import SearchCards from "../Card/SearchCards";
 
 import { FIND_CARDS } from "queries/cards";
-import { GET_SKills, GET_SKill, EDIT_SKILL } from "queries/skills";
+import { GET_SKillS, GET_SKill, EDIT_SKILL } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData, skillTypes } from "./constants";
@@ -116,7 +116,7 @@ const EditSkill = (props) => {
         input,
       },
       refetchQueries: [
-        { query: GET_SKills },
+        { query: GET_SKillS },
         {
           query: GET_SKill,
           variables: { id },
@@ -124,7 +124,7 @@ const EditSkill = (props) => {
       ],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/skills");
+      props.history.push(`/skills/${id}`);
     });
   };
 
@@ -207,12 +207,14 @@ const EditSkill = (props) => {
         {relatedCards.map(({ name, id }) => (
           <span key={id}>{name}</span>
         ))}
-        <SearchCards
-          open={modalOpened}
-          onSelect={setRelatedCards}
-          onClose={hideSearchModal}
-        />
-
+        {modalOpened && (
+          <SearchCards
+            open
+            onSelect={setRelatedCards}
+            onClose={hideSearchModal}
+            selectedData={targetsInfo.findCards}
+          />
+        )}
         <Button
           type="submit"
           className={clsx(classes.button)}
