@@ -12,18 +12,67 @@
       "id": 1
     }
   ],
-  "cards": [],
+  "cards": [
+    {
+      "star": 1,
+      "name": "sdsadsd",
+      "targetID": "1",
+      "imageSrc": "/image/temp.png",
+      "type": "training",
+      "playable": true,
+      "limited": true,
+      "status": {
+        "ground": {
+          "grass": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "id": 1
+    }
+  ],
   "skills": [
     {
-      "name": "sadd",
+      "name": {
+        "ko": "스테미너 회복",
+        "ja": "ㅁㄴㅇㄴㅁㅇ"
+      },
       "targetIDs": [
         "1"
       ],
-      "effect": "ddd",
+      "effect": "스테미너 회복",
       "type": "training",
-      "imageSrc": "/image/skill/i_skill_025.png",
+      "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
-        ""
+        "스테미너",
+        "회복"
       ],
       "id": 1
     }

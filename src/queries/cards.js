@@ -41,6 +41,16 @@ export const GET_CARDS_All_DATA = gql`
       type
       playable
       limited
+      skills {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+        effect
+        type
+      }
       status {
         speed {
           rank
@@ -79,7 +89,10 @@ export const GET_CARD = gql`
       playable
       limited
       skills {
-        name
+        name {
+          ko
+          ja
+        }
         imageSrc
         id
         effect

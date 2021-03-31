@@ -55,7 +55,8 @@ const AddSkill = (props) => {
       ...newState,
     }),
     {
-      name: "",
+      ko: "",
+      ja: "",
       targetIDs: [],
       effect: "",
       imageSrc: iconData[0].value,
@@ -73,11 +74,12 @@ const AddSkill = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { tags, ...others } = formData;
+    const { ko, ja, tags, ...others } = formData;
     const convertTags = tags.split(",");
     const targetIDs = relatedCards.map((card) => card.id);
     const input = {
       ...others,
+      name: { ko, ja },
       tags: convertTags,
       targetIDs,
     };
@@ -106,9 +108,16 @@ const AddSkill = (props) => {
         <TextField
           className={clsx(classes.root)}
           required
-          id="name"
-          name="name"
-          label="이름"
+          id="name-ko"
+          name="ko"
+          label="한국어 이름"
+          onChange={handleChange}
+        />
+        <TextField
+          className={clsx(classes.root)}
+          id="name-en"
+          name="ja"
+          label="일본어 이름"
           onChange={handleChange}
         />
         <TextField

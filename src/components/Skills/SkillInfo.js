@@ -130,7 +130,7 @@ const SkillInfo = (props) => {
       </div>
       <section className={classes.infoSection}>
         <img className={classes.image} src={skill.imageSrc} />
-        <h3 className={classes.name}>{skill.name}</h3>
+        <h3 className={classes.name}>{`${skill.name.ko} ${skill.name.ja}`}</h3>
         <p>{skill.effect}</p>
         <div>
           {skill.tags.map(

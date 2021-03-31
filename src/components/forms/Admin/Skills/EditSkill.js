@@ -65,7 +65,8 @@ const EditSkill = (props) => {
       ...newState,
     }),
     {
-      name: "",
+      ko: "",
+      ja: "",
       targetIDs: [],
       effect: "",
       imageSrc: iconData[0].value,
@@ -76,9 +77,14 @@ const EditSkill = (props) => {
 
   const setInitData = () => {
     if (data && data.skill) {
-      const { tags, ...others } = skill;
+      const { name, tags, ...others } = skill;
 
-      setFormInput({ tags: tags.join(","), ...others });
+      setFormInput({
+        tags: tags.join(","),
+        ko: name.ko,
+        ja: name.ja,
+        ...others,
+      });
       if (targetsInfo) {
         setRelatedCards(targetsInfo.findCards || []);
       }
@@ -101,11 +107,12 @@ const EditSkill = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { tags, ...others } = formData;
+    const { tags, ko, ja, ...others } = formData;
     const convertTags = tags.split(",");
     const targetIDs = relatedCards.map((card) => card.id);
     const input = {
       ...others,
+      name: { ko, ja },
       tags: convertTags,
       targetIDs,
     };
@@ -146,10 +153,18 @@ const EditSkill = (props) => {
         <TextField
           className={clsx(classes.root)}
           required
-          id="name"
-          name="name"
-          label="이름"
-          value={formData.name}
+          id="name-ko"
+          name="ko"
+          label="한국어 이름"
+          value={formData.name.ko}
+          onChange={handleChange}
+        />
+        <TextField
+          className={clsx(classes.root)}
+          id="name-ja"
+          name="ja"
+          label="일본어 이름"
+          value={formData.name.ja}
           onChange={handleChange}
         />
         <TextField

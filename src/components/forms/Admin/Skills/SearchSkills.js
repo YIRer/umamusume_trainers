@@ -59,6 +59,9 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    "& > span": {
+      fontSize: "12px",
+    },
   },
 }));
 
@@ -79,10 +82,12 @@ const SkillItem = ({ itemData, classes, selectFn, targets }) => {
         <img
           className={classes.skillIcon}
           src={itemData.imageSrc}
-          alt={itemData.name}
+          alt={itemData.name.ko}
         />
         <div className={classes.skillInfoWrapper}>
-          <b>{itemData.name}</b>
+          <b>
+            {itemData.name.ko} <br /> {itemData.name.ja}
+          </b>
           <span>{itemData.effect}</span>
         </div>
       </div>
@@ -106,7 +111,11 @@ const SearchSkills = (props) => {
 
   const onSearch = () => {
     const searchData = data.cards.filter(({ name, tags }) => {
-      return name.includes(keyword) || tags.includes(keyword);
+      return (
+        name.ko.includes(keyword) ||
+        name.ja.includes(keyword) ||
+        tags.includes(keyword)
+      );
     });
     setSearchResult(searchData);
   };

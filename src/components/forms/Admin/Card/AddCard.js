@@ -409,7 +409,7 @@ const AddCard = (props) => {
         <div className={classes.skillWrapper}>
           <img className={classes.skillIcon} src={imageSrc} alt={name} />
           <div className={classes.skillInfoWrapper}>
-            <b>{name}</b>
+            <b>{`${name.ko} ${name.ja}`}</b>
             <span>{effect}</span>
           </div>
         </div>

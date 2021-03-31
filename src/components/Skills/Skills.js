@@ -21,6 +21,13 @@ const useStyles = makeStyles((_theme) => ({
   cardRoot: {
     display: "flex",
     justifyContent: "space-around",
+    alignItems: "center",
+  },
+
+  cardContentRoot: {
+    "&:last-child": {
+      paddingBottom: "16px",
+    },
   },
   cardMedia: {
     width: "50px",
@@ -56,7 +63,11 @@ export const Skills = (_props) => {
                 image={imageSrc || "/image/temp.png"}
                 title={name}
               />
-              <CardContent>{name}</CardContent>
+              <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>
+                {name.ko}
+                <br />
+                {name.ja}
+              </CardContent>
             </Card>
           </Link>
         );

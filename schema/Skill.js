@@ -9,10 +9,18 @@ const {
   GraphQLNonNull,
 } = graphql;
 
+const skillNameInputType = new GraphQLInputObjectType({
+  name: "skillNameInputType",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
+  }),
+});
+
 const SkillInputType = new GraphQLInputObjectType({
   name: "SkillInputType",
   fields: () => ({
-    name: { type: new GraphQLNonNull(GraphQLString) },
+    name: { type: new GraphQLNonNull(skillNameInputType) },
     targetIDs: { type: new GraphQLList(GraphQLID) },
     effect: { type: new GraphQLNonNull(GraphQLString) },
     type: { type: new GraphQLNonNull(GraphQLString) },
@@ -22,11 +30,19 @@ const SkillInputType = new GraphQLInputObjectType({
   }),
 });
 
+const skillNameType = new GraphQLObjectType({
+  name: "skillName",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
+  }),
+});
+
 const SkillType = new GraphQLObjectType({
   name: "skill",
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
+    name: { type: skillNameType },
     targetIDs: { type: new GraphQLList(GraphQLID) },
     effect: { type: GraphQLString },
     imageSrc: { type: GraphQLString },

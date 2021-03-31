@@ -11,7 +11,6 @@ import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -94,6 +93,9 @@ const useStyles = makeStyles((_theme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
     width: "100%",
+    "& > span": {
+      fontSize: "12px",
+    },
   },
   skillImgAndInfo: {
     display: "flex",
@@ -200,8 +202,8 @@ const CardInfo = (props) => {
         </div>
       </div>
 
-      <img className={classes.image} src={card.imageSrc} />
       <CardTags type={card.type} limited={card.limited} />
+      <img className={classes.image} src={card.imageSrc} />
       <StatusTable data={card} />
       <div className={classes.skillCardsWrapper}>
         {card.skills.map((skill) => {
@@ -214,14 +216,17 @@ const CardInfo = (props) => {
                 <img
                   className={clsx(classes.skillMedia)}
                   src={skill.imageSrc}
-                  alt={skill.name}
+                  alt={skill.name.ko}
                 />
                 <div className={classes.skillInfo}>
-                  <b>{skill.name}</b>
+                  <b>
+                    {skill.name.ko}
+                    <br />
+                    {skill.name.ja}
+                  </b>
                   <span>{skill.effect}</span>
                 </div>
               </Link>
-              <Divider />
               <SkillType classes={classes} type={skill.type} />
             </Card>
           );
