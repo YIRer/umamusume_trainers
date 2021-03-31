@@ -112,33 +112,13 @@ const useStyles = makeStyles((_theme) => ({
   unique: {
     backgroundColor: "#e33a10",
   },
-  support: {
+  has: {
     backgroundColor: "#00ad26",
   },
   training: {
     backgroundColor: "#0068ad",
   },
 }));
-
-const SkillType = ({ classes, type }) => {
-  const getTypeColor = (skilType) => {
-    switch (skilType) {
-      case "unique":
-        return classes.unique;
-      case "support":
-        return classes.support;
-
-      default:
-        return classes.training;
-    }
-  };
-
-  return (
-    <div className={clsx(classes.skilType, getTypeColor(type))}>
-      <b>{getTypeName(type)}</b>
-    </div>
-  );
-};
 
 const CardInfo = (props) => {
   const classes = useStyles();
@@ -174,6 +154,29 @@ const CardInfo = (props) => {
     props.history.goBack();
   };
 
+  const renderSkillCards = (skill) => {
+    console.log(skill);
+    return (
+      <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
+        <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
+          <img
+            className={clsx(classes.skillMedia)}
+            src={skill.imageSrc}
+            alt={skill.name.ko}
+          />
+          <div className={classes.skillInfo}>
+            <b>
+              {skill.name.ko}
+              <br />
+              {skill.name.ja}
+            </b>
+            <span>{skill.effect}</span>
+          </div>
+        </Link>
+      </Card>
+    );
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   const { card } = data;
@@ -205,33 +208,30 @@ const CardInfo = (props) => {
       <CardTags type={card.type} limited={card.limited} />
       <img className={classes.image} src={card.imageSrc} />
       <StatusTable data={card} />
-      <div className={classes.skillCardsWrapper}>
-        {card.skills.map((skill) => {
-          return (
-            <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
-              <Link
-                to={`/skills/${skill.id}`}
-                className={classes.skillImgAndInfo}
-              >
-                <img
-                  className={clsx(classes.skillMedia)}
-                  src={skill.imageSrc}
-                  alt={skill.name.ko}
-                />
-                <div className={classes.skillInfo}>
-                  <b>
-                    {skill.name.ko}
-                    <br />
-                    {skill.name.ja}
-                  </b>
-                  <span>{skill.effect}</span>
-                </div>
-              </Link>
-              <SkillType classes={classes} type={skill.type} />
-            </Card>
-          );
-        })}
-      </div>
+      <section className={classes.section}>
+        <h4>고유 스킬</h4>
+        <div className={classes.skillCardsWrapper}>
+          {card.skills.map(
+            (skill) => skill.type === "unique" && renderSkillCards(skill)
+          )}
+        </div>
+      </section>
+      <section className={classes.section}>
+        <h4>육성 스킬</h4>
+        <div className={classes.skillCardsWrapper}>
+          {card.skills.map(
+            (skill) => skill.type === "training" && renderSkillCards(skill)
+          )}
+        </div>
+      </section>
+      <section className={classes.section}>
+        <h4>소지 스킬</h4>
+        <div className={classes.skillCardsWrapper}>
+          {card.skills.map(
+            (skill) => skill.type === "has" && renderSkillCards(skill)
+          )}
+        </div>
+      </section>
       <section className={classes.section}>
         <h4>관련 우마무스메</h4>
         {targetData?.umamusume ? (

@@ -2,7 +2,7 @@ export const getTypeName = (skilType) => {
   switch (skilType) {
     case "unique":
       return "고유 스킬";
-    case "support":
+    case "has":
       return "소지 스킬";
 
     default:

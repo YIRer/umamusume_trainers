@@ -132,8 +132,8 @@ export const skillTypes = [
     label: "육성",
   },
   {
-    value: "support",
-    label: "서포터 이벤트",
+    value: "has",
+    label: "소지 스킬",
   },
   {
     value: "unique",
