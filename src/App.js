@@ -1,48 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
-import Main from "./pages/Main";
-import Admin from "pages/Admin";
-import UmamusumeList from "./components/Umamusume/UmamusumeList";
-import Umamusume from "./components/Umamusume/Umamusume";
-import AddUmamusume from "./components/forms/Admin/Umamusume/AddUmamusume";
-import EditUmamusume from "./components/forms/Admin/Umamusume/EditUmamusume";
-import AddCard from "./components/forms/Admin/Card/AddCard";
-import EditCard from "./components/forms/Admin/Card/EditCard";
-import CardList from "./components/Card/Cards";
-import CardInfo from "./components/Card/CardInfo";
-import Skills from "./components/Skills/Skills";
-import SkillInfo from "./components/Skills/SkillInfo";
-import AddSkill from "./components/forms/Admin/Skills/AddSkill";
-import EditSkill from "./components/forms/Admin/Skills/EditSkill";
+import AppRoutes from "./routes/Routes";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((_theme) => ({
+  root: {
+    padding: "16px",
+  },
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <Paper elevation={0}>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/umamusume" component={UmamusumeList} />
-          <Route exact path="/umamusume/:id" component={Umamusume} />
-          <Route exact path="/cards" component={CardList} />
-          <Route exact path="/cards/:id" component={CardInfo} />
-          <Route exact path="/skills" component={Skills} />
-          <Route exact path="/skills/:id" component={SkillInfo} />
-          <Route exact path="/admin" component={Admin} />
-          <Route exact path="/admin/umamusume" component={UmamusumeList} />
-          <Route exact path="/admin/umamusume/new" component={AddUmamusume} />
-          <Route
-            exact
-            path="/admin/umamusume/:id/edit"
-            component={EditUmamusume}
-          />
-          <Route exact path="/admin/cards" component={CardList} />
-          <Route exact path="/admin/cards/new" component={AddCard} />
-          <Route exact path="/admin/cards/:id/edit" component={EditCard} />
-          <Route exact path="/admin/skills/new" component={AddSkill} />
-          <Route exact path="/admin/skills/:id/edit" component={EditSkill} />
-        </Switch>
-      </Router>
+    <Paper elevation={0} classes={{ root: classes.root }}>
+      <AppRoutes />
     </Paper>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { GET_CARDS } from "queries/cards";
@@ -15,6 +15,8 @@ import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRoun
 import { makeStyles } from "@material-ui/core/styles";
 
 import CardTags from "./CardTags";
+import SearchForm from "../SearchForm";
+import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
   addButton: {
@@ -22,11 +24,16 @@ const useStyles = makeStyles((_theme) => ({
     bottom: "1.5rem",
     right: "1rem",
   },
+  cardWrapper: {
+    display: "flex",
+  },
   cardRoot: {
     display: "flex",
     justifyContent: "center",
     width: "10rem",
     position: "relative",
+    marginRight: "16px",
+    marginBottom: "16px",
   },
   cardMedia: {
     width: "6.6rem",
@@ -52,39 +59,54 @@ const useStyles = makeStyles((_theme) => ({
 export const CardList = (_props) => {
   const classes = useStyles();
   const { loading, error, data } = useQuery(GET_CARDS, []);
+  const [cardList, setCardList] = useState([]);
+
+  useEffect(() => {
+    if (data && data.cards) {
+      setCardList(data.cards);
+    }
+  }, [data]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  
+
   return (
     <div>
-      {data?.cards.map(({ name, id, imageSrc, star, type, limited }) => {
-        return (
-          <Card className={clsx(classes.cardRoot)} key={`${name}-${id}`}>
-            {limited && (
-              <FilterVintageRoundedIcon
-                className={clsx(classes.limited)}
-                color="secondary"
-              />
-            )}
-            <Link className={clsx(classes.linkWrapper)} to={`/cards/${id}`}>
-              <CardMedia
-                className={clsx(classes.cardMedia)}
-                image={imageSrc || "/image/temp.png"}
-                title={name.en}
-              />
-              <CardContent className={clsx(classes.cardContent)}>
-                <div>{name}</div>
-                <Rating max={5} value={star} name={name} disabled />
-                <CardTags type={type} limited={limited} />
-              </CardContent>
-            </Link>
-          </Card>
-        );
-      })}
-      <Link to={"/admin/cards/new"} className={classes.addButton}>
-        <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
-      </Link>
+      <h1>육성/서포터 카드 리스트</h1>
+      <SearchForm data={data.cards} handleSearch={setCardList} />
+      <div className={classes.cardWrapper}>
+        {cardList.map(({ name, id, imageSrc, star, type, limited }) => {
+          return (
+            <Card className={clsx(classes.cardRoot)} key={`card-${id}`}>
+              {limited && (
+                <FilterVintageRoundedIcon
+                  className={clsx(classes.limited)}
+                  color="secondary"
+                />
+              )}
+              <Link className={clsx(classes.linkWrapper)} to={`/cards/${id}`}>
+                <CardMedia
+                  className={clsx(classes.cardMedia)}
+                  image={imageSrc || "/image/temp.png"}
+                  title={`${name.ja} ${name.ko}`}
+                />
+                <CardContent className={clsx(classes.cardContent)}>
+                  <div>
+                    {name.ja} {name.ko}
+                  </div>
+                  <Rating max={5} value={star} name={name.ja} disabled />
+                  <CardTags type={type} limited={limited} />
+                </CardContent>
+              </Link>
+            </Card>
+          );
+        })}
+      </div>
+      {isDev && (
+        <Link to={"/admin/cards/new"} className={classes.addButton}>
+          <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+        </Link>
+      )}
     </div>
   );
 };

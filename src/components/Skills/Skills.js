@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { GET_SKILLS } from "queries/skills";
@@ -11,6 +11,8 @@ import clsx from "clsx";
 import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRounded";
 
 import { makeStyles } from "@material-ui/core/styles";
+import SearchForm from "../SearchForm";
+import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
   addButton: {
@@ -45,12 +47,21 @@ const useStyles = makeStyles((_theme) => ({
 export const Skills = (_props) => {
   const classes = useStyles();
   const { loading, error, data } = useQuery(GET_SKILLS, []);
+  const [skillList, setSkillList] = useState([]);
+
+  useEffect(() => {
+    if (data && data.skills) {
+      setSkillList(data.skills);
+    }
+  }, [data]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   return (
     <div>
-      {data.skills.map(({ name, id, imageSrc }) => {
+      <h1>스킬 리스트</h1>
+      <SearchForm data={data.skills} handleSearch={setSkillList} />
+      {skillList.map(({ name, id, imageSrc }) => {
         return (
           <Link
             className={clsx(classes.linkWrapper)}
@@ -72,9 +83,11 @@ export const Skills = (_props) => {
           </Link>
         );
       })}
-      <Link to={"/admin/skills/new"} className={classes.addButton}>
-        <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
-      </Link>
+      {isDev && (
+        <Link to={"/admin/skills/new"} className={classes.addButton}>
+          <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+        </Link>
+      )}
     </div>
   );
 };

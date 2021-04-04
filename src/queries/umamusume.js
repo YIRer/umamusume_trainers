@@ -50,6 +50,10 @@ export const GET_UMAMUSUME = gql`
       }
       imageSrc
       cards {
+        name {
+          ko
+          ja
+        }
         id
         imageSrc
         star

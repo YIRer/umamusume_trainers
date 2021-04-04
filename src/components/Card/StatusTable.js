@@ -33,7 +33,7 @@ const StatusTable = ({ data }) => {
               덕트
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              잔디
+              잔디(터프)
             </TableCell>
           </TableRow>
         </TableHead>
@@ -44,8 +44,84 @@ const StatusTable = ({ data }) => {
               %)
             </TableCell>
             <TableCell>
-              {data.status.ground.grass.rank} + (
-              {data.status.ground.grass.bonus} %)
+              {data.status.ground.turf.rank} + ({data.status.ground.turf.bonus}{" "}
+              %)
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow classes={{ root: clsx(classes.tableRoot) }}>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              단거리
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              마일
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              중거리
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              장거리
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              {data.status.distance.short.rank} + (
+              {data.status.distance.short.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.distance.mile.rank} + (
+              {data.status.distance.mile.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.distance.medium.rank} + (
+              {data.status.distance.medium.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.distance.long.rank} + (
+              {data.status.distance.long.bonus} %)
+            </TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow classes={{ root: clsx(classes.tableRoot) }}>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              도주
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              선행
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              선입
+            </TableCell>
+            <TableCell classes={{ root: clsx(classes.tableRow) }}>
+              추입
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>
+              {data.status.strategy.escape.rank} + (
+              {data.status.strategy.escape.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.strategy.leading.rank} + (
+              {data.status.strategy.leading.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.strategy.between.rank} + (
+              {data.status.strategy.between.bonus} %)
+            </TableCell>
+            <TableCell>
+              {data.status.strategy.pushing.rank} + (
+              {data.status.strategy.pushing.bonus} %)
             </TableCell>
           </TableRow>
         </TableBody>

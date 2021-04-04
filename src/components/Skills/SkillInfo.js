@@ -16,6 +16,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
 
+import { isDev } from "../../constants";
+
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
     padding: "10px",
@@ -117,15 +119,22 @@ const SkillInfo = (props) => {
               color="primary"
             />
           </IconButton>
-          <Link to={`/admin/skills/${id}/edit`} className={classes.link}>
-            <BorderColorRoundedIcon
-              className={clsx(classes.icon)}
-              color="primary"
-            />
-          </Link>
-          <IconButton onClick={handleDelete}>
-            <DeleteRoundedIcon className={clsx(classes.icon)} color="primary" />
-          </IconButton>
+          {isDev && (
+            <Link to={`/admin/skills/${id}/edit`} className={classes.link}>
+              <BorderColorRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </Link>
+          )}
+          {isDev && (
+            <IconButton onClick={handleDelete}>
+              <DeleteRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </IconButton>
+          )}
         </div>
       </div>
       <section className={classes.infoSection}>
@@ -144,7 +153,7 @@ const SkillInfo = (props) => {
           targetsData.findCards.map((card) => (
             <Link
               to={`/cards/${card.id}`}
-              key={card.name + card.id}
+              key={`card-${card.id}`}
               className={classes.cardWrapper}
             >
               <div
@@ -153,7 +162,6 @@ const SkillInfo = (props) => {
                   backgroundImage: `url(${card.imageSrc})`,
                 }}
               />
-              <span>{card.name}</span>
             </Link>
           ))
         ) : (

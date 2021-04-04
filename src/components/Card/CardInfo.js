@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
-import { GET_CARD, GET_CARDS, DELTE_CARD } from "queries/cards";
+import { GET_CARD, GET_CARDS, ADD_CARD, DELTE_CARD } from "queries/cards";
 import { GET_UMAMUSUME } from "queries/umamusume";
 
 import Card from "@material-ui/core/Card";
 import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
+import InfoIcon from "@material-ui/icons/Info";
+import Tooltip from "@material-ui/core/Tooltip";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
 import CardTags from "./CardTags";
 import StatusTable from "./StatusTable";
-import { getTypeName } from "helper/index";
+import BuffModal from "./BuffModal";
 
 import clsx from "clsx";
+import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -118,6 +123,12 @@ const useStyles = makeStyles((_theme) => ({
   training: {
     backgroundColor: "#0068ad",
   },
+  iconInfo: {
+    fontSize: "56px",
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+  },
 }));
 
 const CardInfo = (props) => {
@@ -127,7 +138,9 @@ const CardInfo = (props) => {
     variables: { id },
   });
 
+  const [openModal, setOpenModal] = useState(false);
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
+  const [addCard, _mutationAddData] = useMutation(ADD_CARD);
   const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
 
   useEffect(() => {
@@ -149,13 +162,32 @@ const CardInfo = (props) => {
     });
   };
 
+  const handleDuplicate = (e) => {
+    e.preventDefault();
+    const { id: _id, ...others } = data.card;
+    addCard({
+      variables: {
+        input: {
+          ...others,
+        },
+      },
+      refetchQueries: [{ query: GET_CARDS }],
+      awaitRefetchQueries: true,
+    }).then(({ data }) => {
+      props.history.push(`/cards/${data.addCard.id}`);
+    });
+  };
+
   const handleClickBack = (e) => {
     e.preventDefault();
     props.history.goBack();
   };
 
+  const handleModalControl = () => {
+    setOpenModal(!openModal);
+  };
+
   const renderSkillCards = (skill) => {
-    console.log(skill);
     return (
       <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
         <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
@@ -185,7 +217,9 @@ const CardInfo = (props) => {
   return (
     <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
-        <h3>{card.name}</h3>
+        <h3>
+          {card.name.ja} {card.name.ko}
+        </h3>
         <div className={classes.icons}>
           <IconButton onClick={handleClickBack}>
             <ArrowBackRoundedIcon
@@ -193,15 +227,25 @@ const CardInfo = (props) => {
               color="primary"
             />
           </IconButton>
-          <Link to={`/admin/cards/${id}/edit`} className={classes.link}>
-            <BorderColorRoundedIcon
-              className={clsx(classes.icon)}
-              color="primary"
-            />
-          </Link>
-          <IconButton onClick={handleDelete}>
-            <DeleteRoundedIcon className={clsx(classes.icon)} color="primary" />
+          <IconButton onClick={handleDuplicate}>
+            <FileCopyIcon className={clsx(classes.icon)} color="primary" />
           </IconButton>
+          {isDev && (
+            <Link to={`/admin/cards/${id}/edit`} className={classes.link}>
+              <BorderColorRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </Link>
+          )}
+          {isDev && (
+            <IconButton onClick={handleDelete}>
+              <DeleteRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </IconButton>
+          )}
         </div>
       </div>
 
@@ -233,6 +277,32 @@ const CardInfo = (props) => {
         </div>
       </section>
       <section className={classes.section}>
+        <h4>공통 이벤트</h4>
+        {card.events.common.map((event, index) => (
+          <EventItems
+            eventData={event}
+            editable={false}
+            key={`event-common-${index}`}
+          />
+        ))}
+        <h4>1회성 이벤트</h4>
+        {card.events.once.map((event, index) => (
+          <EventItems
+            eventData={event}
+            editable={false}
+            key={`event-common-${index}`}
+          />
+        ))}
+        <h4>다회성 이벤트</h4>
+        {card.events.multipleTimes.map((event, index) => (
+          <EventItems
+            eventData={event}
+            editable={false}
+            key={`event-common-${index}`}
+          />
+        ))}
+      </section>
+      <section className={classes.section}>
         <h4>관련 우마무스메</h4>
         {targetData?.umamusume ? (
           <Link to={`/umamusume/${targetData.umamusume.id}`}>
@@ -242,12 +312,18 @@ const CardInfo = (props) => {
                 backgroundImage: `url(${targetData.umamusume.imageSrc})`,
               }}
             />
-            <span>{targetData.umamusume.name.ko}</span>
+            <b>{targetData.umamusume.name.ko}</b>
           </Link>
         ) : (
           <span>없음</span>
         )}
       </section>
+      <IconButton onClick={handleModalControl}>
+        <Tooltip title="버프 및 디버프 안내" placement="left">
+          <InfoIcon className={clsx(classes.iconInfo)} color="primary" />
+        </Tooltip>
+      </IconButton>
+      {openModal && <BuffModal open onClose={handleModalControl} />}
     </Paper>
   );
 };

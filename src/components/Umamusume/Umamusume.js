@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React from "react";
 import { withRouter } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
@@ -16,6 +16,8 @@ import Paper from "@material-ui/core/Paper";
 
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
+
+import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -53,6 +55,20 @@ const useStyles = makeStyles((_theme) => ({
   iconArrow: {
     fontSize: "1.8rem",
   },
+  cardWrapper: {
+    marginRight: "16px",
+  },
+  card: {
+    width: "100px",
+    height: "100px",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    marginBottom: "10px",
+  },
+  paperRoot: {
+    padding: "16px",
+  },
 }));
 
 const Umamusume = (props) => {
@@ -82,14 +98,35 @@ const Umamusume = (props) => {
     e.preventDefault();
     props.history.goBack();
   };
-  
+
+  const renderCards = (data, type) => {
+    return data.map((card) => {
+      if (card.type === type) {
+        return (
+          <Link
+            to={`/cards/${card.id}`}
+            key={`card=${type}-${card.id}`}
+            className={classes.cardWrapper}
+          >
+            <div
+              className={classes.card}
+              style={{
+                backgroundImage: `url(${card.imageSrc})`,
+              }}
+            />
+          </Link>
+        );
+      }
+    });
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
   const { umamusume } = data;
   if (!umamusume) return <p>Error :(</p>;
 
   return (
-    <Paper>
+    <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
         <h3>
           {umamusume.name.ko}({umamusume.name.ja})
@@ -101,26 +138,35 @@ const Umamusume = (props) => {
               color="primary"
             />
           </IconButton>
-          <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
-            <BorderColorRoundedIcon
-              className={clsx(classes.icon)}
-              color="primary"
-            />
-          </Link>
-          <IconButton onClick={handleDelete}>
-            <DeleteRoundedIcon className={clsx(classes.icon)} color="primary" />
-          </IconButton>
+          {isDev && (
+            <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
+              <BorderColorRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </Link>
+          )}
+          {isDev && (
+            <IconButton onClick={handleDelete}>
+              <DeleteRoundedIcon
+                className={clsx(classes.icon)}
+                color="primary"
+              />
+            </IconButton>
+          )}
         </div>
       </div>
 
       <img className={classes.image} src={umamusume.imageSrc} />
       <section className={classes.section}>
-        <h4>카드</h4>
+        <h3>카드</h3>
         <div>
-          <span>육성</span>
+          <h4>육성</h4>
+          {renderCards(umamusume.cards, "training")}
         </div>
         <div>
-          <span>서포터</span>
+          <h3>서포터</h3>
+          {renderCards(umamusume.cards, "support")}
         </div>
       </section>
     </Paper>

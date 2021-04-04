@@ -15,17 +15,20 @@
   "cards": [
     {
       "star": 1,
-      "name": "sdsadsd",
+      "name": {
+        "ko": null,
+        "ja": "sadsa"
+      },
       "targetID": "1",
-      "imageSrc": "/image/temp.png",
+      "imageSrc": "/image/SymboliRudolf/cards/training/temp.png",
       "type": "training",
-      "playable": true,
-      "limited": true,
+      "playable": false,
+      "limited": false,
       "status": {
         "ground": {
-          "grass": {
-            "rank": "G",
-            "bonus": "0"
+          "turf": {
+            "rank": null,
+            "bonus": "20"
           },
           "duct": {
             "rank": "G",
@@ -50,24 +53,227 @@
             "bonus": "0"
           },
           "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "A",
+            "bonus": "20"
+          },
+          "mile": {
+            "rank": null,
+            "bonus": "2"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
             "rank": "G",
             "bonus": "0"
           }
         }
       },
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "sadsa",
+              "ja": "sad"
+            },
+            "eventType": "once",
+            "tags": [
+              "sadsa"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "ad",
+                  "ja": "sads"
+                },
+                "result": "sad"
+              }
+            ],
+            "condition": "sadsa"
+          }
+        ],
+        "multipleTimes": [
+          {
+            "title": {
+              "ko": "sadsa",
+              "ja": "sad"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              "dsadsad"
+            ],
+            "choices": [],
+            "condition": "dsadsa"
+          }
+        ]
+      },
       "id": 1
     },
     {
       "star": 1,
-      "name": "ㄴㅁㅇㄴㅁㅇ",
+      "name": {
+        "ko": "sadsa",
+        "ja": "dsadsad"
+      },
       "targetID": "1",
       "imageSrc": "/image/temp.png",
       "type": "training",
-      "playable": true,
-      "limited": true,
+      "playable": false,
+      "limited": false,
       "status": {
         "ground": {
-          "grass": {
+          "turf": {
             "rank": "G",
             "bonus": "0"
           },
@@ -97,7 +303,186 @@
             "rank": "G",
             "bonus": "0"
           }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
         }
+      },
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "dd",
+              "ja": "dd"
+            },
+            "eventType": "once",
+            "tags": [
+              "dd"
+            ],
+            "choices": [],
+            "condition": "dd"
+          }
+        ],
+        "multipleTimes": []
       },
       "id": 2
     }
@@ -105,21 +490,33 @@
   "skills": [
     {
       "name": {
-        "ko": "스테미너 회복",
-        "ja": "ㅁㄴㅇㄴㅁㅇ"
+        "ko": "sad",
+        "ja": "sad"
       },
       "targetIDs": [
-        "1",
-        "2"
+        "1"
       ],
-      "effect": "스테미너 회복",
+      "effect": "sad",
       "type": "training",
-      "imageSrc": "/image/skill/i_skill_024.png",
+      "imageSrc": "/image/skill/i_skill_010.png",
       "tags": [
-        "스테미너",
-        "회복"
+        "dd"
       ],
       "id": 1
+    },
+    {
+      "name": {
+        "ko": "sad",
+        "ja": "sd"
+      },
+      "targetIDs": [],
+      "effect": "sad",
+      "type": "has",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "sad"
+      ],
+      "id": 2
     }
   ],
   "conditions": [
