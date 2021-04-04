@@ -70,7 +70,7 @@ const SkillItem = ({ itemData, classes, selectFn, targets }) => {
 
   return (
     <Card
-      key={itemData.name}
+      key={`skill-${itemData.id}`}
       onClick={() => {
         selectFn(itemData, isSelected);
       }}

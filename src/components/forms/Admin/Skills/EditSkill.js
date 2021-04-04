@@ -20,7 +20,7 @@ import { iconData, skillTypes } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
-    maxWidth: "500px",
+    maxWidth: "800px",
     margin: "15px",
   },
   form: {
@@ -43,6 +43,27 @@ const useStyles = makeStyles((_theme) => ({
   },
   span: {
     marginLeft: "10px",
+  },
+  cardWrapper: {
+    width: "100px",
+    height: "100px",
+    marginRight: "16px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  card: {
+    width: "100%",
+    height: "100%",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    marginBottom: "10px",
+  },
+  relatedCards: {
+    display: "flex",
+    marginTop: "16px",
   },
 }));
 
@@ -152,19 +173,19 @@ const EditSkill = (props) => {
       <FormControl>
         <TextField
           className={clsx(classes.root)}
-          required
           id="name-ko"
           name="ko"
           label="한국어 이름"
-          value={formData.name.ko}
+          value={formData.ko}
           onChange={handleChange}
         />
         <TextField
           className={clsx(classes.root)}
+          required
           id="name-ja"
           name="ja"
           label="일본어 이름"
-          value={formData.name.ja}
+          value={formData.ja}
           onChange={handleChange}
         />
         <TextField
@@ -219,12 +240,23 @@ const EditSkill = (props) => {
         >
           관련된 카드 선택
         </Button>
-        {relatedCards.map(({ name, id }) => (
-          <span key={id}>{name}</span>
-        ))}
-        {modalOpened && (
+
+        <div className={classes.relatedCards}>
+          {relatedCards.map(({ id, imageSrc }) => (
+            <div className={classes.cardWrapper} key={`related-card-${id}`}>
+              <div
+                className={classes.card}
+                style={{
+                  backgroundImage: `url(${imageSrc})`,
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {targetsInfo && (
           <SearchCards
-            open
+            open={modalOpened}
             onSelect={setRelatedCards}
             onClose={hideSearchModal}
             selectedData={targetsInfo.findCards}

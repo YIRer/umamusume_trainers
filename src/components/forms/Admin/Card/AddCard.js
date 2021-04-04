@@ -8,7 +8,6 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import MenuItem from "@material-ui/core/MenuItem";
-import Card from "@material-ui/core/Card";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -17,14 +16,17 @@ import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
 import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
-import { ranks, stars, cardTypes, initialStatusData } from "./constants";
+import { stars, cardTypes, initialStatusData } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
+import CardStatus from "./CardStatus";
+import CardEventForm from "./CardEventForm/Form";
+import SkillIcons from "./SkillIcons";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
-    maxWidth: "500px",
+    maxWidth: "800px",
     margin: "15px",
   },
   form: {
@@ -76,7 +78,7 @@ const useStyles = makeStyles((_theme) => ({
 
 const AddCard = (props) => {
   const classes = useStyles();
-  const [isTrainingType, checkCardtype] = useState(true);
+  const [isTrainingType, checkCardtype] = useState(false);
   const [targetInfo, setTarget] = useState(null);
   const [relatedSkills, setRelatedSkills] = useState([]);
   const [modalOpened, setModalState] = useState(false);
@@ -95,8 +97,13 @@ const AddCard = (props) => {
       targetID: null,
       imageSrc: "",
       type: "training", //common, support
-      playable: true,
+      playable: false,
       limited: false,
+      events: {
+        common: [],
+        once: [],
+        multipleTimes: [],
+      },
     }
   );
 
@@ -106,8 +113,16 @@ const AddCard = (props) => {
       ...newState,
     }),
     {
-      grass: initialStatusData,
+      turf: initialStatusData,
       duct: initialStatusData,
+      short: initialStatusData,
+      mile: initialStatusData,
+      medium: initialStatusData,
+      long: initialStatusData,
+      escape: initialStatusData,
+      leading: initialStatusData,
+      between: initialStatusData,
+      pushing: initialStatusData,
       speed: initialStatusData,
       stamina: initialStatusData,
       power: initialStatusData,
@@ -120,20 +135,15 @@ const AddCard = (props) => {
     const name = e.target.name;
     const value = e.target.value;
 
-    if (name === "type") {
-      if (value === "training") {
-        checkCardtype(true);
-      } else {
-        checkCardtype(false);
-      }
-    }
     setFormInput({ [name]: value });
   };
 
   const handleChangeCheckbox = (e) => {
     const name = e.target.name;
     const value = e.target.checked;
-
+    if (name === "playable") {
+      checkCardtype(value);
+    }
     setFormInput({ [name]: value });
   };
 
@@ -145,11 +155,27 @@ const AddCard = (props) => {
     setStatusInput({ [type]: newState });
   };
 
+  const handleChangeEvents = (eventData) => {
+    setFormInput({ events: eventData });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { grass, duct, ...others } = statusData;
-    const { name, type, imageName, ...formDatas } = formData;
+    const {
+      turf,
+      duct,
+      short,
+      mile,
+      medium,
+      long,
+      escape,
+      leading,
+      between,
+      pushing,
+      ...others
+    } = statusData;
+    const { ko, ja, type, imageName, events, ...formDatas } = formData;
 
     const imageSrc =
       targetInfo && imageName
@@ -158,17 +184,33 @@ const AddCard = (props) => {
 
     const input = {
       ...formDatas,
-      name,
+      name: {
+        ko,
+        ja,
+      },
       type,
       imageSrc,
       targetID: targetInfo?.id || null,
       status: {
         ground: {
-          grass,
+          turf,
           duct,
+        },
+        distance: {
+          short,
+          mile,
+          medium,
+          long,
+        },
+        strategy: {
+          escape,
+          leading,
+          between,
+          pushing,
         },
         status: others,
       },
+      events: removeTempIDs(events),
     };
 
     addCard({
@@ -180,14 +222,12 @@ const AddCard = (props) => {
     }).then(({ data }) => {
       const { addCard } = data;
       const params = {
-        ids: [],
-        skillsTargetIDs: [],
+        addIds: [],
+        addTargetIDs: [],
       };
       relatedSkills.forEach((skillData) => {
-        params.ids.push(skillData.id);
-        params.skillsTargetIDs.push(
-          _.uniq([...skillData.targetIDs, addCard.id])
-        );
+        params.addIds.push(skillData.id);
+        params.addTargetIDs.push(_.uniq([...skillData.targetIDs, addCard.id]));
       });
 
       editSkills({
@@ -200,6 +240,19 @@ const AddCard = (props) => {
         props.history.push("/cards");
       });
     });
+  };
+
+  const removeTempIDs = (events) => {
+    const once = events.once.map((d) => _.omit(d, ["__tempID"]));
+    const multipleTimes = events.multipleTimes.map((d) =>
+      _.omit(d, ["__tempID"])
+    );
+
+    return {
+      once,
+      multipleTimes,
+      common: events.common,
+    };
   };
 
   const showSearchModal = () => {
@@ -216,216 +269,22 @@ const AddCard = (props) => {
     setSkillSearchModalState(false);
   };
 
-  const renderStatus = () => {
-    return (
-      <FormControl>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.grass?.rank || "G"}
-          id="grass-rank"
-          name="grass-rank"
-          label="잔디 적성"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="grass-bonus"
-          name="grass-bonus"
-          label="잔디 적성 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.ground?.duct?.rank || "G"}
-          id="duct-rank"
-          name="duct-rank"
-          label="덕트 적성"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="duct-bonus"
-          name="duck-bonus"
-          label="덕트 적성 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.speed?.rank || "G"}
-          id="speed-rank"
-          name="speed-rank"
-          label="스피드 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="speed-bonus"
-          name="speed-bonus"
-          label="스피드 스탯 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.stamina?.rank || "G"}
-          id="stamina-rank"
-          name="stamina-rank"
-          label="스태미너 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="stamina-bonus"
-          name="stamina-bonus"
-          label="스테미너 스탯 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.power?.rank || "G"}
-          id="power-rank"
-          name="power-rank"
-          label="파워 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="power-bonus"
-          name="power-bonus"
-          label="파워 스탯 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.guts?.rank || "G"}
-          id="guts-rank"
-          name="guts-rank"
-          label="근성 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="guts-bonus"
-          name="guts-bonus"
-          label="근성 스탯 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.intelligence?.rank || "G"}
-          id="intelligence-rank"
-          name="intelligence-rank"
-          label="지능 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="intelligence-bonus"
-          name="intelligence-bonus"
-          label="지능 스탯 보너스"
-          defaultValue={"0"}
-          onChange={handleStatusChange}
-        />
-      </FormControl>
-    );
-  };
-
-  const renderSkillIcons = ({ name, imageSrc, effect }) => {
-    return (
-      <Card
-        key={name}
-        classes={{
-          root: clsx(classes.skillCard),
-        }}
-      >
-        <div className={classes.skillWrapper}>
-          <img className={classes.skillIcon} src={imageSrc} alt={name} />
-          <div className={classes.skillInfoWrapper}>
-            <b>{`${name.ko} ${name.ja}`}</b>
-            <span>{effect}</span>
-          </div>
-        </div>
-      </Card>
-    );
-  };
-
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
       <FormControl>
         <TextField
           className={clsx(classes.root)}
           required
-          id="name"
-          name="name"
-          label="카드이름"
+          id="name-ja"
+          name="ja"
+          label="카드이름 (일본어)"
+          onChange={handleChange}
+        />
+        <TextField
+          className={clsx(classes.root)}
+          id="name-ko"
+          name="ko"
+          label="카드이름 (한국어)"
           onChange={handleChange}
         />
         <TextField
@@ -487,7 +346,11 @@ const AddCard = (props) => {
           }
           label="육성 가능"
         />
-        {isTrainingType && renderStatus()}
+        {isTrainingType && (
+          <CardStatus data={statusData} onChange={handleStatusChange} />
+        )}
+
+        <CardEventForm onChangeEvents={handleChangeEvents} />
 
         {targetInfo && (
           <div
@@ -514,7 +377,14 @@ const AddCard = (props) => {
         />
 
         {relatedSkills &&
-          relatedSkills.map((skillData) => renderSkillIcons(skillData))}
+          relatedSkills.map((skillData, index) => (
+            <SkillIcons
+              name={skillData.name}
+              imageSrc={skillData.imageSrc}
+              effect={skillData.effect}
+              key={`skill_${index}`}
+            />
+          ))}
 
         <Button
           type="button"

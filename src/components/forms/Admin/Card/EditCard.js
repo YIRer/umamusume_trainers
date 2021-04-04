@@ -15,10 +15,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 import { GET_UMAMUSUME } from "queries/umamusume";
-import { GET_CARDS, GET_CARD, EDIT_CARD } from "queries/cards";
-import { ranks, stars, cardTypes, initialStatusData } from "./constants";
+import { GET_CARD, EDIT_CARD } from "queries/cards";
+import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
+import { stars, cardTypes, initialStatusData } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
+import SearchSkills from "../Skills/SearchSkills";
+import CardStatus from "./CardStatus";
+import CardEventForm from "./CardEventForm/Form";
+import SkillIcons from "./SkillIcons";
 
 const getImageName = (imageSrc) => {
   try {
@@ -30,7 +35,7 @@ const getImageName = (imageSrc) => {
 
 const useStyles = makeStyles((_theme) => ({
   root: {
-    maxWidth: "500px",
+    maxWidth: "800px",
     margin: "15px",
   },
   form: {
@@ -39,8 +44,7 @@ const useStyles = makeStyles((_theme) => ({
     padding: "10px",
   },
   button: {
-    width: "100px",
-    margin: "1rem",
+    marginBottom: "16px",
   },
   card: {
     width: "100px",
@@ -65,10 +69,14 @@ const EditCard = (props) => {
   const [isTrainingType, checkCardtype] = useState(true);
   const [targetInfo, setTarget] = useState(null);
   const [modalOpened, setModalState] = useState(false);
+  const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
+  const [relatedSkills, setRelatedSkills] = useState([]);
 
   const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
 
   const [editCard, _mutationData] = useMutation(EDIT_CARD);
+  const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
+
   const [formData, setFormInput] = useReducer(
     (state, newState) => ({
       ...state,
@@ -82,6 +90,11 @@ const EditCard = (props) => {
       type: "training",
       playable: true,
       limited: false,
+      events: {
+        common: [],
+        once: [],
+        multipleTimes: [],
+      },
     }
   );
 
@@ -91,8 +104,16 @@ const EditCard = (props) => {
       ...newState,
     }),
     {
-      grass: initialStatusData,
+      turf: initialStatusData,
       duct: initialStatusData,
+      short: initialStatusData,
+      mile: initialStatusData,
+      medium: initialStatusData,
+      long: initialStatusData,
+      escape: initialStatusData,
+      leading: initialStatusData,
+      between: initialStatusData,
+      pushing: initialStatusData,
       speed: initialStatusData,
       stamina: initialStatusData,
       power: initialStatusData,
@@ -103,11 +124,24 @@ const EditCard = (props) => {
 
   const setInitData = () => {
     if (data && data.card) {
-      const { status, imageSrc, ...others } = card;
+      const { name, status, imageSrc, events, skills, ...others } = card;
       const imageName = getImageName(imageSrc);
 
-      setFormInput({ imageSrc, imageName, ...others });
-      setStatusInput({ ...status.ground, ...status.status });
+      setFormInput({
+        ko: name.ko,
+        ja: name.ja,
+        imageSrc,
+        imageName,
+        events: addTempIDs(events),
+        ...others,
+      });
+      setStatusInput({
+        ...status.ground,
+        ...status.distance,
+        ...status.strategy,
+        ...status.status,
+      });
+      setRelatedSkills(skills);
       if (targetData) {
         setTarget(targetData.umamusume || null);
       }
@@ -139,6 +173,9 @@ const EditCard = (props) => {
     const name = e.target.name;
     const value = e.target.checked;
 
+    if (name === "playable") {
+      checkCardtype(value);
+    }
     setFormInput({ [name]: value });
   };
 
@@ -150,10 +187,27 @@ const EditCard = (props) => {
     setStatusInput({ [type]: newState });
   };
 
+  const handleChangeEvents = (eventData) => {
+    setFormInput({ events: eventData });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { grass, duct, ...others } = statusData;
-    const { name, type, imageName, ...formDatas } = formData;
+    const {
+      turf,
+      duct,
+      short,
+      mile,
+      medium,
+      long,
+      escape,
+      leading,
+      between,
+      pushing,
+      ...others
+    } = statusData;
+
+    const { ko, ja, type, imageName, events, ...formDatas } = formData;
 
     const imageSrc =
       targetInfo && imageName
@@ -162,14 +216,27 @@ const EditCard = (props) => {
 
     const input = {
       ...formDatas,
-      name,
+      name: { ko, ja },
       type,
       imageSrc,
       targetID: targetInfo?.id,
+      events: removeTempIDs(events),
       status: {
         ground: {
-          grass,
+          turf,
           duct,
+        },
+        distance: {
+          short,
+          mile,
+          medium,
+          long,
+        },
+        strategy: {
+          escape,
+          leading,
+          between,
+          pushing,
         },
         status: others,
       },
@@ -180,17 +247,73 @@ const EditCard = (props) => {
         id,
         input,
       },
-      refetchQueries: [
-        {
-          query: GET_CARD,
-          variables: { id },
+    }).then(({ data }) => {
+      const { editCard } = data;
+      const params = {
+        addIds: [],
+        addTargetIDs: [],
+        deleteIds: [],
+        deleteTargetIDs: [],
+      };
+
+      _.pullAll(relatedSkills, editCard.skills).forEach((item) => {
+        params.addIds.push(item.id);
+        params.addTargetIDs.push(_.uniq([...item.targetIDs, editCard.id]));
+      });
+
+      _.differenceBy(editCard.skills, relatedSkills, "id").forEach((target) => {
+        params.deleteIds.push(target.id);
+        params.deleteTargetIDs.push(
+          _.remove(target.targetIDs, (tid) => tid !== editCard.id)
+        );
+      });
+
+      editSkills({
+        variables: {
+          ...params,
         },
-        { query: GET_CARDS },
-      ],
-      awaitRefetchQueries: true,
-    }).then(() => {
-      props.history.replace(`/cards/${id}`);
+        refetchQueries: [
+          { query: GET_SKILLS },
+          {
+            query: GET_CARD,
+            variables: { id: editCard.id },
+          },
+        ],
+        awaitRefetchQueries: true,
+      }).then(() => {
+        props.history.push("/cards");
+      });
     });
+  };
+
+  const addTempIDs = (events) => {
+    const once = events.once.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("once"),
+    }));
+    const multipleTimes = events.multipleTimes.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("multipleTimes"),
+    }));
+
+    return {
+      once,
+      multipleTimes,
+      common: events.common,
+    };
+  };
+
+  const removeTempIDs = (events) => {
+    const once = events.once.map((d) => _.omit(d, ["__tempID"]));
+    const multipleTimes = events.multipleTimes.map((d) =>
+      _.omit(d, ["__tempID"])
+    );
+
+    return {
+      once,
+      multipleTimes,
+      common: events.common,
+    };
   };
 
   const showSearchModal = () => {
@@ -200,208 +323,40 @@ const EditCard = (props) => {
     setModalState(false);
   };
 
-  const renderStatus = () => {
-    return (
-      <FormControl>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.grass?.rank || "G"}
-          id="grass-rank"
-          name="grass-rank"
-          label="잔디 적성"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="grass-bonus"
-          name="grass-bonus"
-          label="잔디 적성 보너스"
-          value={statusData.grass?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.duct?.rank || "G"}
-          id="duct-rank"
-          name="duct-rank"
-          label="덕트 적성"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="duct-bonus"
-          name="duck-bonus"
-          label="덕트 적성 보너스"
-          value={statusData.duct?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.speed?.rank || "G"}
-          id="speed-rank"
-          name="speed-rank"
-          label="스피드 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="speed-bonus"
-          name="speed-bonus"
-          label="스피드 스탯 보너스"
-          value={statusData.speed?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.stamina?.rank || "G"}
-          id="stamina-rank"
-          name="stamina-rank"
-          label="스태미너 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="stamina-bonus"
-          name="stamina-bonus"
-          label="스테미너 스탯 보너스"
-          value={statusData.stamina?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.power?.rank || "G"}
-          id="power-rank"
-          name="power-rank"
-          label="파워 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="power-bonus"
-          name="power-bonus"
-          label="파워 스탯 보너스"
-          value={statusData.power?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.guts?.rank || "G"}
-          id="guts-rank"
-          name="guts-rank"
-          label="근성 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="guts-bonus"
-          name="guts-bonus"
-          label="근성 스탯 보너스"
-          value={statusData.guts?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={statusData.intelligence?.rank || "G"}
-          id="intelligence-rank"
-          name="intelligence-rank"
-          label="지능 스탯"
-          onChange={handleStatusChange}
-        >
-          {ranks.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          className={clsx(classes.root)}
-          required
-          id="intelligence-bonus"
-          name="intelligence-bonus"
-          label="지능 스탯 보너스"
-          value={statusData.intelligence?.bonus || "0"}
-          onChange={handleStatusChange}
-        />
-      </FormControl>
-    );
+  const showSkillSearchModal = () => {
+    setSkillSearchModalState(true);
+  };
+  const hideSkillSearchModal = () => {
+    setSkillSearchModalState(false);
   };
 
   if (loading) return <p>Loading...</p>;
 
   const { card } = data;
   if (error || !card) return <p>Error :(</p>;
-
+    
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
       <FormControl>
         <TextField
           className={clsx(classes.root)}
           required
-          id="name"
-          name="name"
-          label="카드이름"
-          defaultValue={card.name}
+          id="name-ja"
+          name="ja"
+          label="카드이름 (일본어)"
+          defaultValue={card.name.ja}
           onChange={handleChange}
         />
         <TextField
           className={clsx(classes.root)}
-          required
+          id="name-ko"
+          name="ko"
+          label="카드이름 (한국어)"
+          defaultValue={card.name.ko}
+          onChange={handleChange}
+        />
+        <TextField
+          className={clsx(classes.root)}
           id="imageName"
           name="imageName"
           label="이미지 파일 이름"
@@ -460,7 +415,14 @@ const EditCard = (props) => {
           }
           label="육성 가능"
         />
-        {isTrainingType && renderStatus()}
+        {isTrainingType && (
+          <CardStatus data={statusData} onChange={handleStatusChange} />
+        )}
+
+        <CardEventForm
+          onChangeEvents={handleChangeEvents}
+          initialData={formData.events}
+        />
 
         {targetInfo && (
           <div
@@ -470,14 +432,17 @@ const EditCard = (props) => {
             }}
           ></div>
         )}
+
         <Button
           type="button"
           variant="outlined"
           color="primary"
           onClick={showSearchModal}
+          className={classes.button}
         >
           관련된 우마무스메 선택
         </Button>
+
         {modalOpened && (
           <SearchUmamusume
             open
@@ -486,6 +451,36 @@ const EditCard = (props) => {
             onClose={hideSearchModal}
           />
         )}
+
+        {relatedSkills &&
+          relatedSkills.map((skillData, index) => (
+            <SkillIcons
+              name={skillData.name}
+              imageSrc={skillData.imageSrc}
+              effect={skillData.effect}
+              key={`skill_${index}`}
+            />
+          ))}
+
+        <Button
+          type="button"
+          variant="outlined"
+          color="primary"
+          onClick={showSkillSearchModal}
+          className={classes.button}
+        >
+          관련된 스킬 선택
+        </Button>
+
+        {skillSearchModalOpened && (
+          <SearchSkills
+            open
+            onSelect={setRelatedSkills}
+            onClose={hideSkillSearchModal}
+            selectedData={relatedSkills}
+          />
+        )}
+
         <Button
           type="submit"
           className={clsx(classes.button)}

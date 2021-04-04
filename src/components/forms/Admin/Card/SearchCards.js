@@ -33,7 +33,7 @@ const useStyles = makeStyles((_theme) => ({
     width: "100px",
     height: "100px",
     border: "5px solid #ebd834",
-    boxSizing: "border-box",
+    boxSizing: "content-box",
     backgroundPosition: "top center",
     backgroundSize: "80%",
     backgroundRepeat: "no-repeat",
@@ -58,7 +58,7 @@ const CardItem = ({ itemData, classes, selectFn, targets }) => {
 
   return (
     <div
-      key={itemData.name}
+      key={`card-${itemData.id}`}
       onClick={() => {
         selectFn(itemData, isSelected);
       }}
@@ -86,7 +86,7 @@ const SearchCards = (props) => {
 
   const onSearch = () => {
     const searchData = data.cards.filter(({ name }) => {
-      return name.includes(keyword);
+      return name.ja.includes(keyword) || name.ko.includes(keyword);
     });
     setSearchResult(searchData);
   };

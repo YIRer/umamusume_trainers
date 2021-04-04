@@ -13,7 +13,7 @@ import { GET_UMAMUSUME, EDIT_UMAMUSUME } from "queries/umamusume";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
-    maxWidth: "500px",
+    maxWidth: "800px",
     margin: "15px",
   },
   form: {

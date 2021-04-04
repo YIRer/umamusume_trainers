@@ -42,24 +42,9 @@ const useStyles = makeStyles((_theme) => ({
   span: {
     marginLeft: "10px",
   },
-  cardWrapper: {
-    marginRight: "16px",
-  },
-  card: {
-    width: "100px",
-    height: "100px",
-    backgroundPosition: "top center",
-    backgroundSize: "80%",
-    backgroundRepeat: "no-repeat",
-    marginBottom: "10px",
-  },
-  relatedCards: {
-    display: "flex",
-    marginTop: "16px",
-  },
 }));
 
-const AddSkill = (props) => {
+const AddEvent = (props) => {
   const classes = useStyles();
   const [addSkill, _mutationData] = useMutation(ADD_Sklill);
   const [relatedCards, setRelatedCards] = useState([]);
@@ -73,7 +58,8 @@ const AddSkill = (props) => {
       ko: "",
       ja: "",
       targetIDs: [],
-      effect: "",
+      choices: [],
+      eventType: "",
       imageSrc: iconData[0].value,
       type: "",
       tags: "",
@@ -89,25 +75,25 @@ const AddSkill = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { ko, ja, tags, ...others } = formData;
-    const convertTags = tags.split(",");
-    const targetIDs = relatedCards.map((card) => card.id);
-    const input = {
-      ...others,
-      name: { ko, ja },
-      tags: convertTags,
-      targetIDs,
-    };
+    // const { ko, ja, tags, ...others } = formData;
+    // const convertTags = tags.split(",");
+    // const targetIDs = relatedCards.map((card) => card.id);
+    // const input = {
+    //   ...others,
+    //   name: { ko, ja },
+    //   tags: convertTags,
+    //   targetIDs,
+    // };
 
-    addSkill({
-      variables: {
-        input,
-      },
-      refetchQueries: [{ query: GET_SKILLS }],
-      awaitRefetchQueries: true,
-    }).then(() => {
-      props.history.push("/skills");
-    });
+    // addSkill({
+    //   variables: {
+    //     input,
+    //   },
+    //   refetchQueries: [{ query: GET_SKILLS }],
+    //   awaitRefetchQueries: true,
+    // }).then(() => {
+    //   props.history.push("/skills");
+    // });
   };
 
   const showSearchModal = () => {
@@ -122,15 +108,15 @@ const AddSkill = (props) => {
       <FormControl>
         <TextField
           className={clsx(classes.root)}
-          id="name-ko"
+          required
+          id="title-ko"
           name="ko"
-          label="한국어 이름"
+          label="한국어 제목"
           onChange={handleChange}
         />
         <TextField
           className={clsx(classes.root)}
-          required
-          id="name-ja"
+          id="title-ja"
           name="ja"
           label="일본어 이름"
           onChange={handleChange}
@@ -138,11 +124,12 @@ const AddSkill = (props) => {
         <TextField
           className={clsx(classes.root)}
           required
-          id="effect"
-          name="effect"
-          label="효과 및 설명"
+          id="condition"
+          name="condition"
+          label="조건"
           onChange={handleChange}
         />
+
         <TextField
           className={clsx(classes.root)}
           id="tags"
@@ -150,6 +137,7 @@ const AddSkill = (props) => {
           label="태그 (쉼표로 구분, 공백이 없어야함)"
           onChange={handleChange}
         />
+{/* 
         <TextField
           className={clsx(classes.root)}
           required
@@ -165,14 +153,9 @@ const AddSkill = (props) => {
               {option.label}
             </MenuItem>
           ))}
-        </TextField>
-        <IconRadioGroups
-          data={iconData}
-          name={"imageSrc"}
-          value={formData.imageSrc}
-          onChange={handleChange}
-        />
-        <Button
+        </TextField> */}
+
+        {/* <Button
           type="button"
           variant="outlined"
           color="primary"
@@ -180,26 +163,14 @@ const AddSkill = (props) => {
         >
           관련된 카드 선택
         </Button>
-        
-        <div className={classes.relatedCards}>
-          {relatedCards.map(({ id, imageSrc }) => (
-            <div className={classes.cardWrapper} key={`related-card-${id}`}>
-              <div
-                className={classes.card}
-                style={{
-                  backgroundImage: `url(${imageSrc})`,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
+        {relatedCards.map(({ name, id }) => (
+          <span key={id}>{name}</span>
+        ))}
         <SearchCards
           open={modalOpened}
           onSelect={setRelatedCards}
           onClose={hideSearchModal}
-          selectedData={relatedCards}
-        />
+        /> */}
 
         <Button
           type="submit"
@@ -214,4 +185,4 @@ const AddSkill = (props) => {
   );
 };
 
-export default withRouter(AddSkill);
+export default withRouter(AddEvent);
