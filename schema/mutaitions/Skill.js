@@ -2,7 +2,7 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../../constants.js");
 
-const { GraphQLID, GraphQLNonNull, GraphQLList, GraphQLString } = graphql;
+const { GraphQLID, GraphQLNonNull, GraphQLList } = graphql;
 
 const { SkillType, SkillInputType } = require("../Skill.js");
 
@@ -38,15 +38,25 @@ const editSkill = {
 const editSkills = {
   type: new GraphQLList(SkillType),
   args: {
-    ids: { type: new GraphQLList(GraphQLID) },
-    skillsTargetIDs: {
-      type: new GraphQLList(new GraphQLList(GraphQLString)),
+    addIds: { type: new GraphQLList(GraphQLID) },
+    addTargetIDs: {
+      type: new GraphQLList(new GraphQLList(GraphQLID)),
+    },
+    deleteIds: { type: new GraphQLList(GraphQLID) },
+    deleteTargetIDs: {
+      type: new GraphQLList(new GraphQLList(GraphQLID)),
     },
   },
-  resolve(_parentValue, { ids, skillsTargetIDs }) {
+  resolve(
+    _parentValue,
+    { addIds = [], addTargetIDs = [], deleteIds = [], deleteTargetIDs = [] }
+  ) {
     return Promise.all([
-      skillsTargetIDs.map((targetIDs, index) =>
-        axios.patch(`${dbServer}/skills/${ids[index]}`, { targetIDs })
+      addTargetIDs.map((targetIDs, index) =>
+        axios.patch(`${dbServer}/skills/${addIds[index]}`, { targetIDs })
+      ),
+      deleteTargetIDs.map((targetIDs, index) =>
+        axios.patch(`${dbServer}/skills/${deleteIds[index]}`, { targetIDs })
       ),
     ]).then((res) => res.data);
   },

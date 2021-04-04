@@ -8,16 +8,16 @@ const {
   GraphQLNonNull,
 } = graphql;
 
-const ConditionInputType = new GraphQLInputObjectType({
-  name: "ConditionInputType",
+const BuffsInputType = new GraphQLInputObjectType({
+  name: "BuffsInputType",
   fields: () => ({
     name: { type: new GraphQLNonNull(GraphQLString) },
     description: { type: new GraphQLNonNull(GraphQLString) },
   }),
 });
 
-const ConditionType = new GraphQLObjectType({
-  name: "Condition",
+const BuffsType = new GraphQLObjectType({
+  name: "Buffs",
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
@@ -25,4 +25,4 @@ const ConditionType = new GraphQLObjectType({
   }),
 });
 
-module.exports = { ConditionType, ConditionInputType };
+module.exports = { BuffsType, BuffsInputType };

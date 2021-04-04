@@ -2,7 +2,7 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../../constants.js");
 
-const { GraphQLID, GraphQLNonNull } = graphql;
+const { GraphQLID, GraphQLNonNull, GraphQLList } = graphql;
 
 const { EventType, EventInputType } = require("../Events.js");
 
@@ -15,7 +15,7 @@ const addEvent = {
   },
   resolve(_parentValue, args) {
     return axios
-      .post(`${dbServer}/events`, { params: { ...args.input } })
+      .post(`${dbServer}/events`, { ...args.input })
       .then((res) => res.data);
   },
 };
@@ -30,8 +30,25 @@ const editEvent = {
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/events/${id}`, { params: { id, ...input } })
+      .patch(`${dbServer}/events/${id}`, { ...input })
       .then((res) => res.data);
+  },
+};
+
+const editEvents = {
+  type: new GraphQLList(EventType),
+  args: {
+    ids: { type: new GraphQLList(GraphQLID) },
+    eventsTargetIDs: {
+      type: new GraphQLList(new GraphQLList(GraphQLID)),
+    },
+  },
+  resolve(_parentValue, { ids, eventsTargetIDs }) {
+    return Promise.all([
+      eventsTargetIDs.map((targetIDs, index) =>
+        axios.patch(`${dbServer}/events/${ids[index]}`, { targetIDs })
+      ),
+    ]).then((res) => res.data);
   },
 };
 
@@ -40,11 +57,11 @@ const deleteEvent = {
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
   },
-  resolve(_parentValue, { id, input }) {
+  resolve(_parentValue, { id }) {
     return axios
-      .delete(`${dbServer}/events/${id}`, { params: { id, ...input } })
+      .delete(`${dbServer}/events/${id}`)
       .then((_res) => ({ deleted: true }));
   },
 };
 
-module.exports = { addEvent, editEvent, deleteEvent };
+module.exports = { addEvent, editEvent, editEvents, deleteEvent };

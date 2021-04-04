@@ -54,9 +54,15 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(CardType),
       args: { ids: { type: new GraphQLList(GraphQLID) } },
       resolve(_parentValue, { ids }) {
-        const query = ids.map((id) => `id_like=${id}`).join("&");
+        if (ids && ids.length > 0) {
+          const query = ids.map((id) => `id_like=${id}`).join("&");
 
-        return axios.get(`${dbServer}/cards?${query}`).then((res) => res.data);
+          return axios
+            .get(`${dbServer}/cards?${query}`)
+            .then((res) => res.data);
+        } else {
+          return [];
+        }
       },
     },
     events: {
@@ -75,7 +81,7 @@ const RootQuery = new GraphQLObjectType({
           .then((res) => res.data);
       },
     },
-    
+
     skills: {
       type: new GraphQLList(SkillType),
       args: {},
@@ -101,6 +107,7 @@ const RootQuery = new GraphQLObjectType({
         return axios.get(`${dbServer}/skills/${id}`).then((res) => res.data);
       },
     },
+
     conditions: {
       type: new GraphQLList(ConditionType),
       args: {},

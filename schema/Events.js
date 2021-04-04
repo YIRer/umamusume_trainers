@@ -1,8 +1,4 @@
 const graphql = require("graphql");
-const axios = require("axios");
-const { dbServer } = require("../constants.js");
-const { ConditionType, ConditionInputType } = require("./Condition.js");
-
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -19,23 +15,24 @@ const EventChoiceInputType = new GraphQLInputObjectType({
     result: { type: new GraphQLNonNull(GraphQLString) },
   }),
 });
-const EventObjectInputType = new GraphQLInputObjectType({
-  name: "EventObjectInputType",
+
+const EventTilteInputType = new GraphQLInputObjectType({
+  name: "EventTilteInputType",
   fields: () => ({
-    title: { type: new GraphQLNonNull(GraphQLString) },
-    conditionID: { type: GraphQLString },
-    condition: { type: ConditionInputType },
-    tags: { type: new GraphQLList(EventChoiceInputType) },
-    choices: { type: new GraphQLList(EventChoiceInputType) },
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
   }),
 });
 
 const EventInputType = new GraphQLInputObjectType({
   name: "EventInputType",
   fields: () => ({
-    targetID: { type: new GraphQLNonNull(GraphQLString) },
-    oneTime: { type: new GraphQLList(EventObjectInputType) },
-    multiTimes: { type: new GraphQLList(EventObjectInputType) },
+    title: { type: new GraphQLNonNull(EventTilteInputType) },
+    targetIDs: { type: new GraphQLList(GraphQLID) },
+    eventType: { type: GraphQLString },
+    tags: { type: new GraphQLList(GraphQLString) },
+    choices: { type: new GraphQLList(EventChoiceInputType) },
+    condition: { type: GraphQLString },
   }),
 });
 
@@ -47,40 +44,30 @@ const EventChoiceType = new GraphQLObjectType({
   }),
 });
 
-const EventObject = new GraphQLObjectType({
-  name: "EventObject",
+const EventTilteType = new GraphQLObjectType({
+  name: "EventTilteType",
   fields: () => ({
-    title: { type: GraphQLString },
-    conditionID: { type: GraphQLString },
-    condition: {
-      type: ConditionType,
-      resolve(parentValue, _args) {
-        return axios
-          .get(`${dbServer}/conditions/${parentValue.conditionID}`)
-          .then((res) => res.data)
-          .catch((_err) => null);
-      },
-    },
-    tags: { type: new GraphQLList(GraphQLString) },
-    choices: { type: new GraphQLList(EventChoiceType) },
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
   }),
 });
 
 const EventType = new GraphQLObjectType({
-  name: "Event",
+  name: "EventType",
   fields: () => ({
     id: { type: GraphQLID },
-    targetID: { type: GraphQLString },
-    oneTime: { type: new GraphQLList(EventObject) },
-    multiTimes: { type: new GraphQLList(EventObject) },
+    title: { type: EventTilteType },
+    targetIDs: { type: new GraphQLList(GraphQLID) },
+    eventType: { type: GraphQLString },
+    tags: { type: new GraphQLList(GraphQLString) },
+    choices: { type: new GraphQLList(EventChoiceType) },
+    condition: { type: GraphQLString },
   }),
 });
 
 module.exports = {
   EventType,
-  EventObject,
   EventChoiceType,
   EventInputType,
-  EventObjectInputType,
   EventChoiceInputType,
 };

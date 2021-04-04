@@ -4,43 +4,43 @@ const { dbServer } = require("../../constants.js");
 
 const { GraphQLID, GraphQLNonNull } = graphql;
 
-const { ConditionType, ConditionInputType } = require("../Condition.js");
+const { BuffsType, BuffsInputType } = require("../Buffs.js");
 
-const addCondition = {
-  type: ConditionType,
+const addBuff = {
+  type: BuffsType,
   args: {
-    input: { type: ConditionInputType },
+    input: { type: BuffsInputType },
   },
   resolve(_parentValue, { input }) {
     return axios
-      .post(`${dbServer}/conditions`, { ...input })
+      .post(`${dbServer}/buffs`, { ...input })
       .then((res) => res.data);
   },
 };
 
-const editCondition = {
-  type: ConditionType,
+const editBuff = {
+  type: BuffsType,
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
-    input: { type: ConditionInputType },
+    input: { type: BuffsInputType },
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/conditions/${id}`, { ...input })
+      .patch(`${dbServer}/buffs/${id}`, { ...input })
       .then((res) => res.data);
   },
 };
 
-const deleteCondition = {
-  type: ConditionType,
+const deleteBuff = {
+  type: BuffsType,
   args: {
     id: { type: new GraphQLNonNull(GraphQLID) },
   },
   resolve(_parentValue, args) {
     return axios
-      .delete(`${dbServer}/conditions/${args.id}`)
+      .delete(`${dbServer}/buffs/${args.id}`)
       .then((_res) => ({ deleted: true }));
   },
 };
 
-module.exports = { addCondition, editCondition, deleteCondition };
+module.exports = { addBuff, editBuff, deleteBuff };

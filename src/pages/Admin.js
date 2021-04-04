@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
-    maxWidth: "500px",
+    maxWidth: "800px",
     margin: "15px",
   },
   form: {
@@ -53,37 +53,16 @@ export default function Admin() {
           </Link>
         </ListItem>
         <Divider />
-        <ListSubheader>이벤트 관리</ListSubheader>
+        <ListSubheader>스킬 관리</ListSubheader>{" "}
         <ListItem>
-          <ListItemText primary="추가" />
+          <Link to="/skills">
+            <ListItemText primary="스킬 리스트" />
+          </Link>
         </ListItem>
         <ListItem>
-          <ListItemText primary="수정" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="삭제" />
-        </ListItem>
-        <Divider />
-        <ListSubheader>스킬 관리</ListSubheader>
-        <ListItem>
-          <ListItemText primary="추가" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="수정" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="삭제" />
-        </ListItem>
-        <Divider />
-        <ListSubheader>상태 관리</ListSubheader>
-        <ListItem>
-          <ListItemText primary="추가" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="수정" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="삭제" />
+          <Link to="/cards">
+            <ListItemText primary="스킬 리스트" />
+          </Link>
         </ListItem>
       </List>
     </div>

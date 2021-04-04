@@ -4,8 +4,8 @@ export const GET_SKILLS = gql`
   query {
     skills {
       id
-      name { 
-        ko 
+      name {
+        ko
         ja
       }
       targetIDs
@@ -21,8 +21,8 @@ export const GET_SKill = gql`
   query Sklills($id: ID!) {
     skill(id: $id) {
       id
-      name { 
-        ko 
+      name {
+        ko
         ja
       }
       targetIDs
@@ -38,8 +38,8 @@ export const ADD_Sklill = gql`
   mutation AddSkill($input: SkillInputType) {
     addSkill(input: $input) {
       id
-      name { 
-        ko 
+      name {
+        ko
         ja
       }
       targetIDs
@@ -55,8 +55,8 @@ export const EDIT_SKILL = gql`
   mutation EditSkill($id: ID!, $input: SkillInputType) {
     editSkill(id: $id, input: $input) {
       id
-      name { 
-        ko 
+      name {
+        ko
         ja
       }
       targetIDs
@@ -69,11 +69,21 @@ export const EDIT_SKILL = gql`
 `;
 
 export const EDIT_SKILLS = gql`
-  mutation EditSkillS($ids: [ID], $skillsTargetIDs: [[String]]) {
-    editSkills(ids: $ids, skillsTargetIDs: $skillsTargetIDs) {
+  mutation EditSkillS(
+    $addIds: [ID]
+    $addTargetIDs: [[ID]]
+    $deleteIds: [ID]
+    $deleteTargetIDs: [[ID]]
+  ) {
+    editSkills(
+      addIds: $addIds
+      addTargetIDs: $addTargetIDs
+      deleteIds: $deleteIds
+      deleteTargetIDs: $deleteTargetIDs
+    ) {
       id
-      name { 
-        ko 
+      name {
+        ko
         ja
       }
       targetIDs

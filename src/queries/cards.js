@@ -9,7 +9,10 @@ export const GET_CARDS = gql`
       type
       playable
       limited
-      name
+      name {
+        ko
+        ja
+      }
       star
     }
   }
@@ -24,7 +27,10 @@ export const FIND_CARDS = gql`
       type
       playable
       limited
-      name
+      name {
+        ko
+        ja
+      }
       star
     }
   }
@@ -33,7 +39,10 @@ export const FIND_CARDS = gql`
 export const GET_CARDS_All_DATA = gql`
   {
     cards {
-      name
+      name {
+        ko
+        ja
+      }
       star
       id
       targetID
@@ -47,53 +56,7 @@ export const GET_CARDS_All_DATA = gql`
           ja
         }
         imageSrc
-        id
-        effect
-        type
-      }
-      status {
-        speed {
-          rank
-          bonus
-        }
-        stamina {
-          rank
-          bonus
-        }
-        power {
-          rank
-          bonus
-        }
-        guts {
-          rank
-          bonus
-        }
-        intelligence {
-          rank
-          bonus
-        }
-      }
-    }
-  }
-`;
-
-export const GET_CARD = gql`
-  query card($id: ID!) {
-    card(id: $id) {
-      name
-      star
-      id
-      targetID
-      imageSrc
-      type
-      playable
-      limited
-      skills {
-        name {
-          ko
-          ja
-        }
-        imageSrc
+        targetIDs
         id
         effect
         type
@@ -104,7 +67,43 @@ export const GET_CARD = gql`
             rank
             bonus
           }
-          grass {
+          turf {
+            rank
+            bonus
+          }
+        }
+        distance {
+          short {
+            rank
+            bonus
+          }
+          mile {
+            rank
+            bonus
+          }
+          medium {
+            rank
+            bonus
+          }
+          long {
+            rank
+            bonus
+          }
+        }
+        strategy {
+          escape {
+            rank
+            bonus
+          }
+          leading {
+            rank
+            bonus
+          }
+          between {
+            rank
+            bonus
+          }
+          pushing {
             rank
             bonus
           }
@@ -129,6 +128,196 @@ export const GET_CARD = gql`
           intelligence {
             rank
             bonus
+          }
+        }
+      }
+      events {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description
+            result
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description
+            result
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description
+            result
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_CARD = gql`
+  query card($id: ID!) {
+    card(id: $id) {
+      name {
+        ko
+        ja
+      }
+      star
+      id
+      targetID
+      imageSrc
+      type
+      playable
+      limited
+      skills {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+        effect
+        type
+        targetIDs
+      }
+      status {
+        ground {
+          duct {
+            rank
+            bonus
+          }
+          turf {
+            rank
+            bonus
+          }
+        }
+        distance {
+          short {
+            rank
+            bonus
+          }
+          mile {
+            rank
+            bonus
+          }
+          medium {
+            rank
+            bonus
+          }
+          long {
+            rank
+            bonus
+          }
+        }
+        strategy {
+          escape {
+            rank
+            bonus
+          }
+          leading {
+            rank
+            bonus
+          }
+          between {
+            rank
+            bonus
+          }
+          pushing {
+            rank
+            bonus
+          }
+        }
+        status {
+          speed {
+            rank
+            bonus
+          }
+          stamina {
+            rank
+            bonus
+          }
+          power {
+            rank
+            bonus
+          }
+          guts {
+            rank
+            bonus
+          }
+          intelligence {
+            rank
+            bonus
+          }
+        }
+      }
+      events {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
           }
         }
       }
@@ -139,7 +328,10 @@ export const GET_CARD = gql`
 export const ADD_CARD = gql`
   mutation AddCard($input: CardInputType) {
     addCard(input: $input) {
-      name
+      name {
+        ko
+        ja
+      }
       star
       id
       targetID
@@ -147,13 +339,59 @@ export const ADD_CARD = gql`
       type
       playable
       limited
+      skills {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+        effect
+        type
+      }
       status {
         ground {
           duct {
             rank
             bonus
           }
-          grass {
+          turf {
+            rank
+            bonus
+          }
+        }
+        distance {
+          short {
+            rank
+            bonus
+          }
+          mile {
+            rank
+            bonus
+          }
+          medium {
+            rank
+            bonus
+          }
+          long {
+            rank
+            bonus
+          }
+        }
+        strategy {
+          escape {
+            rank
+            bonus
+          }
+          leading {
+            rank
+            bonus
+          }
+          between {
+            rank
+            bonus
+          }
+          pushing {
             rank
             bonus
           }
@@ -181,6 +419,56 @@ export const ADD_CARD = gql`
           }
         }
       }
+      events {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+      }
     }
   }
 `;
@@ -188,7 +476,10 @@ export const ADD_CARD = gql`
 export const EDIT_CARD = gql`
   mutation EditCard($id: ID!, $input: CardInputType) {
     editCard(id: $id, input: $input) {
-      name
+      name {
+        ko
+        ja
+      }
       star
       id
       targetID
@@ -196,13 +487,60 @@ export const EDIT_CARD = gql`
       type
       playable
       limited
+      skills {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+        effect
+        type
+        targetIDs
+      }
       status {
         ground {
           duct {
             rank
             bonus
           }
-          grass {
+          turf {
+            rank
+            bonus
+          }
+        }
+        distance {
+          short {
+            rank
+            bonus
+          }
+          mile {
+            rank
+            bonus
+          }
+          medium {
+            rank
+            bonus
+          }
+          long {
+            rank
+            bonus
+          }
+        }
+        strategy {
+          escape {
+            rank
+            bonus
+          }
+          leading {
+            rank
+            bonus
+          }
+          between {
+            rank
+            bonus
+          }
+          pushing {
             rank
             bonus
           }
@@ -227,6 +565,56 @@ export const EDIT_CARD = gql`
           intelligence {
             rank
             bonus
+          }
+        }
+      }
+      events {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
           }
         }
       }

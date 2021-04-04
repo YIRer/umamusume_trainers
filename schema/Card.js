@@ -4,7 +4,6 @@ const axios = require("axios");
 const { dbServer } = require("../constants.js");
 
 const { SkillType, SkillInputType } = require("./Skill.js");
-const { EventType, EventInputType } = require("./Events.js");
 
 const {
   GraphQLObjectType,
@@ -16,6 +15,44 @@ const {
   GraphQLInputObjectType,
   GraphQLNonNull,
 } = graphql;
+
+const CardEventChoiceInputType = new GraphQLInputObjectType({
+  name: "CardEventChoiceInputType",
+  fields: () => ({
+    description: {
+      type: new GraphQLNonNull(CardEventTilteAndSelectionInputType),
+    },
+    result: { type: new GraphQLNonNull(GraphQLString) },
+  }),
+});
+
+const CardEventTilteAndSelectionInputType = new GraphQLInputObjectType({
+  name: "CardEventTilteAndSelectionInputType",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
+  }),
+});
+
+const CardEventObjectInputType = new GraphQLInputObjectType({
+  name: "CardEventObjectInputType",
+  fields: () => ({
+    title: { type: new GraphQLNonNull(CardEventTilteAndSelectionInputType) },
+    eventType: { type: GraphQLString },
+    tags: { type: new GraphQLList(GraphQLString) },
+    choices: { type: new GraphQLList(CardEventChoiceInputType) },
+    condition: { type: GraphQLString },
+  }),
+});
+
+const CardEventInputType = new GraphQLInputObjectType({
+  name: "CardEventInputType",
+  fields: () => ({
+    common: { type: new GraphQLList(CardEventObjectInputType) },
+    once: { type: new GraphQLList(CardEventObjectInputType) },
+    multipleTimes: { type: new GraphQLList(CardEventObjectInputType) },
+  }),
+});
 
 const StatusObjectInput = new GraphQLInputObjectType({
   name: "StatusObjectInput",
@@ -39,8 +76,28 @@ const CardStatusInput = new GraphQLInputObjectType({
 const CardGroundStatusInput = new GraphQLInputObjectType({
   name: "CardGroundStatusInput",
   fields: () => ({
-    grass: { type: StatusObjectInput },
+    turf: { type: StatusObjectInput },
     duct: { type: StatusObjectInput },
+  }),
+});
+
+const CardDistanceStatusInput = new GraphQLInputObjectType({
+  name: "CardDistanceStatusInput",
+  fields: () => ({
+    short: { type: StatusObjectInput },
+    mile: { type: StatusObjectInput },
+    medium: { type: StatusObjectInput },
+    long: { type: StatusObjectInput },
+  }),
+});
+
+const CardStrategyStatusInput = new GraphQLInputObjectType({
+  name: "CardStrategyStatusInput",
+  fields: () => ({
+    escape: { type: StatusObjectInput },
+    leading: { type: StatusObjectInput },
+    between: { type: StatusObjectInput },
+    pushing: { type: StatusObjectInput },
   }),
 });
 
@@ -49,6 +106,16 @@ const CardStatusObjectInput = new GraphQLInputObjectType({
   fields: () => ({
     ground: { type: CardGroundStatusInput },
     status: { type: CardStatusInput },
+    distance: { type: CardDistanceStatusInput },
+    strategy: { type: CardStrategyStatusInput },
+  }),
+});
+
+const CardNameInputType = new GraphQLInputObjectType({
+  name: "CardNameInputType",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
   }),
 });
 
@@ -56,7 +123,7 @@ const CardInputType = new GraphQLInputObjectType({
   name: "CardInputType",
   fields: () => ({
     star: { type: new GraphQLNonNull(GraphQLInt) },
-    name: { type: new GraphQLNonNull(GraphQLString) },
+    name: { type: new GraphQLNonNull(CardNameInputType) },
     id: { type: GraphQLID },
     targetID: { type: GraphQLID },
     imageSrc: { type: GraphQLString },
@@ -68,8 +135,44 @@ const CardInputType = new GraphQLInputObjectType({
       type: new GraphQLList(SkillInputType),
     },
     events: {
-      type: new GraphQLList(EventInputType),
+      type: CardEventInputType,
     },
+  }),
+});
+
+const CardEventChoiceType = new GraphQLObjectType({
+  name: "CardEventChoiceType",
+  fields: () => ({
+    description: { type: CardEventTilteAndSelectionType },
+    result: { type: GraphQLString },
+  }),
+});
+
+const CardEventTilteAndSelectionType = new GraphQLObjectType({
+  name: "CardEventTilteAndSelectionType",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
+  }),
+});
+
+const CardEventObjecType = new GraphQLObjectType({
+  name: "CardEventObjecType",
+  fields: () => ({
+    title: { type: CardEventTilteAndSelectionType },
+    eventType: { type: GraphQLString },
+    tags: { type: new GraphQLList(GraphQLString) },
+    choices: { type: new GraphQLList(CardEventChoiceType) },
+    condition: { type: GraphQLString },
+  }),
+});
+
+const CardEventType = new GraphQLObjectType({
+  name: "CardEventType",
+  fields: () => ({
+    common: { type: new GraphQLList(CardEventObjecType) },
+    once: { type: new GraphQLList(CardEventObjecType) },
+    multipleTimes: { type: new GraphQLList(CardEventObjecType) },
   }),
 });
 
@@ -96,8 +199,28 @@ const CardStatus = new GraphQLObjectType({
 const CardGroundStatus = new GraphQLObjectType({
   name: "CardGroundStatus",
   fields: () => ({
-    grass: { type: StatusObject },
+    turf: { type: StatusObject },
     duct: { type: StatusObject },
+  }),
+});
+
+const CardDistanceStatus = new GraphQLObjectType({
+  name: "CardDistanceStatus",
+  fields: () => ({
+    short: { type: StatusObject },
+    mile: { type: StatusObject },
+    medium: { type: StatusObject },
+    long: { type: StatusObject },
+  }),
+});
+
+const CardStrategyStatus = new GraphQLObjectType({
+  name: "CardStrategyStatus",
+  fields: () => ({
+    escape: { type: StatusObject },
+    leading: { type: StatusObject },
+    between: { type: StatusObject },
+    pushing: { type: StatusObject },
   }),
 });
 
@@ -106,6 +229,16 @@ const CardStatusObject = new GraphQLObjectType({
   fields: () => ({
     ground: { type: CardGroundStatus },
     status: { type: CardStatus },
+    distance: { type: CardDistanceStatus },
+    strategy: { type: CardStrategyStatus },
+  }),
+});
+
+const CardNameType = new GraphQLObjectType({
+  name: "CardNameType",
+  fields: () => ({
+    ko: { type: GraphQLString },
+    ja: { type: GraphQLString },
   }),
 });
 
@@ -115,7 +248,7 @@ const CardType = new GraphQLObjectType({
     id: { type: GraphQLID },
     star: { type: GraphQLInt },
     targetID: { type: GraphQLID },
-    name: { type: GraphQLString },
+    name: { type: CardNameType },
     imageSrc: { type: GraphQLString },
     type: { type: GraphQLString },
     playable: { type: GraphQLBoolean },
@@ -125,19 +258,13 @@ const CardType = new GraphQLObjectType({
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {
         return axios
-          .get(`${dbServer}/skills`, { targetIDs_like: parentValue.id })
+          .get(`${dbServer}/skills?targetIDs_like=${parentValue.id}`)
           .then((res) => res.data)
           .catch((_err) => []);
       },
     },
     events: {
-      type: new GraphQLList(EventType),
-      resolve(parentValue, _args) {
-        return axios
-          .get(`${dbServer}/events`, { targetID: parentValue.id })
-          .then((res) => res.data)
-          .catch((_err) => []);
-      },
+      type: CardEventType,
     },
   }),
 });

@@ -28,7 +28,7 @@ const editCard = {
   },
   resolve(_parentValue, { id, input }) {
     return axios
-      .patch(`${dbServer}/cards/${id}`, { id, ...input })
+      .patch(`${dbServer}/cards/${id}`, { ...input })
       .then((res) => res.data);
   },
 };
