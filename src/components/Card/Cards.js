@@ -14,11 +14,17 @@ import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRoun
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import Loader from "components/Common/Loader";
+
 import CardTags from "./CardTags";
 import SearchForm from "../SearchForm";
 import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
+  cardsWrapper: {
+    maxWidth: "800px",
+    margin: "auto",
+  },
   addButton: {
     position: "fixed",
     bottom: "1.5rem",
@@ -26,6 +32,7 @@ const useStyles = makeStyles((_theme) => ({
   },
   cardWrapper: {
     display: "flex",
+    flexWrap: "wrap",
   },
   cardRoot: {
     display: "flex",
@@ -54,6 +61,20 @@ const useStyles = makeStyles((_theme) => ({
     top: "3px",
     right: "3px",
   },
+  name: {
+    fontSize: "12px",
+  },
+  cardImgWrapper: {
+    position: "relative",
+  },
+
+  typeIcon: {
+    width: "25px",
+    height: "25px",
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+  },
 }));
 
 export const CardList = (_props) => {
@@ -67,40 +88,53 @@ export const CardList = (_props) => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
 
   return (
-    <div>
+    <div className={classes.cardsWrapper}>
       <h1>육성/서포터 카드 리스트</h1>
       <SearchForm data={data.cards} handleSearch={setCardList} />
       <div className={classes.cardWrapper}>
-        {cardList.map(({ name, id, imageSrc, star, type, limited }) => {
-          return (
-            <Card className={clsx(classes.cardRoot)} key={`card-${id}`}>
-              {limited && (
-                <FilterVintageRoundedIcon
-                  className={clsx(classes.limited)}
-                  color="secondary"
-                />
-              )}
-              <Link className={clsx(classes.linkWrapper)} to={`/cards/${id}`}>
-                <CardMedia
-                  className={clsx(classes.cardMedia)}
-                  image={imageSrc || "/image/temp.png"}
-                  title={`${name.ja} ${name.ko}`}
-                />
-                <CardContent className={clsx(classes.cardContent)}>
-                  <div>
-                    {name.ja} {name.ko}
+        {cardList.map(
+          ({ name, id, imageSrc, star, type, limited, supportType }) => {
+            return (
+              <Card className={clsx(classes.cardRoot)} key={`card-${id}`}>
+                {limited && (
+                  <FilterVintageRoundedIcon
+                    className={clsx(classes.limited)}
+                    color="secondary"
+                  />
+                )}
+                <Link className={clsx(classes.linkWrapper)} to={`/cards/${id}`}>
+                  <div className={classes.cardImgWrapper}>
+                    <CardMedia
+                      className={clsx(classes.cardMedia)}
+                      image={imageSrc || "/image/temp.png"}
+                      title={`${name.ja} ${name.ko}`}
+                    />
+                    {supportType && (
+                      <img
+                        className={classes.typeIcon}
+                        src={`/image/icons/${supportType}.png`}
+                        alt={supportType}
+                      />
+                    )}
                   </div>
-                  <Rating max={5} value={star} name={name.ja} disabled />
-                  <CardTags type={type} limited={limited} />
-                </CardContent>
-              </Link>
-            </Card>
-          );
-        })}
+                  <CardContent className={clsx(classes.cardContent)}>
+                    <div className={classes.name}>
+                      {name.ja}
+                      <br />
+                      {name.ko}
+                    </div>
+                    <Rating max={5} value={star} name={name.ja} disabled />
+                    <CardTags type={type} limited={limited} />
+                  </CardContent>
+                </Link>
+              </Card>
+            );
+          }
+        )}
       </div>
       {isDev && (
         <Link to={"/admin/cards/new"} className={classes.addButton}>

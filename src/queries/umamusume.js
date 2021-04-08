@@ -33,6 +33,7 @@ export const GET_UMAMUSUMES_All_DATA = gql`
         type
         playable
         limited
+        supportType
       }
     }
   }
@@ -60,6 +61,7 @@ export const GET_UMAMUSUME = gql`
         type
         playable
         limited
+        supportType
       }
     }
   }

@@ -8,7 +8,10 @@ import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+
 import clsx from "clsx";
+
+import Loader from "components/Common/Loader";
 
 import SearchCards from "../Card/SearchCards";
 
@@ -16,7 +19,7 @@ import { FIND_CARDS } from "queries/cards";
 import { GET_SKILLS, GET_SKill, EDIT_SKILL } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
-import { iconData, skillTypes } from "./constants";
+import { iconData } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -90,8 +93,8 @@ const EditSkill = (props) => {
       ja: "",
       targetIDs: [],
       effect: "",
+      condition: "",
       imageSrc: iconData[0].value,
-      type: "",
       tags: "",
     }
   );
@@ -144,11 +147,11 @@ const EditSkill = (props) => {
         input,
       },
       refetchQueries: [
-        { query: GET_SKILLS },
         {
           query: GET_SKill,
           variables: { id },
         },
+        { query: GET_SKILLS },
       ],
       awaitRefetchQueries: true,
     }).then(() => {
@@ -163,7 +166,7 @@ const EditSkill = (props) => {
     setModalState(false);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
 
   const { skill } = data;
   if (error || !skill) return <p>Error :(</p>;
@@ -173,14 +176,6 @@ const EditSkill = (props) => {
       <FormControl>
         <TextField
           className={clsx(classes.root)}
-          id="name-ko"
-          name="ko"
-          label="한국어 이름"
-          value={formData.ko}
-          onChange={handleChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
           required
           id="name-ja"
           name="ja"
@@ -188,6 +183,16 @@ const EditSkill = (props) => {
           value={formData.ja}
           onChange={handleChange}
         />
+
+        <TextField
+          className={clsx(classes.root)}
+          id="name-ko"
+          name="ko"
+          label="한국어 이름"
+          value={formData.ko}
+          onChange={handleChange}
+        />
+
         <TextField
           className={clsx(classes.root)}
           required
@@ -195,6 +200,14 @@ const EditSkill = (props) => {
           name="effect"
           label="효과 및 설명"
           value={formData.effect}
+          onChange={handleChange}
+        />
+        <TextField
+          className={clsx(classes.root)}
+          id="condition"
+          name="condition"
+          label="발동 조건"
+          value={formData.condition}
           onChange={handleChange}
         />
 
@@ -206,24 +219,6 @@ const EditSkill = (props) => {
           value={formData.tags}
           onChange={handleChange}
         />
-
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={formData.type}
-          id="type"
-          name="type"
-          label="스킬 종류"
-          value={skill.type}
-          onChange={handleChange}
-        >
-          {skillTypes.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
 
         <IconRadioGroups
           data={iconData}

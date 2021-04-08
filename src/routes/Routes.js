@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import Main from "pages/Main";
 import Admin from "pages/Admin";
 import UmamusumeList from "components/Umamusume/UmamusumeList";
@@ -14,6 +19,7 @@ import Skills from "components/Skills/Skills";
 import SkillInfo from "components/Skills/SkillInfo";
 import AddSkill from "components/forms/Admin/Skills/AddSkill";
 import EditSkill from "components/forms/Admin/Skills/EditSkill";
+import HomeButton from "components/Common/HomeButton";
 
 import { isDev } from "../constants";
 
@@ -45,8 +51,11 @@ function AppRoutes() {
             <Route exact path="/admin/skills/new" component={AddSkill} />
             <Route exact path="/admin/skills/:id/edit" component={EditSkill} />
           </Route>
-        ) : null}
+        ) : (
+          <Redirect to="/" />
+        )}
       </Switch>
+      <HomeButton />
     </Router>
   );
 }

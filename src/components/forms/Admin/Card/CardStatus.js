@@ -6,7 +6,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
-import _ from "lodash";
 
 import { ranks } from "./constants";
 
@@ -310,7 +309,7 @@ const CardStatus = ({ data, onChange }) => {
         value={data.stamina?.rank || "G"}
         id="stamina-rank"
         name="stamina-rank"
-        label="스태미너 스탯"
+        label="스태미나 스탯"
         onChange={onChange}
       >
         {ranks.map((option) => (
@@ -324,7 +323,7 @@ const CardStatus = ({ data, onChange }) => {
         required
         id="stamina-bonus"
         name="stamina-bonus"
-        label="스테미너 스탯 보너스"
+        label="스태미나 스탯 보너스"
         value={"0"}
         onChange={onChange}
       />

@@ -7,8 +7,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
-import _ from "lodash";
-
 const useStyles = makeStyles((_theme) => ({
   root: {
     marginTop: "16px",

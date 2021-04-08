@@ -133,7 +133,7 @@ const StatusTable = ({ data }) => {
               스피드
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              스테미너
+              스태미나
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
               파워

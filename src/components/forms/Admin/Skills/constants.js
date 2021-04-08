@@ -11,7 +11,7 @@ export const iconData = [
   },
   {
     value: "/image/skill/i_skill_003.png",
-    label: "속도 상승 (고유)",
+    label: "속도 상승(고유)",
     id: "i_skill_003",
   },
   {
@@ -45,19 +45,14 @@ export const iconData = [
     id: "i_skill_010",
   },
   {
-    value: "/image/skill/i_skill_011.png",
-    label: "스테미너 버프",
-    id: "i_skill_011",
+    value: "/image/skill/i_skill_013.png",
+    label: "스태미나 버프",
+    id: "i_skill_013",
   },
   {
     value: "/image/skill/i_skill_012.png",
     label: "파워, 피지컬 버프",
     id: "i_skill_012",
-  },
-  {
-    value: "/image/skill/i_skill_013.png",
-    label: "파워, 피지컬 버프",
-    id: "i_skill_013",
   },
   {
     value: "/image/skill/i_skill_014.png",
@@ -66,8 +61,13 @@ export const iconData = [
   },
   {
     value: "/image/skill/i_skill_015.png",
-    label: "근성 버프",
+    label: "파워, 피지컬 버프",
     id: "i_skill_015",
+  },
+  {
+    value: "/image/skill/i_skill_011.png",
+    label: "근성 버프",
+    id: "i_skill_011",
   },
   {
     value: "/image/skill/i_skill_016.png",
@@ -95,6 +95,11 @@ export const iconData = [
     id: "i_skill_020",
   },
   {
+    value: "/image/skill/i_skill_027.png",
+    label: "시야 디버프",
+    id: "i_skill_027",
+  },
+  {
     value: "/image/skill/i_skill_021.png",
     label: "도발 디버프",
     id: "i_skill_021",
@@ -111,17 +116,17 @@ export const iconData = [
   },
   {
     value: "/image/skill/i_skill_024.png",
-    label: "스테미너 회복",
+    label: "스태미나 회복",
     id: "i_skill_024",
   },
   {
     value: "/image/skill/i_skill_025.png",
-    label: "스테미너 회복",
+    label: "스태미나 회복",
     id: "i_skill_025",
   },
   {
     value: "/image/skill/i_skill_026.png",
-    label: "스테미너 회복 (고유)",
+    label: "스태미나 회복 (고유)",
     id: "i_skill_026",
   },
 ];

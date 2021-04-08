@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";

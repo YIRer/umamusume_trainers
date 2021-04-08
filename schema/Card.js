@@ -119,6 +119,23 @@ const CardNameInputType = new GraphQLInputObjectType({
   }),
 });
 
+const CardBonusInputType = new GraphQLInputObjectType({
+  name: "CardBonusInputType",
+  fields: () => ({
+    level: { type: GraphQLString },
+    effect: { type: GraphQLString },
+    maxEffect: { type: GraphQLString },
+  }),
+});
+
+const CardBonusObjectType = new GraphQLInputObjectType({
+  name: "CardBonusObjectType",
+  fields: () => ({
+    unique: { type: new GraphQLList(CardBonusInputType) },
+    support: { type: new GraphQLList(CardBonusInputType) },
+  }),
+});
+
 const CardInputType = new GraphQLInputObjectType({
   name: "CardInputType",
   fields: () => ({
@@ -128,9 +145,14 @@ const CardInputType = new GraphQLInputObjectType({
     targetID: { type: GraphQLID },
     imageSrc: { type: GraphQLString },
     type: { type: new GraphQLNonNull(GraphQLString) },
+    supportType: { type: new GraphQLNonNull(GraphQLString) },
     playable: { type: new GraphQLNonNull(GraphQLBoolean) },
     limited: { type: new GraphQLNonNull(GraphQLBoolean) },
     status: { type: CardStatusObjectInput },
+    bonus: { type: CardBonusObjectType },
+    uniqueSkillsIds: { type: new GraphQLList(GraphQLID) },
+    trainingSkillsIds: { type: new GraphQLList(GraphQLID) },
+    hasSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillInputType),
     },
@@ -242,6 +264,23 @@ const CardNameType = new GraphQLObjectType({
   }),
 });
 
+const CardBonusType = new GraphQLObjectType({
+  name: "CardBonusType",
+  fields: () => ({
+    level: { type: GraphQLString },
+    effect: { type: GraphQLString },
+    maxEffect: { type: GraphQLString },
+  }),
+});
+
+const CardBonusObject = new GraphQLObjectType({
+  name: "CardBonusObject",
+  fields: () => ({
+    unique: { type: new GraphQLList(CardBonusType) },
+    support: { type: new GraphQLList(CardBonusType) },
+  }),
+});
+
 const CardType = new GraphQLObjectType({
   name: "Card",
   fields: () => ({
@@ -251,9 +290,14 @@ const CardType = new GraphQLObjectType({
     name: { type: CardNameType },
     imageSrc: { type: GraphQLString },
     type: { type: GraphQLString },
+    supportType: { type: new GraphQLNonNull(GraphQLString) },
     playable: { type: GraphQLBoolean },
     limited: { type: GraphQLBoolean },
     status: { type: CardStatusObject },
+    bonus: { type: CardBonusObject },
+    uniqueSkillsIds: { type: new GraphQLList(GraphQLID) },
+    trainingSkillsIds: { type: new GraphQLList(GraphQLID) },
+    hasSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {

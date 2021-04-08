@@ -33,6 +33,12 @@ export default function SearchForm({ data, handleSearch }) {
     handleSearch(searchData);
   };
 
+  const handleKeyUp = (e) => {
+    if (e.key === "Enter") {
+      onSearch();
+    }
+  };
+
   return (
     <div className={classes.wrapper}>
       <TextField
@@ -41,6 +47,7 @@ export default function SearchForm({ data, handleSearch }) {
         onBlur={handleChange}
         label="이름 입력"
         id="search"
+        onKeyUp={handleKeyUp}
       />
       <Button
         className={classes.searchBtn}

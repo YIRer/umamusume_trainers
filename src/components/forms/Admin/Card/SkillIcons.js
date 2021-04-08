@@ -4,7 +4,6 @@ import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
-import _ from "lodash";
 
 const useStyles = makeStyles((_theme) => ({
   skillCard: {
@@ -28,6 +27,7 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    fontSize: "12px",
   },
 }));
 
@@ -43,7 +43,7 @@ const SkillIcons = ({ name, imageSrc, effect }) => {
       <div className={classes.skillWrapper}>
         <img className={classes.skillIcon} src={imageSrc} alt={name} />
         <div className={classes.skillInfoWrapper}>
-          <b>{`${name.ko} ${name.ja}`}</b>
+          <b>{`${name.ja} ${name.ko}`}</b>
           <span>{effect}</span>
         </div>
       </div>

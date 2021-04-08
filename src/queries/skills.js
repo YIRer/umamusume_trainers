@@ -11,8 +11,8 @@ export const GET_SKILLS = gql`
       targetIDs
       effect
       imageSrc
-      type
       tags
+      condition
     }
   }
 `;
@@ -28,8 +28,8 @@ export const GET_SKill = gql`
       targetIDs
       effect
       imageSrc
-      type
       tags
+      condition
     }
   }
 `;
@@ -45,8 +45,8 @@ export const ADD_Sklill = gql`
       targetIDs
       effect
       imageSrc
-      type
       tags
+      condition
     }
   }
 `;
@@ -62,8 +62,8 @@ export const EDIT_SKILL = gql`
       targetIDs
       effect
       imageSrc
-      type
       tags
+      condition
     }
   }
 `;

@@ -9,3 +9,13 @@ export const getTypeName = (skilType) => {
       return "육성 스킬";
   }
 };
+
+export const convertLevel = (item) => {
+  switch (item.level) {
+    case "none":
+      return "없음";
+
+    default:
+      return `${item.level} ~`;
+  }
+};

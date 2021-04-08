@@ -59,6 +59,7 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    fontSize: "12px",
     "& > span": {
       fontSize: "12px",
     },
@@ -110,7 +111,7 @@ const SearchSkills = (props) => {
   };
 
   const onSearch = () => {
-    const searchData = data.cards.filter(({ name, tags }) => {
+    const searchData = data.skills.filter(({ name, tags }) => {
       return (
         name.ko.includes(keyword) ||
         name.ja.includes(keyword) ||

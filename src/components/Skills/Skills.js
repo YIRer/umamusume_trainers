@@ -11,10 +11,17 @@ import clsx from "clsx";
 import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRounded";
 
 import { makeStyles } from "@material-ui/core/styles";
+
+import Loader from "components/Common/Loader";
+
 import SearchForm from "../SearchForm";
 import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
+  skillListWrapper: {
+    maxWidth: "880px",
+    margin: "auto",
+  },
   addButton: {
     position: "fixed",
     bottom: "1.5rem",
@@ -24,9 +31,12 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
+    minHeight: "64px",
   },
 
   cardContentRoot: {
+    width: "10rem",
+    fontSize: "12px",
     "&:last-child": {
       paddingBottom: "16px",
     },
@@ -39,8 +49,10 @@ const useStyles = makeStyles((_theme) => ({
   },
   linkWrapper: {
     width: "100%",
-    maxWidth: "200px",
+    maxWidth: "276px",
+    height: "64px",
     marginRight: "16px",
+    marginBottom: "16px",
   },
 }));
 
@@ -55,10 +67,10 @@ export const Skills = (_props) => {
     }
   }, [data]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   return (
-    <div>
+    <div className={classes.skillListWrapper}>
       <h1>스킬 리스트</h1>
       <SearchForm data={data.skills} handleSearch={setSkillList} />
       {skillList.map(({ name, id, imageSrc }) => {
@@ -75,9 +87,9 @@ export const Skills = (_props) => {
                 title={name}
               />
               <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>
-                {name.ko}
-                <br />
                 {name.ja}
+                <br />
+                {name.ko}
               </CardContent>
             </Card>
           </Link>

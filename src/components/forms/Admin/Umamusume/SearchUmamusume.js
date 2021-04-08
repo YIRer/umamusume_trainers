@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 const useStyles = makeStyles((_theme) => ({
-  paper: { width: "368px", minHeight: "500px" },
+  paper: { width: "385px", minHeight: "500px" },
 
   cardWrapper: {
     display: "flex",

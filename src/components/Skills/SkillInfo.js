@@ -14,6 +14,8 @@ import Chip from "@material-ui/core/Chip";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import Loader from "components/Common/Loader";
+
 import clsx from "clsx";
 
 import { isDev } from "../../constants";
@@ -104,7 +106,7 @@ const SkillInfo = (props) => {
     props.history.goBack();
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   const { skill } = data;
   if (!skill) return <p>Error :(</p>;
@@ -139,17 +141,29 @@ const SkillInfo = (props) => {
       </div>
       <section className={classes.infoSection}>
         <img className={classes.image} src={skill.imageSrc} />
-        <h3 className={classes.name}>{`${skill.name.ko} ${skill.name.ja}`}</h3>
+        <h3 className={classes.name}>
+          {skill.name.ja} <br />
+          {skill.name.ko}
+        </h3>
         <p>{skill.effect}</p>
+        <p>{skill.condition}</p>
         <div>
           {skill.tags.map(
-            (tag) => tag && <Chip key={tag} variant="outlined" label={tag} />
+            (tag) =>
+              tag && (
+                <Chip
+                  style={{ marginRight: "8px", marginBottom: "8px" }}
+                  key={tag}
+                  variant="outlined"
+                  label={tag}
+                />
+              )
           )}
         </div>
       </section>
       <section className={classes.section}>
         <h4>관련 카드</h4>
-        {targetsData?.findCards ? (
+        {targetsData?.findCards && targetsData?.findCards.length > 0 ? (
           targetsData.findCards.map((card) => (
             <Link
               to={`/cards/${card.id}`}

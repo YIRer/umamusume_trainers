@@ -9,6 +9,7 @@ export const GET_CARDS = gql`
       type
       playable
       limited
+      supportType
       name {
         ko
         ja
@@ -27,6 +28,7 @@ export const FIND_CARDS = gql`
       type
       playable
       limited
+      supportType
       name {
         ko
         ja
@@ -49,7 +51,11 @@ export const GET_CARDS_All_DATA = gql`
       imageSrc
       type
       playable
+      supportType
       limited
+      uniqueSkillsIds
+      trainingSkillsIds
+      hasSkillsIds
       skills {
         name {
           ko
@@ -59,7 +65,6 @@ export const GET_CARDS_All_DATA = gql`
         targetIDs
         id
         effect
-        type
       }
       status {
         ground {
@@ -170,6 +175,17 @@ export const GET_CARDS_All_DATA = gql`
             description
             result
           }
+        }
+      }
+      bonus {
+        unique {
+          level
+          effect
+        }
+        support {
+          level
+          effect
+          maxEffect
         }
       }
     }
@@ -189,7 +205,11 @@ export const GET_CARD = gql`
       imageSrc
       type
       playable
+      supportType
       limited
+      uniqueSkillsIds
+      trainingSkillsIds
+      hasSkillsIds
       skills {
         name {
           ko
@@ -198,7 +218,6 @@ export const GET_CARD = gql`
         imageSrc
         id
         effect
-        type
         targetIDs
       }
       status {
@@ -319,6 +338,17 @@ export const GET_CARD = gql`
             }
             result
           }
+        }
+      }
+      bonus {
+        unique {
+          level
+          effect
+        }
+        support {
+          level
+          effect
+          maxEffect
         }
       }
     }
@@ -338,7 +368,11 @@ export const ADD_CARD = gql`
       imageSrc
       type
       playable
+      supportType
       limited
+      uniqueSkillsIds
+      trainingSkillsIds
+      hasSkillsIds
       skills {
         name {
           ko
@@ -347,7 +381,6 @@ export const ADD_CARD = gql`
         imageSrc
         id
         effect
-        type
       }
       status {
         ground {
@@ -469,6 +502,17 @@ export const ADD_CARD = gql`
           }
         }
       }
+      bonus {
+        unique {
+          level
+          effect
+        }
+        support {
+          level
+          effect
+          maxEffect
+        }
+      }
     }
   }
 `;
@@ -486,7 +530,11 @@ export const EDIT_CARD = gql`
       imageSrc
       type
       playable
+      supportType
       limited
+      uniqueSkillsIds
+      trainingSkillsIds
+      hasSkillsIds
       skills {
         name {
           ko
@@ -495,7 +543,6 @@ export const EDIT_CARD = gql`
         imageSrc
         id
         effect
-        type
         targetIDs
       }
       status {
@@ -616,6 +663,17 @@ export const EDIT_CARD = gql`
             }
             result
           }
+        }
+      }
+      bonus {
+        unique {
+          level
+          effect
+        }
+        support {
+          level
+          effect
+          maxEffect
         }
       }
     }

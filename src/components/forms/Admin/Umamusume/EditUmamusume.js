@@ -7,7 +7,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
+
 import clsx from "clsx";
+
+import Loader from "components/Common/Loader";
 
 import { GET_UMAMUSUME, EDIT_UMAMUSUME } from "queries/umamusume";
 
@@ -79,7 +82,7 @@ const EditUmamusume = (props) => {
     e.preventDefault();
     const { ko, ja, en, cards } = formData;
 
-    const removeSpace = en.replace(" ", "");
+    const removeSpace = en.replace(/\s/g, "").trim();
     const input = {
       name: { ko, ja, en, default: removeSpace },
       cards,
@@ -96,7 +99,7 @@ const EditUmamusume = (props) => {
     });
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   const { umamusume } = data;
   if (!umamusume) return <p>Error :(</p>;

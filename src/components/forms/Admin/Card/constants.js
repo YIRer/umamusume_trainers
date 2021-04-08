@@ -195,10 +195,27 @@ export const commonEvents = [
   },
 ];
 
+export const bonusTypes = [
+  { value: "unique", label: "고유 보너스" },
+  { value: "initial", label: "초기 능력" },
+  { value: "max", label: "레벨 최대시" },
+];
+
+export const supportTypes = [
+  { value: "speed", label: "스피드" },
+  { value: "stamina", label: "스테미너" },
+  { value: "power", label: "파워" },
+  { value: "guts", label: "근성" },
+  { value: "int", label: "지능" },
+  { value: "friend", label: "친구" },
+];
+
 export default {
   ranks,
   stars,
   cardTypes,
   commonEvents,
   initialStatusData,
+  bonusTypes,
+  supportTypes,
 };

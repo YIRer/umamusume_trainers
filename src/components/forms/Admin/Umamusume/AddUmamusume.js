@@ -52,7 +52,7 @@ const AddUmamusume = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { ko, ja, en, cards } = formData;
-    const removeSpace = en.replace(" ", "");
+    const removeSpace = en.replace(/\s/g, "").trim();
     const input = {
       name: { ko, ja, en, default: removeSpace },
       cards,

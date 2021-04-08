@@ -16,12 +16,13 @@ import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
 import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
-import { stars, cardTypes, initialStatusData } from "./constants";
+import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
 import CardStatus from "./CardStatus";
 import CardEventForm from "./CardEventForm/Form";
+import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 
 const useStyles = makeStyles((_theme) => ({
@@ -74,13 +75,26 @@ const useStyles = makeStyles((_theme) => ({
   button: {
     marginBottom: "16px",
   },
+  skillWrapper: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  skillButton: {
+    width: "calc(33% - 8px)",
+    marginBottom: "16px",
+  },
 }));
 
 const AddCard = (props) => {
   const classes = useStyles();
-  const [isTrainingType, checkCardtype] = useState(false);
+  const [isTrainingType, setTrainingType] = useState(false);
   const [targetInfo, setTarget] = useState(null);
-  const [relatedSkills, setRelatedSkills] = useState([]);
+  const [relatedSkills, setRelatedSkills] = useState({
+    unique: [],
+    training: [],
+    has: [],
+  });
+  const [selectedSkillType, setSelectedSkillType] = useState("");
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
   const [addCard, _mutationData] = useMutation(ADD_CARD);
@@ -98,11 +112,16 @@ const AddCard = (props) => {
       imageSrc: "",
       type: "training", //common, support
       playable: false,
+      supportType: "",
       limited: false,
       events: {
         common: [],
         once: [],
         multipleTimes: [],
+      },
+      bonus: {
+        unique: [],
+        support: [],
       },
     }
   );
@@ -142,8 +161,9 @@ const AddCard = (props) => {
     const name = e.target.name;
     const value = e.target.checked;
     if (name === "playable") {
-      checkCardtype(value);
+      setTrainingType(value);
     }
+
     setFormInput({ [name]: value });
   };
 
@@ -157,6 +177,10 @@ const AddCard = (props) => {
 
   const handleChangeEvents = (eventData) => {
     setFormInput({ events: eventData });
+  };
+
+  const handleUpdateBonus = (bonusData) => {
+    setFormInput({ bonus: { ...bonusData } });
   };
 
   const handleSubmit = (e) => {
@@ -175,7 +199,7 @@ const AddCard = (props) => {
       pushing,
       ...others
     } = statusData;
-    const { ko, ja, type, imageName, events, ...formDatas } = formData;
+    const { ko, ja, type, imageName, events, bonus, ...formDatas } = formData;
 
     const imageSrc =
       targetInfo && imageName
@@ -191,6 +215,9 @@ const AddCard = (props) => {
       type,
       imageSrc,
       targetID: targetInfo?.id || null,
+      uniqueSkillsIds: relatedSkills.unique.map(({ id }) => id),
+      trainingSkillsIds: relatedSkills.training.map(({ id }) => id),
+      hasSkillsIds: relatedSkills.has.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -210,7 +237,8 @@ const AddCard = (props) => {
         },
         status: others,
       },
-      events: removeTempIDs(events),
+      events: removeEventTempIDs(events),
+      bonus: removeBonusTempIDs(bonus),
     };
 
     addCard({
@@ -225,7 +253,13 @@ const AddCard = (props) => {
         addIds: [],
         addTargetIDs: [],
       };
-      relatedSkills.forEach((skillData) => {
+      const skillList = [
+        ...relatedSkills.unique,
+        ...relatedSkills.training,
+        ...relatedSkills.has,
+      ];
+
+      skillList.forEach((skillData) => {
         params.addIds.push(skillData.id);
         params.addTargetIDs.push(_.uniq([...skillData.targetIDs, addCard.id]));
       });
@@ -242,7 +276,17 @@ const AddCard = (props) => {
     });
   };
 
-  const removeTempIDs = (events) => {
+  const removeBonusTempIDs = (bonus) => {
+    const unique = bonus.unique.map((d) => _.omit(d, ["__tempID"]));
+    const support = bonus.support.map((d) => _.omit(d, ["__tempID"]));
+
+    return {
+      unique,
+      support,
+    };
+  };
+
+  const removeEventTempIDs = (events) => {
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
@@ -267,6 +311,22 @@ const AddCard = (props) => {
   };
   const hideSkillSearchModal = () => {
     setSkillSearchModalState(false);
+  };
+
+  const handleSelect = (targets) => {
+    setRelatedSkills({ ...relatedSkills, [selectedSkillType]: targets });
+  };
+  const showUniqueSkillSearchModal = () => {
+    setSelectedSkillType("unique");
+    showSkillSearchModal();
+  };
+  const showTrainingSkillSearchModal = () => {
+    setSelectedSkillType("training");
+    showSkillSearchModal();
+  };
+  const showHasSkillSearchModal = () => {
+    setSelectedSkillType("has");
+    showSkillSearchModal();
   };
 
   return (
@@ -346,8 +406,30 @@ const AddCard = (props) => {
           }
           label="육성 가능"
         />
-        {isTrainingType && (
+
+        {!isTrainingType && (
+          <TextField
+            className={clsx(classes.root)}
+            required
+            select
+            value={formData.supportType || "supportType"}
+            id="supportType"
+            name="supportType"
+            label="카드 적성"
+            onChange={handleChange}
+          >
+            {supportTypes.map((option) => (
+              <MenuItem key={`type-${option.value}`} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        )}
+
+        {isTrainingType ? (
           <CardStatus data={statusData} onChange={handleStatusChange} />
+        ) : (
+          <CardBonusForm onChangeBonus={handleUpdateBonus} />
         )}
 
         <CardEventForm onChangeEvents={handleChangeEvents} />
@@ -376,31 +458,85 @@ const AddCard = (props) => {
           onClose={hideSearchModal}
         />
 
-        {relatedSkills &&
-          relatedSkills.map((skillData, index) => (
-            <SkillIcons
-              name={skillData.name}
-              imageSrc={skillData.imageSrc}
-              effect={skillData.effect}
-              key={`skill_${index}`}
-            />
-          ))}
+        {relatedSkills.unique.length > 0 && (
+          <div>
+            <b>고유 스킬</b>
+            {relatedSkills.unique.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
 
-        <Button
-          type="button"
-          variant="outlined"
-          color="primary"
-          onClick={showSkillSearchModal}
-          className={classes.button}
-        >
-          관련된 스킬 선택
-        </Button>
+        {relatedSkills.training.length > 0 && (
+          <div>
+            <b>육성 스킬</b>
+            {relatedSkills.training.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
 
-        <SearchSkills
-          open={skillSearchModalOpened}
-          onSelect={setRelatedSkills}
-          onClose={hideSkillSearchModal}
-        />
+        {relatedSkills.has.length > 0 && (
+          <div>
+            <b>소지 스킬</b>
+            {relatedSkills.has.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        <div className={classes.skillWrapper}>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showUniqueSkillSearchModal}
+            className={classes.skillButton}
+          >
+            고유 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showTrainingSkillSearchModal}
+            className={classes.skillButton}
+          >
+            육성 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showHasSkillSearchModal}
+            className={classes.skillButton}
+          >
+            소지 스킬 선택
+          </Button>
+        </div>
+        {skillSearchModalOpened && (
+          <SearchSkills
+            open
+            selectedData={relatedSkills[selectedSkillType]}
+            onSelect={handleSelect}
+            onClose={hideSkillSearchModal}
+          />
+        )}
 
         <Button
           type="submit"

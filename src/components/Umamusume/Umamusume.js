@@ -17,6 +17,8 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
+import Loader from "components/Common/Loader";
+
 import { isDev } from "../../constants";
 
 const useStyles = makeStyles((_theme) => ({
@@ -65,9 +67,17 @@ const useStyles = makeStyles((_theme) => ({
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     marginBottom: "10px",
+    position: "relative",
   },
   paperRoot: {
     padding: "16px",
+  },
+  typeIcon: {
+    width: "20px",
+    height: "20px",
+    position: "absolute",
+    right: "12px",
+    bottom: 0,
   },
 }));
 
@@ -102,6 +112,7 @@ const Umamusume = (props) => {
   const renderCards = (data, type) => {
     return data.map((card) => {
       if (card.type === type) {
+        console.log(card);
         return (
           <Link
             to={`/cards/${card.id}`}
@@ -113,14 +124,20 @@ const Umamusume = (props) => {
               style={{
                 backgroundImage: `url(${card.imageSrc})`,
               }}
-            />
+            >
+              <img
+                className={classes.typeIcon}
+                src={`/image/icons/${card.supportType}.png`}
+                alt={card.supportType}
+              />
+            </div>
           </Link>
         );
       }
     });
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   const { umamusume } = data;
   if (!umamusume) return <p>Error :(</p>;
@@ -165,7 +182,7 @@ const Umamusume = (props) => {
           {renderCards(umamusume.cards, "training")}
         </div>
         <div>
-          <h3>서포터</h3>
+          <h4>서포터</h4>
           {renderCards(umamusume.cards, "support")}
         </div>
       </section>

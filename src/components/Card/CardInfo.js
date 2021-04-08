@@ -18,9 +18,13 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
 
 import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
+
+import Loader from "components/Common/Loader";
+
 import CardTags from "./CardTags";
 import StatusTable from "./StatusTable";
 import BuffModal from "./BuffModal";
+import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
 import { isDev } from "../../constants";
@@ -51,9 +55,14 @@ const useStyles = makeStyles((_theme) => ({
     margin: "10px",
   },
   image: {
-    maxHeight: "500px",
+    height: "500px",
     margin: "auto",
     display: "block",
+    width: "100%",
+    marginTop: "16px",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
   },
   icon: {
     fontSize: "1.5rem",
@@ -83,9 +92,10 @@ const useStyles = makeStyles((_theme) => ({
     flexWrap: "wrap",
   },
   skillWrapper: {
-    width: "40%",
-    maxWidth: "250px",
+    width: "calc(40% - 8px)",
+    marginBottom: "16px",
     marginRight: "16px",
+    minWidth: "270px",
   },
   skillMedia: {
     width: "50px",
@@ -98,9 +108,7 @@ const useStyles = makeStyles((_theme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
     width: "100%",
-    "& > span": {
-      fontSize: "12px",
-    },
+    fontSize: "12px",
   },
   skillImgAndInfo: {
     display: "flex",
@@ -124,10 +132,21 @@ const useStyles = makeStyles((_theme) => ({
     backgroundColor: "#0068ad",
   },
   iconInfo: {
-    fontSize: "56px",
+    fontSize: "2rem",
     position: "fixed",
     bottom: "20px",
     right: "20px",
+  },
+
+  head: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  typeIcon: {
+    width: "20px",
+    height: "20px",
+    marginRight: "8px",
   },
 }));
 
@@ -139,11 +158,42 @@ const CardInfo = (props) => {
   });
 
   const [openModal, setOpenModal] = useState(false);
+  const [relatedSkills, setRelatedSkills] = useState({
+    unique: [],
+    training: [],
+    has: [],
+  });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
   const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
 
+  const setInitialSkills = (cardData) => {
+    const {
+      uniqueSkillsIds,
+      trainingSkillsIds,
+      hasSkillsIds,
+      skills,
+    } = cardData;
+
+    const parmas = { unique: [], training: [], has: [] };
+
+    skills.forEach((skill) => {
+      if (uniqueSkillsIds.includes(skill.id)) {
+        parmas.unique.push(skill);
+      } else if (trainingSkillsIds.includes(skill.id)) {
+        parmas.training.push(skill);
+      } else if (hasSkillsIds.includes(skill.id)) {
+        parmas.has.push(skill);
+      }
+    });
+
+    setRelatedSkills(parmas);
+  };
+
   useEffect(() => {
+    if (data?.card) {
+      setInitialSkills(data.card);
+    }
     if (data?.card.targetID && !targetData) {
       getTargetInfo({ variables: { id: data.card.targetID } });
     }
@@ -198,9 +248,9 @@ const CardInfo = (props) => {
           />
           <div className={classes.skillInfo}>
             <b>
-              {skill.name.ko}
-              <br />
               {skill.name.ja}
+              <br />
+              {skill.name.ko}
             </b>
             <span>{skill.effect}</span>
           </div>
@@ -209,7 +259,7 @@ const CardInfo = (props) => {
     );
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   const { card } = data;
   if (!card) return <p>Error :(</p>;
@@ -217,7 +267,14 @@ const CardInfo = (props) => {
   return (
     <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
-        <h3>
+        <h3 className={classes.head}>
+          {card.supportType && (
+            <img
+              className={classes.typeIcon}
+              src={`/image/icons/${card.supportType}.png`}
+              alt={card.supportType}
+            />
+          )}
           {card.name.ja} {card.name.ko}
         </h3>
         <div className={classes.icons}>
@@ -250,30 +307,30 @@ const CardInfo = (props) => {
       </div>
 
       <CardTags type={card.type} limited={card.limited} />
-      <img className={classes.image} src={card.imageSrc} />
-      <StatusTable data={card} />
+      <div
+        style={{
+          backgroundImage: `url(${card.imageSrc})`,
+        }}
+        className={classes.image}
+      />
+      {card.playable && <StatusTable data={card} />}
+      <BonusTable data={card.bonus} />
       <section className={classes.section}>
         <h4>고유 스킬</h4>
         <div className={classes.skillCardsWrapper}>
-          {card.skills.map(
-            (skill) => skill.type === "unique" && renderSkillCards(skill)
-          )}
+          {relatedSkills.unique.map((skill) => renderSkillCards(skill))}
         </div>
       </section>
       <section className={classes.section}>
         <h4>육성 스킬</h4>
         <div className={classes.skillCardsWrapper}>
-          {card.skills.map(
-            (skill) => skill.type === "training" && renderSkillCards(skill)
-          )}
+          {relatedSkills.training.map((skill) => renderSkillCards(skill))}
         </div>
       </section>
       <section className={classes.section}>
         <h4>소지 스킬</h4>
         <div className={classes.skillCardsWrapper}>
-          {card.skills.map(
-            (skill) => skill.type === "has" && renderSkillCards(skill)
-          )}
+          {relatedSkills.has.map((skill) => renderSkillCards(skill))}
         </div>
       </section>
       <section className={classes.section}>

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { useMutation } from "@apollo/client";
 
@@ -74,11 +74,15 @@ const AddSkill = (props) => {
       ja: "",
       targetIDs: [],
       effect: "",
+      condition: "",
       imageSrc: iconData[0].value,
-      type: "",
       tags: "",
     }
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -122,17 +126,18 @@ const AddSkill = (props) => {
       <FormControl>
         <TextField
           className={clsx(classes.root)}
-          id="name-ko"
-          name="ko"
-          label="한국어 이름"
-          onChange={handleChange}
-        />
-        <TextField
-          className={clsx(classes.root)}
           required
           id="name-ja"
           name="ja"
           label="일본어 이름"
+          onChange={handleChange}
+        />
+
+        <TextField
+          className={clsx(classes.root)}
+          id="name-ko"
+          name="ko"
+          label="한국어 이름"
           onChange={handleChange}
         />
         <TextField
@@ -143,6 +148,14 @@ const AddSkill = (props) => {
           label="효과 및 설명"
           onChange={handleChange}
         />
+
+        <TextField
+          className={clsx(classes.root)}
+          id="condition"
+          name="condition"
+          label="발동 조건"
+          onChange={handleChange}
+        />
         <TextField
           className={clsx(classes.root)}
           id="tags"
@@ -150,22 +163,6 @@ const AddSkill = (props) => {
           label="태그 (쉼표로 구분, 공백이 없어야함)"
           onChange={handleChange}
         />
-        <TextField
-          className={clsx(classes.root)}
-          required
-          select
-          value={formData.type}
-          id="type"
-          name="type"
-          label="스킬 종류"
-          onChange={handleChange}
-        >
-          {skillTypes.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
         <IconRadioGroups
           data={iconData}
           name={"imageSrc"}
@@ -180,7 +177,7 @@ const AddSkill = (props) => {
         >
           관련된 카드 선택
         </Button>
-        
+
         <div className={classes.relatedCards}>
           {relatedCards.map(({ id, imageSrc }) => (
             <div className={classes.cardWrapper} key={`related-card-${id}`}>
