@@ -70,7 +70,7 @@ const CardBonusForm = ({ onChangeBonus, initialData }) => {
 
   const handleConfirm = (bonusData, isUnique) => {
     if (isUnique) {
-      const unique = [...bonusObject.unique, bonusData];
+      const unique = sortingArr([...bonusObject.unique, bonusData]);
       setBonusObjectInput({ unique });
       onChangeBonus({ ...bonusObject, unique });
     } else {

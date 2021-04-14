@@ -52,7 +52,7 @@ const initialEvent = {
 const initialChoice = {
   description: {
     ko: "",
-    ja: "",
+    ja: "없음",
   },
   result: "",
 };

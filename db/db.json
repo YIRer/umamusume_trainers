@@ -3983,6 +3983,2444 @@
         "multipleTimes": []
       },
       "id": 8
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "타마모 크로스",
+        "ja": "タマモクロス"
+      },
+      "targetID": "20",
+      "imageSrc": "/image/TamamoCross/cards/support/02.png",
+      "type": "support",
+      "supportType": "stamina",
+      "trainingObjects": [],
+      "playable": true,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "트레이닝 효과 UP 초기 스테미너 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 인연 게이지 UP 10",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv3"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP 5 ",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 50"
+          },
+          {
+            "level": "10",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 10%"
+          },
+          {
+            "level": "10",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 5%"
+          },
+          {
+            "level": "10",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 15%"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 20%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스테미너의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "육성 시작시 초기 스테미너 UP 15",
+            "maxEffect": "육성 시작시 초기 스테미너 UP 30"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "198",
+        "38"
+      ],
+      "hasSkillsIds": [
+        "169",
+        "235",
+        "231",
+        "15",
+        "116",
+        "171",
+        "41"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "\t牛・豚・鶏・カレー！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 파워+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "なけなしのレイトショー"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 파워+5 근성+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "貧しさは友だ！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 파워+10 \"迅速果断\"(신속과단)힌트 Lv+1"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "負けられん戦い！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "人の流れを掴め！"
+                },
+                "result": "\"ウマ込み冷静\"(마군 속 냉정) 힌트 Lv+1 인연게이지 +5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "イバルをよく観察しよう"
+                },
+                "result": "스테미너+5 근성+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "タマモ先輩の学園案内"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "案内って、図書室とか？"
+                },
+                "result": "지능+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "案内って、ジムとか？"
+                },
+                "result": "스테미너+5 근성+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 9
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "파인 모션",
+        "ja": "ファインモーション"
+      },
+      "targetID": "22",
+      "imageSrc": "/image/Finemotion/cards/support/02.png",
+      "type": "support",
+      "supportType": "int",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "우정 보너스, 초기 인연 게이지 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 25%"
+          },
+          {
+            "level": "none",
+            "effect": "함께 트레이닝 시 효과 UP 1%",
+            "maxEffect": "함께 트레이닝 시 효과 UP 15%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 지능 UP 10",
+            "maxEffect": "육성 시작시 초기 지능 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 1",
+            "maxEffect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 5"
+          },
+          {
+            "level": "35",
+            "effect": "특기 트레이닝에 배치될 확률 UP 20",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 35"
+          },
+          {
+            "level": "45",
+            "effect": "함께 트레이닝 시 지능의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 15%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "47",
+        "33",
+        "34"
+      ],
+      "hasSkillsIds": [
+        "134",
+        "132",
+        "136",
+        "102",
+        "107"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "素敵な♪練習日和"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "誰かと走ればもっと楽しくなる"
+                },
+                "result": "지능+5 스킬Pt+20 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "練習は真剣にすべき"
+                },
+                "result": "스피드+10 스테미너+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "楽しく練習するのは大切음"
+                },
+                "result": "練習上手◯\"(연습우수◯) 상태가 된다 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "\t素敵な♪ライブ日和"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력+10 스킬Pt+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "素敵な♪レース日和"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 근성+5 지능+10 스킬Pt+15 \"スピードスター\"(스피드 스타)힌트Lv+1"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력+10 근성+5 지능+5 스킬Pt+5 \"抜け出し準備\"(뛰쳐나갈 준비)힌트Lv+1"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ときめきシューズ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "軽くて早く走れそうなシューズ"
+                },
+                "result": "스피드+5 스킬Pt+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "重いけど鍛えられそうなシューズ"
+                },
+                "result": "체력-10 스테미너+5 스킬Pt+20 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "思い出クローバー"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "最終コーナー"
+                },
+                "result": "\"コーナー巧者◯\"(코너 숙련◯)힌트Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ラストの直線"
+                },
+                "result": "근성+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 10
+    },
+    {
+      "star": 1,
+      "name": {
+        "ko": "아이네스 후우진",
+        "ja": "アイネスフウジン"
+      },
+      "targetID": "31",
+      "imageSrc": "/image/InesFujin/cards/support/02.png",
+      "type": "support",
+      "supportType": "guts",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "트레이닝 효과 UP, 초기 근성 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 인연 게이지 UP 10",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv3"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP 5%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 50%"
+          },
+          {
+            "level": "10",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 10%"
+          },
+          {
+            "level": "10",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 5%"
+          },
+          {
+            "level": "10",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 15%"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 20%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스피드의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "특기 트레이닝에 배치될 확률 UP 40",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 80"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "26",
+        "178",
+        "179"
+      ],
+      "hasSkillsIds": [
+        "18",
+        "207",
+        "50",
+        "178",
+        "51"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "お姉ちゃんの瞬発力"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 스피드+5 스테미너+5 근성+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "あと10分、なの！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "悩んだら走り込み！"
+                },
+                "result": "근성+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "フォームの確認はどう？"
+                },
+                "result": "지능+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ハピハピなる前進"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 근성+10 스킬Pt+30 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "鬼ごっこ、なの！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ゆるっと楽しむ"
+                },
+                "result": "체력+10 스피드+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "本気で遊ぶ！"
+                },
+                "result": "\"急ぎ足\"(빠른 발걸음)힌트Lv+1"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "目指せ、きらめく瞬間！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ゆるっと楽しむ"
+                },
+                "result": "\t체력-10 근성+2 지능+5 \"じゃじゃウマ娘\"(말괄량이 우마무스메)힌트Lv+1"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "本気で遊ぶ！"
+                },
+                "result": "확인 중"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 11
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "위닝 티켓",
+        "ja": "ウイニングチケット"
+      },
+      "targetID": "35",
+      "imageSrc": "/image/WinningTicket/cards/support/02.png",
+      "type": "support",
+      "supportType": "guts",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "우정 보너스, 힌트 발생률 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 20%"
+          },
+          {
+            "level": "10",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 40%"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 25"
+          },
+          {
+            "level": "10",
+            "effect": "특기 트레이닝에 배치될 확률 UP ",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 50"
+          },
+          {
+            "level": "15",
+            "effect": "육성 시작시 초기 근성 UP",
+            "maxEffect": "육성 시작시 초기 근성 UP 20"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 근성의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv2",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv3"
+          },
+          {
+            "level": "45",
+            "effect": "힌트 이벤트가 발생할 확률 UP 30%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 40%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "36",
+        "98"
+      ],
+      "hasSkillsIds": [
+        "152",
+        "158",
+        "37",
+        "97",
+        "39"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "ユーザーネーム『W&T』"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "근성+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "全・力・競・走！！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "手すりショートカットだ！"
+                },
+                "result": "\"差しコーナー◯\"(선입 코너◯)힌트Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "相手の動きを予想してみるとか"
+                },
+                "result": "스킬Pt+30 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "全・力・筋・肉！！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "わかる！とことんやりたい"
+                },
+                "result": "스테미너+5 스킬Pt+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "スポーツドリンクを渡す"
+                },
+                "result": "의욕UP 스킬Pt+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "後日、全員筋肉痛！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 근성+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "We are BNW！！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "근성+10 \"乗り換え上手\"(환승특기)힌트Lv+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 12
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "에어 샤커",
+        "ja": "エアシャカール"
+      },
+      "targetID": "36",
+      "imageSrc": "/image/AirShakur/cards/support/02.png",
+      "type": "support",
+      "supportType": "int",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "의욕 효과 UP, 초기 인연 게이지 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP\tLv 1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP\tLv 4"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP\t5%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 60%"
+          },
+          {
+            "level": "none",
+            "effect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 1",
+            "maxEffect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 5"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 25"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 5%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스킬 Pt의 상승률 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "육성 시작시 초기 지능 UP 30%",
+            "maxEffect": "육성 시작시 초기 지능 UP 45%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "201",
+        "19"
+      ],
+      "hasSkillsIds": [
+        "24",
+        "190",
+        "127"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "//要検証"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "式を組み直したらどうかと伝える"
+                },
+                "result": "체력+10 근성+10 인연게이지+"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "根気よく続ければ結果が出ると伝える"
+                },
+                "result": "체력-10 스테미너+5 근성+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "//絶対欲しい"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "自分に合う手段を探してみては？"
+                },
+                "result": "\"ペースキープ\"(페이스 킵)힌트Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "自力で手に入れるべき"
+                },
+                "result": "체력 최대치+4 근성+4 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "オレが最強"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 지능+10 \"勝利への執念\"(승리에 대한 집착)힌트Lv+1"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ノイズは不要"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 지능+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "リアリストの情熱"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+5 지능+5 스킬Pt+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 13
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "골드 시티",
+        "ja": "ゴールドシチー"
+      },
+      "targetID": "40",
+      "imageSrc": "/image/GoldCity/cards/support/02.png",
+      "type": "support",
+      "supportType": "",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "스피드 보너스, 초기 스피드 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP\tLv 1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP\tLv 4"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP\t5%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 60%"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작 시 초기 인연 게이지가 UP 20",
+            "maxEffect": "육성 시작 시 초기 인연 게이지가 UP 25"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 20%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 효과 UP\t5%",
+            "maxEffect": "함께 트레이닝 시 효과 UP\t5%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 파워의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 15%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "186",
+        "168"
+      ],
+      "hasSkillsIds": [
+        "143",
+        "167",
+        "83"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "common": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "あんし〜ん笹針師、参☆上"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "올스탯",
+              "체력",
+              "의욕상승",
+              "의욕저하",
+              "『夜ふかし気味』",
+              "『コーナー回復◯』",
+              "『直線回復』",
+              "『練習ベタ』",
+              "『愛嬌◯』"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "強いウマ娘になれる秘孔を狙う(20%?)"
+                },
+                "result": "성공시 올스탯+20, 실패시 의욕저하 올스탯-15『夜ふかし気味』상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "レースで勝てる秘孔を狙う(50%?)"
+                },
+                "result": "성공시 『コーナー回復◯』『直線回復』 스킬 흭득, 실패시 체력-20 의욕저하"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "元気で健康になれる秘孔を狙う(70%?)"
+                },
+                "result": "성공시 체력최대치+12 체력+40, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "魅力アップの秘孔を狙う(90%?)"
+                },
+                "result": "성공시 체력+20 의욕상승 『愛嬌◯』 상태흭득, 실패시 체력-20 의욕저하 『練習ベタ』 상태흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "不安なのでやめておく"
+                },
+                "result": "체력+10 OR +20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "協快ッ！密着取材 !"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "스테미나",
+              "기자인연게이지",
+              "근성"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "尊敬すべき理事長です"
+                },
+                "result": "스태미나+10, 기자인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "暴走することが多いような"
+                },
+                "result": "근성+10, 기자인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "上々の画構えッ！"
+            },
+            "eventType": "common",
+            "tags": [
+              "공통",
+              "이벤트",
+              "체력",
+              "파워",
+              "근성",
+              "하야테일문자",
+              "신발",
+              "스킬힌트",
+              "好転一息"
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、新しい練習用具をいただけますか？"
+                },
+                "result": "체력-10, 파워+20, 근성+20, 하야테 일문자 흭득, 신발1종 흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "では、にんじんを分けていただけますか？"
+                },
+                "result": "체력+30, 스태미나+20, \"好転一息\"스킬힌트레벨+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "Pride"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력+20"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "Struggle"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력+10 스테미너+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "08:36/朝寝坊、やばっ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もうすぐ始業時間なんじゃ……"
+                },
+                "result": "의욕-1 스킬 Pt+45 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "焦っても仕方ないしな"
+                },
+                "result": "체력+10 지능+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "13:12/昼休み、気合い入れなきゃ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まずは目の前のことに集中しよう"
+                },
+                "result": "스킬Pt+30"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "栄養ドリンクいる？"
+                },
+                "result": "\"小休憩\"(작은 휴식)힌트Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "One Step"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스테미너+10 \"彗眼\"(혜안)힌트Lv+1"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 14
     }
   ],
   "skills": [
@@ -4234,7 +6672,9 @@
         "ko": "중거리 코너 ◯",
         "ja": "中距離コーナー◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "9"
+      ],
       "effect": "코너에서 속도가 조금 상승 <중거리>",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -4290,7 +6730,8 @@
         "ja": "食い下がり"
       },
       "targetIDs": [
-        "1"
+        "1",
+        "11"
       ],
       "effect": "마지막 코너에서 추월당하면 조금 재역전하기 쉬워진다 <중거리>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4309,7 +6750,9 @@
         "ko": "승리에 대한 집념",
         "ja": "勝利への執念"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "13"
+      ],
       "effect": "마지막 코너에서 추월당하면 재역전하기 쉬워진다 <중거리>",
       "imageSrc": "/image/skill/i_skill_002.png",
       "tags": [
@@ -4399,7 +6842,8 @@
         "ja": "追い上げ"
       },
       "targetIDs": [
-        "4"
+        "4",
+        "13"
       ],
       "effect": "레이스 막바지에 추월하면 속도가 조금 상승 <장거리>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4439,7 +6883,8 @@
       },
       "targetIDs": [
         "2",
-        "8"
+        "8",
+        "11"
       ],
       "effect": "레이스 중반에 조금 앞으로 나아가 쉬워진다 <작전 도주>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4581,7 +7026,8 @@
         "ja": "抜け出し準備"
       },
       "targetIDs": [
-        "7"
+        "7",
+        "10"
       ],
       "effect": "마지막 코너에서 조금 앞으로 나가기 쉬워진다 <작전 선행>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4601,7 +7047,9 @@
         "ko": "스피드 스타",
         "ja": "スピードスター"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "10"
+      ],
       "effect": "마지막 코너에서 앞으로 나가기 쉬워진다 <작전 선행>",
       "imageSrc": "/image/skill/i_skill_002.png",
       "tags": [
@@ -4638,7 +7086,9 @@
         "ko": "선입 코너 ◯",
         "ja": "差しコーナー◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "12"
+      ],
       "effect": "코너에서 속도가 조금 상승 <선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -4656,7 +7106,8 @@
         "ja": "位置取り押し上げ"
       },
       "targetIDs": [
-        "6"
+        "6",
+        "12"
       ],
       "effect": "레이스 중반에서 속도가 조금 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4676,7 +7127,9 @@
         "ko": "신속 과단",
         "ja": "迅速果断"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "9"
+      ],
       "effect": "레이스 중반에 속도가 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_002.png",
       "tags": [
@@ -4696,7 +7149,8 @@
         "ja": "外差し準備"
       },
       "targetIDs": [
-        "1"
+        "1",
+        "12"
       ],
       "effect": "마지막 코너에서 외부에서 추월하면 속도가 약간 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -4733,7 +7187,9 @@
         "ko": "십만 마력",
         "ja": "十万バリキ"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "9"
+      ],
       "effect": "오르막에서 속도가 조금 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -4839,7 +7295,9 @@
         "ko": "코너 능숙 ◯",
         "ja": "コーナー巧者◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "10"
+      ],
       "effect": "코너가 잘되고 속도가 조금상승",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -4888,7 +7346,9 @@
         "ko": "슬립 스트림",
         "ja": "スリップストリーム"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "11"
+      ],
       "effect": "앞에 있는 우마무스메 바로 뒤에 붙으면 바람의 저항을 조금 덜 받게 된다",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -4903,7 +7363,9 @@
         "ko": "놀이는 그만!",
         "ja": "遊びはおしまいっ！"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "11"
+      ],
       "effect": "우마무스메 바로 뒤에 오래 있으면 속도가 약간 올라간다",
       "imageSrc": "/image/skill/i_skill_001.png",
       "tags": [
@@ -5452,7 +7914,9 @@
         "ko": "엑셀러레이션",
         "ja": "アクセラレーション"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "14"
+      ],
       "effect": "레이스 중반에 추월하는 가속력이 조금 상승 <마일>",
       "imageSrc": "/image/skill/i_skill_004.png",
       "tags": [
@@ -5716,7 +8180,8 @@
       },
       "targetIDs": [
         "5",
-        "6"
+        "6",
+        "12"
       ],
       "effect": "레이스 막바지에 가속력이 조금 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_004.png",
@@ -5734,7 +8199,9 @@
         "ko": "환승특기",
         "ja": "乗り換え上手"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "12"
+      ],
       "effect": "레이스 막바지에 가속력이 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_005.png",
       "tags": [
@@ -5810,7 +8277,8 @@
         "ja": "直線加速"
       },
       "targetIDs": [
-        "5"
+        "5",
+        "10"
       ],
       "effect": "직선에서 가속력이 조금 상승",
       "imageSrc": "/image/skill/i_skill_004.png",
@@ -5899,7 +8367,8 @@
       },
       "targetIDs": [
         "3",
-        "5"
+        "5",
+        "10"
       ],
       "effect": "라스트 스퍼트에서 앞이 막혔을 때 난투를 조금 잘하게 된다",
       "imageSrc": "/image/skill/i_skill_004.png",
@@ -6040,11 +8509,12 @@
     },
     {
       "name": {
-        "ko": "이나즈마 스텝",
+        "ko": "천둥번개 스텝",
         "ja": "イナズマステップ"
       },
       "targetIDs": [
-        "3"
+        "3",
+        "9"
       ],
       "effect": "레이스 중반에 뒤쪽에 있으면 조금 둘러 쌓이지 않게 된다<중거리>",
       "imageSrc": "/image/skill/i_skill_006.png",
@@ -6233,7 +8703,8 @@
         "ja": "策士"
       },
       "targetIDs": [
-        "4"
+        "4",
+        "13"
       ],
       "effect": "레이스 막바지에 뒤쪽에 있다면 시야가 조금 넓어진다 <작전 추입>",
       "imageSrc": "/image/skill/i_skill_007.png",
@@ -6316,7 +8787,9 @@
         "ko": "가을 우마무스메◯",
         "ja": "秋ウマ娘◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "10"
+      ],
       "effect": "가을의 레이스가 조금 잘된다\t",
       "imageSrc": "/image/skill/i_skill_010.png",
       "tags": [
@@ -6344,7 +8817,9 @@
         "ko": "오른쪽 ◯",
         "ja": "右回り◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "10"
+      ],
       "effect": "우회전 코스를 조금 잘하게 된다",
       "imageSrc": "/image/skill/i_skill_010.png",
       "tags": [
@@ -6373,7 +8848,9 @@
         "ko": "외곽특기 ◯",
         "ja": "外枠得意◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "10"
+      ],
       "effect": "게이트 번호가 6~8인 레이스를 조금 잘하게 된다\t",
       "imageSrc": "/image/skill/i_skill_010.png",
       "tags": [
@@ -6489,7 +8966,9 @@
         "ko": "삿포로 경마장 ◯",
         "ja": "札幌レース場◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "14"
+      ],
       "effect": "삿포로 경마장에 조금 익숙해진다",
       "imageSrc": "/image/skill/i_skill_013.png",
       "tags": [
@@ -6638,10 +9117,12 @@
     },
     {
       "name": {
-        "ko": "괜찮은곳 ◯",
+        "ko": "쾌적마장◯",
         "ja": "良バ場◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "12"
+      ],
       "effect": "「좋음」 상태의 마장에서 조금 잘하게 된다",
       "imageSrc": "/image/skill/i_skill_012.png",
       "tags": [
@@ -6742,7 +9223,9 @@
         "ko": "흐린 날 ◯",
         "ja": "曇りの日◯"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "12"
+      ],
       "effect": "흐린 날의 레이스가 조금 익숙해진다",
       "imageSrc": "/image/skill/i_skill_011.png",
       "tags": [
@@ -6889,7 +9372,9 @@
         "ko": "전개관찰",
         "ja": "展開窺い"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "14"
+      ],
       "effect": "레이스 초반에 뒤쪽에 있으면 조금 지치지 않게 된다 <마일>",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -6907,7 +9392,9 @@
         "ko": "혜안",
         "ja": "慧眼"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "14"
+      ],
       "effect": "레이스 초반에 뒤쪽에 있으면 지치지 않게 된다 분이라고 배도 될 <마일>",
       "imageSrc": "/image/skill/i_skill_025.png",
       "tags": [
@@ -6926,7 +9413,8 @@
         "ja": "前途洋々"
       },
       "targetIDs": [
-        "2"
+        "2",
+        "9"
       ],
       "effect": "레이스 중반에 선두라면 약간 덜 피로해진다 <중거리>",
       "imageSrc": "/image/skill/i_skill_024.png",
@@ -6965,7 +9453,8 @@
         "ja": "軽やかステップ"
       },
       "targetIDs": [
-        "3"
+        "3",
+        "9"
       ],
       "effect": "좌우로 움직여서 조금 지치지 않게 된다<중거리>\t",
       "imageSrc": "/image/skill/i_skill_024.png",
@@ -7082,7 +9571,9 @@
         "ko": "기세 맡기기",
         "ja": "勢い任せ"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "11"
+      ],
       "effect": "오르막길에서 조금 덜 피로해진다<작전·도주>",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -7098,7 +9589,9 @@
         "ko": "말괄량이 우마무스메",
         "ja": "じゃじゃウマ娘"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "11"
+      ],
       "effect": "오르막길에서 쉽게 피로해지지 않는다<작전·도주>",
       "imageSrc": "/image/skill/i_skill_025.png",
       "tags": [
@@ -7228,7 +9721,9 @@
         "ko": "작은 휴식",
         "ja": "小休憩"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "14"
+      ],
       "effect": "레이스 막바지에 지구력이 조금 회복한다 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -7302,7 +9797,9 @@
         "ko": "냉정",
         "ja": "冷静"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "13"
+      ],
       "effect": "앞이 막혔을 때 침착하게 태세를 점검한다 <작전 추입>",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -7434,7 +9931,9 @@
         "ko": "마군 속 냉정",
         "ja": "ウマ込み冷静 "
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "9"
+      ],
       "effect": "레이스 중반에 둘러 쌓이면 지구력이 약간 회복된다",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -7479,7 +9978,9 @@
         "ko": "페이스 킵",
         "ja": "ペースキープ"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "13"
+      ],
       "effect": "레이스 중반에 추월당하면 지구력이 조금 회복된다",
       "imageSrc": "/image/skill/i_skill_024.png",
       "tags": [
@@ -7580,7 +10081,9 @@
         "ko": "스피드 이터",
         "ja": "スピードイーター"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "11"
+      ],
       "effect": "레이스 중반 선두에 있으면 뒤에 속도를 약간 빼앗는다 <마일>",
       "imageSrc": "/image/skill/i_skill_017.png",
       "tags": [
@@ -7984,7 +10487,9 @@
         "ko": "선입 조바심",
         "ja": "差し焦り"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "9"
+      ],
       "effect": "레이스 중반에 작전이 선입인 우마무스메를 초조하게 해 조금 지치기 쉽게 한다\t",
       "imageSrc": "/image/skill/i_skill_022.png",
       "tags": [
@@ -8049,7 +10554,8 @@
         "ja": "差し駆け引き"
       },
       "targetIDs": [
-        "8"
+        "8",
+        "9"
       ],
       "effect": "작전이 선입인 우마무스메가 掛かり상태면 진정될때까지 시간이 걸린다",
       "imageSrc": "/image/skill/i_skill_021.png",

@@ -88,7 +88,7 @@ const useStyles = makeStyles((_theme) => ({
 
 const AddCard = (props) => {
   const classes = useStyles();
-  const [isTrainingType, setTrainingType] = useState(true);
+  const [isTrainingType, setTrainingType] = useState(false);
   const [targetInfo, setTarget] = useState(null);
   const [relatedSkills, setRelatedSkills] = useState({
     unique: [],
@@ -116,7 +116,7 @@ const AddCard = (props) => {
       targetID: null,
       imageSrc: "",
       type: "training", //common, support
-      playable: true,
+      playable: false,
       supportType: "",
       limited: false,
       events: {
