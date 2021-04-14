@@ -112,10 +112,11 @@ const SearchSkills = (props) => {
 
   const onSearch = () => {
     const searchData = data.skills.filter(({ name, tags }) => {
+      const trimedKeyword = keyword.trim();
       return (
-        name.ko.includes(keyword) ||
-        name.ja.includes(keyword) ||
-        tags.includes(keyword)
+        name.ko.includes(trimedKeyword) ||
+        name.ja.includes(trimedKeyword) ||
+        tags.includes(trimedKeyword)
       );
     });
     setSearchResult(searchData);

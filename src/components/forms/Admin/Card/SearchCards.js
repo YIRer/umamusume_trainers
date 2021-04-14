@@ -86,7 +86,8 @@ const SearchCards = (props) => {
 
   const onSearch = () => {
     const searchData = data.cards.filter(({ name }) => {
-      return name.ja.includes(keyword) || name.ko.includes(keyword);
+      const trimedKeyword = keyword.trim();
+      return name.ja.includes(trimedKeyword) || name.ko.includes(trimedKeyword);
     });
     setSearchResult(searchData);
   };

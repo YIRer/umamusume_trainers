@@ -86,10 +86,11 @@ const SearchUmamusume = (props) => {
 
   const onSearch = () => {
     const searchData = data.umamusumeList.filter(({ name }) => {
+      const trimedKeyword = keyword.trim();
       return (
-        name.ko.includes(keyword) ||
-        name.ja.includes(keyword) ||
-        name.en.includes(keyword)
+        name.ko.includes(trimedKeyword) ||
+        name.ja.includes(trimedKeyword) ||
+        name.en.includes(trimedKeyword)
       );
     });
     setSearchResult(searchData);
