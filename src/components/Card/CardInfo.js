@@ -379,7 +379,7 @@ const CardInfo = (props) => {
         {card.type === "training" && (
           <div>
             <h4>공통 이벤트</h4>
-            {card.events.common.map((event, index) => (
+            {card.events.common?.map((event, index) => (
               <EventItems
                 eventData={event}
                 editable={false}

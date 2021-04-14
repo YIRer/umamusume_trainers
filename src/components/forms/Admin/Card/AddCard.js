@@ -16,7 +16,13 @@ import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
 import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
-import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
+import {
+  stars,
+  cardTypes,
+  initialStatusData,
+  supportTypes,
+  commonEvents,
+} from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
@@ -88,7 +94,7 @@ const useStyles = makeStyles((_theme) => ({
 
 const AddCard = (props) => {
   const classes = useStyles();
-  const [isTrainingType, setTrainingType] = useState(false);
+  const [isTrainingType, setTrainingType] = useState(true);
   const [targetInfo, setTarget] = useState(null);
   const [relatedSkills, setRelatedSkills] = useState({
     unique: [],
@@ -116,7 +122,7 @@ const AddCard = (props) => {
       targetID: null,
       imageSrc: "",
       type: "training", //common, support
-      playable: false,
+      playable: true,
       supportType: "",
       limited: false,
       events: {
@@ -244,7 +250,7 @@ const AddCard = (props) => {
         },
         status: others,
       },
-      events: removeEventTempIDs(events),
+      events: removeEventTempIDs(events, isTrainingType),
       bonus: removeBonusTempIDs(bonus),
       trainingObjects,
     };
@@ -296,7 +302,7 @@ const AddCard = (props) => {
     };
   };
 
-  const removeEventTempIDs = (events) => {
+  const removeEventTempIDs = (events, isTrainingType) => {
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
@@ -305,7 +311,7 @@ const AddCard = (props) => {
     return {
       once,
       multipleTimes,
-      common: events.common,
+      common: isTrainingType ? commonEvents : null,
     };
   };
 
