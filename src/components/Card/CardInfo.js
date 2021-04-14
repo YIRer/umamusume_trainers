@@ -10,6 +10,7 @@ import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
 import InfoIcon from "@material-ui/icons/Info";
@@ -28,6 +29,11 @@ import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
 import { isDev } from "../../constants";
+import {
+  commonEvents,
+  commonMultipleEvent,
+  commonOnceEvents,
+} from "components/forms/Admin/Card/constants";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -135,6 +141,14 @@ const useStyles = makeStyles((theme) => ({
   training: {
     backgroundColor: "#0068ad",
   },
+
+  goToTop: {
+    fontSize: "2rem",
+    position: "fixed",
+    bottom: "58px",
+    right: "20px",
+  },
+
   iconInfo: {
     fontSize: "2rem",
     position: "fixed",
@@ -259,6 +273,10 @@ const CardInfo = (props) => {
     setOpenModal(!openModal);
   };
 
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const renderSkillCards = (skill) => {
     return (
       <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
@@ -379,7 +397,7 @@ const CardInfo = (props) => {
         {card.type === "training" && (
           <div>
             <h4>공통 이벤트</h4>
-            {card.events.common?.map((event, index) => (
+            {commonEvents.map((event, index) => (
               <EventItems
                 eventData={event}
                 editable={false}
@@ -388,23 +406,38 @@ const CardInfo = (props) => {
             ))}
           </div>
         )}
-
         <h4>1회성 이벤트</h4>
         {card.events.once.map((event, index) => (
           <EventItems
             eventData={event}
             editable={false}
-            key={`event-common-${index}`}
+            key={`event-once-${index}`}
           />
         ))}
+        {card.type === "training" &&
+          commonOnceEvents.map((event, index) => (
+            <EventItems
+              eventData={event}
+              editable={false}
+              key={`event-once-common-event-${index}`}
+            />
+          ))}
         <h4>다회성 이벤트</h4>
         {card.events.multipleTimes.map((event, index) => (
           <EventItems
             eventData={event}
             editable={false}
-            key={`event-common-${index}`}
+            key={`event-multiple-event-${index}`}
           />
         ))}
+        {card.type === "training" &&
+          commonMultipleEvent.map((event, index) => (
+            <EventItems
+              eventData={event}
+              editable={false}
+              key={`event-multiple-common-event-${index}`}
+            />
+          ))}
       </section>
       <section className={classes.section}>
         <h4>관련 우마무스메</h4>
@@ -422,6 +455,11 @@ const CardInfo = (props) => {
           <span>없음</span>
         )}
       </section>
+      <IconButton onClick={scrollTop}>
+        <Tooltip title="상단으로" placement="left">
+          <ArrowUpwardIcon className={clsx(classes.goToTop)} color="primary" />
+        </Tooltip>
+      </IconButton>
       <IconButton onClick={handleModalControl}>
         <Tooltip title="버프 및 디버프 안내" placement="left">
           <InfoIcon className={clsx(classes.iconInfo)} color="primary" />

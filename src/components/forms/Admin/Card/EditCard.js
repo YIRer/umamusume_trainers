@@ -113,7 +113,6 @@ const EditCard = (props) => {
       supportType: "",
       limited: false,
       events: {
-        common: [],
         once: [],
         multipleTimes: [],
       },
@@ -389,7 +388,6 @@ const EditCard = (props) => {
     return {
       once,
       multipleTimes,
-      common: events.common,
     };
   };
 
@@ -428,7 +426,6 @@ const EditCard = (props) => {
     return {
       once,
       multipleTimes,
-      common: events.common,
     };
   };
 
@@ -476,7 +473,7 @@ const EditCard = (props) => {
 
   const { card } = data;
   if (error || !card) return <p>Error :(</p>;
-    
+
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
       <FormControl>
@@ -596,6 +593,7 @@ const EditCard = (props) => {
         <CardEventForm
           onChangeEvents={handleChangeEvents}
           initialData={formData.events}
+          isTrainingType={isTrainingType}
         />
 
         {targetInfo && (

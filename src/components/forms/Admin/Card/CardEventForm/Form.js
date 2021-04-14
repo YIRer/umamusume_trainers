@@ -7,7 +7,11 @@ import _ from "lodash";
 
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
-import { commonEvents } from "../constants";
+import {
+  commonEvents,
+  commonMultipleEvent,
+  commonOnceEvents,
+} from "../constants";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -17,7 +21,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const CardEventForm = ({ onChangeEvents, initialData }) => {
+const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
   const classes = useStyles();
   const [openedEventInputForm, setEventInputForm] = useState(false);
 
@@ -29,7 +33,6 @@ const CardEventForm = ({ onChangeEvents, initialData }) => {
     {
       once: [],
       multipleTimes: [],
-      common: commonEvents,
     }
   );
 
@@ -106,17 +109,23 @@ const CardEventForm = ({ onChangeEvents, initialData }) => {
   return (
     <div>
       <div>
-        <div>
-          <h4>공통 이벤트</h4>
+        {isTrainingType && (
           <div>
-            {eventObject.common.map((d) => (
-              <EventItems key={d.title.ja} eventData={d} editable={false} />
-            ))}
+            <h4>공통 이벤트</h4>
+            <div>
+              {commonEvents.map((d) => (
+                <EventItems key={d.title.ja} eventData={d} editable={false} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         <div>
           <h4>일회성 이벤트</h4>
           <div>
+            {isTrainingType &&
+              commonOnceEvents.map((d) => (
+                <EventItems key={d.title.ja} eventData={d} editable={false} />
+              ))}
             {eventObject.once.length > 0
               ? eventObject.once.map((d) => {
                   if (!d.__tempID) {
@@ -138,6 +147,10 @@ const CardEventForm = ({ onChangeEvents, initialData }) => {
         <div>
           <h4>다회성 이벤트</h4>
           <div>
+            {isTrainingType &&
+              commonMultipleEvent.map((d) => (
+                <EventItems key={d.title.ja} eventData={d} editable={false} />
+              ))}
             {eventObject.multipleTimes.length > 0
               ? eventObject.multipleTimes.map((d) => {
                   if (!d.__tempID) {

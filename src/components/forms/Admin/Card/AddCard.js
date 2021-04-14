@@ -16,13 +16,7 @@ import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
 import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
-import {
-  stars,
-  cardTypes,
-  initialStatusData,
-  supportTypes,
-  commonEvents,
-} from "./constants";
+import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
@@ -126,7 +120,6 @@ const AddCard = (props) => {
       supportType: "",
       limited: false,
       events: {
-        common: [],
         once: [],
         multipleTimes: [],
       },
@@ -311,7 +304,6 @@ const AddCard = (props) => {
     return {
       once,
       multipleTimes,
-      common: isTrainingType ? commonEvents : null,
     };
   };
 
@@ -465,7 +457,10 @@ const AddCard = (props) => {
           />
         )}
 
-        <CardEventForm onChangeEvents={handleChangeEvents} />
+        <CardEventForm
+          onChangeEvents={handleChangeEvents}
+          isTrainingType={isTrainingType}
+        />
 
         {targetInfo && (
           <div
