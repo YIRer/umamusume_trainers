@@ -15,7 +15,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function SearchForm({ data, handleSearch }) {
+export default function SearchForm({ data, handleSearch, options }) {
   const classes = useStyles();
   const [keyword, setKeyword] = useState("");
 

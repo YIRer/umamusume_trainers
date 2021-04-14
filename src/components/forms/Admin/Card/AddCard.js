@@ -24,6 +24,7 @@ import CardStatus from "./CardStatus";
 import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
+import CardObjectForm from "./CardObjectForm/Form";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -87,16 +88,20 @@ const useStyles = makeStyles((_theme) => ({
 
 const AddCard = (props) => {
   const classes = useStyles();
-  const [isTrainingType, setTrainingType] = useState(false);
+  const [isTrainingType, setTrainingType] = useState(true);
   const [targetInfo, setTarget] = useState(null);
   const [relatedSkills, setRelatedSkills] = useState({
     unique: [],
     training: [],
     has: [],
+    base: [],
+    awakening: [],
   });
   const [selectedSkillType, setSelectedSkillType] = useState("");
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
+
+  const [trainingObjects, setCardObjectsInput] = useState([]);
   const [addCard, _mutationData] = useMutation(ADD_CARD);
   const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
@@ -111,7 +116,7 @@ const AddCard = (props) => {
       targetID: null,
       imageSrc: "",
       type: "training", //common, support
-      playable: false,
+      playable: true,
       supportType: "",
       limited: false,
       events: {
@@ -218,6 +223,8 @@ const AddCard = (props) => {
       uniqueSkillsIds: relatedSkills.unique.map(({ id }) => id),
       trainingSkillsIds: relatedSkills.training.map(({ id }) => id),
       hasSkillsIds: relatedSkills.has.map(({ id }) => id),
+      baseSkillsIds: relatedSkills.base.map(({ id }) => id),
+      awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -239,6 +246,7 @@ const AddCard = (props) => {
       },
       events: removeEventTempIDs(events),
       bonus: removeBonusTempIDs(bonus),
+      trainingObjects,
     };
 
     addCard({
@@ -257,6 +265,8 @@ const AddCard = (props) => {
         ...relatedSkills.unique,
         ...relatedSkills.training,
         ...relatedSkills.has,
+        ...relatedSkills.base,
+        ...relatedSkills.awakening,
       ];
 
       skillList.forEach((skillData) => {
@@ -326,6 +336,16 @@ const AddCard = (props) => {
   };
   const showHasSkillSearchModal = () => {
     setSelectedSkillType("has");
+    showSkillSearchModal();
+  };
+
+  const showBaseSkillSearchModal = () => {
+    setSelectedSkillType("base");
+    showSkillSearchModal();
+  };
+
+  const showAwakeningSkillSearchModal = () => {
+    setSelectedSkillType("awakening");
     showSkillSearchModal();
   };
 
@@ -399,7 +419,7 @@ const AddCard = (props) => {
         <FormControlLabel
           control={
             <Checkbox
-              checked={formData.playable}
+              checked={formData.playable || isTrainingType}
               onChange={handleChangeCheckbox}
               name="playable"
             />
@@ -412,7 +432,7 @@ const AddCard = (props) => {
             className={clsx(classes.root)}
             required
             select
-            value={formData.supportType || "supportType"}
+            value={formData.supportType || "speed"}
             id="supportType"
             name="supportType"
             label="카드 적성"
@@ -430,6 +450,13 @@ const AddCard = (props) => {
           <CardStatus data={statusData} onChange={handleStatusChange} />
         ) : (
           <CardBonusForm onChangeBonus={handleUpdateBonus} />
+        )}
+
+        {isTrainingType && (
+          <CardObjectForm
+            list={trainingObjects}
+            updateList={setCardObjectsInput}
+          />
         )}
 
         <CardEventForm onChangeEvents={handleChangeEvents} />
@@ -472,7 +499,7 @@ const AddCard = (props) => {
           </div>
         )}
 
-        {relatedSkills.training.length > 0 && (
+        {!isTrainingType && relatedSkills.training.length > 0 && (
           <div>
             <b>육성 스킬</b>
             {relatedSkills.training.map((skillData, index) => (
@@ -486,10 +513,38 @@ const AddCard = (props) => {
           </div>
         )}
 
-        {relatedSkills.has.length > 0 && (
+        {!isTrainingType && relatedSkills.has.length > 0 && (
           <div>
             <b>소지 스킬</b>
             {relatedSkills.has.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {isTrainingType && relatedSkills.base.length > 0 && (
+          <div>
+            <b>초기 스킬</b>
+            {relatedSkills.base.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {isTrainingType && relatedSkills.awakening.length > 0 && (
+          <div>
+            <b>각성 스킬</b>
+            {relatedSkills.awakening.map((skillData, index) => (
               <SkillIcons
                 name={skillData.name}
                 imageSrc={skillData.imageSrc}
@@ -514,19 +569,27 @@ const AddCard = (props) => {
             type="button"
             variant="outlined"
             color="primary"
-            onClick={showTrainingSkillSearchModal}
+            onClick={
+              isTrainingType
+                ? showBaseSkillSearchModal
+                : showTrainingSkillSearchModal
+            }
             className={classes.skillButton}
           >
-            육성 스킬 선택
+            {isTrainingType ? "초기" : "육성"} 스킬 선택
           </Button>
           <Button
             type="button"
             variant="outlined"
             color="primary"
-            onClick={showHasSkillSearchModal}
+            onClick={
+              isTrainingType
+                ? showAwakeningSkillSearchModal
+                : showHasSkillSearchModal
+            }
             className={classes.skillButton}
           >
-            소지 스킬 선택
+            {isTrainingType ? "각성" : "소지"} 스킬 선택
           </Button>
         </div>
         {skillSearchModalOpened && (

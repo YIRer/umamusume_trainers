@@ -112,7 +112,6 @@ const Umamusume = (props) => {
   const renderCards = (data, type) => {
     return data.map((card) => {
       if (card.type === type) {
-        console.log(card);
         return (
           <Link
             to={`/cards/${card.id}`}
@@ -125,11 +124,13 @@ const Umamusume = (props) => {
                 backgroundImage: `url(${card.imageSrc})`,
               }}
             >
-              <img
-                className={classes.typeIcon}
-                src={`/image/icons/${card.supportType}.png`}
-                alt={card.supportType}
-              />
+              {type === "support" && (
+                <img
+                  className={classes.typeIcon}
+                  src={`/image/icons/${card.supportType}.png`}
+                  alt={card.supportType}
+                />
+              )}
             </div>
           </Link>
         );

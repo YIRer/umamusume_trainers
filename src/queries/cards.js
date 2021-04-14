@@ -10,6 +10,12 @@ export const GET_CARDS = gql`
       playable
       limited
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       name {
         ko
         ja
@@ -29,6 +35,12 @@ export const FIND_CARDS = gql`
       playable
       limited
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       name {
         ko
         ja
@@ -52,10 +64,18 @@ export const GET_CARDS_All_DATA = gql`
       type
       playable
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       limited
       uniqueSkillsIds
       trainingSkillsIds
       hasSkillsIds
+      baseSkillsIds
+      awakeningSkillsIds
       skills {
         name {
           ko
@@ -206,10 +226,18 @@ export const GET_CARD = gql`
       type
       playable
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       limited
       uniqueSkillsIds
       trainingSkillsIds
       hasSkillsIds
+      baseSkillsIds
+      awakeningSkillsIds
       skills {
         name {
           ko
@@ -369,10 +397,18 @@ export const ADD_CARD = gql`
       type
       playable
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       limited
       uniqueSkillsIds
       trainingSkillsIds
       hasSkillsIds
+      baseSkillsIds
+      awakeningSkillsIds
       skills {
         name {
           ko
@@ -531,10 +567,18 @@ export const EDIT_CARD = gql`
       type
       playable
       supportType
+      trainingObjects {
+        object
+        time
+        fan
+        raceCourse
+      }
       limited
       uniqueSkillsIds
       trainingSkillsIds
       hasSkillsIds
+      baseSkillsIds
+      awakeningSkillsIds
       skills {
         name {
           ko

@@ -12,12 +12,16 @@ import clsx from "clsx";
 const useStyles = makeStyles((_theme) => ({
   section: {
     margin: "10px",
+    overflowX: "scroll",
   },
   tableRoot: {
     backgroundColor: "#333333",
   },
   tableRow: {
     color: "#fff",
+  },
+  bonus: {
+    color: "#0569ed",
   },
 }));
 
@@ -40,12 +44,26 @@ const StatusTable = ({ data }) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {data.status.ground.duct.rank} + ({data.status.ground.duct.bonus}{" "}
-              %)
+              {data.status.ground.duct.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.ground.duct.bonus > 0,
+                })}
+              >
+                +({data.status.ground.duct.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.ground.turf.rank} + ({data.status.ground.turf.bonus}{" "}
-              %)
+              {data.status.ground.turf.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.ground.turf.bonus > 0,
+                })}
+              >
+                +({data.status.ground.turf.bonus}%)
+              </span>
             </TableCell>
           </TableRow>
         </TableBody>
@@ -70,20 +88,48 @@ const StatusTable = ({ data }) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {data.status.distance.short.rank} + (
-              {data.status.distance.short.bonus} %)
+              {data.status.distance.short.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.distance.short.bonus > 0,
+                })}
+              >
+                +({data.status.distance.short.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.distance.mile.rank} + (
-              {data.status.distance.mile.bonus} %)
+              {data.status.distance.mile.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.distance.mile.bonus > 0,
+                })}
+              >
+                +({data.status.distance.mile.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.distance.medium.rank} + (
-              {data.status.distance.medium.bonus} %)
+              {data.status.distance.medium.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.distance.medium.bonus > 0,
+                })}
+              >
+                +({data.status.distance.medium.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.distance.long.rank} + (
-              {data.status.distance.long.bonus} %)
+              {data.status.distance.long.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.distance.long.bonus > 0,
+                })}
+              >
+                +({data.status.distance.long.bonus}%)
+              </span>
             </TableCell>
           </TableRow>
         </TableBody>
@@ -108,20 +154,48 @@ const StatusTable = ({ data }) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {data.status.strategy.escape.rank} + (
-              {data.status.strategy.escape.bonus} %)
+              {data.status.strategy.escape.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.strategy.escape.bonus > 0,
+                })}
+              >
+                +({data.status.strategy.escape.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.strategy.leading.rank} + (
-              {data.status.strategy.leading.bonus} %)
+              {data.status.strategy.leading.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.strategy.leading.bonus > 0,
+                })}
+              >
+                +({data.status.strategy.leading.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.strategy.between.rank} + (
-              {data.status.strategy.between.bonus} %)
+              {data.status.strategy.between.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.strategy.between.bonus > 0,
+                })}
+              >
+                +({data.status.strategy.between.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.strategy.pushing.rank} + (
-              {data.status.strategy.pushing.bonus} %)
+              {data.status.strategy.pushing.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.strategy.pushing.bonus > 0,
+                })}
+              >
+                +({data.status.strategy.pushing.bonus}%)
+              </span>
             </TableCell>
           </TableRow>
         </TableBody>
@@ -149,24 +223,59 @@ const StatusTable = ({ data }) => {
         <TableBody>
           <TableRow>
             <TableCell>
-              {data.status.status.speed.rank} + (
-              {data.status.status.speed.bonus} %)
+              {data.status.status.speed.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.status.speed.bonus > 0,
+                })}
+              >
+                +({data.status.status.speed.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.status.stamina.rank} + (
-              {data.status.status.stamina.bonus} %)
+              {data.status.status.stamina.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.status.stamina.bonus > 0,
+                })}
+              >
+                +({data.status.status.stamina.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.status.power.rank} + (
-              {data.status.status.power.bonus} %)
+              {data.status.status.power.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.status.power.bonus > 0,
+                })}
+              >
+                +({data.status.status.power.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.status.guts.rank} + ({data.status.status.guts.bonus}{" "}
-              %)
+              {data.status.status.guts.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.status.guts.bonus > 0,
+                })}
+              >
+                +({data.status.status.guts.bonus}%)
+              </span>
             </TableCell>
             <TableCell>
-              {data.status.status.intelligence.rank} + (
-              {data.status.status.intelligence.bonus} %)
+              {data.status.status.intelligence.rank}
+              <br />
+              <span
+                className={clsx({
+                  [classes.bonus]: data.status.status.intelligence.bonus > 0,
+                })}
+              >
+                +({data.status.status.intelligence.bonus}%)
+              </span>
             </TableCell>
           </TableRow>
         </TableBody>

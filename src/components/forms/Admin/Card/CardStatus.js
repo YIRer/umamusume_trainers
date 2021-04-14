@@ -299,7 +299,7 @@ const CardStatus = ({ data, onChange }) => {
         id="speed-bonus"
         name="speed-bonus"
         label="스피드 스탯 보너스"
-        value={"0"}
+        value={data.speed?.bonus || "0"}
         onChange={onChange}
       />
       <TextField
@@ -324,7 +324,7 @@ const CardStatus = ({ data, onChange }) => {
         id="stamina-bonus"
         name="stamina-bonus"
         label="스태미나 스탯 보너스"
-        value={"0"}
+        value={data.stamina?.bonus || "0"}
         onChange={onChange}
       />
       <TextField
@@ -349,7 +349,7 @@ const CardStatus = ({ data, onChange }) => {
         id="power-bonus"
         name="power-bonus"
         label="파워 스탯 보너스"
-        value={"0"}
+        value={data.power?.bonus || "0"}
         onChange={onChange}
       />
       <TextField
@@ -374,7 +374,7 @@ const CardStatus = ({ data, onChange }) => {
         id="guts-bonus"
         name="guts-bonus"
         label="근성 스탯 보너스"
-        value={"0"}
+        value={data.guts?.bonus || "0"}
         onChange={onChange}
       />
       <TextField
@@ -399,7 +399,7 @@ const CardStatus = ({ data, onChange }) => {
         id="intelligence-bonus"
         name="intelligence-bonus"
         label="지능 스탯 보너스"
-        value={"0"}
+        value={data.intelligence?.bonus || "0"}
         onChange={onChange}
       />
     </FormControl>

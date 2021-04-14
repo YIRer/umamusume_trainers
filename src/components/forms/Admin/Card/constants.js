@@ -4,28 +4,56 @@ export const ranks = [
     label: "S 이상",
   },
   {
+    value: "A+",
+    label: "A+",
+  },
+  {
     value: "A",
     label: "A",
+  },
+  {
+    value: "B+",
+    label: "B+",
   },
   {
     value: "B",
     label: "B",
   },
   {
+    value: "C+",
+    label: "C+",
+  },
+  {
     value: "C",
     label: "C",
+  },
+  {
+    value: "D+",
+    label: "D+",
   },
   {
     value: "D",
     label: "D",
   },
   {
+    value: "E+",
+    label: "E+",
+  },
+  {
     value: "E",
     label: "E",
   },
   {
+    value: "F+",
+    label: "F+",
+  },
+  {
     value: "F",
     label: "F",
+  },
+  {
+    value: "G+",
+    label: "G+",
   },
   {
     value: "G",

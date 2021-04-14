@@ -21,18 +21,4 @@ if (process.env.NODE_ENV === "production") {
   });
 } 
 
-// else if (process.env.NODE_ENV === "development") {
-//   const webpackMiddleware = require("webpack-dev-middleware");
-//   const webpackHotMiddleware = require("webpack-hot-middleware");
-//   const webpack = require("webpack");
-
-//   const webpackConfig = require("./webpack.config.js");
-//   const compiler = webpack(webpackConfig());
-
-//   app.use(webpackMiddleware(compiler));
-//   app.use(webpackHotMiddleware(compiler));
-
-//   app.use("/", express.static(`${__dirname}/public`));
-// }
-
 app.listen(port, () => console.log(`Listening on port ${port}`));

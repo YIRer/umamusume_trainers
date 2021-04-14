@@ -136,6 +136,16 @@ const CardBonusObjectType = new GraphQLInputObjectType({
   }),
 });
 
+const CardObjectsInputType = new GraphQLInputObjectType({
+  name: "CardObjectsInputType",
+  fields: () => ({
+    object: { type: GraphQLString },
+    time: { type: GraphQLString },
+    fan: { type: GraphQLString },
+    raceCourse: { type: GraphQLString },
+  }),
+});
+
 const CardInputType = new GraphQLInputObjectType({
   name: "CardInputType",
   fields: () => ({
@@ -146,6 +156,7 @@ const CardInputType = new GraphQLInputObjectType({
     imageSrc: { type: GraphQLString },
     type: { type: new GraphQLNonNull(GraphQLString) },
     supportType: { type: new GraphQLNonNull(GraphQLString) },
+    trainingObjects: { type: new GraphQLList(CardObjectsInputType) },
     playable: { type: new GraphQLNonNull(GraphQLBoolean) },
     limited: { type: new GraphQLNonNull(GraphQLBoolean) },
     status: { type: CardStatusObjectInput },
@@ -153,6 +164,8 @@ const CardInputType = new GraphQLInputObjectType({
     uniqueSkillsIds: { type: new GraphQLList(GraphQLID) },
     trainingSkillsIds: { type: new GraphQLList(GraphQLID) },
     hasSkillsIds: { type: new GraphQLList(GraphQLID) },
+    baseSkillsIds: { type: new GraphQLList(GraphQLID) },
+    awakeningSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillInputType),
     },
@@ -281,6 +294,16 @@ const CardBonusObject = new GraphQLObjectType({
   }),
 });
 
+const CardObjectsType = new GraphQLObjectType({
+  name: "CardObjectsType",
+  fields: () => ({
+    object: { type: GraphQLString },
+    time: { type: GraphQLString },
+    fan: { type: GraphQLString },
+    raceCourse: { type: GraphQLString },
+  }),
+});
+
 const CardType = new GraphQLObjectType({
   name: "Card",
   fields: () => ({
@@ -291,6 +314,7 @@ const CardType = new GraphQLObjectType({
     imageSrc: { type: GraphQLString },
     type: { type: GraphQLString },
     supportType: { type: new GraphQLNonNull(GraphQLString) },
+    trainingObjects: { type: new GraphQLList(CardObjectsType) },
     playable: { type: GraphQLBoolean },
     limited: { type: GraphQLBoolean },
     status: { type: CardStatusObject },
@@ -298,6 +322,8 @@ const CardType = new GraphQLObjectType({
     uniqueSkillsIds: { type: new GraphQLList(GraphQLID) },
     trainingSkillsIds: { type: new GraphQLList(GraphQLID) },
     hasSkillsIds: { type: new GraphQLList(GraphQLID) },
+    baseSkillsIds: { type: new GraphQLList(GraphQLID) },
+    awakeningSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {

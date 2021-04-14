@@ -27,6 +27,7 @@ import CardStatus from "./CardStatus";
 import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
+import CardObjectForm from "./CardObjectForm/Form";
 
 const getImageName = (imageSrc) => {
   try {
@@ -85,8 +86,12 @@ const EditCard = (props) => {
     unique: [],
     training: [],
     has: [],
+    base: [],
+    awakening: [],
   });
   const [selectedSkillType, setSelectedSkillType] = useState("");
+
+  const [trainingObjects, setCardObjectsInput] = useState([]);
 
   const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
 
@@ -156,6 +161,9 @@ const EditCard = (props) => {
         uniqueSkillsIds,
         trainingSkillsIds,
         hasSkillsIds,
+        baseSkillsIds,
+        awakeningSkillsIds,
+        trainingObjects,
         ...others
       } = card;
       const imageName = getImageName(imageSrc);
@@ -170,7 +178,7 @@ const EditCard = (props) => {
         playable,
         ...others,
       });
-
+      setCardObjectsInput(trainingObjects);
       setTrainingType(playable);
       setStatusInput({
         ...status.ground,
@@ -182,7 +190,8 @@ const EditCard = (props) => {
       const uniqueSkills = [];
       const traniningSkills = [];
       const hasSkills = [];
-
+      const baseSkills = [];
+      const awakeningSkills = [];
       skills.forEach((item) => {
         if (uniqueSkillsIds.includes(item.id)) {
           uniqueSkills.push(item);
@@ -190,6 +199,10 @@ const EditCard = (props) => {
           traniningSkills.push(item);
         } else if (hasSkillsIds.includes(item.id)) {
           hasSkills.push(item);
+        } else if (baseSkillsIds?.includes(item.id)) {
+          baseSkills.push(item);
+        } else if (awakeningSkillsIds?.includes(item.id)) {
+          awakeningSkills.push(item);
         }
       });
 
@@ -197,6 +210,8 @@ const EditCard = (props) => {
         unique: uniqueSkills,
         training: traniningSkills,
         has: hasSkills,
+        base: baseSkills,
+        awakening: awakeningSkills,
       });
       if (targetData) {
         setTarget(targetData.umamusume || null);
@@ -285,6 +300,8 @@ const EditCard = (props) => {
       uniqueSkillsIds: relatedSkills.unique.map(({ id }) => id),
       trainingSkillsIds: relatedSkills.training.map(({ id }) => id),
       hasSkillsIds: relatedSkills.has.map(({ id }) => id),
+      baseSkillsIds: relatedSkills.base.map(({ id }) => id),
+      awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -304,6 +321,7 @@ const EditCard = (props) => {
         },
         status: others,
       },
+      trainingObjects,
     };
 
     editCard({
@@ -331,6 +349,8 @@ const EditCard = (props) => {
         ...relatedSkills.unique,
         ...relatedSkills.training,
         ...relatedSkills.has,
+        ...relatedSkills.base,
+        ...relatedSkills.awakening,
       ];
 
       _.pullAll(skillList, editCard.skills).forEach((item) => {
@@ -442,11 +462,21 @@ const EditCard = (props) => {
     showSkillSearchModal();
   };
 
+  const showBaseSkillSearchModal = () => {
+    setSelectedSkillType("base");
+    showSkillSearchModal();
+  };
+
+  const showAwakeningSkillSearchModal = () => {
+    setSelectedSkillType("awakening");
+    showSkillSearchModal();
+  };
+
   if (loading) return <Loader />;
 
   const { card } = data;
   if (error || !card) return <p>Error :(</p>;
-
+    
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
       <FormControl>
@@ -533,7 +563,7 @@ const EditCard = (props) => {
             className={clsx(classes.root)}
             required
             select
-            value={formData.supportType || "supportType"}
+            value={formData.supportType || "speed"}
             id="supportType"
             name="supportType"
             label="카드 적성"
@@ -553,6 +583,13 @@ const EditCard = (props) => {
           <CardBonusForm
             initialData={formData.bonus}
             onChangeBonus={handleUpdateBonus}
+          />
+        )}
+
+        {isTrainingType && (
+          <CardObjectForm
+            list={trainingObjects}
+            updateList={setCardObjectsInput}
           />
         )}
 
@@ -603,7 +640,7 @@ const EditCard = (props) => {
           </div>
         )}
 
-        {relatedSkills.training.length > 0 && (
+        {!isTrainingType && relatedSkills.training.length > 0 && (
           <div>
             <b>육성 스킬</b>
             {relatedSkills.training.map((skillData, index) => (
@@ -617,10 +654,38 @@ const EditCard = (props) => {
           </div>
         )}
 
-        {relatedSkills.has.length > 0 && (
+        {!isTrainingType && relatedSkills.has.length > 0 && (
           <div>
             <b>소지 스킬</b>
             {relatedSkills.has.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {isTrainingType && relatedSkills.base.length > 0 && (
+          <div>
+            <b>초기 스킬</b>
+            {relatedSkills.base.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {isTrainingType && relatedSkills.awakening.length > 0 && (
+          <div>
+            <b>각성 스킬</b>
+            {relatedSkills.awakening.map((skillData, index) => (
               <SkillIcons
                 name={skillData.name}
                 imageSrc={skillData.imageSrc}
@@ -645,19 +710,27 @@ const EditCard = (props) => {
             type="button"
             variant="outlined"
             color="primary"
-            onClick={showTrainingSkillSearchModal}
+            onClick={
+              isTrainingType
+                ? showBaseSkillSearchModal
+                : showTrainingSkillSearchModal
+            }
             className={classes.skillButton}
           >
-            육성 스킬 선택
+            {isTrainingType ? "초기" : "육성"} 스킬 선택
           </Button>
           <Button
             type="button"
             variant="outlined"
             color="primary"
-            onClick={showHasSkillSearchModal}
+            onClick={
+              isTrainingType
+                ? showAwakeningSkillSearchModal
+                : showHasSkillSearchModal
+            }
             className={classes.skillButton}
           >
-            소지 스킬 선택
+            {isTrainingType ? "각성" : "소지"} 스킬 선택
           </Button>
         </div>
 

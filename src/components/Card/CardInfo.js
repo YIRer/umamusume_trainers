@@ -29,7 +29,7 @@ import BonusTable from "./BonusTable";
 import clsx from "clsx";
 import { isDev } from "../../constants";
 
-const useStyles = makeStyles((_theme) => ({
+const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
   },
@@ -38,6 +38,10 @@ const useStyles = makeStyles((_theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column-reverse",
+      alignItems: "flex-end",
+    },
   },
   icons: {
     display: "flex",
@@ -141,6 +145,10 @@ const useStyles = makeStyles((_theme) => ({
   head: {
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: "center",
+    },
   },
 
   typeIcon: {
@@ -162,6 +170,8 @@ const CardInfo = (props) => {
     unique: [],
     training: [],
     has: [],
+    base: [],
+    awakening: [],
   });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
@@ -172,10 +182,18 @@ const CardInfo = (props) => {
       uniqueSkillsIds,
       trainingSkillsIds,
       hasSkillsIds,
+      baseSkillsIds,
+      awakeningSkillsIds,
       skills,
     } = cardData;
 
-    const parmas = { unique: [], training: [], has: [] };
+    const parmas = {
+      unique: [],
+      training: [],
+      has: [],
+      base: [],
+      awakening: [],
+    };
 
     skills.forEach((skill) => {
       if (uniqueSkillsIds.includes(skill.id)) {
@@ -184,6 +202,10 @@ const CardInfo = (props) => {
         parmas.training.push(skill);
       } else if (hasSkillsIds.includes(skill.id)) {
         parmas.has.push(skill);
+      } else if (baseSkillsIds?.includes(skill.id)) {
+        parmas.base.push(skill);
+      } else if (awakeningSkillsIds?.includes(skill.id)) {
+        parmas.awakening.push(skill);
       }
     });
 
@@ -314,34 +336,59 @@ const CardInfo = (props) => {
         className={classes.image}
       />
       {card.playable && <StatusTable data={card} />}
-      <BonusTable data={card.bonus} />
+      {card.type === "support" && <BonusTable data={card.bonus} />}
+      {card.type === "training" && (
+        <section className={classes.section}>
+          <h4>고유 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.unique.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {card.type === "training" ? (
+        <section className={classes.section}>
+          <h4>초기 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.base.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      ) : (
+        <section className={classes.section}>
+          <h4>육성 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.training.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {card.type === "training" ? (
+        <section className={classes.section}>
+          <h4>각성 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.awakening.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      ) : (
+        <section className={classes.section}>
+          <h4>소지 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.has.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
       <section className={classes.section}>
-        <h4>고유 스킬</h4>
-        <div className={classes.skillCardsWrapper}>
-          {relatedSkills.unique.map((skill) => renderSkillCards(skill))}
-        </div>
-      </section>
-      <section className={classes.section}>
-        <h4>육성 스킬</h4>
-        <div className={classes.skillCardsWrapper}>
-          {relatedSkills.training.map((skill) => renderSkillCards(skill))}
-        </div>
-      </section>
-      <section className={classes.section}>
-        <h4>소지 스킬</h4>
-        <div className={classes.skillCardsWrapper}>
-          {relatedSkills.has.map((skill) => renderSkillCards(skill))}
-        </div>
-      </section>
-      <section className={classes.section}>
-        <h4>공통 이벤트</h4>
-        {card.events.common.map((event, index) => (
-          <EventItems
-            eventData={event}
-            editable={false}
-            key={`event-common-${index}`}
-          />
-        ))}
+        {card.type === "training" && (
+          <div>
+            <h4>공통 이벤트</h4>
+            {card.events.common.map((event, index) => (
+              <EventItems
+                eventData={event}
+                editable={false}
+                key={`event-common-${index}`}
+              />
+            ))}
+          </div>
+        )}
+
         <h4>1회성 이벤트</h4>
         {card.events.once.map((event, index) => (
           <EventItems
