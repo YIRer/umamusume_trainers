@@ -191,18 +191,25 @@ const EditCard = (props) => {
       const hasSkills = [];
       const baseSkills = [];
       const awakeningSkills = [];
-      skills.forEach((item) => {
-        if (uniqueSkillsIds.includes(item.id)) {
-          uniqueSkills.push(item);
-        } else if (trainingSkillsIds.includes(item.id)) {
-          traniningSkills.push(item);
-        } else if (hasSkillsIds.includes(item.id)) {
-          hasSkills.push(item);
-        } else if (baseSkillsIds?.includes(item.id)) {
-          baseSkills.push(item);
-        } else if (awakeningSkillsIds?.includes(item.id)) {
-          awakeningSkills.push(item);
-        }
+
+      uniqueSkillsIds.forEach((sid) => {
+        uniqueSkills.push(skills.find(({ id }) => id === sid));
+      });
+
+      trainingSkillsIds.forEach((sid) => {
+        traniningSkills.push(skills.find(({ id }) => id === sid));
+      });
+
+      hasSkillsIds.forEach((sid) => {
+        hasSkills.push(skills.find(({ id }) => id === sid));
+      });
+
+      baseSkillsIds.forEach((sid) => {
+        baseSkills.push(skills.find(({ id }) => id === sid));
+      });
+
+      awakeningSkillsIds.forEach((sid) => {
+        awakeningSkills.push(skills.find(({ id }) => id === sid));
       });
 
       setRelatedSkills({
@@ -328,13 +335,6 @@ const EditCard = (props) => {
         id,
         input,
       },
-      refetchQueries: [
-        {
-          query: GET_CARD,
-          variables: { id: id },
-        },
-      ],
-      awaitRefetchQueries: true,
     }).then(({ data }) => {
       const { editCard } = data;
       const params = {
@@ -364,11 +364,19 @@ const EditCard = (props) => {
         );
       });
 
+      console.log(params);
+
       editSkills({
         variables: {
           ...params,
         },
-        refetchQueries: [{ query: GET_SKILLS }],
+        refetchQueries: [
+          {
+            query: GET_CARD,
+            variables: { id: editCard.id },
+          },
+          { query: GET_SKILLS },
+        ],
       }).then(() => {
         props.history.push(`/cards/${editCard.id}`);
       });

@@ -27,9 +27,11 @@ const editCard = {
     input: { type: CardInputType },
   },
   resolve(_parentValue, { id, input }) {
-    return axios
-      .patch(`${dbServer}/cards/${id}`, { ...input })
-      .then((res) => res.data);
+    return axios({
+      method: "patch",
+      url: `${dbServer}/cards/${id}`,
+      data: { ...input },
+    }).then((res) => res.data);
   },
 };
 
@@ -45,9 +47,10 @@ const deleteCard = {
       skills.map((skill) => {
         const removedID = _.remove(skill.targetIDs, id);
 
-        return axios.patch(`${dbServer}/skills/${skill.id}`, {
-          ...skill,
-          targetIDs: removedID,
+        return axios({
+          method: "patch",
+          url: `${dbServer}/skills/${skill.id}`,
+          data: { ...skill, targetIDs: removedID },
         });
       }),
     ]).then((_res) => ({ deleted: true }));

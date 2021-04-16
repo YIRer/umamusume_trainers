@@ -209,18 +209,24 @@ const CardInfo = (props) => {
       awakening: [],
     };
 
-    skills.forEach((skill) => {
-      if (uniqueSkillsIds.includes(skill.id)) {
-        parmas.unique.push(skill);
-      } else if (trainingSkillsIds.includes(skill.id)) {
-        parmas.training.push(skill);
-      } else if (hasSkillsIds.includes(skill.id)) {
-        parmas.has.push(skill);
-      } else if (baseSkillsIds?.includes(skill.id)) {
-        parmas.base.push(skill);
-      } else if (awakeningSkillsIds?.includes(skill.id)) {
-        parmas.awakening.push(skill);
-      }
+    uniqueSkillsIds.forEach((sid) => {
+      parmas.unique.push(skills.find(({ id }) => id === sid));
+    });
+
+    trainingSkillsIds.forEach((sid) => {
+      parmas.training.push(skills.find(({ id }) => id === sid));
+    });
+
+    hasSkillsIds.forEach((sid) => {
+      parmas.has.push(skills.find(({ id }) => id === sid));
+    });
+
+    baseSkillsIds.forEach((sid) => {
+      parmas.base.push(skills.find(({ id }) => id === sid));
+    });
+    
+    awakeningSkillsIds.forEach((sid) => {
+      parmas.awakening.push(skills.find(({ id }) => id === sid));
     });
 
     setRelatedSkills(parmas);

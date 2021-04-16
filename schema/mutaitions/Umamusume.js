@@ -32,9 +32,11 @@ const editUmamusume = {
     },
   },
   resolve(_parentValue, { id, input }) {
-    return axios
-      .patch(`${dbServer}/umamusume/${id}`, { ...input })
-      .then((res) => res.data);
+    return axios({
+      method: "patch",
+      url: `${dbServer}/umamusume/${id}`,
+      data: { ...input },
+    }).then((res) => res.data);
   },
 };
 

@@ -29,9 +29,11 @@ const editEvent = {
     },
   },
   resolve(_parentValue, { id, input }) {
-    return axios
-      .patch(`${dbServer}/events/${id}`, { ...input })
-      .then((res) => res.data);
+    return axios({
+      method: "patch",
+      url: `${dbServer}/events/${id}`,
+      data: { ...input },
+    }).then((res) => res.data);
   },
 };
 
@@ -46,7 +48,11 @@ const editEvents = {
   resolve(_parentValue, { ids, eventsTargetIDs }) {
     return Promise.all([
       eventsTargetIDs.map((targetIDs, index) =>
-        axios.patch(`${dbServer}/events/${ids[index]}`, { targetIDs })
+        axios({
+          method: "patch",
+          url: `${dbServer}/events/${ids[index]}`,
+          data: { targetIDs },
+        })
       ),
     ]).then((res) => res.data);
   },

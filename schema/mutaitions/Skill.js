@@ -28,10 +28,13 @@ const editSkill = {
       type: SkillInputType,
     },
   },
+
   resolve(_parentValue, { id, input }) {
-    return axios
-      .patch(`${dbServer}/skills/${id}`, { ...input })
-      .then((res) => res.data);
+    return axios({
+      method: "patch",
+      url: `${dbServer}/skills/${id}`,
+      data: { ...input },
+    }).then((res) => res.data);
   },
 };
 
@@ -53,10 +56,18 @@ const editSkills = {
   ) {
     return Promise.all([
       addTargetIDs.map((targetIDs, index) =>
-        axios.patch(`${dbServer}/skills/${addIds[index]}`, { targetIDs })
+        axios({
+          method: "patch",
+          url: `${dbServer}/skills/${addIds[index]}`,
+          data: { targetIDs },
+        })
       ),
       deleteTargetIDs.map((targetIDs, index) =>
-        axios.patch(`${dbServer}/skills/${deleteIds[index]}`, { targetIDs })
+        axios({
+          method: "patch",
+          url: `${dbServer}/skills/${deleteIds[index]}`,
+          data: { targetIDs },
+        })
       ),
     ]).then((res) => res.data);
   },
