@@ -38365,7 +38365,9 @@
         "ko": "뇌쇄술",
         "ja": "悩殺術"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "86"
+      ],
       "effect": "레이스 초반에 앞쪽에 있으면 뒤쪽의 우마무스메가 위축됨 <단거리>",
       "imageSrc": "/image/skill/i_skill_018.png",
       "tags": [
