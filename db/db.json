@@ -36915,7 +36915,8 @@
         "46",
         "49",
         "55",
-        "83"
+        "83",
+        "84"
       ],
       "effect": "레이스 막바지에 지구력이 조금 회복한다 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_024.png",
@@ -37693,7 +37694,9 @@
         "ko": "팔방 노려보기",
         "ja": "八方にらみ"
       },
-      "targetIDs": [],
+      "targetIDs": [
+        "84"
+      ],
       "effect": "레이스 종반에 다른 말딸이 동요하게한다 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_023.png",
       "tags": [

@@ -55,17 +55,17 @@ const editSkills = {
     { addIds = [], addTargetIDs = [], deleteIds = [], deleteTargetIDs = [] }
   ) {
     return Promise.all([
-      addTargetIDs.map((targetIDs, index) =>
-        axios({
-          method: "patch",
-          url: `${dbServer}/skills/${addIds[index]}`,
-          data: { targetIDs },
-        })
-      ),
       deleteTargetIDs.map((targetIDs, index) =>
         axios({
           method: "patch",
           url: `${dbServer}/skills/${deleteIds[index]}`,
+          data: { targetIDs },
+        })
+      ),
+      addTargetIDs.map((targetIDs, index) =>
+        axios({
+          method: "patch",
+          url: `${dbServer}/skills/${addIds[index]}`,
           data: { targetIDs },
         })
       ),
