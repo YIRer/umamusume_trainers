@@ -192,23 +192,23 @@ const EditCard = (props) => {
       const baseSkills = [];
       const awakeningSkills = [];
 
-      uniqueSkillsIds.forEach((sid) => {
+      uniqueSkillsIds?.forEach((sid) => {
         uniqueSkills.push(skills.find(({ id }) => id === sid));
       });
 
-      trainingSkillsIds.forEach((sid) => {
+      trainingSkillsIds?.forEach((sid) => {
         traniningSkills.push(skills.find(({ id }) => id === sid));
       });
 
-      hasSkillsIds.forEach((sid) => {
+      hasSkillsIds?.forEach((sid) => {
         hasSkills.push(skills.find(({ id }) => id === sid));
       });
 
-      baseSkillsIds.forEach((sid) => {
+      baseSkillsIds?.forEach((sid) => {
         baseSkills.push(skills.find(({ id }) => id === sid));
       });
 
-      awakeningSkillsIds.forEach((sid) => {
+      awakeningSkillsIds?.forEach((sid) => {
         awakeningSkills.push(skills.find(({ id }) => id === sid));
       });
 
@@ -335,6 +335,14 @@ const EditCard = (props) => {
         id,
         input,
       },
+
+      refetchQueries: [
+        {
+          query: GET_CARD,
+          variables: { id: id },
+        },
+      ],
+      awaitRefetchQueries: true,
     }).then(({ data }) => {
       const { editCard } = data;
       const params = {
@@ -364,19 +372,11 @@ const EditCard = (props) => {
         );
       });
 
-      console.log(params);
-
       editSkills({
         variables: {
           ...params,
         },
-        refetchQueries: [
-          {
-            query: GET_CARD,
-            variables: { id: editCard.id },
-          },
-          { query: GET_SKILLS },
-        ],
+        refetchQueries: [{ query: GET_SKILLS }],
       }).then(() => {
         props.history.push(`/cards/${editCard.id}`);
       });

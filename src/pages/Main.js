@@ -57,6 +57,11 @@ const Main = () => {
               <ListItemText primary="스킬 리스트" />
             </Link>
           </ListItem>
+          <ListItem classes={{ root: classes.linkItem }}>
+            <Link to="/deck-builder">
+              <ListItemText primary="덱 빌더" />
+            </Link>
+          </ListItem>
         </List>
       </div>
     </div>

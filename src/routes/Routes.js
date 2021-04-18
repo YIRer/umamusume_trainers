@@ -20,6 +20,7 @@ import SkillInfo from "components/Skills/SkillInfo";
 import AddSkill from "components/forms/Admin/Skills/AddSkill";
 import EditSkill from "components/forms/Admin/Skills/EditSkill";
 import HomeButton from "components/Common/HomeButton";
+import DeckBuilder from "components/DeckBuilder/DeckBuilder";
 
 import { isDev } from "../constants";
 
@@ -34,6 +35,7 @@ function AppRoutes() {
         <Route exact path="/cards/:id" component={CardInfo} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/skills/:id" component={SkillInfo} />
+        <Route exact path="/deck-builder" component={DeckBuilder} />
 
         {isDev ? (
           <Route>
@@ -55,7 +57,7 @@ function AppRoutes() {
           <Redirect to="/" />
         )}
       </Switch>
-      <HomeButton />
+      {/* <HomeButton /> */}
     </Router>
   );
 }

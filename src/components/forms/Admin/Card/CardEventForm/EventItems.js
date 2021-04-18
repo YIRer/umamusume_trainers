@@ -29,7 +29,9 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     flexDirection: "column",
     marginLeft: "6px",
+    flex: 1,
   },
+
   detailWrapper: {
     display: "flex",
     flexDirection: "column",
@@ -48,6 +50,7 @@ const useStyles = makeStyles((_theme) => ({
   },
   infoSection: {
     display: "flex",
+    flexDirection: "column",
   },
   selection: {
     display: "flex",
@@ -120,9 +123,7 @@ const EventItems = ({ eventData, onDelete, onEdit, editable = true }) => {
           <b>{itemData.title.ja}</b>
           <b>{itemData.title.ko}</b>
         </div>
-        <div>
-          <IconButton>{open ? <ExpandLess /> : <ExpandMore />}</IconButton>
-        </div>
+        <IconButton>{open ? <ExpandLess /> : <ExpandMore />}</IconButton>
       </div>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <div>

@@ -1,0 +1,364 @@
+import React, { useEffect, useState, useRef } from "react";
+
+import Card from "@material-ui/core/Card";
+import { makeStyles } from "@material-ui/core/styles";
+
+import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
+
+import CardTags from "../Card/CardTags";
+import StatusTable from "../Card/StatusTable";
+import BonusTable from "../Card/BonusTable";
+import SideButtons from "../Common/SideButtons";
+
+import clsx from "clsx";
+import {
+  commonEvents,
+  commonMultipleEvent,
+  commonOnceEvents,
+} from "components/forms/Admin/Card/constants";
+
+import TrainingObjects from "../Card/TrainingObjects";
+
+const useStyles = makeStyles((theme) => ({
+  paperRoot: {
+    padding: "10px",
+  },
+  header: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column-reverse",
+      alignItems: "flex-end",
+    },
+  },
+  icons: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  link: {
+    color: "inherit",
+    padding: "12px",
+    display: "flex",
+    alignItems: "center",
+  },
+  section: {
+    margin: "10px",
+  },
+  image: {
+    height: "500px",
+    margin: "auto",
+    display: "block",
+    width: "100%",
+    marginTop: "16px",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+  },
+  icon: {
+    fontSize: "1.5rem",
+  },
+  iconArrow: {
+    fontSize: "1.8rem",
+  },
+  umamusume: {
+    width: "100px",
+    height: "100px",
+    border: "5px solid #ebd834",
+    boxSizing: "border-box",
+    backgroundPosition: "top center",
+    backgroundSize: "80%",
+    backgroundRepeat: "no-repeat",
+    marginBottom: "10px",
+  },
+  tableRoot: {
+    backgroundColor: "#333333",
+  },
+  tableRow: {
+    color: "#fff",
+  },
+  skillCardsWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  skillWrapper: {
+    width: "calc(40% - 8px)",
+    marginBottom: "16px",
+    marginRight: "16px",
+    minWidth: "220px",
+  },
+  skillMedia: {
+    width: "50px",
+    height: "50px",
+    backgroundPosition: "center",
+    marginRight: "10px",
+  },
+  skillInfo: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "100%",
+    fontSize: "12px",
+  },
+  skillImgAndInfo: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "10px",
+  },
+  skilType: {
+    textAlign: "center",
+    marginTop: "10px",
+    color: "white",
+    padding: "10px",
+  },
+  unique: {
+    backgroundColor: "#e33a10",
+  },
+  has: {
+    backgroundColor: "#00ad26",
+  },
+  training: {
+    backgroundColor: "#0068ad",
+  },
+
+  head: {
+    display: "flex",
+    alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      justifyContent: "center",
+    },
+  },
+
+  typeIcon: {
+    width: "20px",
+    height: "20px",
+    marginRight: "8px",
+  },
+}));
+
+const CardInfo = (props) => {
+  const classes = useStyles();
+  const selectionElement = useRef();
+  const [relatedSkills, setRelatedSkills] = useState({
+    unique: [],
+    training: [],
+    has: [],
+    base: [],
+    awakening: [],
+  });
+
+  const setInitialSkills = (cardData) => {
+    const {
+      uniqueSkillsIds,
+      trainingSkillsIds,
+      hasSkillsIds,
+      baseSkillsIds,
+      awakeningSkillsIds,
+      skills,
+    } = cardData;
+
+    const parmas = {
+      unique: [],
+      training: [],
+      has: [],
+      base: [],
+      awakening: [],
+    };
+
+    uniqueSkillsIds.forEach((sid) => {
+      parmas.unique.push(skills.find(({ id }) => id === sid));
+    });
+
+    trainingSkillsIds?.forEach((sid) => {
+      parmas.training.push(skills.find(({ id }) => id === sid));
+    });
+
+    hasSkillsIds?.forEach((sid) => {
+      parmas.has.push(skills.find(({ id }) => id === sid));
+    });
+
+    baseSkillsIds?.forEach((sid) => {
+      parmas.base.push(skills.find(({ id }) => id === sid));
+    });
+
+    awakeningSkillsIds?.forEach((sid) => {
+      const skill = skills.find(({ id }) => id === sid);
+      if (skill) {
+        parmas.awakening.push(skill);
+      }
+    });
+
+    setRelatedSkills(parmas);
+  };
+
+  const goTosection = () => {
+    props.rootRef.current.scrollTo(0, selectionElement.current.offsetHeight);
+  };
+
+  useEffect(() => {
+    if (props.data) {
+      setInitialSkills(props.data);
+    }
+    if (props.showSelection) {
+      goTosection();
+    }
+  }, []);
+
+  const renderSkillCards = (skill) => {
+    return (
+      skill && (
+        <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
+          <div className={classes.skillImgAndInfo}>
+            <img
+              className={clsx(classes.skillMedia)}
+              src={skill.imageSrc}
+              alt={skill.name.ko}
+            />
+            <div className={classes.skillInfo}>
+              <b>
+                {skill.name.ja}
+                <br />
+                {skill.name.ko}
+              </b>
+              <span>{skill.effect}</span>
+            </div>
+          </div>
+        </Card>
+      )
+    );
+  };
+
+  const { data } = props;
+  if (!data) return <p>Error :(</p>;
+  console.log(data);
+  return (
+    <div className={classes.paperRoot}>
+      <div className={classes.header}>
+        <h3 className={classes.head}>
+          {data.supportType && (
+            <img
+              className={classes.typeIcon}
+              src={`/image/icons/${data.supportType}.png`}
+              alt={data.supportType}
+            />
+          )}
+          {data.name.ja} {data.name.ko}
+        </h3>
+      </div>
+      <CardTags type={data.type} limited={data.limited} />
+      <div
+        style={{
+          backgroundImage: `url(${data.imageSrc})`,
+        }}
+        className={classes.image}
+      />
+      {data.playable && <StatusTable data={data} />}
+      {data.type === "support" && <BonusTable data={data.bonus} />}
+      {data.type === "training" && (
+        <section className={classes.section}>
+          <h4>고유 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.unique.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {data.type === "training" ? (
+        <section className={classes.section}>
+          <h4>초기 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.base.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      ) : (
+        <section className={classes.section}>
+          <h4>육성 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.training.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {data.type === "training" ? (
+        <section className={classes.section}>
+          <h4>각성 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.awakening.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      ) : (
+        <section className={classes.section}>
+          <h4>소지 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.has.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+
+      {data.type === "training" && (
+        <section>
+          <h4>육성 목표</h4>
+          <TrainingObjects data={data.trainingObjects} />
+        </section>
+      )}
+      <section className={classes.section} ref={selectionElement}>
+        {data.type === "training" && (
+          <div>
+            <h4>공통 이벤트</h4>
+            {commonEvents.map((event, index) => (
+              <EventItems
+                eventData={event}
+                editable={false}
+                key={`event-common-${index}`}
+              />
+            ))}
+          </div>
+        )}
+        <h4>1회성 이벤트</h4>
+        {data.events.once.map((event, index) => (
+          <EventItems
+            eventData={event}
+            editable={false}
+            key={`event-once-${index}`}
+          />
+        ))}
+        {data.type === "training" &&
+          commonOnceEvents.map((event, index) => (
+            <EventItems
+              eventData={event}
+              editable={false}
+              key={`event-once-common-event-${index}`}
+            />
+          ))}
+
+        {data.events.multipleTimes.length > 0 && (
+          <div>
+            <h4>다회성 이벤트</h4>
+            {data.events.multipleTimes.map((event, index) => (
+              <EventItems
+                eventData={event}
+                editable={false}
+                key={`event-multiple-event-${index}`}
+              />
+            ))}
+            {data.type === "training" &&
+              commonMultipleEvent.map((event, index) => (
+                <EventItems
+                  eventData={event}
+                  editable={false}
+                  key={`event-multiple-common-event-${index}`}
+                />
+              ))}
+          </div>
+        )}
+      </section>
+      <SideButtons rootRef={props.rootRef} />
+    </div>
+  );
+};
+
+export default CardInfo;

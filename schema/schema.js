@@ -3,7 +3,13 @@ const axios = require("axios");
 const graphql = require("graphql");
 const { dbServer } = require("../constants.js");
 
-const { GraphQLObjectType, GraphQLSchema, GraphQLID, GraphQLList } = graphql;
+const {
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLID,
+  GraphQLList,
+  GraphQLString,
+} = graphql;
 
 const mutation = require("./mutaitions/mutations.js");
 
@@ -63,6 +69,15 @@ const RootQuery = new GraphQLObjectType({
         } else {
           return [];
         }
+      },
+    },
+    getCardsByType: {
+      type: new GraphQLList(CardType),
+      args: { type: { type: GraphQLString } },
+      resolve(_parentValue, { type }) {
+        return axios
+          .get(`${dbServer}/cards?type_like=${type}`)
+          .then((res) => res.data);
       },
     },
     events: {

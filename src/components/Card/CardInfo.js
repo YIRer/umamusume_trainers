@@ -35,6 +35,8 @@ import {
   commonOnceEvents,
 } from "components/forms/Admin/Card/constants";
 
+import TrainingObjects from "./TrainingObjects";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
@@ -105,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     width: "calc(40% - 8px)",
     marginBottom: "16px",
     marginRight: "16px",
-    minWidth: "270px",
+    minWidth: "220px",
   },
   skillMedia: {
     width: "50px",
@@ -201,7 +203,7 @@ const CardInfo = (props) => {
       skills,
     } = cardData;
 
-    const parmas = {
+    const skillData = {
       unique: [],
       training: [],
       has: [],
@@ -210,26 +212,29 @@ const CardInfo = (props) => {
     };
 
     uniqueSkillsIds.forEach((sid) => {
-      parmas.unique.push(skills.find(({ id }) => id === sid));
+      skillData.unique.push(skills.find(({ id }) => id === sid));
     });
 
-    trainingSkillsIds.forEach((sid) => {
-      parmas.training.push(skills.find(({ id }) => id === sid));
+    trainingSkillsIds?.forEach((sid) => {
+      skillData.training.push(skills.find(({ id }) => id === sid));
     });
 
-    hasSkillsIds.forEach((sid) => {
-      parmas.has.push(skills.find(({ id }) => id === sid));
+    hasSkillsIds?.forEach((sid) => {
+      skillData.has.push(skills.find(({ id }) => id === sid));
     });
 
-    baseSkillsIds.forEach((sid) => {
-      parmas.base.push(skills.find(({ id }) => id === sid));
-    });
-    
-    awakeningSkillsIds.forEach((sid) => {
-      parmas.awakening.push(skills.find(({ id }) => id === sid));
+    baseSkillsIds?.forEach((sid) => {
+      skillData.base.push(skills.find(({ id }) => id === sid));
     });
 
-    setRelatedSkills(parmas);
+    awakeningSkillsIds?.forEach((sid) => {
+      const skill = skills.find(({ id }) => id === sid);
+      if (skill) {
+        skillData.awakening.push(skill);
+      }
+    });
+
+    setRelatedSkills(skillData);
   };
 
   useEffect(() => {
@@ -285,23 +290,25 @@ const CardInfo = (props) => {
 
   const renderSkillCards = (skill) => {
     return (
-      <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
-        <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
-          <img
-            className={clsx(classes.skillMedia)}
-            src={skill.imageSrc}
-            alt={skill.name.ko}
-          />
-          <div className={classes.skillInfo}>
-            <b>
-              {skill.name.ja}
-              <br />
-              {skill.name.ko}
-            </b>
-            <span>{skill.effect}</span>
-          </div>
-        </Link>
-      </Card>
+      skill && (
+        <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
+          <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
+            <img
+              className={clsx(classes.skillMedia)}
+              src={skill.imageSrc}
+              alt={skill.name.ko}
+            />
+            <div className={classes.skillInfo}>
+              <b>
+                {skill.name.ja}
+                <br />
+                {skill.name.ko}
+              </b>
+              <span>{skill.effect}</span>
+            </div>
+          </Link>
+        </Card>
+      )
     );
   };
 
@@ -351,7 +358,6 @@ const CardInfo = (props) => {
           )}
         </div>
       </div>
-
       <CardTags type={card.type} limited={card.limited} />
       <div
         style={{
@@ -397,6 +403,13 @@ const CardInfo = (props) => {
           <div className={classes.skillCardsWrapper}>
             {relatedSkills.has.map((skill) => renderSkillCards(skill))}
           </div>
+        </section>
+      )}
+
+      {card.type === "training" && (
+        <section>
+          <h4>육성 목표</h4>
+          <TrainingObjects data={card.trainingObjects} />
         </section>
       )}
       <section className={classes.section}>

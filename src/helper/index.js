@@ -19,3 +19,10 @@ export const convertLevel = (item) => {
       return `${item.level} ~`;
   }
 };
+
+export const isMobile = () => {
+  if (!document || !document.body) {
+    return false;
+  }
+  return document.body.clientWidth < 600;
+};
