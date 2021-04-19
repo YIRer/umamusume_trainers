@@ -49,6 +49,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "server": "cross-env NODE_ENV=development nodemon ./server.js",
     "prod": "cross-env NODE_ENV=production node ./server.js",
+    "deploy": "node ./server-prod.js",
     "pre-build": "rimraf build",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
