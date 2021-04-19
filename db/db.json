@@ -260,13 +260,27 @@
     },
     {
       "name": {
-        "default": "Finemotion",
+        "default": "FineMotion",
         "ko": "파인 모션",
         "ja": "ファインモーション",
-        "en": "Fine motion"
+        "en": "Fine Motion"
       },
-      "imageSrc": "/image/Finemotion/main.png",
-      "cards": [],
+      "imageSrc": "/image/FineMotion/main.png",
+      "cards": [
+        {
+          "star": 3,
+          "name": {
+            "ko": "파인 모션",
+            "ja": "ファインモーション"
+          },
+          "id": "10",
+          "imageSrc": "/image/Finemotion/cards/support/02.png",
+          "type": "support",
+          "supportType": "int",
+          "playable": false,
+          "limited": false
+        }
+      ],
       "id": 22
     },
     {
