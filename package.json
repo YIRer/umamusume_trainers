@@ -51,7 +51,6 @@
     "pre-build": "rimraf build",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
-  "proxy": "http://localhost:8080",
   "eslintConfig": {},
   "browserslist": {
     "production": [],
