@@ -9,11 +9,8 @@ import Card from "@material-ui/core/Card";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
-import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
-import InfoIcon from "@material-ui/icons/Info";
-import Tooltip from "@material-ui/core/Tooltip";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -23,7 +20,6 @@ import Loader from "components/Common/Loader";
 
 import CardTags from "./CardTags";
 import StatusTable from "./StatusTable";
-import BuffModal from "./BuffModal";
 import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
@@ -461,17 +457,6 @@ const CardInfo = (props) => {
           <span>없음</span>
         )}
       </section>
-      <IconButton onClick={scrollTop}>
-        <Tooltip title="상단으로" placement="left">
-          <ArrowUpwardIcon className={clsx(classes.goToTop)} color="primary" />
-        </Tooltip>
-      </IconButton>
-      <IconButton onClick={handleModalControl}>
-        <Tooltip title="버프 및 디버프 안내" placement="left">
-          <InfoIcon className={clsx(classes.iconInfo)} color="primary" />
-        </Tooltip>
-      </IconButton>
-      {openModal && <BuffModal open onClose={handleModalControl} />}
     </Paper>
   );
 };
