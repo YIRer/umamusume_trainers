@@ -9,7 +9,9 @@ const app = express();
 
 const port = process.env.PORT || 8080;
 
-app.use(cors());
+if (process.env.NODE_ENV === "development") {
+  app.use(cors());
+}
 
 app.use("/api", jsonServer.router("./db/db.json"));
 app.use("/graphql", expressGraphQL.graphqlHTTP({ graphiql: true, schema }));
@@ -19,6 +21,6 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (_req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
-} 
+}
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
