@@ -34,7 +34,7 @@ const NAVIGATIONS = [
     text: "스킬 리스트",
   },
   {
-    path: "/skills",
+    path: "/deck-builder",
     text: "덱 빌더",
   },
 ];
