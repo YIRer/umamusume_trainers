@@ -59,7 +59,7 @@ function AppRoutes() {
           <Redirect to="/" />
         )}
       </Switch>
-      <SideButtons />
+      <SideButtons isFixed={true} />
     </Router>
   );
 }

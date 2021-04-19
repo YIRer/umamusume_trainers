@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   iconWrapper__mobile: { bottom: "140px", right: 0 },
+  iconWrapper__fixed: { position: "fixed" },
 }));
 
 const SideButtons = (props) => {
@@ -48,7 +49,7 @@ const SideButtons = (props) => {
       window.scrollTo(0, 0);
     }
   };
-
+  console.log(props);
   return (
     <div
       className={clsx(
