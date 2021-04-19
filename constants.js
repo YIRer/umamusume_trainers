@@ -1,5 +1,10 @@
-const dbServer = `http://localhost:8080/api`;
-const graphqlServer = `http://localhost:8080/graphql`;
+const hostname =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080/"
+    : "http://umamusume-trainers.me/";
+
+const dbServer = `${hostname}/api`;
+const graphqlServer = `${hostname}/graphql`;
 
 module.exports = {
   dbServer,
