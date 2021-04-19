@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import Tooltip from "@material-ui/core/Tooltip";
-import StatusTable from "../Card/StatusTable";
-import TrainingObjects from "../Card/TrainingObjects";
 
-import _ from "lodash";
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_theme) => ({
   ItemRoot: {
     display: "grid",
     gridTemplateColumns: "100px auto",
@@ -21,12 +16,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
+    cursor: "pointer",
   },
 
   image: {
     width: "50px",
-    width: "50px",
+    height: "50px",
     marginRight: "8px",
+    cursor: "pointer",
   },
 }));
 
@@ -43,7 +40,7 @@ const Skills = ({ data, onSelectSkill, classes }) => {
   );
 };
 
-const DeckSlotItem = (props) => {
+const DeckSkillItem = (props) => {
   const { data } = props;
   const classes = useStyles();
   const [skills, setSkills] = useState([]);
@@ -128,4 +125,4 @@ const DeckSlotItem = (props) => {
   );
 };
 
-export default DeckSlotItem;
+export default DeckSkillItem;

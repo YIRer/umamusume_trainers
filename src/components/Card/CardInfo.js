@@ -64,7 +64,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   section: {
-    margin: "10px",
+    maxWidth: "700px",
+    margin: "10px auto",
   },
   image: {
     height: "500px",
@@ -407,7 +408,7 @@ const CardInfo = (props) => {
       )}
 
       {card.type === "training" && (
-        <section>
+        <section className={classes.section}>
           <h4>육성 목표</h4>
           <TrainingObjects data={card.trainingObjects} />
         </section>

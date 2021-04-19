@@ -8,7 +8,7 @@ import CardActions from "@material-ui/core/CardActions";
 import { v4 as uuidv4 } from "uuid";
 
 import SearchCards from "./SearchCards";
-import { useCookies, withCookies } from "react-cookie";
+import { withCookies } from "react-cookie";
 
 const useStyles = makeStyles((_theme) => ({
   card: {

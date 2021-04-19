@@ -40,7 +40,13 @@ const SideButtons = (props) => {
   };
 
   const scrollTop = () => {
-    props.rootRef.current.scrollTo(0, 0);
+    if (props.rootRef) {
+      props.rootRef.current.scrollTo(0, 0);
+    }
+
+    if (window) {
+      window.scrollTo(0, 0);
+    }
   };
 
   return (

@@ -24,7 +24,7 @@ const useStyles = makeStyles((_theme) => ({
 export default function SkillModal(props) {
   const classes = useStyles();
   const { data } = props;
-  console.log(data);
+
   return (
     <Dialog open={props.open} onClose={props.onClose}>
       <DialogContent>

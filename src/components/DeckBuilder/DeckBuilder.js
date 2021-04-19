@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import { GET_CARDS_All_DATA } from "queries/cards";
 import { useQuery } from "@apollo/client";
 
@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 
 import DeckForm from "./DeckForm";
 import CardInfoModal from "./CardInfoModal";
-import { useCookies, withCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 import DeckSlot from "./DeckSlot";
 
@@ -31,6 +31,7 @@ const DeckBuilder = () => {
   const [deckList, setDeckList] = useState([]);
 
   const [openCardModal, setOpenCardModal] = useState(false);
+  const [showSelection, setShowSelection] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [openAddForm, setOpenAddForm] = useState(false);
   const { loading, data } = useQuery(GET_CARDS_All_DATA);
@@ -68,14 +69,16 @@ const DeckBuilder = () => {
     }
   };
 
-  const showCardInfo = (card) => {
+  const showCardInfo = (card, isShowSelection = false) => {
     setOpenCardModal(true);
     setSelectedCard(card);
+    setShowSelection(isShowSelection);
   };
 
   const hideCardInfo = () => {
     setOpenCardModal(false);
     setSelectedCard(null);
+    setShowSelection(false);
   };
 
   const addDeckList = (deck) => {
@@ -139,16 +142,16 @@ const DeckBuilder = () => {
     return <div>loading...</div>;
   }
 
-  console.log(deckList);
   return (
     <div>
       <div>
         {deckList.length > 0 &&
-          deckList.map((deck) => (
+          deckList.map((deck, index) => (
             <DeckSlot
               data={deck}
               key={deck.id}
               showClickedCardInfo={showCardInfo}
+              index={index}
             />
           ))}
       </div>
@@ -162,7 +165,12 @@ const DeckBuilder = () => {
       )}
 
       {openCardModal && (
-        <CardInfoModal open data={selectedCard} onClose={hideCardInfo} />
+        <CardInfoModal
+          open
+          data={selectedCard}
+          onClose={hideCardInfo}
+          showSelection={showSelection}
+        />
       )}
     </div>
   );

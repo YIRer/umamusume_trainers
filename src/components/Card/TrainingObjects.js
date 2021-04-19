@@ -63,7 +63,6 @@ const TrainingItem = ({ data, index, isLast, checkable, checked }) => {
 };
 
 export default function TrainingObjects({ data }) {
-  const classes = useStyles();
   const listLength = data.length - 1;
   return (
     <div>
@@ -80,12 +79,3 @@ export default function TrainingObjects({ data }) {
     </div>
   );
 }
-
-/* {hasCondition && (
-          <IconButton onClick={hanldeExapnd}>
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </IconButton>
-        )} */
-/* <Collapse in={open} timeout="auto" unmountOnExit>
-        
-      </Collapse> */

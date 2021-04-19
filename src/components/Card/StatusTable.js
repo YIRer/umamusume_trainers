@@ -11,8 +11,9 @@ import clsx from "clsx";
 
 const useStyles = makeStyles((_theme) => ({
   section: {
-    margin: "10px",
-    overflowX: "scroll",
+    margin: "10px auto",
+    overflowX: "auto",
+    maxWidth: "600px",
   },
   tableRoot: {
     backgroundColor: "#333333",

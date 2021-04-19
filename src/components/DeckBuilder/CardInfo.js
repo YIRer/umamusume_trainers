@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   section: {
-    margin: "10px",
+    maxWidth: "700px",
+    margin: "10px auto",
   },
   image: {
     height: "500px",
@@ -145,66 +146,12 @@ const useStyles = makeStyles((theme) => ({
 const CardInfo = (props) => {
   const classes = useStyles();
   const selectionElement = useRef();
-  const [relatedSkills, setRelatedSkills] = useState({
-    unique: [],
-    training: [],
-    has: [],
-    base: [],
-    awakening: [],
-  });
-
-  const setInitialSkills = (cardData) => {
-    const {
-      uniqueSkillsIds,
-      trainingSkillsIds,
-      hasSkillsIds,
-      baseSkillsIds,
-      awakeningSkillsIds,
-      skills,
-    } = cardData;
-
-    const parmas = {
-      unique: [],
-      training: [],
-      has: [],
-      base: [],
-      awakening: [],
-    };
-
-    uniqueSkillsIds.forEach((sid) => {
-      parmas.unique.push(skills.find(({ id }) => id === sid));
-    });
-
-    trainingSkillsIds?.forEach((sid) => {
-      parmas.training.push(skills.find(({ id }) => id === sid));
-    });
-
-    hasSkillsIds?.forEach((sid) => {
-      parmas.has.push(skills.find(({ id }) => id === sid));
-    });
-
-    baseSkillsIds?.forEach((sid) => {
-      parmas.base.push(skills.find(({ id }) => id === sid));
-    });
-
-    awakeningSkillsIds?.forEach((sid) => {
-      const skill = skills.find(({ id }) => id === sid);
-      if (skill) {
-        parmas.awakening.push(skill);
-      }
-    });
-
-    setRelatedSkills(parmas);
-  };
 
   const goTosection = () => {
-    props.rootRef.current.scrollTo(0, selectionElement.current.offsetHeight);
+    props.rootRef.current.scrollTo(0, selectionElement.current.offsetTop - 20);
   };
 
   useEffect(() => {
-    if (props.data) {
-      setInitialSkills(props.data);
-    }
     if (props.showSelection) {
       goTosection();
     }
@@ -235,8 +182,8 @@ const CardInfo = (props) => {
   };
 
   const { data } = props;
+
   if (!data) return <p>Error :(</p>;
-  console.log(data);
   return (
     <div className={classes.paperRoot}>
       <div className={classes.header}>
@@ -248,7 +195,9 @@ const CardInfo = (props) => {
               alt={data.supportType}
             />
           )}
-          {data.name.ja} {data.name.ko}
+          {data.name.ko}
+          <br />
+          {data.name.ja}
         </h3>
       </div>
       <CardTags type={data.type} limited={data.limited} />
@@ -264,7 +213,7 @@ const CardInfo = (props) => {
         <section className={classes.section}>
           <h4>고유 스킬</h4>
           <div className={classes.skillCardsWrapper}>
-            {relatedSkills.unique.map((skill) => renderSkillCards(skill))}
+            {props.skillData.unique.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}
@@ -272,14 +221,14 @@ const CardInfo = (props) => {
         <section className={classes.section}>
           <h4>초기 스킬</h4>
           <div className={classes.skillCardsWrapper}>
-            {relatedSkills.base.map((skill) => renderSkillCards(skill))}
+            {props.skillData.base.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       ) : (
         <section className={classes.section}>
           <h4>육성 스킬</h4>
           <div className={classes.skillCardsWrapper}>
-            {relatedSkills.training.map((skill) => renderSkillCards(skill))}
+            {props.skillData.training.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}
@@ -287,20 +236,20 @@ const CardInfo = (props) => {
         <section className={classes.section}>
           <h4>각성 스킬</h4>
           <div className={classes.skillCardsWrapper}>
-            {relatedSkills.awakening.map((skill) => renderSkillCards(skill))}
+            {props.skillData.awakening.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       ) : (
         <section className={classes.section}>
           <h4>소지 스킬</h4>
           <div className={classes.skillCardsWrapper}>
-            {relatedSkills.has.map((skill) => renderSkillCards(skill))}
+            {props.skillData.has.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}
 
       {data.type === "training" && (
-        <section>
+        <section className={classes.section}>
           <h4>육성 목표</h4>
           <TrainingObjects data={data.trainingObjects} />
         </section>
