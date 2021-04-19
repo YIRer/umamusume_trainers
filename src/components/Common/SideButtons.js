@@ -49,7 +49,7 @@ const SideButtons = (props) => {
       window.scrollTo(0, 0);
     }
   };
-  console.log(props);
+
   return (
     <div
       className={clsx(
