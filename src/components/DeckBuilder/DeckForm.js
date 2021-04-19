@@ -161,10 +161,11 @@ const DeckForm = (props) => {
       window.alert("육성 카드는 필수로 선택해주세요.");
       return;
     }
+    const id = props.initData?.id || uuidv4();
     const data = {
       training: selectedCards.training,
       support: selectedCards.support,
-      id: uuidv4(),
+      id: id,
     };
     props.onSubmit(data);
   };

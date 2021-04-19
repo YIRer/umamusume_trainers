@@ -3,12 +3,22 @@ import { GET_CARDS_All_DATA } from "queries/cards";
 import { useQuery } from "@apollo/client";
 
 import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 
 import DeckForm from "./DeckForm";
 import CardInfoModal from "./CardInfoModal";
+import Loader from "components/Common/Loader";
 import { useCookies } from "react-cookie";
 
 import DeckSlot from "./DeckSlot";
+
+const useStyles = makeStyles((theme) => ({
+  addDeckButton: {
+    width: "100%",
+    marginTop: "16px",
+    marginBottom: "16px",
+  },
+}));
 
 const findCardData = (targetID, cache, cards) => {
   if (cache[targetID]) {
@@ -25,6 +35,7 @@ const findCardData = (targetID, cache, cards) => {
 const COOKIE_NAME = "umamusume-trainesr-deck-builder";
 
 const DeckBuilder = () => {
+  const classes = useStyles();
   const cache = {};
   const [deckCookies, setDeckCookies] = useCookies([COOKIE_NAME]);
 
@@ -93,6 +104,7 @@ const DeckBuilder = () => {
 
     const cookie = deckCookies[COOKIE_NAME] || [];
     setCookies([...cookie, addDeck]);
+    setOpenAddForm(false);
   };
 
   const editDeckList = (deck) => {
@@ -103,14 +115,17 @@ const DeckBuilder = () => {
         return d;
       }
     });
-
     setDeckList(changedDeck);
 
     const cookie = deckCookies[COOKIE_NAME] || [];
 
     const editedCookie = cookie.map((cookie) => {
       if (cookie.id === deck.id) {
-        return deck;
+        return {
+          training: [deck.training[0].id],
+          support: deck.support.map(({ id }) => id),
+          id: deck.id,
+        };
       } else {
         return cookie;
       }
@@ -127,7 +142,9 @@ const DeckBuilder = () => {
   };
 
   const setCookies = (deckList) => {
-    const time = new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000);
+    const time = new Date(
+      new Date().getTime() + 365 * 60 * 24 * 60 * 60 * 1000
+    );
     setDeckCookies(COOKIE_NAME, deckList, {
       path: "/deck-builder",
       expires: time,
@@ -139,23 +156,34 @@ const DeckBuilder = () => {
   };
 
   if (loading) {
-    return <div>loading...</div>;
+    return <Loader />;
   }
 
   return (
     <div>
       <div>
-        {deckList.length > 0 &&
-          deckList.map((deck, index) => (
-            <DeckSlot
-              data={deck}
-              key={deck.id}
-              showClickedCardInfo={showCardInfo}
-              index={index}
-            />
-          ))}
+        {deckList.length > 0
+          ? deckList.map((deck, index) => (
+              <DeckSlot
+                data={deck}
+                key={deck.id}
+                showClickedCardInfo={showCardInfo}
+                index={index}
+                cardsData={data.cards}
+                onEdit={editDeckList}
+                onDelete={removeDeck}
+              />
+            ))
+          : "등록된 덱이 없습니다."}
       </div>
-      <Button onClick={toggleAddForm}>{openAddForm ? "닫기" : "추가"}</Button>
+      <Button
+        className={classes.addDeckButton}
+        onClick={toggleAddForm}
+        color={"primary"}
+        variant="contained"
+      >
+        {openAddForm ? "닫기" : "추가"}
+      </Button>
       {openAddForm && (
         <DeckForm
           data={data.cards}

@@ -10,11 +10,12 @@ export const CardTags = ({ type, limited }) => {
       <Chip
         variant="outlined"
         label={convertType(type)}
-        style={{ marginRight: "8px" }}
+        style={{ marginRight: "6px", fontSize: "12px" }}
       />
       <Chip
         color={limited ? "secondary" : "primary"}
         label={convertLimited(limited)}
+        style={{ fontSize: "12px" }}
       />
     </div>
   );

@@ -19,14 +19,16 @@ import Skills from "components/Skills/Skills";
 import SkillInfo from "components/Skills/SkillInfo";
 import AddSkill from "components/forms/Admin/Skills/AddSkill";
 import EditSkill from "components/forms/Admin/Skills/EditSkill";
-import HomeButton from "components/Common/HomeButton";
 import DeckBuilder from "components/DeckBuilder/DeckBuilder";
+import SideButtons from "components/Common/SideButtons";
+import AppMainBar from "components/Common/AppMainBar";
 
 import { isDev } from "../constants";
 
 function AppRoutes() {
   return (
     <Router>
+      <AppMainBar />
       <Switch>
         <Route exact path="/" component={Main} />
         <Route exact path="/umamusume" component={UmamusumeList} />
@@ -57,7 +59,7 @@ function AppRoutes() {
           <Redirect to="/" />
         )}
       </Switch>
-      {/* <HomeButton /> */}
+      <SideButtons />
     </Router>
   );
 }

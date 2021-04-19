@@ -8,7 +8,6 @@ import {
   DELTE_UMAMUSUME,
 } from "queries/umamusume";
 
-import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import IconButton from "@material-ui/core/IconButton";
@@ -104,11 +103,6 @@ const Umamusume = (props) => {
     });
   };
 
-  const handleClickBack = (e) => {
-    e.preventDefault();
-    props.history.goBack();
-  };
-
   const renderCards = (data, type) => {
     return data.map((card) => {
       if (card.type === type) {
@@ -149,30 +143,23 @@ const Umamusume = (props) => {
         <h3>
           {umamusume.name.ko}({umamusume.name.ja})
         </h3>
-        <div className={classes.icons}>
-          <IconButton onClick={handleClickBack}>
-            <ArrowBackRoundedIcon
-              className={clsx(classes.iconArrow)}
-              color="primary"
-            />
-          </IconButton>
-          {isDev && (
+
+        {isDev && (
+          <div className={classes.icons}>
             <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
               <BorderColorRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </Link>
-          )}
-          {isDev && (
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </IconButton>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       <img className={classes.image} src={umamusume.imageSrc} />

@@ -1,11 +1,10 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useEffect } from "react";
 import { withRouter } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 import { GET_SKill, GET_SKILLS, DELTE_Skill } from "queries/skills";
 import { FIND_CARDS } from "queries/cards";
 
-import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import IconButton from "@material-ui/core/IconButton";
@@ -101,11 +100,6 @@ const SkillInfo = (props) => {
     });
   };
 
-  const handleClickBack = (e) => {
-    e.preventDefault();
-    props.history.goBack();
-  };
-
   if (loading) return <Loader />;
   if (error) return <p>Error :(</p>;
   const { skill } = data;
@@ -114,30 +108,22 @@ const SkillInfo = (props) => {
   return (
     <Paper classes={{ root: classes.paperRoot }}>
       <div className={classes.header}>
-        <div className={classes.icons}>
-          <IconButton onClick={handleClickBack}>
-            <ArrowBackRoundedIcon
-              className={clsx(classes.iconArrow)}
-              color="primary"
-            />
-          </IconButton>
-          {isDev && (
+        {isDev && (
+          <div className={classes.icons}>
             <Link to={`/admin/skills/${id}/edit`} className={classes.link}>
               <BorderColorRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </Link>
-          )}
-          {isDev && (
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </IconButton>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <section className={classes.infoSection}>
         <img className={classes.image} src={skill.imageSrc} />

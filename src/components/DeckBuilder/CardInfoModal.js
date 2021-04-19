@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import _ from "lodash";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";

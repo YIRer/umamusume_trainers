@@ -6,7 +6,6 @@ import { GET_CARD, GET_CARDS, ADD_CARD, DELTE_CARD } from "queries/cards";
 import { GET_UMAMUSUME } from "queries/umamusume";
 
 import Card from "@material-ui/core/Card";
-import ArrowBackRoundedIcon from "@material-ui/icons/ArrowBackRounded";
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
@@ -276,11 +275,6 @@ const CardInfo = (props) => {
     });
   };
 
-  const handleClickBack = (e) => {
-    e.preventDefault();
-    props.history.goBack();
-  };
-
   const handleModalControl = () => {
     setOpenModal(!openModal);
   };
@@ -331,33 +325,25 @@ const CardInfo = (props) => {
           )}
           {card.name.ja} {card.name.ko}
         </h3>
-        <div className={classes.icons}>
-          <IconButton onClick={handleClickBack}>
-            <ArrowBackRoundedIcon
-              className={clsx(classes.iconArrow)}
-              color="primary"
-            />
-          </IconButton>
-          <IconButton onClick={handleDuplicate}>
-            <FileCopyIcon className={clsx(classes.icon)} color="primary" />
-          </IconButton>
-          {isDev && (
+        {isDev && (
+          <div className={classes.icons}>
+            <IconButton onClick={handleDuplicate}>
+              <FileCopyIcon className={clsx(classes.icon)} color="primary" />
+            </IconButton>
             <Link to={`/admin/cards/${id}/edit`} className={classes.link}>
               <BorderColorRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </Link>
-          )}
-          {isDev && (
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon
                 className={clsx(classes.icon)}
                 color="primary"
               />
             </IconButton>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <CardTags type={card.type} limited={card.limited} />
       <div

@@ -12,6 +12,7 @@ import { CookiesProvider } from "react-cookie";
 const useStyles = makeStyles((_theme) => ({
   root: {
     padding: "16px",
+    marginTop: "80px",
   },
 }));
 
