@@ -4,14 +4,11 @@ const path = require("path");
 const cors = require("cors");
 const expressGraphQL = require("express-graphql");
 const schema = require("./schema/schema.js");
-
 const app = express();
 
 const port = process.env.PORT || 8080;
 
-if (process.env.NODE_ENV === "development") {
-  app.use(cors());
-}
+app.use(cors());
 
 app.use("/api", jsonServer.router("./db/db.json"));
 app.use("/graphql", expressGraphQL.graphqlHTTP({ graphiql: true, schema }));
