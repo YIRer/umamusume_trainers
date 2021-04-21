@@ -33308,6 +33308,300 @@
         "multipleTimes": []
       },
       "id": 87
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "유키노 비진",
+        "ja": "ユキノビジン"
+      },
+      "targetID": "29",
+      "imageSrc": "/image/YukinoBijin/cards/support/03.png",
+      "type": "support",
+      "supportType": "int",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "트레이닝 효과 UP, 레이스 보너스",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 10%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 60%"
+          },
+          {
+            "level": "none",
+            "effect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 1",
+            "maxEffect": "지능 우정 트레이닝 발생으로 인한 회복량 UP 5"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 30"
+          },
+          {
+            "level": "10",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv2"
+          },
+          {
+            "level": "10",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 40%"
+          },
+          {
+            "level": "15",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 35"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 지능의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "육성 시작시 초기 지능 UP 15",
+            "maxEffect": "육성 시작시 초기 지능 UP 30"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "104",
+        "108"
+      ],
+      "hasSkillsIds": [
+        "142",
+        "133",
+        "18",
+        "15"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "カすライブのために"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "激しいステップを取り入れてみたら？"
+                },
+                "result": "근성+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "アクロバティックな動きをしてみたら？"
+                },
+                "result": "체력-10 근성+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "チースポット \"を目指して"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "この地図だと、現在地と目的地は・・・"
+                },
+                "result": "체력-10 의욕UP 근성+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ナビのアプリイを使うといいよ"
+                },
+                "result": "\"コーナー加速◯\"(코너 가속◯)스킬힌트레벨+1 인연게이지+5\t"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "思い出ほわほわ、わんこそば"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "たとえばどんなもの？"
+                },
+                "result": "의욕UP 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "わんこそばが食べたくなってきたな"
+                },
+                "result": "체력최대치+4 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "学級委員長のすンげえ特訓"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ああ！学級委員長的な度胸を見習おう！"
+                },
+                "result": "의욕UP 파워+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ああ！学級委員長的な走りを見習おう！"
+                },
+                "result": "파워+3 근성+3 지능+3 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "あたし、勝ちたいンです！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "かっこいいところを見せよう！"
+                },
+                "result": "의욕UP \"ノンストップガール\"(논스톱걸)스킬힌트레벨+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "特訓の成果を見せてやろう！"
+                },
+                "result": "파워+3 근성+3 지능+3 \"ノンストップガール\"(논스톱걸)스킬힌트레벨+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 88
     }
   ],
   "skills": [
@@ -33610,7 +33904,8 @@
         "30",
         "41",
         "42",
-        "79"
+        "79",
+        "88"
       ],
       "effect": "코너에서 속도가 조금 상승 <중거리>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -33688,7 +33983,8 @@
         "41",
         "48",
         "69",
-        "80"
+        "80",
+        "88"
       ],
       "effect": "마지막 코너에서 추월당하면 조금 재역전하기 쉬워진다 <중거리>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -35521,7 +35817,8 @@
         "41",
         "49",
         "55",
-        "66"
+        "66",
+        "88"
       ],
       "effect": "화려한 코너 워크로 가속력이 조금 상승",
       "imageSrc": "/image/skill/i_skill_004.png",
@@ -35604,7 +35901,8 @@
         "ja": "ノンストップガール"
       },
       "targetIDs": [
-        "76"
+        "76",
+        "88"
       ],
       "effect": "라스트 스퍼트에서 앞이 막혔을 때 난투를 잘하게 된다",
       "imageSrc": "/image/skill/i_skill_005.png",
@@ -36086,7 +36384,8 @@
         "ja": "冬ウマ娘◯"
       },
       "targetIDs": [
-        "41"
+        "41",
+        "88"
       ],
       "effect": "겨울의 레이스가 조금 잘된다",
       "imageSrc": "/image/skill/i_skill_010.png",
@@ -36273,7 +36572,8 @@
         "6",
         "24",
         "27",
-        "41"
+        "41",
+        "88"
       ],
       "effect": "나카야마 경마장에 조금 익숙해진다",
       "imageSrc": "/image/skill/i_skill_013.png",
