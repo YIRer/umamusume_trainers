@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { prefixImgSrc } from "helper";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -34,7 +35,7 @@ const Skills = ({ data, onSelectSkill, classes }) => {
   return (
     <img
       onClick={handleSelectSkill}
-      src={data.imageSrc}
+      src={prefixImgSrc(data.imageSrc)}
       className={classes.image}
     />
   );
@@ -107,7 +108,7 @@ const DeckSkillItem = (props) => {
       <div
         className={classes.cardImage}
         style={{
-          backgroundImage: `url(${data.imageSrc}`,
+          backgroundImage: `url(${prefixImgSrc(data.imageSrc)}`,
         }}
         onClick={handleClick}
       />

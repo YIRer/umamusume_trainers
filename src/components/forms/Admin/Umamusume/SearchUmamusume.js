@@ -13,6 +13,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   paper: { width: "385px", minHeight: "500px" },
@@ -64,7 +65,7 @@ const CardItem = ({ umamusume, classes, selectFn, target }) => {
         { [classes.selected]: target && target.id === umamusume.id },
       ])}
       style={{
-        backgroundImage: `url(${umamusume.imageSrc})`,
+        backgroundImage: `url(${prefixImgSrc(umamusume.imageSrc)})`,
       }}
     ></div>
   );

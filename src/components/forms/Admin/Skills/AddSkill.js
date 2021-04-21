@@ -14,6 +14,7 @@ import { GET_SKILLS, ADD_Sklill } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -183,7 +184,7 @@ const AddSkill = (props) => {
               <div
                 className={classes.card}
                 style={{
-                  backgroundImage: `url(${imageSrc})`,
+                  backgroundImage: `url(${prefixImgSrc(imageSrc)})`,
                 }}
               />
             </div>

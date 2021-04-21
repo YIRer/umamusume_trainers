@@ -26,6 +26,8 @@ import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
 
+import { prefixImgSrc } from "helper";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "800px",
@@ -466,7 +468,7 @@ const AddCard = (props) => {
           <div
             className={classes.card}
             style={{
-              backgroundImage: `url(${targetInfo.imageSrc})`,
+              backgroundImage: `url(${prefixImgSrc(targetInfo.imageSrc)})`,
             }}
           ></div>
         )}

@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import SearchCards from "./SearchCards";
 import { withCookies } from "react-cookie";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   card: {
@@ -68,7 +69,7 @@ const DeckSlotItem = ({ data, classes, clickFn }) => {
     <div
       className={classes.card}
       style={{
-        backgroundImage: `url(${data.imageSrc})`,
+        backgroundImage: `url(${prefixImgSrc(data.imageSrc)})`,
       }}
       onClick={() => {
         clickFn(data);

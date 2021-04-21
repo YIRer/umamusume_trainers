@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Chip from "@material-ui/core/Chip";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   skillWrapper: {
@@ -29,7 +30,7 @@ export default function SkillModal(props) {
     <Dialog open={props.open} onClose={props.onClose}>
       <DialogContent>
         <div className={classes.skillWrapper}>
-          <img className={classes.image} src={data.imageSrc} />
+          <img className={classes.image} src={prefixImgSrc(data.imageSrc)} />
           <h3 className={classes.name}>
             {data.name.ja} <br />
             {data.name.ko}

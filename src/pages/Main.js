@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -37,7 +38,7 @@ const Main = () => {
 
       <img
         className={classes.logo}
-        src="/image/logo.png"
+        src={prefixImgSrc("/image/logo.png")}
         alt="umamusume-logo"
       />
       <div className={classes.links}>

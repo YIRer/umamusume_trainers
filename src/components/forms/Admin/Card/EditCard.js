@@ -29,6 +29,8 @@ import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
 
+import { prefixImgSrc } from "helper";
+
 const getImageName = (imageSrc) => {
   try {
     return imageSrc.split("/").pop().split(".")[0];
@@ -608,7 +610,7 @@ const EditCard = (props) => {
           <div
             className={classes.card}
             style={{
-              backgroundImage: `url(${targetInfo.imageSrc})`,
+              backgroundImage: `url(${prefixImgSrc(targetInfo.imageSrc)})`,
             }}
           ></div>
         )}

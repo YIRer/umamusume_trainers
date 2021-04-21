@@ -1,6 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { prefixImgSrc } from "helper";
 
 import clsx from "clsx";
 
@@ -74,7 +75,7 @@ const CardImage = ({ data, onSelectCard, classes, isTrainingType }) => {
     >
       <img
         onClick={handleSelectSkill}
-        src={data.imageSrc}
+        src={prefixImgSrc(data.imageSrc)}
         className={clsx(
           classes.cardImage,
           isTrainingType && classes.trainingCard
@@ -83,7 +84,7 @@ const CardImage = ({ data, onSelectCard, classes, isTrainingType }) => {
       {!isTrainingType && (
         <img
           className={classes.typeIcon}
-          src={`/image/icons/${data.supportType}.png`}
+          src={prefixImgSrc(`/image/icons/${data.supportType}.png`)}
           alt={data.supportType}
         />
       )}

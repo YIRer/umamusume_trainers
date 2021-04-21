@@ -18,6 +18,7 @@ import Loader from "components/Common/Loader";
 import clsx from "clsx";
 
 import { isDev } from "../../constants";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -126,7 +127,7 @@ const SkillInfo = (props) => {
         )}
       </div>
       <section className={classes.infoSection}>
-        <img className={classes.image} src={skill.imageSrc} />
+        <img className={classes.image} src={prefixImgSrc(skill.imageSrc)} />
         <h3 className={classes.name}>
           {skill.name.ja} <br />
           {skill.name.ko}
@@ -159,7 +160,7 @@ const SkillInfo = (props) => {
               <div
                 className={classes.card}
                 style={{
-                  backgroundImage: `url(${card.imageSrc})`,
+                  backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
                 }}
               />
             </Link>

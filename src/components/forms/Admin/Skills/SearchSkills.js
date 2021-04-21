@@ -16,6 +16,7 @@ import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   paper: { width: "368px", minHeight: "500px" },
@@ -82,7 +83,7 @@ const SkillItem = ({ itemData, classes, selectFn, targets }) => {
       <div className={classes.skillWrapper}>
         <img
           className={classes.skillIcon}
-          src={itemData.imageSrc}
+          src={prefixImgSrc(itemData.imageSrc)}
           alt={itemData.name.ko}
         />
         <div className={classes.skillInfoWrapper}>

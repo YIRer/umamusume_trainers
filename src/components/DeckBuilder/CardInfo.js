@@ -18,6 +18,7 @@ import {
 } from "components/forms/Admin/Card/constants";
 
 import TrainingObjects from "../Card/TrainingObjects";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -164,7 +165,7 @@ const CardInfo = (props) => {
           <div className={classes.skillImgAndInfo}>
             <img
               className={clsx(classes.skillMedia)}
-              src={skill.imageSrc}
+              src={prefixImgSrc(skill.imageSrc)}
               alt={skill.name.ko}
             />
             <div className={classes.skillInfo}>
@@ -191,7 +192,7 @@ const CardInfo = (props) => {
           {data.supportType && (
             <img
               className={classes.typeIcon}
-              src={`/image/icons/${data.supportType}.png`}
+              src={prefixImgSrc(`/image/icons/${data.supportType}.png`)}
               alt={data.supportType}
             />
           )}
@@ -203,7 +204,7 @@ const CardInfo = (props) => {
       <CardTags type={data.type} limited={data.limited} />
       <div
         style={{
-          backgroundImage: `url(${data.imageSrc})`,
+          backgroundImage: `url(${prefixImgSrc(data.imageSrc)})`,
         }}
         className={classes.image}
       />

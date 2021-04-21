@@ -19,6 +19,7 @@ import Loader from "components/Common/Loader";
 import CardTags from "./CardTags";
 import SearchForm from "../SearchForm";
 import { isDev } from "../../constants";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   cardsWrapper: {
@@ -117,7 +118,7 @@ export const CardList = (_props) => {
                     {supportType && (
                       <img
                         className={classes.typeIcon}
-                        src={`/image/icons/${supportType}.png`}
+                        src={prefixImgSrc(`/image/icons/${supportType}.png`)}
                         alt={supportType}
                       />
                     )}

@@ -19,6 +19,7 @@ import clsx from "clsx";
 import Loader from "components/Common/Loader";
 
 import { isDev } from "../../constants";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -115,13 +116,13 @@ const Umamusume = (props) => {
             <div
               className={classes.card}
               style={{
-                backgroundImage: `url(${card.imageSrc})`,
+                backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
               }}
             >
               {type === "support" && (
                 <img
                   className={classes.typeIcon}
-                  src={`/image/icons/${card.supportType}.png`}
+                  src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
                   alt={card.supportType}
                 />
               )}
@@ -162,7 +163,7 @@ const Umamusume = (props) => {
         )}
       </div>
 
-      <img className={classes.image} src={umamusume.imageSrc} />
+      <img className={classes.image} src={prefixImgSrc(umamusume.imageSrc)} />
       <section className={classes.section}>
         <h3>카드</h3>
         <div>

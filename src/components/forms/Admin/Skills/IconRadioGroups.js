@@ -1,6 +1,7 @@
 import React from "react";
 
 import Radio from "@material-ui/core/Radio";
+import { prefixImgSrc } from "helper";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((_theme) => ({
@@ -37,7 +38,11 @@ export const IconRadioGroups = ({ data, name, value, onChange }) => {
             onChange={onChange}
           />
           <label htmlFor={item.id} className={classes.label}>
-            <img className={classes.img} src={item.value} alt={item.label} />
+            <img
+              className={classes.img}
+              src={prefixImgSrc(item.value)}
+              alt={item.label}
+            />
             <span className={classes.span}>{item.label}</span>
           </label>
         </div>

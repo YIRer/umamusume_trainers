@@ -24,6 +24,7 @@ import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
 import { isDev } from "../../constants";
+import { prefixImgSrc } from "helper";
 import {
   commonEvents,
   commonMultipleEvent,
@@ -286,7 +287,7 @@ const CardInfo = (props) => {
           <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
             <img
               className={clsx(classes.skillMedia)}
-              src={skill.imageSrc}
+              src={prefixImgSrc(skill.imageSrc)}
               alt={skill.name.ko}
             />
             <div className={classes.skillInfo}>
@@ -315,7 +316,7 @@ const CardInfo = (props) => {
           {card.supportType && (
             <img
               className={classes.typeIcon}
-              src={`/image/icons/${card.supportType}.png`}
+              src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
               alt={card.supportType}
             />
           )}
@@ -344,7 +345,7 @@ const CardInfo = (props) => {
       <CardTags type={card.type} limited={card.limited} />
       <div
         style={{
-          backgroundImage: `url(${card.imageSrc})`,
+          backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
         }}
         className={classes.image}
       />
@@ -448,7 +449,9 @@ const CardInfo = (props) => {
             <div
               className={classes.umamusume}
               style={{
-                backgroundImage: `url(${targetData.umamusume.imageSrc})`,
+                backgroundImage: `url(${prefixImgSrc(
+                  targetData.umamusume.imageSrc
+                )})`,
               }}
             />
             <b>{targetData.umamusume.name.ko}</b>

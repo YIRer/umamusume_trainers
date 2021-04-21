@@ -2,6 +2,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 
 import { makeStyles } from "@material-ui/core/styles";
+import { prefixImgSrc } from "helper";
 
 import clsx from "clsx";
 
@@ -41,7 +42,11 @@ const SkillIcons = ({ name, imageSrc, effect }) => {
       }}
     >
       <div className={classes.skillWrapper}>
-        <img className={classes.skillIcon} src={imageSrc} alt={name} />
+        <img
+          className={classes.skillIcon}
+          src={prefixImgSrc(imageSrc)}
+          alt={name}
+        />
         <div className={classes.skillInfoWrapper}>
           <b>{`${name.ja} ${name.ko}`}</b>
           <span>{effect}</span>
