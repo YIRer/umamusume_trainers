@@ -16,6 +16,7 @@ import Loader from "components/Common/Loader";
 
 import SearchForm from "../SearchForm";
 import { isDev } from "../../constants";
+import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   skillListWrapper: {
@@ -83,7 +84,7 @@ export const Skills = (_props) => {
             <Card className={clsx(classes.cardRoot)}>
               <CardMedia
                 className={clsx(classes.cardMedia)}
-                image={imageSrc || "/image/temp.png"}
+                image={prefixImgSrc(imageSrc || "/image/temp.png")}
                 title={name}
               />
               <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>

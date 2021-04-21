@@ -112,7 +112,7 @@ export const CardList = (_props) => {
                   <div className={classes.cardImgWrapper}>
                     <CardMedia
                       className={clsx(classes.cardMedia)}
-                      image={imageSrc || "/image/temp.png"}
+                      image={prefixImgSrc(imageSrc || "/image/temp.png")}
                       title={`${name.ja} ${name.ko}`}
                     />
                     {supportType && (
