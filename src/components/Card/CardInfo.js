@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
   section: {
     maxWidth: "700px",
-    margin: "10px auto",
+    margin: "10px 0",
   },
   image: {
     height: "500px",
