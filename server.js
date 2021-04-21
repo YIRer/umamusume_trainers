@@ -16,6 +16,7 @@ app.use("/api", jsonServer.router("./db/db.json"));
 app.use("/graphql", expressGraphQL.graphqlHTTP({ graphiql: true, schema }));
 
 if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(`${__dirname}/build/images`, { maxAge: 86400 }));
   app.use("/", express.static(`${__dirname}/build`));
   app.get("*", (_req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
