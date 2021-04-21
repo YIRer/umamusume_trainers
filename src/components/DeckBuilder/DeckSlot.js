@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   deckDetailsWrapper: {
     marginBottom: "30px",
   },
+  cardRoot: { marginBottom: "20px" },
 }));
 
 const SkillItems = ({ data, onSelectSkill, showClickedCardInfo, classes }) => {
@@ -122,7 +123,7 @@ const DeckSlot = (props) => {
   };
 
   return (
-    <Card>
+    <Card classes={{ root: classes.cardRoot }}>
       <div className={classes.header} onClick={toggleOpenDeckDetailes}>
         <span>저장된 프리셋 {props.index + 1}</span>
         <IconButton>

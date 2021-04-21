@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import DeckForm from "./DeckForm";
 import CardInfoModal from "./CardInfoModal";
 import Loader from "components/Common/Loader";
-import { useCookies } from "react-cookie";
+import ReactCookie, { useCookies } from "react-cookie";
 
 import DeckSlot from "./DeckSlot";
 
@@ -17,6 +17,13 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: "16px",
     marginBottom: "16px",
+  },
+
+  warning: {
+    marginTop: "50px",
+    border: "1px solid #eee",
+    boxSizing: "border-box",
+    padding: "30px",
   },
 }));
 
@@ -37,7 +44,7 @@ const COOKIE_NAME = "umamusume-trainesr-deck-builder";
 const DeckBuilder = () => {
   const classes = useStyles();
   const cache = {};
-  const [deckCookies, setDeckCookies] = useCookies([COOKIE_NAME]);
+  const [deckCookies, setDeckCookies, removeCookie] = useCookies([COOKIE_NAME]);
 
   const [deckList, setDeckList] = useState([]);
 
@@ -159,6 +166,18 @@ const DeckBuilder = () => {
     return <Loader />;
   }
 
+  const removeAllCookies = () => {
+    if (window && window.confirm("저장된 덱 리스트를 전부 제거하시겠습니까?")) {
+      removeCookie(COOKIE_NAME, {
+        path: "/",
+      });
+      removeCookie(COOKIE_NAME, {
+        path: "/deck-builder",
+      });
+      setDeckList([]);
+    }
+  };
+
   return (
     <div>
       <div>
@@ -200,6 +219,20 @@ const DeckBuilder = () => {
           showSelection={showSelection}
         />
       )}
+      <div className={classes.warning}>
+        <p>
+          덱 리스트가 제거되어도 남아있는 문제가 있다면 아래의 버튼을 눌러주세요.
+          저장된 쿠키를 모두 제거합니다.
+        </p>
+        <Button
+          className={classes.addDeckButton}
+          onClick={removeAllCookies}
+          color={"secondary"}
+          variant="contained"
+        >
+          쿠키 제거
+        </Button>
+      </div>
     </div>
   );
 };

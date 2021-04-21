@@ -6,8 +6,6 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
-import clsx from "clsx";
-
 export const BUFF_LIST = {
   buff: [
     {
@@ -120,7 +118,6 @@ export default function BuffModal(props) {
     <Dialog
       open={props.open}
       onClose={props.onClose}
-      // classes={{ paper: clsx(classes.paper) }}
     >
       <DialogTitle>버프 및 디버프</DialogTitle>
       <DialogContent>
