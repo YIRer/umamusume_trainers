@@ -11,11 +11,7 @@ import BonusTable from "../Card/BonusTable";
 import SideButtons from "../Common/SideButtons";
 
 import clsx from "clsx";
-import {
-  commonEvents,
-  commonMultipleEvent,
-  commonOnceEvents,
-} from "components/forms/Admin/Card/constants";
+import { commonEvents } from "components/forms/Admin/Card/constants";
 
 import TrainingObjects from "../Card/TrainingObjects";
 import { prefixImgSrc } from "helper";
@@ -276,15 +272,6 @@ const CardInfo = (props) => {
             key={`event-once-${index}`}
           />
         ))}
-        {data.type === "training" &&
-          commonOnceEvents.map((event, index) => (
-            <EventItems
-              eventData={event}
-              editable={false}
-              key={`event-once-common-event-${index}`}
-            />
-          ))}
-
         {data.events.multipleTimes.length > 0 && (
           <div>
             <h4>다회성 이벤트</h4>
@@ -295,14 +282,6 @@ const CardInfo = (props) => {
                 key={`event-multiple-event-${index}`}
               />
             ))}
-            {data.type === "training" &&
-              commonMultipleEvent.map((event, index) => (
-                <EventItems
-                  eventData={event}
-                  editable={false}
-                  key={`event-multiple-common-event-${index}`}
-                />
-              ))}
           </div>
         )}
       </section>

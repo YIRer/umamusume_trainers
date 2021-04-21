@@ -7,11 +7,7 @@ import _ from "lodash";
 
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
-import {
-  commonEvents,
-  commonMultipleEvent,
-  commonOnceEvents,
-} from "../constants";
+import { commonEvents } from "../constants";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -122,10 +118,6 @@ const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
         <div>
           <h4>일회성 이벤트</h4>
           <div>
-            {isTrainingType &&
-              commonOnceEvents.map((d) => (
-                <EventItems key={d.title.ja} eventData={d} editable={false} />
-              ))}
             {eventObject.once.length > 0
               ? eventObject.once.map((d) => {
                   if (!d.__tempID) {
@@ -147,10 +139,6 @@ const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
         <div>
           <h4>다회성 이벤트</h4>
           <div>
-            {isTrainingType &&
-              commonMultipleEvent.map((d) => (
-                <EventItems key={d.title.ja} eventData={d} editable={false} />
-              ))}
             {eventObject.multipleTimes.length > 0
               ? eventObject.multipleTimes.map((d) => {
                   if (!d.__tempID) {
