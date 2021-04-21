@@ -146,7 +146,7 @@ const DeckBuilder = () => {
       new Date().getTime() + 365 * 60 * 24 * 60 * 60 * 1000
     );
     setDeckCookies(COOKIE_NAME, deckList, {
-      path: "/deck-builder",
+      path: "/",
       expires: time,
     });
   };
