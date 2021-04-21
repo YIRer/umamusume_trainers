@@ -1,3 +1,6 @@
+import { isDev } from "../constants";
+const IMAGE_URL = "https://umamusume-trainers.s3.ap-northeast-2.amazonaws.com";
+
 export const getTypeName = (skilType) => {
   switch (skilType) {
     case "unique":
@@ -25,4 +28,12 @@ export const isMobile = () => {
     return false;
   }
   return document.body.clientWidth < 600;
+};
+
+export const prefixImgSrc = (url) => {
+  if (isDev) {
+    return url;
+  } else {
+    return IMAGE_URL + url;
+  }
 };
