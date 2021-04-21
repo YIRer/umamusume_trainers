@@ -34,7 +34,6 @@ const useStyles = makeStyles((_theme) => ({
   cardWrapper: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
   },
   cardRoot: {
     display: "flex",
