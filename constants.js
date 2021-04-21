@@ -5,8 +5,10 @@ const hostname =
 
 const dbServer = `${hostname}/api`;
 const graphqlServer = `${hostname}/graphql`;
+const imageRegex = /image/i;
 
 module.exports = {
   dbServer,
   graphqlServer,
+  imageRegex,
 };

@@ -2,11 +2,14 @@ const commonPaths = require("./common-paths");
 const fs = require("fs-extra");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { imageRegex } = require("../constants");
 
 function copyPublicFolder() {
   fs.copySync(commonPaths.publicFolder, commonPaths.outputPath, {
     dereference: true,
-    filter: (file) => file !== commonPaths.appHtml,
+    filter: (file) => {
+      return file !== commonPaths.appHtml && !imageRegex.test(file);
+    },
   });
 }
 
