@@ -297,7 +297,7 @@ const AddCard = (props) => {
     };
   };
 
-  const removeEventTempIDs = (events, isTrainingType) => {
+  const removeEventTempIDs = (events) => {
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
