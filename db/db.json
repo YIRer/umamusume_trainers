@@ -42043,6 +42043,274 @@
         "multipleTimes": []
       },
       "id": 88
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "위닝티켓",
+        "ja": "ウイニングチケット"
+      },
+      "targetID": "35",
+      "imageSrc": "/image/WinningTicket/cards/support/03.png",
+      "type": "support",
+      "supportType": "power",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "40",
+            "effect": "우정보너스 UP, 초기 인연게이지 UP"
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 인연 게이지 UP 5",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "10",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv2"
+          },
+          {
+            "level": "10",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 40%"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 5%"
+          },
+          {
+            "level": "15",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 35"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 파워의 상승량 UP 1",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 15%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [
+        "36",
+        "54"
+      ],
+      "trainingSkillsIds": [],
+      "hasSkillsIds": [
+        "152",
+        "158",
+        "37",
+        "97",
+        "39"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "全・カ・筋肉!!"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "わかる！とことんやりたい"
+                },
+                "result": "스태미나+5 스킬PT+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "スポーツドリンクを渡す"
+                },
+                "result": "의욕UP 스킬PT+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "全・カ・競走!!"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "手すりショートカットだ！"
+                },
+                "result": "\"差しコーナー◯\"(선입 코너◯)힌트Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "相手の動きを予想してみるとか"
+                },
+                "result": "스킬PT+30 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "密着！情熱ダービー特集ツ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스태미나+5 파워+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "特訓！ライバルだからッ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 스태미나+5 파워+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "挑戦 ! 夢は叶えるものツ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-30 스태미나+5 파워+5 \"全身全霊\"(전신전령) 힌트Lv+2"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 89
     }
   ],
   "skills": [
@@ -42828,7 +43096,8 @@
         "12",
         "43",
         "46",
-        "80"
+        "80",
+        "89"
       ],
       "effect": "코너에서 속도가 조금 상승 <선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -42854,7 +43123,8 @@
         "36",
         "46",
         "73",
-        "80"
+        "80",
+        "89"
       ],
       "effect": "레이스 중반에서 속도가 조금 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -42898,11 +43168,28 @@
       },
       "targetIDs": [
         "1",
+        "10",
+        "11",
         "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "21",
         "24",
         "25",
+        "31",
+        "41",
+        "51",
+        "61",
         "69",
-        "78"
+        "71",
+        "78",
+        "81",
+        "89"
       ],
       "effect": "마지막 코너에서 외부에서 추월하면 속도가 약간 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_001.png",
@@ -43221,7 +43508,8 @@
       },
       "targetIDs": [
         "1",
-        "69"
+        "69",
+        "89"
       ],
       "effect": "라스트 스퍼트에서 속도가 상승",
       "imageSrc": "/image/skill/i_skill_002.png",
@@ -44096,9 +44384,42 @@
         "5",
         "6",
         "12",
+        "15",
+        "16",
+        "25",
+        "26",
+        "35",
+        "36",
+        "45",
+        "46",
         "48",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
         "71",
-        "73"
+        "73",
+        "75",
+        "76",
+        "85",
+        "86",
+        "89"
       ],
       "effect": "레이스 막바지에 가속력이 조금 상승 <작전 선입>",
       "imageSrc": "/image/skill/i_skill_004.png",
@@ -45222,7 +45543,8 @@
         "47",
         "50",
         "80",
-        "87"
+        "87",
+        "89"
       ],
       "effect": "「좋음」 상태의 마장에서 조금 잘하게 된다",
       "imageSrc": "/image/skill/i_skill_012.png",
@@ -45349,7 +45671,8 @@
         "31",
         "36",
         "50",
-        "66"
+        "66",
+        "89"
       ],
       "effect": "흐린 날의 레이스가 조금 익숙해진다",
       "imageSrc": "/image/skill/i_skill_011.png",
@@ -47398,6 +47721,60 @@
       ],
       "condition": "단거리,초반,디버프",
       "id": 261
+    },
+    {
+      "name": {
+        "ko": "",
+        "ja": "Nemesis"
+      },
+      "targetIDs": [],
+      "effect": "최후 코너에서 마군의 후방에 위치에서 앞으로 나올 때 예리도가 올라가 속도가 상승한다.",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "코너",
+        "후반",
+        "마지막",
+        "추월",
+        "고유",
+        "나리타타이신"
+      ],
+      "condition": "",
+      "id": 262
+    },
+    {
+      "name": {
+        "ko": "잠자는 사자",
+        "ja": "眠れる獅子"
+      },
+      "targetIDs": [],
+      "effect": "레이스 중반에 다리가 덜 피로해진다<작전 추입>",
+      "imageSrc": "/image/skill/i_skill_025.png",
+      "tags": [
+        "중반",
+        "회복",
+        "추입"
+      ],
+      "condition": "",
+      "id": 263
+    },
+    {
+      "name": {
+        "ko": "뒤쫓는 그림자",
+        "ja": "迫る影"
+      },
+      "targetIDs": [],
+      "effect": "마지막 직선의 가속도가 상승 <작전 추입>",
+      "imageSrc": "/image/skill/i_skill_005.png",
+      "tags": [
+        "후반",
+        "마지막",
+        "직선",
+        "가속도",
+        "작전",
+        "추입"
+      ],
+      "condition": "",
+      "id": 264
     }
   ],
   "conditions": []
