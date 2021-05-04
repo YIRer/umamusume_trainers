@@ -1,3 +1,1 @@
-declare const isDev: string;
-
-export default isDev;
+export const isDev: string;

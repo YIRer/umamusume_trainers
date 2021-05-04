@@ -23,7 +23,7 @@ import DeckBuilder from "components/DeckBuilder/DeckBuilder";
 import SideButtons from "components/Common/SideButtons";
 import AppMainBar from "components/Common/AppMainBar";
 
-import isDev from "../constants";
+import { isDev } from "../constants";
 
 const AppRoutes: React.FC = () => {
   return (

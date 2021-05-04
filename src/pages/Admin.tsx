@@ -24,10 +24,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function Admin() {
+export const Admin: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={clsx(classes.wrapper)}>
+    <div className={clsx(classes.root)}>
       <List component="ul">
         <ListSubheader>우마무스메 관리</ListSubheader>
         <ListItem>
@@ -67,4 +67,6 @@ export default function Admin() {
       </List>
     </div>
   );
-}
+};
+
+export default Admin;

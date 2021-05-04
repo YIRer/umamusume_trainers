@@ -23,7 +23,7 @@ import StatusTable from "./StatusTable";
 import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
-import * as isDev from "../../constants";
+import { isDev }from "../../constants";
 import { prefixImgSrc } from "helper";
 import { commonEvents } from "components/forms/Admin/Card/constants";
 
