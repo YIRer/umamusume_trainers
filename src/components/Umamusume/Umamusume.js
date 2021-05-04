@@ -18,7 +18,7 @@ import clsx from "clsx";
 
 import Loader from "components/Common/Loader";
 
-import { isDev } from "../../constants";
+import * as isDev from "../../constants";
 import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({

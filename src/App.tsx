@@ -28,7 +28,7 @@ const theme = createMuiTheme({
   },
 });
 
-function App() {
+const App: React.FC = () => {
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
@@ -39,6 +39,6 @@ function App() {
       </CookiesProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

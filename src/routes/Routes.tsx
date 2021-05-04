@@ -23,9 +23,9 @@ import DeckBuilder from "components/DeckBuilder/DeckBuilder";
 import SideButtons from "components/Common/SideButtons";
 import AppMainBar from "components/Common/AppMainBar";
 
-import { isDev } from "../constants";
+import isDev from "../constants";
 
-function AppRoutes() {
+const AppRoutes: React.FC = () => {
   return (
     <Router>
       <AppMainBar />
@@ -62,6 +62,6 @@ function AppRoutes() {
       <SideButtons isFixed={true} />
     </Router>
   );
-}
+};
 
 export default AppRoutes;

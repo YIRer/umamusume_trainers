@@ -18,7 +18,7 @@ import Loader from "components/Common/Loader";
 
 import CardTags from "./CardTags";
 import SearchForm from "../SearchForm";
-import { isDev } from "../../constants";
+import * as isDev from "../../constants";
 import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({

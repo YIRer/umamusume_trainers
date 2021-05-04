@@ -7,7 +7,7 @@ const config = {
   mode: "development",
   entry: {
     vendor: ["react", "react-dom"],
-    app: [`${commonPaths.appEntry}/index.js`],
+    app: [`${commonPaths.appEntry}/index.tsx`],
   },
   output: {
     filename: "[name].[hash].js",
