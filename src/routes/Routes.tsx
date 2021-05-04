@@ -25,7 +25,7 @@ import AppMainBar from "components/Common/AppMainBar";
 
 import { isDev } from "../constants";
 
-const AppRoutes: React.FC = () => {
+const AppRoutes = () => {
   return (
     <Router>
       <AppMainBar />

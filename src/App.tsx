@@ -28,7 +28,7 @@ const theme = createMuiTheme({
   },
 });
 
-const App: React.FC = () => {
+const App = () => {
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>

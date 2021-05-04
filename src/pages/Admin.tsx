@@ -24,7 +24,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const Admin: React.FC = () => {
+export const Admin = () => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root)}>
