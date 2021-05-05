@@ -30,6 +30,10 @@ import CardObjectForm from "./CardObjectForm/Form";
 
 import { prefixImgSrc } from "helper";
 
+import { EditCardProps } from "./types";
+import _ from "lodash";
+import { CardType } from "types/Card/card";
+
 const getImageName = (imageSrc) => {
   try {
     return imageSrc.split("/").pop().split(".")[0];
@@ -71,9 +75,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditCard = (props) => {
+const EditCard = (props: EditCardProps) => {
   const classes = useStyles();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const { loading, error, data } = useQuery(GET_CARD, {
     variables: { id },
@@ -345,7 +349,7 @@ const EditCard = (props) => {
       ],
       awaitRefetchQueries: true,
     }).then(({ data }) => {
-      const { editCard } = data;
+      const { editCard }: { editCard: CardType } = data;
       const params = {
         addIds: [],
         addTargetIDs: [],

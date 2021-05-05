@@ -6,6 +6,8 @@ import { prefixImgSrc } from "helper";
 
 import clsx from "clsx";
 
+import { SkillIconsProps } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   skillCard: {
     width: "100%",
@@ -32,11 +34,11 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const SkillIcons = ({ name, imageSrc, effect }) => {
+const SkillIcons = ({ name, imageSrc, effect }: SkillIconsProps) => {
   const classes = useStyles();
   return (
     <Card
-      key={name}
+      key={`${name.ja} ${name.ko}`}
       classes={{
         root: clsx(classes.skillCard),
       }}
@@ -45,7 +47,7 @@ const SkillIcons = ({ name, imageSrc, effect }) => {
         <img
           className={classes.skillIcon}
           src={prefixImgSrc(imageSrc)}
-          alt={name}
+          alt={`${name.ja} ${name.ko}`}
         />
         <div className={classes.skillInfoWrapper}>
           <b>{`${name.ja} ${name.ko}`}</b>

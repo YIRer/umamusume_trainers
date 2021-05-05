@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 import { ranks } from "./constants";
+import { CardStatusProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const CardStatus = ({ data, onChange }) => {
+const CardStatus = ({ data, onChange }: CardStatusProps) => {
   const classes = useStyles();
   return (
     <FormControl>

@@ -16,6 +16,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { prefixImgSrc } from "helper";
 
+import { CardType } from "types/Card/card";
+import { SearchCards, SearchCardItem } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   paper: { width: "368px", minHeight: "500px" },
 
@@ -54,7 +57,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const CardItem = ({ itemData, classes, selectFn, targets }) => {
+const CardItem = ({ itemData, classes, selectFn, targets }: SearchCardItem) => {
   const isSelected = Boolean(_.find(targets, (d) => d.id === itemData.id));
 
   return (
@@ -71,7 +74,7 @@ const CardItem = ({ itemData, classes, selectFn, targets }) => {
   );
 };
 
-const SearchCards = (props) => {
+const SearchCards = (props: SearchCards) => {
   const classes = useStyles();
   const { loading, data } = useQuery(GET_CARDS);
 
@@ -93,7 +96,7 @@ const SearchCards = (props) => {
     setSearchResult(searchData);
   };
 
-  const handleSelect = (card, isSelected) => {
+  const handleSelect = (card: CardType, isSelected: boolean) => {
     if (isSelected) {
       const filteredArray = targets.filter((item) => item.id !== card.id);
       setTargets(filteredArray);
