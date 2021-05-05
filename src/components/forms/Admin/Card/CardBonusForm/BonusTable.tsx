@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { convertLevel } from "helper";
+import type { BonusTableProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -23,7 +24,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const BonusTable = ({ data, type, onDelete }) => {
+export const BonusTable = ({ data, type, onDelete }: BonusTableProps) => {
   const classes = useStyles();
 
   return (
@@ -39,13 +40,9 @@ export const BonusTable = ({ data, type, onDelete }) => {
       <TableBody>
         {data.map((item) => (
           <TableRow key={item.__tempID}>
-            <TableCell className={classes.level}>
-              {convertLevel(item)}
-            </TableCell>
-            <TableCell className={classes.effect}>{item.effect}</TableCell>
-            <TableCell className={classes.maxEffect}>
-              {type === "unique" ? "" : item.maxEffect}
-            </TableCell>
+            <TableCell>{convertLevel(item)}</TableCell>
+            <TableCell>{item.effect}</TableCell>
+            <TableCell>{type === "unique" ? "" : item.maxEffect}</TableCell>
             <TableCell className={classes.deleteBtn}>
               <IconButton
                 onClick={() => {

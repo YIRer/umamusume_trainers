@@ -8,8 +8,7 @@ import _ from "lodash";
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
 import { commonEvents } from "../constants";
-import type { CardEventFormProps } from "./types";
-import type { CardEventObjectType, CardEventType } from "types/Card/event";
+import type { CardEventFormProps, CardEventTypeWithTempID } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -57,7 +56,7 @@ const CardEventForm = ({
     setEventInputForm(false);
   };
 
-  const handleConfirm = (eventData) => {
+  const handleConfirm = (eventData: CardEventTypeWithTempID) => {
     const updatedData = eventObject[eventData.eventType].push(eventData);
 
     setEventObjectInput(updatedData);
@@ -65,7 +64,7 @@ const CardEventForm = ({
     hideEventInputForm();
   };
 
-  const handleDelete = (eventData) => {
+  const handleDelete = (eventData: CardEventTypeWithTempID) => {
     const updatedData = [...eventObject[eventData.eventType]].filter(
       (ele) => ele.__tempID !== eventData.__tempID
     );
@@ -73,7 +72,10 @@ const CardEventForm = ({
     setEventObjectInput({ [eventData.eventType]: updatedData });
   };
 
-  const handleEditEvent = (eventData: CardEventType, changedEventType) => {
+  const handleEditEvent = (
+    eventData: CardEventTypeWithTempID,
+    changedEventType?: boolean
+  ) => {
     if (changedEventType) {
       const removeTarget =
         eventData.eventType === "once" ? "multipleTimes" : "once";

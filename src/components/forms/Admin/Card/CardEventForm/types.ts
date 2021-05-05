@@ -6,10 +6,12 @@ import type {
 
 import { cardEventTypes } from "../constants";
 
+export type CardEventTypeWithTempID = CardEventType & { __tempID?: string };
+
 export type EventItemsProps = {
-  eventData: CardEventType;
-  onDelete?: (d: CardEventType) => void;
-  onEdit?: (d: CardEventType, changedEventType: boolean) => void;
+  eventData: CardEventTypeWithTempID;
+  onDelete?: (d: CardEventTypeWithTempID) => void;
+  onEdit?: (d: CardEventTypeWithTempID, changedEventType: boolean) => void;
   editable?: boolean;
 };
 
@@ -22,8 +24,8 @@ export type EventTypeRadioGroupsProps = {
 
 export type EventInputFormProps = {
   closeForm: () => void;
-  onConfirm: (updatedData: CardEventType) => void;
-  initialData?: CardEventType;
+  onConfirm: (updatedData: CardEventTypeWithTempID) => void;
+  initialData?: CardEventTypeWithTempID;
 };
 
 export type EventChoiceInputProps = {

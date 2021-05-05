@@ -9,6 +9,12 @@ import BonusTable from "./BonusTable";
 
 import _ from "lodash";
 
+import type {
+  CardBonusFormProps,
+  BonusTypeWithTempID,
+  bonusType,
+} from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   button: {
     marginTop: "16px",
@@ -34,7 +40,7 @@ const sortingArr = (arr) => {
   return [...none, ...haveLevels];
 };
 
-const CardBonusForm = ({ onChangeBonus, initialData }) => {
+const CardBonusForm = ({ onChangeBonus, initialData }: CardBonusFormProps) => {
   const classes = useStyles();
   const [openedBonusInputForm, setBonusInputForm] = useState(false);
 
@@ -68,7 +74,7 @@ const CardBonusForm = ({ onChangeBonus, initialData }) => {
     setBonusInputForm(false);
   };
 
-  const handleConfirm = (bonusData, isUnique) => {
+  const handleConfirm = (bonusData: BonusTypeWithTempID, isUnique: boolean) => {
     if (isUnique) {
       const unique = sortingArr([...bonusObject.unique, bonusData]);
       setBonusObjectInput({ unique });
@@ -82,7 +88,10 @@ const CardBonusForm = ({ onChangeBonus, initialData }) => {
     setBonusInputForm(false);
   };
 
-  const handleDelete = (bonusData, type) => {
+  const handleDelete = (
+    bonusData: BonusTypeWithTempID,
+    type: typeof bonusType
+  ) => {
     const updatedData = [...bonusObject[type]].filter(
       (ele) => ele.__tempID !== bonusData.__tempID
     );

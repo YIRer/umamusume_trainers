@@ -11,7 +11,6 @@ export type CardEventType = {
   tags: string[];
   choices: CardEventChoiceType[];
   condition: string;
-  __tempID?: string;
 };
 
 export type CardEventObjectType = {

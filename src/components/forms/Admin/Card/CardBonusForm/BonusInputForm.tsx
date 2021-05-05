@@ -8,6 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Checkbox from "@material-ui/core/Checkbox";
 
 import { makeStyles } from "@material-ui/core/styles";
+import type { BonusInputFormProps } from "./types";
 
 const requiredLevel = [
   { value: "none", label: "없음" },
@@ -38,7 +39,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const BonusInputForm = ({ closeForm, onConfirm, initialData }) => {
+const BonusInputForm = ({ closeForm, onConfirm }: BonusInputFormProps) => {
   const classes = useStyles();
   const [bonusData, setBonusInput] = useReducer(
     (state, newState) => ({
