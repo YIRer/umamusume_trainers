@@ -28,6 +28,10 @@ import CardObjectForm from "./CardObjectForm/Form";
 
 import { prefixImgSrc } from "helper";
 
+import type { AddCardProps } from "./types";
+import type { CardEventObjectType } from "types/Card/event";
+import type { CardBonusObjectType } from "types/Card/bonus";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "800px",
@@ -37,10 +41,6 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     flexDirection: "column",
     padding: "10px",
-  },
-  button: {
-    width: "100px",
-    margin: "1rem",
   },
   card: {
     width: "100px",
@@ -61,10 +61,6 @@ const useStyles = makeStyles((_theme) => ({
     marginRight: "16px",
   },
 
-  skillWrapper: {
-    display: "flex",
-    padding: "10px",
-  },
   skillIcon: {
     width: "80px",
     height: "80px",
@@ -78,9 +74,11 @@ const useStyles = makeStyles((_theme) => ({
   button: {
     marginBottom: "16px",
   },
+
   skillWrapper: {
     display: "flex",
     justifyContent: "space-between",
+    padding: "10px",
   },
   skillButton: {
     width: "calc(33% - 8px)",
@@ -88,7 +86,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const AddCard = (props) => {
+const AddCard = (props: AddCardProps) => {
   const classes = useStyles();
   const [isTrainingType, setTrainingType] = useState(true);
   const [targetInfo, setTarget] = useState(null);
@@ -156,14 +154,14 @@ const AddCard = (props) => {
     }
   );
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setFormInput({ [name]: value });
   };
 
-  const handleChangeCheckbox = (e) => {
+  const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.checked;
     if (name === "playable") {
@@ -173,7 +171,7 @@ const AddCard = (props) => {
     setFormInput({ [name]: value });
   };
 
-  const handleStatusChange = (e) => {
+  const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const [type, status] = e.target.name.split("-");
     const value = e.target.value.toString();
 
@@ -181,15 +179,15 @@ const AddCard = (props) => {
     setStatusInput({ [type]: newState });
   };
 
-  const handleChangeEvents = (eventData) => {
+  const handleChangeEvents = (eventData: CardEventObjectType) => {
     setFormInput({ events: eventData });
   };
 
-  const handleUpdateBonus = (bonusData) => {
+  const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
     const {
@@ -245,7 +243,7 @@ const AddCard = (props) => {
         },
         status: others,
       },
-      events: removeEventTempIDs(events, isTrainingType),
+      events: removeEventTempIDs(events),
       bonus: removeBonusTempIDs(bonus),
       trainingObjects,
     };
