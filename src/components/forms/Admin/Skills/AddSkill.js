@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";

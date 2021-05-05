@@ -1,6 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { withRouter } from "react-router";
-import { useParams } from "react-router-dom";
+import { withRouter, useParams } from "react-router-dom";
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 
 import Button from "@material-ui/core/Button";

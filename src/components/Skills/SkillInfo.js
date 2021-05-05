@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router";
-import { useParams, Link } from "react-router-dom";
+import { withRouter, useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 import { GET_SKill, GET_SKILLS, DELTE_Skill } from "queries/skills";
 import { FIND_CARDS } from "queries/cards";
@@ -17,7 +16,7 @@ import Loader from "components/Common/Loader";
 
 import clsx from "clsx";
 
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
 const useStyles = makeStyles((_theme) => ({

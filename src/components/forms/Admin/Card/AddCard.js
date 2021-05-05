@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import Button from "@material-ui/core/Button";

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router";
-import { useParams, Link } from "react-router-dom";
+import { withRouter, useParams, Link } from "react-router-dom";
 import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
 import { GET_CARD, GET_CARDS, ADD_CARD, DELTE_CARD } from "queries/cards";
 import { GET_UMAMUSUME } from "queries/umamusume";
