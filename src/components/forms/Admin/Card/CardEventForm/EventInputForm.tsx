@@ -14,6 +14,8 @@ import EventChoiceInput from "./EventChoiceInput";
 
 import { cardEventTypes } from "../constants";
 
+import type { EventInputFormProps } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "800px",
@@ -57,7 +59,11 @@ const initialChoice = {
   result: "",
 };
 
-const EventInputForm = ({ closeForm, onConfirm, initialData }) => {
+const EventInputForm = ({
+  closeForm,
+  onConfirm,
+  initialData,
+}: EventInputFormProps) => {
   const classes = useStyles();
 
   const [eventData, setEventInput] = useReducer(

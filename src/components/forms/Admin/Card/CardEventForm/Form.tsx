@@ -8,6 +8,8 @@ import _ from "lodash";
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
 import { commonEvents } from "../constants";
+import type { CardEventFormProps } from "./types";
+import type { CardEventObjectType, CardEventType } from "types/Card/event";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -17,7 +19,11 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
+const CardEventForm = ({
+  onChangeEvents,
+  initialData,
+  isTrainingType,
+}: CardEventFormProps) => {
   const classes = useStyles();
   const [openedEventInputForm, setEventInputForm] = useState(false);
 
@@ -67,7 +73,7 @@ const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
     setEventObjectInput({ [eventData.eventType]: updatedData });
   };
 
-  const handleEditEvent = (eventData, changedEventType) => {
+  const handleEditEvent = (eventData: CardEventType, changedEventType) => {
     if (changedEventType) {
       const removeTarget =
         eventData.eventType === "once" ? "multipleTimes" : "once";
@@ -81,8 +87,9 @@ const CardEventForm = ({ onChangeEvents, initialData, isTrainingType }) => {
       const updatedData = [...eventObject[eventData.eventType], eventData];
 
       const updatedEventsObj = {
-        [removeTarget]: removedData,
-        [eventData.eventType]: updatedData,
+        once: removeTarget === "once" ? removedData : updatedData,
+        multipleTimes:
+          removeTarget === "multipleTimes" ? removedData : updatedData,
       };
 
       setEventObjectInput(updatedEventsObj);

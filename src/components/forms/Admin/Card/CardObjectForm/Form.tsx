@@ -8,6 +8,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ObjectItem from "./ObjectItem";
+import type { formProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function CardObjectForm({ list, updateList }) {
+export default function CardObjectForm({ list, updateList }: formProps) {
   const classes = useStyles();
   const [newObject, setNewObject] = useReducer(
     (state, newState) => ({

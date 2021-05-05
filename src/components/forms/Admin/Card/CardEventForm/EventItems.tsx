@@ -11,6 +11,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
 import EventInputForm from "./EventInputForm";
+import { EventItemsProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   wrapper: {
@@ -82,7 +83,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EventItems = ({ eventData, onDelete, onEdit, editable = true }) => {
+const EventItems = ({
+  eventData,
+  onDelete,
+  onEdit,
+  editable = true,
+}: EventItemsProps) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [editMode, setEditMode] = useState(false);

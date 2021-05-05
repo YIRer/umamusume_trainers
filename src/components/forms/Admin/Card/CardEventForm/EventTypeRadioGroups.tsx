@@ -7,6 +7,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
+import { EventTypeRadioGroupsProps } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     marginTop: "16px",
@@ -17,7 +19,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EventTypeRadioGroups = ({ data, name, value, onChange }) => {
+const EventTypeRadioGroups = ({
+  data,
+  name,
+  value,
+  onChange,
+}: EventTypeRadioGroupsProps) => {
   const classes = useStyles();
   return (
     <div className={clsx(classes.root)}>

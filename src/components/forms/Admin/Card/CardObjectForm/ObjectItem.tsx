@@ -1,12 +1,13 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer } from "react";
 
 import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
 
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
+
+import type { ItemProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   wrapper: {
@@ -25,7 +26,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function ObjectItem({ data, index, onDelete, onEdit }) {
+export default function ObjectItem({
+  data,
+  index,
+  onDelete,
+  onEdit,
+}: ItemProps) {
   const classes = useStyles();
   const [inputObject, setInputObject] = useReducer(
     (state, newState) => ({
