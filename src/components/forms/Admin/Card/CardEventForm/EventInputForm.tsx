@@ -14,7 +14,7 @@ import EventChoiceInput from "./EventChoiceInput";
 
 import { cardEventTypes } from "../constants";
 
-import type { EventInputFormProps } from "./types";
+import  { EventInputFormProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   root: {

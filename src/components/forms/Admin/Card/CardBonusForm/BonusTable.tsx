@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { convertLevel } from "helper";
-import type { BonusTableProps } from "./types";
+import  { BonusTableProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   button: {

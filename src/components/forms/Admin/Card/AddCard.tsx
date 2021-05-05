@@ -28,9 +28,9 @@ import CardObjectForm from "./CardObjectForm/Form";
 
 import { prefixImgSrc } from "helper";
 
-import type { AddCardProps } from "./types";
-import type { CardEventObjectType } from "types/Card/event";
-import type { CardBonusObjectType } from "types/Card/bonus";
+import  { AddCardProps } from "./types";
+import  { CardEventObjectType } from "types/Card/event";
+import  { CardBonusObjectType } from "types/Card/bonus";
 
 const useStyles = makeStyles((_theme) => ({
   root: {

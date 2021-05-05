@@ -1,10 +1,10 @@
-export type CardBonusType = {
+export interface CardBonusType {
   level: string;
   effect: string;
   maxEffect: string;
-};
+}
 
-export type CardBonusObjectType = {
+export interface CardBonusObjectType {
   unique: CardBonusType[];
   support: CardBonusType[];
-};
+}

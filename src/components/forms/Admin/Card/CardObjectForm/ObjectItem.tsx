@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
 
-import type { ItemProps } from "./types";
+import  { ItemProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   wrapper: {

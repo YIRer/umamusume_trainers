@@ -8,7 +8,7 @@ import _ from "lodash";
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
 import { commonEvents } from "../constants";
-import type { CardEventFormProps, CardEventTypeWithTempID } from "./types";
+import  { CardEventFormProps, CardEventTypeWithTempID } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   button: {

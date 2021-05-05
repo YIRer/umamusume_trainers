@@ -1,4 +1,4 @@
-export type CardNameAndTitleType = {
+export interface CardNameAndTitleType {
   ko?: string;
   ja: string;
-};
+}

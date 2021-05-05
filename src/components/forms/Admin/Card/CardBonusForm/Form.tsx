@@ -9,7 +9,7 @@ import BonusTable from "./BonusTable";
 
 import _ from "lodash";
 
-import type {
+import  {
   CardBonusFormProps,
   BonusTypeWithTempID,
   bonusType,

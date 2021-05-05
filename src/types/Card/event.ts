@@ -1,20 +1,20 @@
-import type { CardNameAndTitleType } from "./nameAndTitle";
+import  { CardNameAndTitleType } from "./nameAndTitle";
 
-export type CardEventChoiceType = {
+export interface CardEventChoiceType {
   description: CardNameAndTitleType;
   result: string;
-};
+}
 
-export type CardEventType = {
+export interface CardEventType {
   title: CardNameAndTitleType;
   eventType: string;
   tags: string[];
   choices: CardEventChoiceType[];
   condition: string;
-};
+}
 
-export type CardEventObjectType = {
+export interface CardEventObjectType {
   once: CardEventType[];
   multipleTimes: CardEventType[];
   common?: CardEventType[];
-};
+}

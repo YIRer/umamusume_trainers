@@ -1,3 +1,3 @@
 import { RouteComponentProps } from "react-router-dom";
 
-export type AddCardProps = {} & RouteComponentProps;
+export interface AddCardProps extends RouteComponentProps {}
