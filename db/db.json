@@ -49403,6 +49403,23 @@
       ],
       "condition": "",
       "id": 265
+    },
+    {
+      "name": {
+        "ko": "반짝반짝☆STARDOM",
+        "ja": "キラキラ☆STARDOM"
+      },
+      "targetIDs": [],
+      "effect": "레이스 중반의 직선에서 선두를 빼앗길 뻔하면 양보하지 않는 마음이 힘이 된다.",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "중반",
+        "직선",
+        "고유",
+        "스마트팔콘"
+      ],
+      "condition": "",
+      "id": 266
     }
   ],
   "conditions": []
