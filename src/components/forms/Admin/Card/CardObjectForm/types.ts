@@ -1,13 +1,13 @@
-import  { CardObjectType } from "types/Card/object";
+import { CardObjectType } from "types/Card/object";
 
-export interface formProps {
+export type formProps = {
   list: CardObjectType[];
   updateList: (value: CardObjectType[]) => void;
-}
+};
 
-export interface ItemProps {
+export type ItemProps = {
   data: CardObjectType;
   index: number;
   onDelete: (i: number) => void;
   onEdit: (i: number, value: CardObjectType) => void;
-}
+};

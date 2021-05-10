@@ -1,6 +1,6 @@
-export interface CardObjectType {
+export type CardObjectType = {
   object: String;
   time: String;
   fan: String;
   raceCourse: String;
-}
+};

@@ -1,39 +1,39 @@
-export interface CardStatusObject {
+export type CardStatusDetailObject = {
   name: string;
   rank: string;
   bonus: string;
-}
+};
 
-export interface CardStatus {
-  speed: CardStatusObject;
-  stamina: CardStatusObject;
-  power: CardStatusObject;
-  guts: CardStatusObject;
-  intelligence: CardStatusObject;
-}
+export type CardStatus = {
+  speed: CardStatusDetailObject;
+  stamina: CardStatusDetailObject;
+  power: CardStatusDetailObject;
+  guts: CardStatusDetailObject;
+  intelligence: CardStatusDetailObject;
+};
 
-export interface CardGroundStatus {
-  turf: CardStatusObject;
-  duct: CardStatusObject;
-}
+export type CardGroundStatus = {
+  turf: CardStatusDetailObject;
+  duct: CardStatusDetailObject;
+};
 
-export interface CardDistanceStatus {
-  short: CardStatusObject;
-  mile: CardStatusObject;
-  medium: CardStatusObject;
-  long: CardStatusObject;
-}
+export type CardDistanceStatus = {
+  short: CardStatusDetailObject;
+  mile: CardStatusDetailObject;
+  medium: CardStatusDetailObject;
+  long: CardStatusDetailObject;
+};
 
-export interface CardStrategyStatus {
-  escape: CardStatusObject;
-  leading: CardStatusObject;
-  between: CardStatusObject;
-  pushing: CardStatusObject;
-}
+export type CardStrategyStatus = {
+  escape: CardStatusDetailObject;
+  leading: CardStatusDetailObject;
+  between: CardStatusDetailObject;
+  pushing: CardStatusDetailObject;
+};
 
-export interface CardStatusObject {
+export type CardStatusObject = {
   ground: CardGroundStatus;
   status: CardStatus;
   distance: CardDistanceStatus;
   strategy: CardStrategyStatus;
-}
+};

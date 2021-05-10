@@ -1,4 +1,4 @@
-import  {
+import {
   CardEventType,
   CardEventChoiceType,
   CardEventObjectType,
@@ -6,39 +6,39 @@ import  {
 
 import { cardEventTypes } from "../constants";
 
-export interface CardEventTypeWithTempID extends CardEventType {
+export type CardEventTypeWithTempID = CardEventType & {
   __tempID?: string;
-}
+};
 
-export interface EventItemsProps {
+export type EventItemsProps = {
   eventData: CardEventTypeWithTempID;
   onDelete?: (d: CardEventTypeWithTempID) => void;
   onEdit?: (d: CardEventTypeWithTempID, changedEventType: boolean) => void;
   editable?: boolean;
-}
+};
 
-export interface EventTypeRadioGroupsProps {
+export type EventTypeRadioGroupsProps = {
   data: typeof cardEventTypes;
   name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
-export interface EventInputFormProps {
+export type EventInputFormProps = {
   closeForm: () => void;
   onConfirm: (updatedData: CardEventTypeWithTempID) => void;
   initialData?: CardEventTypeWithTempID;
-}
+};
 
-export interface EventChoiceInputProps {
+export type EventChoiceInputProps = {
   choiceData?: CardEventChoiceType;
   onConfirmChoice: (data: CardEventChoiceType, choiceIndex: number) => void;
   onDelete: (deleteIndex: number) => void;
   choiceIndex: number;
-}
+};
 
-export interface CardEventFormProps {
+export type CardEventFormProps = {
   onChangeEvents: (eventObject: CardEventObjectType) => void;
   initialData?: CardEventObjectType;
   isTrainingType?: boolean;
-}
+};

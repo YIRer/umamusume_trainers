@@ -18,6 +18,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { prefixImgSrc } from "helper";
 
+import { SkillType } from "types/Skill/skill";
+import { Classes } from "types/Common/classes";
+import { SearchSkills } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   paper: { width: "368px", minHeight: "500px" },
 
@@ -67,7 +71,14 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const SkillItem = ({ itemData, classes, selectFn, targets }) => {
+type SkillItem = {
+  itemData: SkillType;
+  classes: Classes;
+  selectFn: (skill: SkillType, isSelected: boolean) => void;
+  targets: SkillType[];
+};
+
+const SkillItem = ({ itemData, classes, selectFn, targets }: SkillItem) => {
   const isSelected = Boolean(_.find(targets, (d) => d.id === itemData.id));
 
   return (
@@ -99,7 +110,13 @@ const SkillItem = ({ itemData, classes, selectFn, targets }) => {
 
 const SearchSkills = (props) => {
   const classes = useStyles();
-  const { loading, data } = useQuery(GET_SKILLS);
+  const {
+    loading,
+    data,
+  }: {
+    loading: boolean;
+    data: { skills: SkillType[] };
+  } = useQuery(GET_SKILLS);
 
   const [keyword, setKeyword] = useState("");
   const [targets, setTargets] = useState(props.selectedData || []);
@@ -123,12 +140,15 @@ const SearchSkills = (props) => {
     setSearchResult(searchData);
   };
 
-  const handleSelect = (card, isSelected) => {
+  const handleSelect: (skill: SkillType, isSelected: boolean) => void = (
+    skill,
+    isSelected
+  ) => {
     if (isSelected) {
-      const filteredArray = targets.filter((item) => item.id !== card.id);
+      const filteredArray = targets.filter((item) => item.id !== skill.id);
       setTargets(filteredArray);
     } else {
-      setTargets([...targets, card]);
+      setTargets([...targets, skill]);
     }
   };
 

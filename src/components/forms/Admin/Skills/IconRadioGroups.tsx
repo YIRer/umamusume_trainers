@@ -4,6 +4,8 @@ import Radio from "@material-ui/core/Radio";
 import { prefixImgSrc } from "helper";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { IconRadioGroupsProps } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   warpper: {
     padding: "15px",
@@ -22,7 +24,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const IconRadioGroups = ({ data, name, value, onChange }) => {
+export const IconRadioGroups = ({
+  data,
+  name,
+  value,
+  onChange,
+}: IconRadioGroupsProps) => {
   const classes = useStyles();
   return (
     <div className={classes.warpper}>
@@ -33,7 +40,6 @@ export const IconRadioGroups = ({ data, name, value, onChange }) => {
             checked={item.value === value}
             name={name}
             value={item.value}
-            label={item.label}
             id={item.id}
             onChange={onChange}
           />

@@ -20,6 +20,10 @@ import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
 import { prefixImgSrc } from "helper";
 
+import { EditSkillProps, skillInputType } from "./types";
+import { CardType } from "types/Card/card";
+import { SkillType } from "types/Skill/skill";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "800px",
@@ -69,9 +73,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditSkill = (props) => {
+const EditSkill = (props: EditSkillProps) => {
   const classes = useStyles();
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const { loading, error, data } = useQuery(GET_SKill, {
     variables: { id },
@@ -80,10 +84,10 @@ const EditSkill = (props) => {
   const [getTargetsInfo, { data: targetsInfo }] = useLazyQuery(FIND_CARDS);
 
   const [editSkill, _mutationData] = useMutation(EDIT_SKILL);
-  const [relatedCards, setRelatedCards] = useState([]);
+  const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
   const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
-    (state, newState) => ({
+    (state: skillInputType, newState: skillInputType) => ({
       ...state,
       ...newState,
     }),
@@ -167,7 +171,7 @@ const EditSkill = (props) => {
 
   if (loading) return <Loader />;
 
-  const { skill } = data;
+  const { skill }: { skill: SkillType } = data;
   if (error || !skill) return <p>Error :(</p>;
 
   return (

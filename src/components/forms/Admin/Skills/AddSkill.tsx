@@ -16,6 +16,9 @@ import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
 import { prefixImgSrc } from "helper";
 
+import { AddSkillProps, skillInputType } from "./types";
+import { CardType } from "types/Card/card";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "800px",
@@ -59,13 +62,13 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const AddSkill = (props) => {
+const AddSkill = (props: AddSkillProps) => {
   const classes = useStyles();
   const [addSkill, _mutationData] = useMutation(ADD_Sklill);
-  const [relatedCards, setRelatedCards] = useState([]);
+  const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
   const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
-    (state, newState) => ({
+    (state: skillInputType, newState: skillInputType) => ({
       ...state,
       ...newState,
     }),
@@ -84,14 +87,14 @@ const AddSkill = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setFormInput({ [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const { ko, ja, tags, ...others } = formData;
     const convertTags = tags.split(",");
