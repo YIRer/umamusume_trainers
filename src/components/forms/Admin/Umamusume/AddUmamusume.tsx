@@ -1,17 +1,16 @@
-import React, { useReducer, useEffect } from "react";
-import { withRouter, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
+import React, { useReducer } from "react";
+import { withRouter } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
-
 import clsx from "clsx";
 
-import Loader from "components/Common/Loader";
+import { GET_UMAMUSUMES, ADD_UMAMUSUME } from "queries/umamusume";
 
-import { GET_UMAMUSUME, EDIT_UMAMUSUME } from "queries/umamusume";
+import { AddUmamusumeProps, FormInputTpye } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -29,16 +28,11 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditUmamusume = (props) => {
+const AddUmamusume = (props: AddUmamusumeProps) => {
   const classes = useStyles();
-  const { id } = useParams();
-
-  const { loading, error, data } = useQuery(GET_UMAMUSUME, {
-    variables: { id },
-  });
-  const [editUmamusume, _mutationData] = useMutation(EDIT_UMAMUSUME);
+  const [addUmamusume, _mutationData] = useMutation(ADD_UMAMUSUME);
   const [formData, setFormInput] = useReducer(
-    (state, newState) => ({
+    (state: FormInputTpye, newState: FormInputTpye) => ({
       ...state,
       ...newState,
     }),
@@ -46,62 +40,37 @@ const EditUmamusume = (props) => {
       ko: "",
       ja: "",
       en: "",
-      default: "",
       cards: [],
     }
   );
 
-  const setInitData = () => {
-    if (data && data.umamusume) {
-      const { name, cards, imageSrc } = umamusume;
-
-      setFormInput({
-        ko: name.ko,
-        ja: name.ja,
-        en: name.en,
-        default: name.default,
-        cards,
-        imageSrc,
-      });
-    }
-  };
-
-  useEffect(() => {
-    setInitData();
-  }, [data]);
-
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setFormInput({ [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const { ko, ja, en, cards } = formData;
-
     const removeSpace = en.replace(/\s/g, "").trim();
     const input = {
       name: { ko, ja, en, default: removeSpace },
       cards,
+      imageSrc: `/image/${removeSpace}/main.png`,
     };
-    editUmamusume({
+
+    addUmamusume({
       variables: {
-        id,
         input,
       },
-      refetchQueries: [{ query: GET_UMAMUSUME, variables: { id } }],
+      refetchQueries: [{ query: GET_UMAMUSUMES }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push(`/umamusume/${id}`);
+      props.history.push("/umamusume");
     });
   };
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
-  const { umamusume } = data;
-  if (!umamusume) return <p>Error :(</p>;
 
   return (
     <form onSubmit={handleSubmit} className={clsx(classes.form)}>
@@ -112,7 +81,6 @@ const EditUmamusume = (props) => {
           id="name-ko"
           name="ko"
           label="한국어 이름"
-          defaultValue={umamusume.name.ko}
           onChange={handleChange}
         />
         <TextField
@@ -121,7 +89,6 @@ const EditUmamusume = (props) => {
           id="name-ja"
           name="ja"
           label="일본어 이름"
-          defaultValue={umamusume.name.ja}
           onChange={handleChange}
         />
         <TextField
@@ -130,7 +97,6 @@ const EditUmamusume = (props) => {
           id="name-en"
           name="en"
           label="영문 이름"
-          defaultValue={umamusume.name.en}
           onChange={handleChange}
         />
         <Button
@@ -146,4 +112,4 @@ const EditUmamusume = (props) => {
   );
 };
 
-export default withRouter(EditUmamusume);
+export default withRouter(AddUmamusume);

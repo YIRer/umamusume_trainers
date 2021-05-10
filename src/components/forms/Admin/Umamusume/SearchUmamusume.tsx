@@ -15,6 +15,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { prefixImgSrc } from "helper";
 
+import { SearchUmamusumeProps, SearchUmamusumeItem } from "./types";
+import { UmamusumeType } from "types/Umamusume/umamusume";
+
 const useStyles = makeStyles((_theme) => ({
   paper: { width: "385px", minHeight: "500px" },
 
@@ -53,7 +56,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const CardItem = ({ umamusume, classes, selectFn, target }) => {
+const CardItem = ({
+  umamusume,
+  classes,
+  selectFn,
+  target,
+}: SearchUmamusumeItem) => {
   return (
     <div
       key={umamusume.name.default}
@@ -71,9 +79,11 @@ const CardItem = ({ umamusume, classes, selectFn, target }) => {
   );
 };
 
-const SearchUmamusume = (props) => {
+const SearchUmamusume = (props: SearchUmamusumeProps) => {
   const classes = useStyles();
-  const { loading, data } = useQuery(GET_UMAMUSUMES_All_DATA);
+  const { loading, data } = useQuery<{ umamusumeList: UmamusumeType[] }>(
+    GET_UMAMUSUMES_All_DATA
+  );
 
   const [keyword, setKeyword] = useState("");
   const [target, setTarget] = useState(props.selectedData || null);
