@@ -9,6 +9,8 @@ import Chip from "@material-ui/core/Chip";
 import { makeStyles } from "@material-ui/core/styles";
 import { prefixImgSrc } from "helper";
 
+import { SkillModalProps } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   skillWrapper: {
     display: "flex",
@@ -22,7 +24,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function SkillModal(props) {
+export default function SkillModal(props: SkillModalProps) {
   const classes = useStyles();
   const { data } = props;
 
@@ -31,7 +33,7 @@ export default function SkillModal(props) {
       <DialogContent>
         <div className={classes.skillWrapper}>
           <img className={classes.image} src={prefixImgSrc(data.imageSrc)} />
-          <h3 className={classes.name}>
+          <h3>
             {data.name.ja} <br />
             {data.name.ko}
           </h3>

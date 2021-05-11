@@ -22,11 +22,15 @@ import StatusTable from "./StatusTable";
 import BonusTable from "./BonusTable";
 
 import clsx from "clsx";
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 import { commonEvents } from "components/forms/Admin/Card/constants";
 
 import TrainingObjects from "./TrainingObjects";
+
+import { CardInfoProps, CardTargetType } from "./types";
+import { CardType } from "types/Card/card";
+import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -166,15 +170,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardInfo = (props) => {
+const CardInfo = (props: CardInfoProps) => {
   const classes = useStyles();
-  const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_CARD, {
+  const { id } = useParams<{ id: string }>();
+  const { loading, error, data } = useQuery<{ card: CardType }>(GET_CARD, {
     variables: { id },
   });
 
-  const [openModal, setOpenModal] = useState(false);
-  const [relatedSkills, setRelatedSkills] = useState({
+  const [relatedSkills, setRelatedSkills] = useState<RelatedSkillsType>({
     unique: [],
     training: [],
     has: [],
@@ -183,9 +186,11 @@ const CardInfo = (props) => {
   });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
-  const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
+    umamusume: CardTargetType;
+  }>(GET_UMAMUSUME);
 
-  const setInitialSkills = (cardData) => {
+  const setInitialSkills = (cardData: CardType) => {
     const {
       uniqueSkillsIds,
       trainingSkillsIds,
@@ -238,7 +243,7 @@ const CardInfo = (props) => {
     }
   }, [data, targetData]);
 
-  const handleDelete = (e) => {
+  const handleDelete = (e: React.SyntheticEvent) => {
     e.preventDefault();
     deleteCard({
       variables: {
@@ -251,7 +256,7 @@ const CardInfo = (props) => {
     });
   };
 
-  const handleDuplicate = (e) => {
+  const handleDuplicate = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const { id: _id, ...others } = data.card;
     addCard({
@@ -267,15 +272,7 @@ const CardInfo = (props) => {
     });
   };
 
-  const handleModalControl = () => {
-    setOpenModal(!openModal);
-  };
-
-  const scrollTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-  const renderSkillCards = (skill) => {
+  const renderSkillCards = (skill: SkillType) => {
     return (
       skill && (
         <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>

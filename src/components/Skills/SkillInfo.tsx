@@ -19,6 +19,10 @@ import clsx from "clsx";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
+import { SkillInfoProps } from "./types";
+import { SkillType } from "types/Skill/skill";
+import { CardType } from "types/Card/card";
+
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
     padding: "10px",
@@ -71,15 +75,17 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const SkillInfo = (props) => {
+const SkillInfo = (props: SkillInfoProps) => {
   const classes = useStyles();
-  const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_SKill, {
+  const { id } = useParams<{ id: string }>();
+  const { loading, error, data } = useQuery<{ skill: SkillType }>(GET_SKill, {
     variables: { id },
   });
 
   const [deleteSkill, _mutationData] = useMutation(DELTE_Skill);
-  const [getTargetsInfo, { data: targetsData }] = useLazyQuery(FIND_CARDS);
+  const [getTargetsInfo, { data: targetsData }] = useLazyQuery<{
+    findCards: CardType[];
+  }>(FIND_CARDS);
 
   useEffect(() => {
     if (data?.skill.targetIDs && !targetsData) {
@@ -87,7 +93,7 @@ const SkillInfo = (props) => {
     }
   }, [data, targetsData]);
 
-  const handleDelete = (e) => {
+  const handleDelete = (e: React.SyntheticEvent) => {
     e.preventDefault();
     deleteSkill({
       variables: {
@@ -127,7 +133,7 @@ const SkillInfo = (props) => {
       </div>
       <section className={classes.infoSection}>
         <img className={classes.image} src={prefixImgSrc(skill.imageSrc)} />
-        <h3 className={classes.name}>
+        <h3>
           {skill.name.ja} <br />
           {skill.name.ko}
         </h3>

@@ -14,6 +14,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import { AppMainBarProps, NavDrawerProps } from "./types";
+
 const NAVIGATIONS = [
   {
     path: "/",
@@ -47,7 +49,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const NavDrawer = ({ open, onClose }) => {
+export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
   const handleOnClick = () => {
     onClose();
   };
@@ -68,7 +70,7 @@ export const NavDrawer = ({ open, onClose }) => {
   );
 };
 
-export const AppMainBar = (props) => {
+export const AppMainBar = (props: AppMainBarProps) => {
   const classes = useStyles();
   const [openNav, setOpenNav] = useState(false);
   const handleClickBack = (e) => {

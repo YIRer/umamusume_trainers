@@ -16,6 +16,9 @@ import { commonEvents } from "components/forms/Admin/Card/constants";
 import TrainingObjects from "../Card/TrainingObjects";
 import { prefixImgSrc } from "helper";
 
+import { CardInfoProps } from "./types";
+import { SkillType } from "types/Skill/skill";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
@@ -140,9 +143,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardInfo = (props) => {
+const CardInfo = (props: CardInfoProps) => {
   const classes = useStyles();
-  const selectionElement = useRef();
+  const selectionElement = useRef(null);
 
   const goTosection = () => {
     props.rootRef.current.scrollTo(0, selectionElement.current.offsetTop - 20);
@@ -154,7 +157,7 @@ const CardInfo = (props) => {
     }
   }, []);
 
-  const renderSkillCards = (skill) => {
+  const renderSkillCards = (skill: SkillType) => {
     return (
       skill && (
         <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>

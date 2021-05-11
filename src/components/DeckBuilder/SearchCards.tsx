@@ -12,6 +12,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { prefixImgSrc } from "helper";
 
+import { SearchCardsProps } from "./types";
+import { CardType } from "types/Card/card";
+
 const useStyles = makeStyles((theme) => ({
   paper: { minHeight: "500px" },
 
@@ -75,14 +78,14 @@ const CardItem = ({ itemData, classes, selectFn, targets }) => {
   );
 };
 
-const SearchCards = (props) => {
+const SearchCards = (props: SearchCardsProps) => {
   const classes = useStyles();
 
   const [keyword, setKeyword] = useState("");
   const [targets, setTargets] = useState(props.selectedData || []);
   const [searchResult, setSearchResult] = useState(props.data);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setKeyword(value);
     onSearch();
@@ -96,7 +99,7 @@ const SearchCards = (props) => {
     setSearchResult(searchData);
   };
 
-  const handleSelect = (card, isSelected) => {
+  const handleSelect = (card: CardType, isSelected: boolean) => {
     if (props.type === "training") {
       if (isSelected) {
         setTargets([]);

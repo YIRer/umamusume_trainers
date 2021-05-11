@@ -5,6 +5,8 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import Divider from "@material-ui/core/Divider";
 import Collapse from "@material-ui/core/Collapse";
 
+import { TrainingObjectsType, TrainingItmeType } from "./types";
+
 const useStyles = makeStyles((_theme) => ({
   objectWrapper: {
     display: "flex",
@@ -30,9 +32,15 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const TrainingItem = ({ data, index, isLast, checkable, checked }) => {
+const TrainingItem = ({
+  data,
+  index,
+  isLast,
+  checkable,
+  checked,
+}: TrainingItmeType) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(checkable || checked || true);
+  const [open, setOpen] = useState<boolean>(checkable || checked || true);
   const hasCondition = Boolean(data.time || data.fan || data.raceCourse);
   const handleCheck = () => {
     if (checkable) {
@@ -62,7 +70,11 @@ const TrainingItem = ({ data, index, isLast, checkable, checked }) => {
   );
 };
 
-export default function TrainingObjects({ data }) {
+export default function TrainingObjects({
+  data,
+}: {
+  data: TrainingObjectsType;
+}) {
   const listLength = data.length - 1;
   return (
     <div>

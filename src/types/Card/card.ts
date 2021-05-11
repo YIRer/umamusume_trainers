@@ -4,14 +4,23 @@ import { CardEventObjectType } from "./event";
 import { CardObjectType } from "./object";
 import { CardStatusObject } from "./status";
 
+export type TypeOfCard = "training" | "support";
+export type TypeOfSupportCard =
+  | "speed"
+  | "stamina"
+  | "power"
+  | "guts"
+  | "intelligence"
+  | "";
+
 export type CardType = {
   id: string;
   star: number;
   targetID: string;
   name: NameAndTitleType;
   imageSrc: string;
-  type: "training" | "support";
-  supportType: "speed" | "stamina" | "power" | "guts" | "int" | "friend";
+  type: TypeOfCard;
+  supportType: TypeOfSupportCard;
   trainingObjects: CardObjectType[];
   playable: boolean;
   limited: boolean;

@@ -1,5 +1,5 @@
 export type CardStatusDetailObject = {
-  name: string;
+  name?: string;
   rank: string;
   bonus: string;
 };

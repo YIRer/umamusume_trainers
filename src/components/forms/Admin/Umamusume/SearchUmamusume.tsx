@@ -89,7 +89,7 @@ const SearchUmamusume = (props: SearchUmamusumeProps) => {
   const [target, setTarget] = useState(props.selectedData || null);
   const [searchResult, setSearchResult] = useState([]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setKeyword(value);
     onSearch();
@@ -107,7 +107,7 @@ const SearchUmamusume = (props: SearchUmamusumeProps) => {
     setSearchResult(searchData);
   };
 
-  const handleSelect = (umamusume) => {
+  const handleSelect = (umamusume: UmamusumeType) => {
     setTarget(umamusume);
   };
 

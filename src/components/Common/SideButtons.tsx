@@ -10,8 +10,9 @@ import BuffModal from "../Card/BuffModal";
 
 import clsx from "clsx";
 import { isMobile } from "helper";
+import { SideButtonProps } from "./types";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_theme) => ({
   icon: {
     fontSize: "2rem",
   },
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   iconWrapper__fixed: { position: "fixed" },
 }));
 
-const SideButtons = (props) => {
+const SideButtons = (props: SideButtonProps) => {
   const classes = useStyles();
   const isMobileSize = isMobile();
   const [openModal, setOpenModal] = useState(false);

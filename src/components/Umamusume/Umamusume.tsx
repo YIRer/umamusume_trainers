@@ -18,8 +18,14 @@ import clsx from "clsx";
 
 import Loader from "components/Common/Loader";
 
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
+
+import { UmamusumeProps } from "./types";
+import { UmamusumeType } from "types/Umamusume/umamusume";
+import { TypeOfCard } from "types/Card/card";
+
+import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -81,16 +87,19 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const Umamusume = (props) => {
+const Umamusume = (props: UmamusumeProps) => {
   const classes = useStyles();
-  const { id } = useParams();
-  const { loading, error, data } = useQuery(GET_UMAMUSUME, {
-    variables: { id },
-  });
+  const { id } = useParams<{ id: string }>();
+  const { loading, error, data } = useQuery<{ umamusume: UmamusumeType }>(
+    GET_UMAMUSUME,
+    {
+      variables: { id },
+    }
+  );
 
   const [deleteUmamusume, _mutationData] = useMutation(DELTE_UMAMUSUME);
 
-  const handleDelete = (e) => {
+  const handleDelete = (e: React.SyntheticEvent) => {
     e.preventDefault();
     deleteUmamusume({
       variables: {
@@ -104,7 +113,7 @@ const Umamusume = (props) => {
     });
   };
 
-  const renderCards = (data, type) => {
+  const renderCards = (data: CardType[], type: TypeOfCard) => {
     return data.map((card) => {
       if (card.type === type) {
         return (

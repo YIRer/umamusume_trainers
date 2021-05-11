@@ -6,7 +6,14 @@ import {
   CardStrategyStatus,
 } from "types/Card/status";
 
+import { UmamusumeType } from "types/Umamusume/umamusume";
+import { CardEventObjectType } from "types/Card/event";
+import { CardBonusObjectType } from "types/Card/bonus";
+import { CardObjectType } from "types/Card/object";
+import { TypeOfCard, TypeOfSupportCard } from "types/Card/card";
+
 import { CardType } from "types/Card/card";
+import { RelatedSkillsType } from "types/Skill/skill";
 
 export type AddCardProps = RouteComponentProps & {};
 export type EditCardProps = RouteComponentProps & {};
@@ -43,3 +50,23 @@ export type SearchCardItem = {
   selectFn: (card: CardType, isSelected: boolean) => void;
   targets: CardType[];
 };
+
+export type CardTargetType = UmamusumeType;
+
+export type TrainingObjectsType = CardObjectType[];
+export type FormDataType = {
+  ko: string;
+  ja: string;
+  star: number;
+  targetID: string;
+  imageSrc: string;
+  type: TypeOfCard;
+  playable: boolean;
+  supportType: TypeOfSupportCard;
+  limited: boolean;
+  events: CardEventObjectType;
+  bonus: CardBonusObjectType;
+  imageName?: string;
+};
+
+export type SelectedSkillTypes = keyof RelatedSkillsType | "";

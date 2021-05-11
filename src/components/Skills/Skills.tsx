@@ -15,8 +15,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Loader from "components/Common/Loader";
 
 import SearchForm from "../SearchForm";
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
+
+import { SkillType } from "types/Skill/skill";
 
 const useStyles = makeStyles((_theme) => ({
   skillListWrapper: {
@@ -57,9 +59,11 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const Skills = (_props) => {
+export const Skills = () => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery(GET_SKILLS, []);
+  const { loading, error, data } = useQuery<{ skills: SkillType[] }>(
+    GET_SKILLS
+  );
   const [skillList, setSkillList] = useState([]);
 
   useEffect(() => {

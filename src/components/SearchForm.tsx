@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+
+import { UmamusumeType } from "types/Umamusume/umamusume";
+import { SkillType } from "types/Skill/skill";
+
 const useStyles = makeStyles((_theme) => ({
   wrapper: {
     display: "flex",
@@ -15,11 +19,17 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export default function SearchForm({ data, handleSearch, options }) {
+type SearchFormProps = {
+  data: UmamusumeType | SkillType;
+};
+
+export default function SearchForm({ data, handleSearch }) {
   const classes = useStyles();
   const [keyword, setKeyword] = useState("");
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> & React.FocusEvent<HTMLInputElement>
+  ) => {
     const value = e.target.value;
     setKeyword(value);
   };
@@ -33,7 +43,7 @@ export default function SearchForm({ data, handleSearch, options }) {
     handleSearch(searchData);
   };
 
-  const handleKeyUp = (e) => {
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       onSearch();
     }

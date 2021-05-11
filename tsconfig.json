@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "allowJs": true,
     "skipLibCheck": true, //선언 유형의 파일의 유형검사를 스킵
     "strict": false,
     "forceConsistentCasingInFileNames": true, //동일한 파일 참조시, 일관되지 않은 참조를 허용하지 않음

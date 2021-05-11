@@ -18,8 +18,10 @@ import Loader from "components/Common/Loader";
 
 import CardTags from "./CardTags";
 import SearchForm from "../SearchForm";
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
+
+import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   cardsWrapper: {
@@ -78,9 +80,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const CardList = (_props) => {
+export const CardList = () => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery(GET_CARDS, []);
+  const { loading, error, data } = useQuery<{ cards: CardType[] }>(GET_CARDS);
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {

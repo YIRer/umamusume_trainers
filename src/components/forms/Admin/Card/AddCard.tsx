@@ -28,9 +28,18 @@ import CardObjectForm from "./CardObjectForm/Form";
 
 import { prefixImgSrc } from "helper";
 
-import  { AddCardProps } from "./types";
-import  { CardEventObjectType } from "types/Card/event";
-import  { CardBonusObjectType } from "types/Card/bonus";
+import {
+  AddCardProps,
+  CardStatusData,
+  CardTargetType,
+  TrainingObjectsType,
+  FormDataType,
+  SelectedSkillTypes,
+} from "./types";
+
+import { CardEventObjectType } from "types/Card/event";
+import { CardBonusObjectType } from "types/Card/bonus";
+import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -89,33 +98,39 @@ const useStyles = makeStyles((_theme) => ({
 const AddCard = (props: AddCardProps) => {
   const classes = useStyles();
   const [isTrainingType, setTrainingType] = useState(true);
-  const [targetInfo, setTarget] = useState(null);
-  const [relatedSkills, setRelatedSkills] = useState({
+  const [targetInfo, setTarget] = useState<CardTargetType>(null);
+  const [relatedSkills, setRelatedSkills] = useState<RelatedSkillsType>({
     unique: [],
     training: [],
     has: [],
     base: [],
     awakening: [],
   });
-  const [selectedSkillType, setSelectedSkillType] = useState("");
+  const [
+    selectedSkillType,
+    setSelectedSkillType,
+  ] = useState<SelectedSkillTypes>("");
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
 
-  const [trainingObjects, setCardObjectsInput] = useState([]);
+  const [trainingObjects, setCardObjectsInput] = useState<TrainingObjectsType>(
+    []
+  );
   const [addCard, _mutationData] = useMutation(ADD_CARD);
   const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
   const [formData, setFormInput] = useReducer(
-    (state, newState) => ({
+    (state: FormDataType, newState: Partial<FormDataType>) => ({
       ...state,
       ...newState,
     }),
     {
-      name: "",
+      ko: "",
+      ja: "",
       star: 1,
       targetID: null,
       imageSrc: "",
-      type: "training", //common, support
+      type: "training",
       playable: true,
       supportType: "",
       limited: false,
@@ -131,7 +146,7 @@ const AddCard = (props: AddCardProps) => {
   );
 
   const [statusData, setStatusInput] = useReducer(
-    (state, newState) => ({
+    (state: CardStatusData, newState: Partial<CardStatusData>) => ({
       ...state,
       ...newState,
     }),
@@ -321,7 +336,7 @@ const AddCard = (props: AddCardProps) => {
     setSkillSearchModalState(false);
   };
 
-  const handleSelect = (targets) => {
+  const handleSelect = (targets: SkillType[]) => {
     setRelatedSkills({ ...relatedSkills, [selectedSkillType]: targets });
   };
   const showUniqueSkillSearchModal = () => {

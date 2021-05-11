@@ -8,11 +8,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import DeckForm from "./DeckForm";
 import CardInfoModal from "./CardInfoModal";
 import Loader from "components/Common/Loader";
-import ReactCookie, { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 import DeckSlot from "./DeckSlot";
+import { DeckWithID } from "./types";
+import { CardType } from "types/Card/card";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_theme) => ({
   addDeckButton: {
     width: "100%",
     marginTop: "16px",
@@ -46,13 +48,13 @@ const DeckBuilder = () => {
   const cache = {};
   const [deckCookies, setDeckCookies, removeCookie] = useCookies([COOKIE_NAME]);
 
-  const [deckList, setDeckList] = useState([]);
+  const [deckList, setDeckList] = useState<DeckWithID[]>([]);
 
   const [openCardModal, setOpenCardModal] = useState(false);
   const [showSelection, setShowSelection] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
   const [openAddForm, setOpenAddForm] = useState(false);
-  const { loading, data } = useQuery(GET_CARDS_All_DATA);
+  const { loading, data } = useQuery<{ cards: CardType[] }>(GET_CARDS_All_DATA);
 
   useEffect(() => {
     if (data && data.cards) {
@@ -60,10 +62,10 @@ const DeckBuilder = () => {
     }
   }, [data]);
 
-  const setInitData = (list) => {
+  const setInitData = (list: CardType[]) => {
     if (deckCookies[COOKIE_NAME]) {
       const decks = [];
-      deckCookies[COOKIE_NAME].forEach((deck) => {
+      deckCookies[COOKIE_NAME].forEach((deck: DeckWithID) => {
         const data = {
           training: [],
           support: [],
@@ -87,7 +89,7 @@ const DeckBuilder = () => {
     }
   };
 
-  const showCardInfo = (card, isShowSelection = false) => {
+  const showCardInfo = (card: CardType, isShowSelection: boolean = false) => {
     setOpenCardModal(true);
     setSelectedCard(card);
     setShowSelection(isShowSelection);
@@ -114,7 +116,7 @@ const DeckBuilder = () => {
     setOpenAddForm(false);
   };
 
-  const editDeckList = (deck) => {
+  const editDeckList = (deck: DeckWithID) => {
     const changedDeck = deckList.map((d) => {
       if (d.id === deck.id) {
         return deck;
@@ -140,7 +142,7 @@ const DeckBuilder = () => {
     setCookies(editedCookie);
   };
 
-  const removeDeck = (id) => {
+  const removeDeck = (id: string) => {
     const filteredDeckList = deckList.filter((d) => d.id !== id);
     const cookies = deckCookies[COOKIE_NAME] || [];
     const filteredCookies = cookies.filter((d) => d.id !== id);
@@ -148,7 +150,7 @@ const DeckBuilder = () => {
     setCookies(filteredCookies);
   };
 
-  const setCookies = (deckList) => {
+  const setCookies = (deckList: DeckWithID[]) => {
     const time = new Date(
       new Date().getTime() + 365 * 60 * 24 * 60 * 60 * 1000
     );
@@ -221,8 +223,8 @@ const DeckBuilder = () => {
       )}
       <div className={classes.warning}>
         <p>
-          덱 리스트가 제거되어도 남아있는 문제가 있다면 아래의 버튼을 눌러주세요.
-          저장된 쿠키를 모두 제거합니다.
+          덱 리스트가 제거되어도 남아있는 문제가 있다면 아래의 버튼을
+          눌러주세요. 저장된 쿠키를 모두 제거합니다.
         </p>
         <Button
           className={classes.addDeckButton}

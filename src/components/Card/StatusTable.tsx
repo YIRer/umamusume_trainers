@@ -9,6 +9,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
 
+import { CardType } from "types/Card/card";
+
 const useStyles = makeStyles((_theme) => ({
   section: {
     margin: "10px auto",
@@ -26,12 +28,12 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const StatusTable = ({ data }) => {
+const StatusTable = ({ data }: { data: CardType }) => {
   const classes = useStyles();
 
   return (
     <section className={classes.section}>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
@@ -49,7 +51,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.ground.duct.bonus > 0,
+                  [classes.bonus]: Number(data.status.ground.duct.bonus) > 0,
                 })}
               >
                 +({data.status.ground.duct.bonus}%)
@@ -60,7 +62,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.ground.turf.bonus > 0,
+                  [classes.bonus]: Number(data.status.ground.turf.bonus) > 0,
                 })}
               >
                 +({data.status.ground.turf.bonus}%)
@@ -69,7 +71,7 @@ const StatusTable = ({ data }) => {
           </TableRow>
         </TableBody>
       </Table>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
@@ -93,7 +95,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.distance.short.bonus > 0,
+                  [classes.bonus]: Number(data.status.distance.short.bonus) > 0,
                 })}
               >
                 +({data.status.distance.short.bonus}%)
@@ -104,7 +106,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.distance.mile.bonus > 0,
+                  [classes.bonus]: Number(data.status.distance.mile.bonus) > 0,
                 })}
               >
                 +({data.status.distance.mile.bonus}%)
@@ -115,7 +117,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.distance.medium.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.distance.medium.bonus) > 0,
                 })}
               >
                 +({data.status.distance.medium.bonus}%)
@@ -126,7 +129,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.distance.long.bonus > 0,
+                  [classes.bonus]: Number(data.status.distance.long.bonus) > 0,
                 })}
               >
                 +({data.status.distance.long.bonus}%)
@@ -135,7 +138,7 @@ const StatusTable = ({ data }) => {
           </TableRow>
         </TableBody>
       </Table>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
@@ -159,7 +162,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.strategy.escape.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.strategy.escape.bonus) > 0,
                 })}
               >
                 +({data.status.strategy.escape.bonus}%)
@@ -170,7 +174,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.strategy.leading.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.strategy.leading.bonus) > 0,
                 })}
               >
                 +({data.status.strategy.leading.bonus}%)
@@ -181,7 +186,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.strategy.between.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.strategy.between.bonus) > 0,
                 })}
               >
                 +({data.status.strategy.between.bonus}%)
@@ -192,7 +198,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.strategy.pushing.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.strategy.pushing.bonus) > 0,
                 })}
               >
                 +({data.status.strategy.pushing.bonus}%)
@@ -201,7 +208,7 @@ const StatusTable = ({ data }) => {
           </TableRow>
         </TableBody>
       </Table>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
@@ -228,7 +235,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.status.speed.bonus > 0,
+                  [classes.bonus]: Number(data.status.status.speed.bonus) > 0,
                 })}
               >
                 +({data.status.status.speed.bonus}%)
@@ -239,7 +246,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.status.stamina.bonus > 0,
+                  [classes.bonus]: Number(data.status.status.stamina.bonus) > 0,
                 })}
               >
                 +({data.status.status.stamina.bonus}%)
@@ -250,7 +257,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.status.power.bonus > 0,
+                  [classes.bonus]: Number(data.status.status.power.bonus) > 0,
                 })}
               >
                 +({data.status.status.power.bonus}%)
@@ -261,7 +268,7 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.status.guts.bonus > 0,
+                  [classes.bonus]: Number(data.status.status.guts.bonus) > 0,
                 })}
               >
                 +({data.status.status.guts.bonus}%)
@@ -272,7 +279,8 @@ const StatusTable = ({ data }) => {
               <br />
               <span
                 className={clsx({
-                  [classes.bonus]: data.status.status.intelligence.bonus > 0,
+                  [classes.bonus]:
+                    Number(data.status.status.intelligence.bonus) > 0,
                 })}
               >
                 +({data.status.status.intelligence.bonus}%)

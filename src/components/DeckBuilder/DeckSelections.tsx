@@ -2,8 +2,13 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import { PropTypes } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+import { DeckSelectionsProps } from "./types";
+import { CardType } from "types/Card/card";
+import { Classes } from "types/Common/classes";
+
+const useStyles = makeStyles((_theme) => ({
   ItemRoot: {
     display: "flex",
     flexDirection: "column",
@@ -16,7 +21,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SelectionButton = ({ data, onSelectCard, classes, color }) => {
+const SelectionButton = ({
+  data,
+  onSelectCard,
+  classes,
+  color,
+}: {
+  data: CardType;
+  onSelectCard: (card: CardType, isShowSelection?: boolean) => void;
+  classes?: Classes;
+  color?: PropTypes.Color;
+}) => {
   const handleSelectSkill = () => {
     onSelectCard(data, true);
   };
@@ -33,7 +48,7 @@ const SelectionButton = ({ data, onSelectCard, classes, color }) => {
   );
 };
 
-const DeckSelections = (props) => {
+const DeckSelections = (props: DeckSelectionsProps) => {
   const { data } = props;
   const classes = useStyles();
 

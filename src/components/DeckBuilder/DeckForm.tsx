@@ -11,6 +11,10 @@ import SearchCards from "./SearchCards";
 import { withCookies } from "react-cookie";
 import { prefixImgSrc } from "helper";
 
+import { DeckWithID, DeckFormProps } from "./types";
+import { CardType, TypeOfCard } from "types/Card/card";
+import { Classes } from "types/Common/classes";
+
 const useStyles = makeStyles((_theme) => ({
   card: {
     width: "100px",
@@ -19,7 +23,6 @@ const useStyles = makeStyles((_theme) => ({
     backgroundPosition: "center",
     backgroundSize: "100%",
     backgroundRepeat: "no-repeat",
-    boxSizing: "border-box",
   },
 
   slotRoot: {
@@ -64,7 +67,15 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const DeckSlotItem = ({ data, classes, clickFn }) => {
+const DeckSlotItem = ({
+  data,
+  classes,
+  clickFn,
+}: {
+  data: CardType;
+  classes: Classes;
+  clickFn: (card: CardType, isShowSelection?: boolean) => void;
+}) => {
   return (
     <div
       className={classes.card}
@@ -78,14 +89,14 @@ const DeckSlotItem = ({ data, classes, clickFn }) => {
   );
 };
 
-const DeckForm = (props) => {
+const DeckForm = (props: DeckFormProps) => {
   const classes = useStyles();
   const [openModal, setOpenModal] = useState(false);
-  const [cardType, setCardType] = useState("");
+  const [cardType, setCardType] = useState<TypeOfCard | "">("");
   const [slotName, setSlotName] = useState("");
 
   const [selectedCards, setSelectedCards] = useReducer(
-    (state, newState) => ({
+    (state: DeckWithID, newState: Partial<DeckWithID>) => ({
       ...state,
       ...newState,
     }),
@@ -95,7 +106,7 @@ const DeckForm = (props) => {
     }
   );
   const [cardList, setCardList] = useReducer(
-    (state, newState) => ({
+    (state: DeckWithID, newState: Partial<DeckWithID>) => ({
       ...state,
       ...newState,
     }),
@@ -109,7 +120,7 @@ const DeckForm = (props) => {
     setInitialCardList(props.data);
   }, []);
 
-  const setInitialCardList = (list) => {
+  const setInitialCardList = (list: CardType[]) => {
     const data = {
       training: [],
       support: [],
@@ -137,13 +148,13 @@ const DeckForm = (props) => {
     setCardType("");
   };
 
-  const openSupportCardModal = (e) => {
+  const openSupportCardModal = () => {
     setOpenModal(true);
     setCardType("support");
     setSlotName("support");
   };
 
-  const handleSelect = (selectedCards) => {
+  const handleSelect = (selectedCards: CardType[]) => {
     if (cardType === "training") {
       const filteredArray = cardList.support.filter(
         (c) => c.targetID !== selectedCards[0]?.targetID
@@ -157,7 +168,9 @@ const DeckForm = (props) => {
     setSlotName("");
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
     if (selectedCards.training.length < 1) {
       window.alert("육성 카드는 필수로 선택해주세요.");
       return;

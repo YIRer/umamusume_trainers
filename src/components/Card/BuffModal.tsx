@@ -104,7 +104,12 @@ const useStyles = makeStyles((_theme) => ({
   actionRoot: { justifyContent: "center" },
 }));
 
-export default function BuffModal(props) {
+type BuffModalProps = {
+  open: boolean;
+  onClose: () => void;
+};
+
+export default function BuffModal(props: BuffModalProps) {
   const classes = useStyles();
   const reunderBuffs = (data, index, buffType) => {
     return (
@@ -115,10 +120,7 @@ export default function BuffModal(props) {
     );
   };
   return (
-    <Dialog
-      open={props.open}
-      onClose={props.onClose}
-    >
+    <Dialog open={props.open} onClose={props.onClose}>
       <DialogTitle>버프 및 디버프</DialogTitle>
       <DialogContent>
         <div>

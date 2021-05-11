@@ -3,9 +3,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { prefixImgSrc } from "helper";
 
+import { DeckCardListProps } from "./types";
+
 import clsx from "clsx";
 
-const useStyles = makeStyles((theme) => ({
+import { CardType } from "types/Card/card";
+import { Classes } from "types/Common/classes";
+
+const useStyles = makeStyles((_theme) => ({
   ItemRoot: {
     display: "flex",
     flexDirection: "column",
@@ -27,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
     height: "104px",
   },
   image: {
-    width: "50px",
     width: "50px",
     marginRight: "8px",
   },
@@ -61,7 +65,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CardImage = ({ data, onSelectCard, classes, isTrainingType }) => {
+const CardImage = ({
+  data,
+  onSelectCard,
+  classes,
+  isTrainingType,
+}: {
+  data: CardType;
+  classes: Classes;
+  isTrainingType?: boolean;
+  onSelectCard: (card: CardType, isShowSelection?: boolean) => void;
+}) => {
   const handleSelectSkill = () => {
     onSelectCard(data);
   };
@@ -92,7 +106,7 @@ const CardImage = ({ data, onSelectCard, classes, isTrainingType }) => {
   );
 };
 
-const DeckCardList = (props) => {
+const DeckCardList = (props: DeckCardListProps) => {
   const { data } = props;
   const classes = useStyles();
 

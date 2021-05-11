@@ -9,3 +9,11 @@ export type SkillType = {
   tags: string[];
   condition: string;
 };
+
+export type RelatedSkillsType = {
+  unique: SkillType[];
+  training: SkillType[];
+  has: SkillType[];
+  base: SkillType[];
+  awakening: SkillType[];
+};

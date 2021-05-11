@@ -30,9 +30,23 @@ import CardObjectForm from "./CardObjectForm/Form";
 
 import { prefixImgSrc } from "helper";
 
-import { EditCardProps } from "./types";
 import _ from "lodash";
 import { CardType } from "types/Card/card";
+
+import {
+  EditCardProps,
+  CardStatusData,
+  CardTargetType,
+  TrainingObjectsType,
+  FormDataType,
+  SelectedSkillTypes,
+} from "./types";
+
+import { UmamusumeType } from "types/Umamusume/umamusume";
+
+import { CardEventObjectType } from "types/Card/event";
+import { CardBonusObjectType } from "types/Card/bonus";
+import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
 const getImageName = (imageSrc) => {
   try {
@@ -79,37 +93,45 @@ const EditCard = (props: EditCardProps) => {
   const classes = useStyles();
   const { id } = useParams<{ id: string }>();
 
-  const { loading, error, data } = useQuery(GET_CARD, {
+  const { loading, error, data } = useQuery<{ card: CardType }>(GET_CARD, {
     variables: { id },
   });
 
   const [isTrainingType, setTrainingType] = useState(true);
-  const [targetInfo, setTarget] = useState(null);
+  const [targetInfo, setTarget] = useState<CardTargetType>(null);
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
-  const [relatedSkills, setRelatedSkills] = useState({
+  const [relatedSkills, setRelatedSkills] = useState<RelatedSkillsType>({
     unique: [],
     training: [],
     has: [],
     base: [],
     awakening: [],
   });
-  const [selectedSkillType, setSelectedSkillType] = useState("");
+  const [
+    selectedSkillType,
+    setSelectedSkillType,
+  ] = useState<SelectedSkillTypes>("");
 
-  const [trainingObjects, setCardObjectsInput] = useState([]);
+  const [trainingObjects, setCardObjectsInput] = useState<TrainingObjectsType>(
+    []
+  );
 
-  const [getTargetInfo, { data: targetData }] = useLazyQuery(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
+    umamusume: UmamusumeType;
+  }>(GET_UMAMUSUME);
 
   const [editCard, _mutationData] = useMutation(EDIT_CARD);
   const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
   const [formData, setFormInput] = useReducer(
-    (state, newState) => ({
+    (state: FormDataType, newState: Partial<FormDataType>) => ({
       ...state,
       ...newState,
     }),
     {
-      name: "",
+      ko: "",
+      ja: "",
       star: 1,
       targetID: null,
       imageSrc: "",
@@ -129,7 +151,7 @@ const EditCard = (props: EditCardProps) => {
   );
 
   const [statusData, setStatusInput] = useReducer(
-    (state, newState) => ({
+    (state: CardStatusData, newState: Partial<CardStatusData>) => ({
       ...state,
       ...newState,
     }),
@@ -237,7 +259,7 @@ const EditCard = (props: EditCardProps) => {
     }
   }, [data, targetData]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -251,7 +273,7 @@ const EditCard = (props: EditCardProps) => {
     setFormInput({ [name]: value });
   };
 
-  const handleChangeCheckbox = (e) => {
+  const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.checked;
 
@@ -261,7 +283,7 @@ const EditCard = (props: EditCardProps) => {
     setFormInput({ [name]: value });
   };
 
-  const handleStatusChange = (e) => {
+  const handleStatusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const [type, status] = e.target.name.split("-");
     const value = e.target.value.toString();
 
@@ -269,15 +291,15 @@ const EditCard = (props: EditCardProps) => {
     setStatusInput({ [type]: newState });
   };
 
-  const handleChangeEvents = (eventData) => {
+  const handleChangeEvents = (eventData: CardEventObjectType) => {
     setFormInput({ events: eventData });
   };
 
-  const handleUpdateBonus = (bonusData) => {
+  const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const {
       turf,
@@ -388,7 +410,7 @@ const EditCard = (props: EditCardProps) => {
     });
   };
 
-  const addEventTempIDs = (events) => {
+  const addEventTempIDs = (events: CardEventObjectType) => {
     const once = events.once.map((d) => ({
       ...d,
       __tempID: _.uniqueId("bonus-data"),
@@ -404,7 +426,7 @@ const EditCard = (props: EditCardProps) => {
     };
   };
 
-  const removeBonusTempIDs = (bonus) => {
+  const removeBonusTempIDs = (bonus: CardBonusObjectType) => {
     const unique = bonus.unique.map((d) => _.omit(d, ["__tempID"]));
     const support = bonus.support.map((d) => _.omit(d, ["__tempID"]));
 
@@ -414,7 +436,7 @@ const EditCard = (props: EditCardProps) => {
     };
   };
 
-  const addBonusTempIDs = (bonus) => {
+  const addBonusTempIDs = (bonus: CardBonusObjectType) => {
     const unique = bonus.unique.map((d) => ({
       ...d,
       __tempID: _.uniqueId("unique"),
@@ -430,7 +452,7 @@ const EditCard = (props: EditCardProps) => {
     };
   };
 
-  const removeEventTempIDs = (events) => {
+  const removeEventTempIDs = (events: CardEventObjectType) => {
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
@@ -456,7 +478,7 @@ const EditCard = (props: EditCardProps) => {
     setSkillSearchModalState(false);
   };
 
-  const handleSelect = (targets) => {
+  const handleSelect = (targets: SkillType[]) => {
     setRelatedSkills({ ...relatedSkills, [selectedSkillType]: targets });
   };
   const showUniqueSkillSearchModal = () => {

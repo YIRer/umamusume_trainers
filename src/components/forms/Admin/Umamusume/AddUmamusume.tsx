@@ -32,7 +32,7 @@ const AddUmamusume = (props: AddUmamusumeProps) => {
   const classes = useStyles();
   const [addUmamusume, _mutationData] = useMutation(ADD_UMAMUSUME);
   const [formData, setFormInput] = useReducer(
-    (state: FormInputTpye, newState: FormInputTpye) => ({
+    (state: FormInputTpye, newState: Partial<FormInputTpye>) => ({
       ...state,
       ...newState,
     }),

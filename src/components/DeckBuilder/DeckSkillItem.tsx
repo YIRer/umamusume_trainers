@@ -3,6 +3,10 @@ import { prefixImgSrc } from "helper";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import { DeckSkillItemProps } from "./types";
+import { Classes } from "types/Common/classes";
+import { SkillType } from "types/Skill/skill";
+
 const useStyles = makeStyles((_theme) => ({
   ItemRoot: {
     display: "grid",
@@ -28,7 +32,15 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const Skills = ({ data, onSelectSkill, classes }) => {
+const Skills = ({
+  data,
+  onSelectSkill,
+  classes,
+}: {
+  data: SkillType;
+  classes: Classes;
+  onSelectSkill: (skill: SkillType) => void;
+}) => {
   const handleSelectSkill = () => {
     onSelectSkill(data);
   };
@@ -41,10 +53,10 @@ const Skills = ({ data, onSelectSkill, classes }) => {
   );
 };
 
-const DeckSkillItem = (props) => {
+const DeckSkillItem = (props: DeckSkillItemProps) => {
   const { data } = props;
   const classes = useStyles();
-  const [skills, setSkills] = useState([]);
+  const [skills, setSkills] = useState<SkillType[]>([]);
 
   const setInitialSkills = () => {
     const skillData = {

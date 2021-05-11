@@ -77,17 +77,19 @@ const EditSkill = (props: EditSkillProps) => {
   const classes = useStyles();
   const { id } = useParams<{ id: string }>();
 
-  const { loading, error, data } = useQuery(GET_SKill, {
+  const { loading, error, data } = useQuery<{ skill: SkillType }>(GET_SKill, {
     variables: { id },
   });
 
-  const [getTargetsInfo, { data: targetsInfo }] = useLazyQuery(FIND_CARDS);
+  const [getTargetsInfo, { data: targetsInfo }] = useLazyQuery<{
+    findCards: CardType[];
+  }>(FIND_CARDS);
 
   const [editSkill, _mutationData] = useMutation(EDIT_SKILL);
   const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
   const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
-    (state: skillInputType, newState: skillInputType) => ({
+    (state: skillInputType, newState: Partial<skillInputType>) => ({
       ...state,
       ...newState,
     }),
@@ -125,14 +127,14 @@ const EditSkill = (props: EditSkillProps) => {
     }
   }, [data, targetsInfo]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setFormInput({ [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const { tags, ko, ja, ...others } = formData;
     const convertTags = tags.split(",");
@@ -171,7 +173,7 @@ const EditSkill = (props: EditSkillProps) => {
 
   if (loading) return <Loader />;
 
-  const { skill }: { skill: SkillType } = data;
+  const { skill } = data;
   if (error || !skill) return <p>Error :(</p>;
 
   return (

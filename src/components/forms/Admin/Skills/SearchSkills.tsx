@@ -110,13 +110,7 @@ const SkillItem = ({ itemData, classes, selectFn, targets }: SkillItem) => {
 
 const SearchSkills = (props) => {
   const classes = useStyles();
-  const {
-    loading,
-    data,
-  }: {
-    loading: boolean;
-    data: { skills: SkillType[] };
-  } = useQuery(GET_SKILLS);
+  const { loading, data } = useQuery<{ skills: SkillType[] }>(GET_SKILLS);
 
   const [keyword, setKeyword] = useState("");
   const [targets, setTargets] = useState(props.selectedData || []);

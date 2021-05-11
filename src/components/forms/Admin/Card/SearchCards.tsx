@@ -76,13 +76,13 @@ const CardItem = ({ itemData, classes, selectFn, targets }: SearchCardItem) => {
 
 const SearchCards = (props: SearchCards) => {
   const classes = useStyles();
-  const { loading, data } = useQuery(GET_CARDS);
+  const { loading, data } = useQuery<{ cards: CardType[] }>(GET_CARDS);
 
   const [keyword, setKeyword] = useState("");
   const [targets, setTargets] = useState(props.selectedData || []);
-  const [searchResult, setSearchResult] = useState([]);
+  const [searchResult, setSearchResult] = useState<CardType[]>([]);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setKeyword(value);
     onSearch();

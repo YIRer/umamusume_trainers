@@ -15,8 +15,9 @@ import clsx from "clsx";
 import SearchForm from "../SearchForm";
 import Loader from "components/Common/Loader";
 
-import { isDev }from "../../constants";
+import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
+import { UmamusumeType } from "types/Umamusume/umamusume";
 
 const useStyles = makeStyles((_theme) => ({
   umamusumeListWrapper: {
@@ -57,9 +58,11 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const UmamusumeList = (_props) => {
+export const UmamusumeList = () => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery(GET_UMAMUSUMES, []);
+  const { loading, error, data } = useQuery<{ umamusumeList: UmamusumeType[] }>(
+    GET_UMAMUSUMES
+  );
   const [umamusumeList, setUmamusumeList] = useState([]);
 
   useEffect(() => {

@@ -68,7 +68,7 @@ const AddSkill = (props: AddSkillProps) => {
   const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
   const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
-    (state: skillInputType, newState: skillInputType) => ({
+    (state: skillInputType, newState: Partial<skillInputType>) => ({
       ...state,
       ...newState,
     }),

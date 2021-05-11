@@ -6,7 +6,10 @@ import Button from "@material-ui/core/Button";
 import CardInfo from "./CardInfo";
 import { isMobile } from "helper";
 
-const setInitialSkills = (cardData) => {
+import { CardInfoModalProps } from "./types";
+import { CardType } from "types/Card/card";
+
+const setInitialSkills = (cardData: CardType) => {
   const {
     uniqueSkillsIds,
     trainingSkillsIds,
@@ -50,8 +53,8 @@ const setInitialSkills = (cardData) => {
   return skillData;
 };
 
-const CardInfoModal = (props) => {
-  const modalRef = useRef();
+const CardInfoModal = (props: CardInfoModalProps) => {
+  const modalRef = useRef(null);
   const isMobileSize = isMobile();
   const skillData = setInitialSkills(props.data);
   return (

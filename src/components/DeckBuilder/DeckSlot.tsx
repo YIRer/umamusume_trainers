@@ -20,6 +20,11 @@ import SkillModal from "./SkillModal";
 import DeckSelections from "./DeckSelections";
 import DeckForm from "./DeckForm";
 
+import { DeckSlotProps, DeckWithID } from "./types";
+import { SkillType } from "types/Skill/skill";
+import { Classes } from "types/Common/classes";
+import { CardType } from "types/Card/card";
+
 const useStyles = makeStyles((theme) => ({
   header: {
     padding: "16px",
@@ -59,13 +64,23 @@ const useStyles = makeStyles((theme) => ({
   cardRoot: { marginBottom: "20px" },
 }));
 
-const SkillItems = ({ data, onSelectSkill, showClickedCardInfo, classes }) => {
+const SkillItems = ({
+  data,
+  onSelectSkill,
+  showClickedCardInfo,
+  classes,
+}: {
+  data: DeckWithID;
+  classes: Classes;
+  onSelectSkill: (skill: SkillType) => void;
+  showClickedCardInfo: (card: CardType, isShowSelection?: boolean) => void;
+}) => {
   return (
     <div className={classes.contentsWrapper}>
       {data.training.map((cardData) => (
         <DeckSkillItem
           data={cardData}
-          key={`training-${cardData.ja}-${cardData.id}`}
+          key={`training-${cardData.name.ja}-${cardData.id}`}
           onSelectSkill={onSelectSkill}
           showClickedCardInfo={showClickedCardInfo}
         />
@@ -73,7 +88,7 @@ const SkillItems = ({ data, onSelectSkill, showClickedCardInfo, classes }) => {
       {data.support.map((cardData) => (
         <DeckSkillItem
           data={cardData}
-          key={`support-${cardData.ja}-${cardData.id}`}
+          key={`support-${cardData.name.ja}-${cardData.id}`}
           onSelectSkill={onSelectSkill}
           showClickedCardInfo={showClickedCardInfo}
         />
@@ -82,7 +97,7 @@ const SkillItems = ({ data, onSelectSkill, showClickedCardInfo, classes }) => {
   );
 };
 
-const DeckSlot = (props) => {
+const DeckSlot = (props: DeckSlotProps) => {
   const classes = useStyles();
 
   const [editMode, setEditMode] = useState(false);
@@ -99,7 +114,7 @@ const DeckSlot = (props) => {
     setEditMode(!editMode);
   };
 
-  const handleSelectSkill = (skill) => {
+  const handleSelectSkill = (skill: SkillType) => {
     setSelectedSkill(skill);
     setOpenSkillModal(true);
   };
@@ -108,10 +123,10 @@ const DeckSlot = (props) => {
     setOpenSkillModal(false);
   };
 
-  const handleTabChange = (e, tabValue) => {
+  const handleTabChange = (_e, tabValue: string) => {
     setTabValue(tabValue);
   };
-  const handleEdit = (deck) => {
+  const handleEdit = (deck: DeckWithID) => {
     props.onEdit(deck);
     setEditMode(false);
   };

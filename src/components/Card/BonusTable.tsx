@@ -10,6 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { convertLevel } from "helper";
 
+import { CardBonusObjectType } from "types/Card/bonus";
+
 const useStyles = makeStyles((_theme) => ({
   section: {
     margin: "10px",
@@ -22,13 +24,13 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const BonusTable = ({ data }) => {
+const BonusTable = ({ data }: { data: CardBonusObjectType }) => {
   const classes = useStyles();
 
   return (
     <section className={classes.section}>
       <h4>고유 보너스</h4>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
@@ -53,7 +55,7 @@ const BonusTable = ({ data }) => {
         </TableBody>
       </Table>
       <h4>지원 효과</h4>
-      <Table className={classes.table}>
+      <Table>
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
