@@ -48,7 +48,7 @@ import { CardEventObjectType } from "types/Card/event";
 import { CardBonusObjectType } from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
-const getImageName = (imageSrc) => {
+const getImageName = (imageSrc: string) => {
   try {
     return imageSrc.split("/").pop().split(".")[0];
   } catch (_err) {
