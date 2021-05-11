@@ -220,23 +220,38 @@ const EditCard = (props: EditCardProps) => {
       const awakeningSkills = [];
 
       uniqueSkillsIds?.forEach((sid) => {
-        uniqueSkills.push(skills.find(({ id }) => id === sid));
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          uniqueSkills.push(findSkill);
+        }
       });
 
       trainingSkillsIds?.forEach((sid) => {
-        traniningSkills.push(skills.find(({ id }) => id === sid));
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          traniningSkills.push(findSkill);
+        }
       });
 
       hasSkillsIds?.forEach((sid) => {
-        hasSkills.push(skills.find(({ id }) => id === sid));
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          hasSkills.push(findSkill);
+        }
       });
 
       baseSkillsIds?.forEach((sid) => {
-        baseSkills.push(skills.find(({ id }) => id === sid));
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          baseSkills.push(findSkill);
+        }
       });
 
       awakeningSkillsIds?.forEach((sid) => {
-        awakeningSkills.push(skills.find(({ id }) => id === sid));
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          awakeningSkills.push(findSkill);
+        }
       });
 
       setRelatedSkills({
