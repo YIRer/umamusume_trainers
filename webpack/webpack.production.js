@@ -18,7 +18,7 @@ copyPublicFolder();
 module.exports = {
   mode: "production",
   entry: {
-    app: `${commonPaths.appEntry}/index.js`,
+    app: `${commonPaths.appEntry}/index`,
   },
   output: {
     filename: "[name].[hash].js",

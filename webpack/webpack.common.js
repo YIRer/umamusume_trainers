@@ -6,10 +6,15 @@ const config = {
   },
   resolve: {
     modules: [commonPaths.appEntry, "node_modules"],
-    extensions: [".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
     rules: [
+      {
+        test: /\.(ts|tsx)?$/,
+        exclude: /(node_modules|schema)/,
+        use: ["ts-loader"],
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|schema)/,

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "skipLibCheck": true, //선언 유형의 파일의 유형검사를 스킵
+    "strict": false,
+    "forceConsistentCasingInFileNames": true, //동일한 파일 참조시, 일관되지 않은 참조를 허용하지 않음
+    "esModuleInterop": true, //import defalut를 사용가능하도록 설정
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "experimentalDecorators": true, // 실험적 데코레이터 사용 설정
+    "removeComments": true, // 주석 제거
+    "baseUrl": "src", // 절대 위치의 시작점을 위한 기본 루트 지점 설정
+    "noUnusedParameters": true //사용하지 않는 파라미터가 있는 경우 에러 표시
+  },
+  "rules": {
+    "semicolon": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "schema"]
+}
