@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
@@ -8,16 +8,13 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import clsx from "clsx";
 
-import SearchCards from "../Card/SearchCards";
 
 import { GET_SKILLS, ADD_Sklill } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
-import { prefixImgSrc } from "helper";
 
 import { AddSkillProps, skillInputType } from "./types";
-import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -45,28 +42,11 @@ const useStyles = makeStyles((_theme) => ({
   span: {
     marginLeft: "10px",
   },
-  cardWrapper: {
-    marginRight: "16px",
-  },
-  card: {
-    width: "100px",
-    height: "100px",
-    backgroundPosition: "top center",
-    backgroundSize: "80%",
-    backgroundRepeat: "no-repeat",
-    marginBottom: "10px",
-  },
-  relatedCards: {
-    display: "flex",
-    marginTop: "16px",
-  },
 }));
 
 const AddSkill = (props: AddSkillProps) => {
   const classes = useStyles();
   const [addSkill, _mutationData] = useMutation(ADD_Sklill);
-  const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
-  const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
     (state: skillInputType, newState: Partial<skillInputType>) => ({
       ...state,
@@ -98,12 +78,10 @@ const AddSkill = (props: AddSkillProps) => {
     e.preventDefault();
     const { ko, ja, tags, ...others } = formData;
     const convertTags = tags.split(",");
-    const targetIDs = relatedCards.map((card) => card.id);
     const input = {
       ...others,
       name: { ko, ja },
       tags: convertTags,
-      targetIDs,
     };
 
     addSkill({
@@ -115,13 +93,6 @@ const AddSkill = (props: AddSkillProps) => {
     }).then(() => {
       props.history.push("/skills");
     });
-  };
-
-  const showSearchModal = () => {
-    setModalState(true);
-  };
-  const hideSearchModal = () => {
-    setModalState(false);
   };
 
   return (
@@ -171,34 +142,6 @@ const AddSkill = (props: AddSkillProps) => {
           name={"imageSrc"}
           value={formData.imageSrc}
           onChange={handleChange}
-        />
-        <Button
-          type="button"
-          variant="outlined"
-          color="primary"
-          onClick={showSearchModal}
-        >
-          관련된 카드 선택
-        </Button>
-
-        <div className={classes.relatedCards}>
-          {relatedCards.map(({ id, imageSrc }) => (
-            <div className={classes.cardWrapper} key={`related-card-${id}`}>
-              <div
-                className={classes.card}
-                style={{
-                  backgroundImage: `url(${prefixImgSrc(imageSrc)})`,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        <SearchCards
-          open={modalOpened}
-          onSelect={setRelatedCards}
-          onClose={hideSearchModal}
-          selectedData={relatedCards}
         />
 
         <Button

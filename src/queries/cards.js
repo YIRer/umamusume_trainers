@@ -82,7 +82,6 @@ export const GET_CARDS_All_DATA = gql`
           ja
         }
         imageSrc
-        targetIDs
         id
         effect
         tags
@@ -256,7 +255,6 @@ export const GET_CARD = gql`
         imageSrc
         id
         effect
-        targetIDs
         tags
       }
       status {
@@ -428,7 +426,6 @@ export const GET_CARDS_BY_TYPE = gql`
         imageSrc
         id
         effect
-        targetIDs
         tags
       }
       status {
@@ -771,7 +768,6 @@ export const EDIT_CARD = gql`
         imageSrc
         id
         effect
-        targetIDs
         tags
       }
       status {

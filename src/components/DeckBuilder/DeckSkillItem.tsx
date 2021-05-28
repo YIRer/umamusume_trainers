@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { DeckSkillItemProps } from "./types";
 import { Classes } from "types/Common/classes";
 import { SkillType } from "types/Skill/skill";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles((_theme) => ({
   ItemRoot: {
@@ -45,11 +46,13 @@ const Skills = ({
     onSelectSkill(data);
   };
   return (
-    <img
-      onClick={handleSelectSkill}
-      src={prefixImgSrc(data.imageSrc)}
-      className={classes.image}
-    />
+    <Tooltip title={`${data.name.ja} ${data.name.ko}`} placement="top">
+      <img
+        onClick={handleSelectSkill}
+        src={prefixImgSrc(data.imageSrc)}
+        className={classes.image}
+      />
+    </Tooltip>
   );
 };
 

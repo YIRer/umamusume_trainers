@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { withRouter, useParams, Link } from "react-router-dom";
-import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_SKill, GET_SKILLS, DELTE_Skill } from "queries/skills";
-import { FIND_CARDS } from "queries/cards";
 
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
@@ -21,7 +20,6 @@ import { prefixImgSrc } from "helper";
 
 import { SkillInfoProps } from "./types";
 import { SkillType } from "types/Skill/skill";
-import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -83,15 +81,6 @@ const SkillInfo = (props: SkillInfoProps) => {
   });
 
   const [deleteSkill, _mutationData] = useMutation(DELTE_Skill);
-  const [getTargetsInfo, { data: targetsData }] = useLazyQuery<{
-    findCards: CardType[];
-  }>(FIND_CARDS);
-
-  useEffect(() => {
-    if (data?.skill.targetIDs && !targetsData) {
-      getTargetsInfo({ variables: { ids: data.skill.targetIDs } });
-    }
-  }, [data, targetsData]);
 
   const handleDelete = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -155,8 +144,8 @@ const SkillInfo = (props: SkillInfoProps) => {
       </section>
       <section className={classes.section}>
         <h4>관련 카드</h4>
-        {targetsData?.findCards && targetsData?.findCards.length > 0 ? (
-          targetsData.findCards.map((card) => (
+        {skill.relatedCards.length > 0 ? (
+          skill.relatedCards.map((card) => (
             <Link
               to={`/cards/${card.id}`}
               key={`card-${card.id}`}

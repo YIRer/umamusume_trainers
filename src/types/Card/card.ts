@@ -34,3 +34,16 @@ export type CardType = {
   skills: any[];
   events: CardEventObjectType;
 };
+
+export type SimpleCardType = Pick<
+  CardType,
+  | "id"
+  | "star"
+  | "targetID"
+  | "name"
+  | "imageSrc"
+  | "type"
+  | "supportType"
+  | "playable"
+  | "limited"
+>;
