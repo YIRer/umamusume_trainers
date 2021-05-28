@@ -115,7 +115,6 @@ const SkillType = new GraphQLObjectType({
                     awakeningSkillsIds
                   );
 
-                  console.log(skills);
                   if (skills.includes(strID)) {
                     return relatedCards.push(card);
                   }
