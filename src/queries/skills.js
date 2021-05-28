@@ -8,14 +8,6 @@ export const GET_SKILLS = gql`
         ko
         ja
       }
-      relatedCards {
-        name {
-          ko
-          ja
-        }
-        imageSrc
-        id
-      }
       effect
       imageSrc
       tags
