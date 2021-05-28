@@ -54,7 +54,7 @@ const editSkills = {
     _parentValue,
     { addIds = [], addTargetIDs = [], deleteIds = [], deleteTargetIDs = [] }
   ) {
-    return Promise.all([
+    return Promise.allSettled([
       deleteTargetIDs.map((targetIDs, index) =>
         axios({
           method: "patch",

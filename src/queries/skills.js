@@ -8,7 +8,14 @@ export const GET_SKILLS = gql`
         ko
         ja
       }
-      targetIDs
+      relatedCards {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+      }
       effect
       imageSrc
       tags
@@ -25,7 +32,14 @@ export const GET_SKill = gql`
         ko
         ja
       }
-      targetIDs
+      relatedCards {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+      }
       effect
       imageSrc
       tags
@@ -42,7 +56,14 @@ export const ADD_Sklill = gql`
         ko
         ja
       }
-      targetIDs
+      relatedCards {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+      }
       effect
       imageSrc
       tags
@@ -59,7 +80,14 @@ export const EDIT_SKILL = gql`
         ko
         ja
       }
-      targetIDs
+      relatedCards {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+      }
       effect
       imageSrc
       tags
@@ -86,7 +114,14 @@ export const EDIT_SKILLS = gql`
         ko
         ja
       }
-      targetIDs
+      relatedCards {
+        name {
+          ko
+          ja
+        }
+        imageSrc
+        id
+      }
     }
   }
 `;

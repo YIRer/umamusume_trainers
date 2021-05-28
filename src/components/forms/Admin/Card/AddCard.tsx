@@ -15,7 +15,6 @@ import clsx from "clsx";
 import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
-import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
 import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
@@ -106,10 +105,8 @@ const AddCard = (props: AddCardProps) => {
     base: [],
     awakening: [],
   });
-  const [
-    selectedSkillType,
-    setSelectedSkillType,
-  ] = useState<SelectedSkillTypes>("");
+  const [selectedSkillType, setSelectedSkillType] =
+    useState<SelectedSkillTypes>("");
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
 
@@ -117,7 +114,6 @@ const AddCard = (props: AddCardProps) => {
     []
   );
   const [addCard, _mutationData] = useMutation(ADD_CARD);
-  const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
   const [formData, setFormInput] = useReducer(
     (state: FormDataType, newState: Partial<FormDataType>) => ({
@@ -269,34 +265,8 @@ const AddCard = (props: AddCardProps) => {
       },
       refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
-    }).then(({ data }) => {
-      const { addCard } = data;
-      const params = {
-        addIds: [],
-        addTargetIDs: [],
-      };
-      const skillList = [
-        ...relatedSkills.unique,
-        ...relatedSkills.training,
-        ...relatedSkills.has,
-        ...relatedSkills.base,
-        ...relatedSkills.awakening,
-      ];
-
-      skillList.forEach((skillData) => {
-        params.addIds.push(skillData.id);
-        params.addTargetIDs.push(_.uniq([...skillData.targetIDs, addCard.id]));
-      });
-
-      editSkills({
-        variables: {
-          ...params,
-        },
-        refetchQueries: [{ query: GET_SKILLS }],
-        awaitRefetchQueries: true,
-      }).then(() => {
-        props.history.push("/cards");
-      });
+    }).then(() => {
+      props.history.push("/cards");
     });
   };
 

@@ -1,6 +1,6 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useEffect } from "react";
 import { withRouter, useParams } from "react-router-dom";
-import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -11,17 +11,13 @@ import clsx from "clsx";
 
 import Loader from "components/Common/Loader";
 
-import SearchCards from "../Card/SearchCards";
-
-import { FIND_CARDS } from "queries/cards";
-import { GET_SKILLS, GET_SKill, EDIT_SKILL } from "queries/skills";
+import { GET_SKill, EDIT_SKILL } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
 import { prefixImgSrc } from "helper";
 
 import { EditSkillProps, skillInputType } from "./types";
-import { CardType } from "types/Card/card";
 import { SkillType } from "types/Skill/skill";
 
 const useStyles = makeStyles((_theme) => ({
@@ -81,13 +77,7 @@ const EditSkill = (props: EditSkillProps) => {
     variables: { id },
   });
 
-  const [getTargetsInfo, { data: targetsInfo }] = useLazyQuery<{
-    findCards: CardType[];
-  }>(FIND_CARDS);
-
   const [editSkill, _mutationData] = useMutation(EDIT_SKILL);
-  const [relatedCards, setRelatedCards] = useState<CardType[]>([]);
-  const [modalOpened, setModalState] = useState(false);
   const [formData, setFormInput] = useReducer(
     (state: skillInputType, newState: Partial<skillInputType>) => ({
       ...state,
@@ -104,6 +94,10 @@ const EditSkill = (props: EditSkillProps) => {
     }
   );
 
+  useEffect(() => {
+    setInitData();
+  }, [data]);
+
   const setInitData = () => {
     if (data && data.skill) {
       const { name, tags, ...others } = skill;
@@ -114,18 +108,8 @@ const EditSkill = (props: EditSkillProps) => {
         ja: name.ja,
         ...others,
       });
-      if (targetsInfo) {
-        setRelatedCards(targetsInfo.findCards || []);
-      }
     }
   };
-
-  useEffect(() => {
-    setInitData();
-    if (data?.skill.targetIDs && !targetsInfo) {
-      getTargetsInfo({ variables: { ids: data.skill.targetIDs } });
-    }
-  }, [data, targetsInfo]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -138,12 +122,10 @@ const EditSkill = (props: EditSkillProps) => {
     e.preventDefault();
     const { tags, ko, ja, ...others } = formData;
     const convertTags = tags.split(",");
-    const targetIDs = relatedCards.map((card) => card.id);
     const input = {
       ...others,
       name: { ko, ja },
       tags: convertTags,
-      targetIDs,
     };
 
     editSkill({
@@ -156,19 +138,11 @@ const EditSkill = (props: EditSkillProps) => {
           query: GET_SKill,
           variables: { id },
         },
-        { query: GET_SKILLS },
       ],
       awaitRefetchQueries: true,
     }).then(() => {
       props.history.push(`/skills/${id}`);
     });
-  };
-
-  const showSearchModal = () => {
-    setModalState(true);
-  };
-  const hideSearchModal = () => {
-    setModalState(false);
   };
 
   if (loading) return <Loader />;
@@ -232,17 +206,8 @@ const EditSkill = (props: EditSkillProps) => {
           onChange={handleChange}
         />
 
-        <Button
-          type="button"
-          variant="outlined"
-          color="primary"
-          onClick={showSearchModal}
-        >
-          관련된 카드 선택
-        </Button>
-
         <div className={classes.relatedCards}>
-          {relatedCards.map(({ id, imageSrc }) => (
+          {skill.relatedCards.map(({ id, imageSrc }) => (
             <div className={classes.cardWrapper} key={`related-card-${id}`}>
               <div
                 className={classes.card}
@@ -254,14 +219,6 @@ const EditSkill = (props: EditSkillProps) => {
           ))}
         </div>
 
-        {targetsInfo && (
-          <SearchCards
-            open={modalOpened}
-            onSelect={setRelatedCards}
-            onClose={hideSearchModal}
-            selectedData={targetsInfo.findCards}
-          />
-        )}
         <Button
           type="submit"
           className={clsx(classes.button)}

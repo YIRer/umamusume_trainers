@@ -1,9 +1,11 @@
 import { NameAndTitleType } from "types/nameAndTitle";
+import { SimpleCardType } from "types/Card/card";
 
 export type SkillType = {
   id: string;
   name: NameAndTitleType;
-  targetIDs: string[];
+  // targetIDs: string[];
+  relatedCards: SimpleCardType[];
   effect: string;
   imageSrc: string;
   tags: string[];

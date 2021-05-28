@@ -17,7 +17,6 @@ import clsx from "clsx";
 
 import { GET_UMAMUSUME } from "queries/umamusume";
 import { GET_CARD, EDIT_CARD } from "queries/cards";
-import { EDIT_SKILLS, GET_SKILLS } from "queries/skills";
 import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
@@ -108,21 +107,19 @@ const EditCard = (props: EditCardProps) => {
     base: [],
     awakening: [],
   });
-  const [
-    selectedSkillType,
-    setSelectedSkillType,
-  ] = useState<SelectedSkillTypes>("");
+  const [selectedSkillType, setSelectedSkillType] =
+    useState<SelectedSkillTypes>("");
 
   const [trainingObjects, setCardObjectsInput] = useState<TrainingObjectsType>(
     []
   );
 
-  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
-    umamusume: UmamusumeType;
-  }>(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] =
+    useLazyQuery<{
+      umamusume: UmamusumeType;
+    }>(GET_UMAMUSUME);
 
   const [editCard, _mutationData] = useMutation(EDIT_CARD);
-  const [editSkills, _mutationSkillsData] = useMutation(EDIT_SKILLS);
 
   const [formData, setFormInput] = useReducer(
     (state: FormDataType, newState: Partial<FormDataType>) => ({
@@ -370,6 +367,7 @@ const EditCard = (props: EditCardProps) => {
         status: others,
       },
       trainingObjects,
+      relatedSkills,
     };
 
     editCard({
@@ -385,43 +383,8 @@ const EditCard = (props: EditCardProps) => {
         },
       ],
       awaitRefetchQueries: true,
-    }).then(({ data }) => {
-      const { editCard }: { editCard: CardType } = data;
-      const params = {
-        addIds: [],
-        addTargetIDs: [],
-        deleteIds: [],
-        deleteTargetIDs: [],
-      };
-
-      const skillList = [
-        ...relatedSkills.unique,
-        ...relatedSkills.training,
-        ...relatedSkills.has,
-        ...relatedSkills.base,
-        ...relatedSkills.awakening,
-      ];
-
-      _.pullAll(skillList, editCard.skills).forEach((item) => {
-        params.addIds.push(item.id);
-        params.addTargetIDs.push(_.uniq([...item.targetIDs, editCard.id]));
-      });
-
-      _.differenceBy(editCard.skills, skillList, "id").forEach((target) => {
-        params.deleteIds.push(target.id);
-        params.deleteTargetIDs.push(
-          _.remove(target.targetIDs, (tid) => tid !== editCard.id)
-        );
-      });
-
-      editSkills({
-        variables: {
-          ...params,
-        },
-        refetchQueries: [{ query: GET_SKILLS }],
-      }).then(() => {
-        props.history.push(`/cards/${editCard.id}`);
-      });
+    }).then(() => {
+      props.history.push(`/cards/${id}`);
     });
   };
 
