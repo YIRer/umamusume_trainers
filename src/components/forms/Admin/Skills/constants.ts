@@ -30,6 +30,11 @@ export const iconData = [
     id: "i_skill_006",
   },
   {
+    value: "/image/skill/i_skill_028.png",
+    label: "위치선정",
+    id: "i_skill_028",
+  },
+  {
     value: "/image/skill/i_skill_007.png",
     label: "시야",
     id: "i_skill_007",

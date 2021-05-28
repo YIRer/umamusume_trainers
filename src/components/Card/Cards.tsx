@@ -62,7 +62,7 @@ const useStyles = makeStyles((_theme) => ({
   limited: {
     position: "absolute",
     top: "3px",
-    right: "3px",
+    right: "0px",
   },
   name: {
     fontSize: "12px",

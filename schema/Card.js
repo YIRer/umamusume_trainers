@@ -327,8 +327,26 @@ const CardType = new GraphQLObjectType({
     skills: {
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {
+        const {
+          uniqueSkillsIds = [],
+          trainingSkillsIds = [],
+          hasSkillsIds = [],
+          baseSkillsIds = [],
+          awakeningSkillsIds = [],
+        } = parentValue;
+
+        const skillIds = [
+          ...uniqueSkillsIds,
+          ...trainingSkillsIds,
+          ...hasSkillsIds,
+          ...baseSkillsIds,
+          ...awakeningSkillsIds,
+        ]
+          .map((id) => `id=${id}`)
+          .join("&");
+
         return axios
-          .get(`${dbServer}/skills?targetIDs_like=${parentValue.id}`)
+          .get(`${dbServer}/skills?${skillIds}`)
           .then((res) => res.data)
           .catch((_err) => []);
       },
