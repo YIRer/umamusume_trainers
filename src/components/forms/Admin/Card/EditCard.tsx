@@ -367,7 +367,6 @@ const EditCard = (props: EditCardProps) => {
         status: others,
       },
       trainingObjects,
-      relatedSkills,
     };
 
     editCard({

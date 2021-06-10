@@ -100,13 +100,15 @@ const EditSkill = (props: EditSkillProps) => {
 
   const setInitData = () => {
     if (data && data.skill) {
-      const { name, tags, ...others } = skill;
+      const { name, tags, effect, condition, imageSrc } = skill;
 
       setFormInput({
         tags: tags.join(","),
         ko: name.ko,
         ja: name.ja,
-        ...others,
+        effect,
+        condition,
+        imageSrc,
       });
     }
   };
@@ -120,10 +122,12 @@ const EditSkill = (props: EditSkillProps) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { tags, ko, ja, ...others } = formData;
+    const { tags, ko, ja, effect, condition, imageSrc } = formData;
     const convertTags = tags.split(",");
     const input = {
-      ...others,
+      effect,
+      condition,
+      imageSrc,
       name: { ko, ja },
       tags: convertTags,
     };
