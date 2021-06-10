@@ -48,14 +48,6 @@ export const ADD_Sklill = gql`
         ko
         ja
       }
-      relatedCards {
-        name {
-          ko
-          ja
-        }
-        imageSrc
-        id
-      }
       effect
       imageSrc
       tags
@@ -71,14 +63,6 @@ export const EDIT_SKILL = gql`
       name {
         ko
         ja
-      }
-      relatedCards {
-        name {
-          ko
-          ja
-        }
-        imageSrc
-        id
       }
       effect
       imageSrc

@@ -8,7 +8,6 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import clsx from "clsx";
 
-
 import { GET_SKILLS, ADD_Sklill } from "queries/skills";
 
 import IconRadioGroups from "./IconRadioGroups";
@@ -76,14 +75,16 @@ const AddSkill = (props: AddSkillProps) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { ko, ja, tags, ...others } = formData;
+    const { ko, ja, tags, effect, condition, imageSrc } = formData;
     const convertTags = tags.split(",");
     const input = {
-      ...others,
+      effect,
+      condition,
+      imageSrc,
       name: { ko, ja },
       tags: convertTags,
     };
-
+    console.log(JSON.stringify(input));
     addSkill({
       variables: {
         input,
