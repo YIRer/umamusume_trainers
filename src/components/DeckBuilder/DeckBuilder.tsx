@@ -13,6 +13,7 @@ import { useCookies } from "react-cookie";
 import DeckSlot from "./DeckSlot";
 import { DeckWithID } from "./types";
 import { CardType } from "types/Card/card";
+import Helmet from "Helmet/Helmet";
 
 const useStyles = makeStyles((_theme) => ({
   addDeckButton: {
@@ -26,6 +27,11 @@ const useStyles = makeStyles((_theme) => ({
     border: "1px solid #eee",
     boxSizing: "border-box",
     padding: "30px",
+  },
+  root: {
+    width: "100%",
+    maxWidth: "600px",
+    margin: "auto",
   },
 }));
 
@@ -181,7 +187,12 @@ const DeckBuilder = () => {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
+      <Helmet
+        title={"덱 빌더"}
+        url={"/deck-builder"}
+        description={"덱 빌더 페이지 입니다."}
+      />
       <div>
         {deckList.length > 0
           ? deckList.map((deck, index) => (

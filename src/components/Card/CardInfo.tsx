@@ -32,9 +32,14 @@ import { CardInfoProps, CardTargetType } from "./types";
 import { CardType } from "types/Card/card";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
+import Helmet from "Helmet/Helmet";
+import { formattedDescriptionForCards } from "./helper";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
+    maxWidth: "400px",
+    margin: "auto",
   },
   header: {
     display: "flex",
@@ -159,7 +164,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      justifyContent: "center",
     },
   },
 
@@ -167,6 +171,9 @@ const useStyles = makeStyles((theme) => ({
     width: "20px",
     height: "20px",
     marginRight: "8px",
+  },
+  nameWrapper: {
+    wordBreak: "keep-all",
   },
 }));
 
@@ -186,9 +193,10 @@ const CardInfo = (props: CardInfoProps) => {
   });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
-  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
-    umamusume: CardTargetType;
-  }>(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] =
+    useLazyQuery<{
+      umamusume: CardTargetType;
+    }>(GET_UMAMUSUME);
 
   const setInitialSkills = (cardData: CardType) => {
     const {
@@ -303,6 +311,11 @@ const CardInfo = (props: CardInfoProps) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <Helmet
+        title={`${card.name.ko}(${card.name.ja})`}
+        url={`/cards/${id}`}
+        description={formattedDescriptionForCards(card)}
+      />
       <div className={classes.header}>
         <h3 className={classes.head}>
           {card.supportType && (
@@ -312,7 +325,9 @@ const CardInfo = (props: CardInfoProps) => {
               alt={card.supportType}
             />
           )}
-          {card.name.ja} {card.name.ko}
+          <div className={classes.nameWrapper}>
+            {card.name.ja} {card.name.ko}
+          </div>
         </h3>
         {isDev && (
           <div className={classes.icons}>
@@ -401,7 +416,7 @@ const CardInfo = (props: CardInfoProps) => {
             ))}
           </div>
         )}
-        <h4>1회성 이벤트</h4>
+        <h4>{card.type === "training" ? "일회성 이벤트" : "육성 이벤트"}</h4>
         {card.events.once.map((event, index) => (
           <EventItems
             eventData={event}

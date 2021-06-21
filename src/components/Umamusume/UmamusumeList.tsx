@@ -55,14 +55,14 @@ const useStyles = makeStyles((_theme) => ({
   listWrapper: {
     display: "flex",
     flexWrap: "wrap",
+    justifyContent: "center",
   },
 }));
 
 export const UmamusumeList = () => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery<{ umamusumeList: UmamusumeType[] }>(
-    GET_UMAMUSUMES
-  );
+  const { loading, error, data } =
+    useQuery<{ umamusumeList: UmamusumeType[] }>(GET_UMAMUSUMES);
   const [umamusumeList, setUmamusumeList] = useState([]);
 
   useEffect(() => {

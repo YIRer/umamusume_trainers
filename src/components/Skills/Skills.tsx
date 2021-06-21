@@ -57,13 +57,17 @@ const useStyles = makeStyles((_theme) => ({
     marginRight: "16px",
     marginBottom: "16px",
   },
+  skillsWrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
 }));
 
 export const Skills = () => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery<{ skills: SkillType[] }>(
-    GET_SKILLS
-  );
+  const { loading, error, data } =
+    useQuery<{ skills: SkillType[] }>(GET_SKILLS);
   const [skillList, setSkillList] = useState([]);
 
   useEffect(() => {
@@ -78,28 +82,30 @@ export const Skills = () => {
     <div className={classes.skillListWrapper}>
       <h1>스킬 리스트</h1>
       <SearchForm data={data.skills} handleSearch={setSkillList} />
-      {skillList.map(({ name, id, imageSrc }) => {
-        return (
-          <Link
-            className={clsx(classes.linkWrapper)}
-            to={`/skills/${id}`}
-            key={id + name.default}
-          >
-            <Card className={clsx(classes.cardRoot)}>
-              <CardMedia
-                className={clsx(classes.cardMedia)}
-                image={prefixImgSrc(imageSrc || "/image/temp.png")}
-                title={name}
-              />
-              <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>
-                {name.ja}
-                <br />
-                {name.ko}
-              </CardContent>
-            </Card>
-          </Link>
-        );
-      })}
+      <div className={classes.skillsWrapper}>
+        {skillList.map(({ name, id, imageSrc }) => {
+          return (
+            <Link
+              className={clsx(classes.linkWrapper)}
+              to={`/skills/${id}`}
+              key={id + name.default}
+            >
+              <Card className={clsx(classes.cardRoot)}>
+                <CardMedia
+                  className={clsx(classes.cardMedia)}
+                  image={prefixImgSrc(imageSrc || "/image/temp.png")}
+                  title={name}
+                />
+                <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>
+                  {name.ja}
+                  <br />
+                  {name.ko}
+                </CardContent>
+              </Card>
+            </Link>
+          );
+        })}
+      </div>
       {isDev && (
         <Link to={"/admin/skills/new"} className={classes.addButton}>
           <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />

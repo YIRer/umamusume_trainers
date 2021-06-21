@@ -1,4 +1,4 @@
-import { isDev }from "../constants";
+import { isDev } from "../constants";
 const IMAGE_URL = "https://umamusume-trainers.s3.ap-northeast-2.amazonaws.com";
 
 export const getTypeName = (skilType): string => {

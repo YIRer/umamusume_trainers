@@ -267,7 +267,7 @@ const CardInfo = (props: CardInfoProps) => {
             ))}
           </div>
         )}
-        <h4>1회성 이벤트</h4>
+        <h4>{data.type === "training" ? "일회성 이벤트" : "육성 이벤트"}</h4>
         {data.events.once.map((event, index) => (
           <EventItems
             eventData={event}

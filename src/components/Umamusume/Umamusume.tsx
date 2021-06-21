@@ -27,6 +27,8 @@ import { TypeOfCard } from "types/Card/card";
 
 import { CardType } from "types/Card/card";
 
+import Helmet from "Helmet/Helmet";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "50%",
@@ -77,6 +79,8 @@ const useStyles = makeStyles((_theme) => ({
   },
   paperRoot: {
     padding: "16px",
+    maxWidth: "400px",
+    margin: "auto",
   },
   typeIcon: {
     width: "20px",
@@ -149,6 +153,11 @@ const Umamusume = (props: UmamusumeProps) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <Helmet
+        title={`${umamusume.name.ko}(${umamusume.name.ja})`}
+        url={`/umamusume/${id}`}
+        description={`${umamusume.name.ko}(${umamusume.name.ja})의 육성, 서포트 카드 목록입니다.`}
+      />
       <div className={classes.header}>
         <h3>
           {umamusume.name.ko}({umamusume.name.ja})
