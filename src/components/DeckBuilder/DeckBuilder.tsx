@@ -28,6 +28,11 @@ const useStyles = makeStyles((_theme) => ({
     boxSizing: "border-box",
     padding: "30px",
   },
+  root: {
+    width: "100%",
+    maxWidth: "600px",
+    margin: "auto",
+  },
 }));
 
 const findCardData = (targetID, cache, cards) => {
@@ -182,7 +187,7 @@ const DeckBuilder = () => {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <Helmet
         title={"덱 빌더"}
         url={"/deck-builder"}
