@@ -134,6 +134,11 @@ export const iconData = [
     label: "스태미나 회복 (고유)",
     id: "i_skill_026",
   },
+  {
+    value: "/image/skill/i_skill_029.png",
+    label: "디버프",
+    id: "i_skill_029",
+  },
 ];
 
 export const skillTypes = [

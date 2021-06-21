@@ -45,6 +45,7 @@ const useStyles = makeStyles((_theme) => ({
     position: "relative",
     marginRight: "10px",
     marginBottom: "16px",
+    paddingTop: "10px",
   },
   cardMedia: {
     width: "6.6rem",
