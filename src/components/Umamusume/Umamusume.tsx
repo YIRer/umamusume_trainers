@@ -77,6 +77,8 @@ const useStyles = makeStyles((_theme) => ({
   },
   paperRoot: {
     padding: "16px",
+    maxWidth: "400px",
+    margin: "auto",
   },
   typeIcon: {
     width: "20px",

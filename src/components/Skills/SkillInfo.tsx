@@ -24,6 +24,8 @@ import { SkillType } from "types/Skill/skill";
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
     padding: "10px",
+    maxWidth: "400px",
+    margin: "auto",
   },
   header: {
     display: "flex",
