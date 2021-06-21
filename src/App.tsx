@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core/styles";
 
 import { CookiesProvider } from "react-cookie";
+import RHelmet from "./Helmet/Helmet";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -34,6 +35,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CookiesProvider>
         <Paper elevation={0} classes={{ root: classes.root }}>
+          <RHelmet />
           <AppRoutes />
         </Paper>
       </CookiesProvider>

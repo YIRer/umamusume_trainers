@@ -32,6 +32,9 @@ import { CardInfoProps, CardTargetType } from "./types";
 import { CardType } from "types/Card/card";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
+import Helmet from "Helmet/Helmet";
+import { formattedDescriptionForCards } from "./helper";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
@@ -161,7 +164,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      justifyContent: "center",
     },
   },
 
@@ -169,6 +171,9 @@ const useStyles = makeStyles((theme) => ({
     width: "20px",
     height: "20px",
     marginRight: "8px",
+  },
+  nameWrapper: {
+    wordBreak: "keep-all",
   },
 }));
 
@@ -306,6 +311,11 @@ const CardInfo = (props: CardInfoProps) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <Helmet
+        title={`${card.name.ko}(${card.name.ja})`}
+        url={`/cards/${id}`}
+        description={formattedDescriptionForCards(card)}
+      />
       <div className={classes.header}>
         <h3 className={classes.head}>
           {card.supportType && (
@@ -315,7 +325,9 @@ const CardInfo = (props: CardInfoProps) => {
               alt={card.supportType}
             />
           )}
-          {card.name.ja} {card.name.ko}
+          <div className={classes.nameWrapper}>
+            {card.name.ja} {card.name.ko}
+          </div>
         </h3>
         {isDev && (
           <div className={classes.icons}>

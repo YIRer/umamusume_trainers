@@ -21,6 +21,8 @@ import { prefixImgSrc } from "helper";
 import { SkillInfoProps } from "./types";
 import { SkillType } from "types/Skill/skill";
 
+import Helmet from "Helmet/Helmet";
+
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
     padding: "10px",
@@ -104,6 +106,12 @@ const SkillInfo = (props: SkillInfoProps) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <Helmet
+        title={`${skill.name.ko}(${skill.name.ja})`}
+        url={`/skills/${id}`}
+        description={`${skill.effect}`}
+      />
+
       <div className={classes.header}>
         {isDev && (
           <div className={classes.icons}>
