@@ -7614,7 +7614,7 @@
       "supportType": "speed",
       "trainingObjects": [],
       "playable": false,
-      "limited": false,
+      "limited": true,
       "status": {
         "ground": {
           "turf": {
@@ -7689,8 +7689,7 @@
         "unique": [
           {
             "level": "30",
-            "effect": "트레이닝 효과 UP, 레이스 보너스",
-            "maxEffect": ""
+            "effect": "트레이닝 효과 UP, 레이스 보너스"
           }
         ],
         "support": [
@@ -7750,7 +7749,6 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "common": [],
         "once": [
           {
             "title": {
@@ -15982,7 +15980,7 @@
         }
       ],
       "playable": true,
-      "limited": true,
+      "limited": false,
       "status": {
         "ground": {
           "turf": {
@@ -17703,7 +17701,7 @@
         }
       ],
       "playable": true,
-      "limited": true,
+      "limited": false,
       "status": {
         "ground": {
           "turf": {
@@ -45841,7 +45839,7 @@
         }
       ],
       "playable": true,
-      "limited": true,
+      "limited": false,
       "status": {
         "ground": {
           "turf": {
@@ -46893,7 +46891,7 @@
         }
       ],
       "playable": true,
-      "limited": true,
+      "limited": false,
       "status": {
         "ground": {
           "turf": {
@@ -53077,14 +53075,14 @@
                   "ko": "",
                   "ja": "さすが、最高のサポートだ"
                 },
-                "result": " \"鋭い眼光\"(날카로운 눈빛) 힌트Lv+1"
+                "result": " \"鋭い眼光\"(날카로운 눈빛) 힌트Lv+1 『注目株』상태랜덤흭득"
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "サポートというか、攻撃のような…"
                 },
-                "result": "스피드+10 스킬Pt+15"
+                "result": "스피드+10 스킬Pt+15 『注目株』상태랜덤흭득"
               }
             ],
             "condition": ""
