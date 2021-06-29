@@ -193,10 +193,9 @@ const CardInfo = (props: CardInfoProps) => {
   });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
-  const [getTargetInfo, { data: targetData }] =
-    useLazyQuery<{
-      umamusume: CardTargetType;
-    }>(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
+    umamusume: CardTargetType;
+  }>(GET_UMAMUSUME);
 
   const setInitialSkills = (cardData: CardType) => {
     const {
@@ -266,10 +265,12 @@ const CardInfo = (props: CardInfoProps) => {
 
   const handleDuplicate = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { id: _id, ...others } = data.card;
+    const { id: _id, baseSkillsIds, awakeningSkillsIds, ...others } = data.card;
     addCard({
       variables: {
         input: {
+          baseSkillsIds: baseSkillsIds ?? [],
+          awakeningSkillsIds: awakeningSkillsIds ?? [],
           ...others,
         },
       },
