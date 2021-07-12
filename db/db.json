@@ -53345,7 +53345,7 @@
       "targetID": "21",
       "imageSrc": "/image/SeiunSky/cards/support/03.png",
       "type": "support",
-      "supportType": "stamina",
+      "supportType": "int",
       "trainingObjects": null,
       "playable": false,
       "limited": false,
