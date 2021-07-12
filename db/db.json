@@ -54779,11 +54779,11 @@
           },
           "guts": {
             "rank": "G+",
-            "bonus": "10"
+            "bonus": "0"
           },
           "intelligence": {
             "rank": "G+",
-            "bonus": "0"
+            "bonus": "10"
           }
         },
         "distance": {
