@@ -39,6 +39,7 @@ import {
 import { CardEventObjectType } from "types/Card/event";
 import { CardBonusObjectType } from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
+import { commonMultipleEvent } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -221,6 +222,8 @@ const AddCard = (props: AddCardProps) => {
         ? `/image/${targetInfo.name.default}/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
+    const addedMultipleEvents = addMultipleEvents(events);
+
     const input = {
       ...formDatas,
       name: {
@@ -254,7 +257,7 @@ const AddCard = (props: AddCardProps) => {
         },
         status: others,
       },
-      events: removeEventTempIDs(events),
+      events: removeEventTempIDs(addedMultipleEvents),
       bonus: removeBonusTempIDs(bonus),
       trainingObjects,
     };
@@ -290,6 +293,16 @@ const AddCard = (props: AddCardProps) => {
       once,
       multipleTimes,
     };
+  };
+
+  const addMultipleEvents = (events) => {
+    if (formData.type === "training") {
+      events.multipleTimes = [...commonMultipleEvent].concat(
+        events.multipleTimes
+      );
+    }
+
+    return events;
   };
 
   const showSearchModal = () => {
