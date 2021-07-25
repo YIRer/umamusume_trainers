@@ -57525,6 +57525,282 @@
         "multipleTimes": []
       },
       "id": 118
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "미호노 부르봉",
+        "ja": "ミホノブルボン"
+      },
+      "targetID": "26",
+      "imageSrc": "/image/MihonoBourbon/cards/support/03.png",
+      "type": "support",
+      "supportType": "stamina",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": true,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "스태미너 보너스, 힌트 발생률 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 40%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 5%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 15%"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv1"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 40%"
+          },
+          {
+            "level": "45",
+            "effect": "육성 시작시 초기 스태미나 UP 15",
+            "maxEffect": "육성 시작시 초기 스태미나 UP 30"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "91",
+        "90",
+        "113"
+      ],
+      "hasSkillsIds": [
+        "28",
+        "29",
+        "87",
+        "159"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "なかよし☆こよしちゃん　～探求編～"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "たしかに『素敵な子』だな！"
+                },
+                "result": "스킬Pt+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "お、落ち着いて"
+                },
+                "result": "의욕상승(2단계) 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "なかよし☆こよしちゃん　～調査編～"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+5 스태미나+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "なかよし☆こよしちゃん　～実践編～"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스태미나+10 \"逃亡者\"(도망자) 힌트Lv+3 인연게이지+5 OR 스태미나+5 \"押し切り準備\"(굳히기 준비) 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "他人に危害を及ぼしてはならない"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "すごく重そうだ……"
+                },
+                "result": "체력-10 스태미나+5 파워+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "夜だと、音が少し響くかもな"
+                },
+                "result": "체력+10 지능+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "命令は守らなければならない"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "開店直前から待機しておこう"
+                },
+                "result": "\"集中力\"(집중력) 힌트Lv+1 인연게이지"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "昼休みになったらダッシュ！"
+                },
+                "result": "스피드+10 스킬Pt+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 119
     }
   ],
   "skills": [
