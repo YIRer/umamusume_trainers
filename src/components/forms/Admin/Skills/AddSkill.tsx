@@ -84,7 +84,7 @@ const AddSkill = (props: AddSkillProps) => {
       name: { ko, ja },
       tags: convertTags,
     };
-    console.log(JSON.stringify(input));
+    
     addSkill({
       variables: {
         input,

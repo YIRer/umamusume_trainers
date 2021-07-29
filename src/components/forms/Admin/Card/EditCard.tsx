@@ -114,10 +114,9 @@ const EditCard = (props: EditCardProps) => {
     []
   );
 
-  const [getTargetInfo, { data: targetData }] =
-    useLazyQuery<{
-      umamusume: UmamusumeType;
-    }>(GET_UMAMUSUME);
+  const [getTargetInfo, { data: targetData }] = useLazyQuery<{
+    umamusume: UmamusumeType;
+  }>(GET_UMAMUSUME);
 
   const [editCard, _mutationData] = useMutation(EDIT_CARD);
 
@@ -187,10 +186,11 @@ const EditCard = (props: EditCardProps) => {
         baseSkillsIds,
         awakeningSkillsIds,
         trainingObjects,
+        supportType,
         ...others
       } = card;
       const imageName = getImageName(imageSrc);
-
+      const spType = playable ? "" : supportType ? supportType : "speed";
       setFormInput({
         ko: name.ko,
         ja: name.ja,
@@ -198,6 +198,7 @@ const EditCard = (props: EditCardProps) => {
         imageName,
         events: addEventTempIDs(events),
         bonus: addBonusTempIDs(bonus),
+        supportType: spType,
         playable,
         ...others,
       });
@@ -327,7 +328,17 @@ const EditCard = (props: EditCardProps) => {
       ...others
     } = statusData;
 
-    const { ko, ja, type, imageName, events, bonus, ...formDatas } = formData;
+    const {
+      ko,
+      ja,
+      type,
+      imageName,
+      events,
+      bonus,
+      supportType,
+      playable,
+      ...formDatas
+    } = formData;
 
     const imageSrc =
       targetInfo && imageName
@@ -367,6 +378,8 @@ const EditCard = (props: EditCardProps) => {
         status: others,
       },
       trainingObjects,
+      supportType: playable ? "" : supportType,
+      playable,
     };
 
     editCard({

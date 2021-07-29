@@ -215,7 +215,18 @@ const AddCard = (props: AddCardProps) => {
       pushing,
       ...others
     } = statusData;
-    const { ko, ja, type, imageName, events, bonus, ...formDatas } = formData;
+    
+    const {
+      ko,
+      ja,
+      type,
+      imageName,
+      events,
+      bonus,
+      playable,
+      supportType,
+      ...formDatas
+    } = formData;
 
     const imageSrc =
       targetInfo && imageName
@@ -224,6 +235,7 @@ const AddCard = (props: AddCardProps) => {
 
     const addedMultipleEvents = addMultipleEvents(events);
 
+    const spType = playable ? "" : supportType ? supportType : "speed";
     const input = {
       ...formDatas,
       name: {
@@ -260,6 +272,8 @@ const AddCard = (props: AddCardProps) => {
       events: removeEventTempIDs(addedMultipleEvents),
       bonus: removeBonusTempIDs(bonus),
       trainingObjects,
+      supportType: spType,
+      playable,
     };
 
     addCard({

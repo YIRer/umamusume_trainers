@@ -59701,7 +59701,7 @@
       "targetID": "44",
       "imageSrc": "/image/SweepTosho/cards/support/03.png",
       "type": "support",
-      "supportType": "",
+      "supportType": "speed",
       "trainingObjects": [],
       "playable": false,
       "limited": false,
