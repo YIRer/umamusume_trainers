@@ -48839,7 +48839,129 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "once": [],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "踏み出す、一歩"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "チラシ、ください！！"
+                },
+                "result": "체력-10 스킬Pt+15~45 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "一緒に配るぞ！"
+                },
+                "result": "근성+5 지능+5 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "高め合い、二歩"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "근성+3 지능+3 스킬Pt+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "三歩進み、二歩下がって、一歩"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 근성+5 지능+5 \"大局観\"(대국관) 힌트Lv+1"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "やってみてもいい"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "体を鍛えて自信をつけよう！"
+                },
+                "result": "체력+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "鏡の前で笑顔の練習！"
+                },
+                "result": "의욕상승 스킬Pt+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "喜んでくれるかな……"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "別のプレゼントを探してみたら？"
+                },
+                "result": "스킬Pt+45 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "覚悟を決めて、突っ込もう！"
+                },
+                "result": "\"負けん気\"(오기) 힌트Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
         "multipleTimes": []
       },
       "id": 102
