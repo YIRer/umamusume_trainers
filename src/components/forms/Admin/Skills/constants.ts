@@ -184,6 +184,46 @@ export const iconData = [
     label: "디버프",
     id: "i_skill_029",
   },
+  {
+    value: "/image/skill/i_skill_039.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_040.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_041.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_042.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_043.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_044.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_045.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
+  {
+    value: "/image/skill/i_skill_046.png",
+    label: "아오하루배 스킬",
+    id: "i_skill_029",
+  },
 ];
 
 export const skillTypes = [
