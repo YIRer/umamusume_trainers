@@ -2474,7 +2474,7 @@
                   "ko": "",
                   "ja": "選択肢なし"
                 },
-                "result": "체력-10 스피드+5 근성+5 지능+5 \"豪脚\"(호걸의 다리)힌트 Lv+3 인연게이지+5"
+                "result": "체력-10 스피드+5 근성+5 지능+5 \"豪脚\"(호각)힌트 Lv+3 인연게이지+5"
               }
             ],
             "condition": ""
@@ -2909,8 +2909,7 @@
         "unique": [
           {
             "level": "30",
-            "effect": "의욕 효과 UP, 특기율 UP",
-            "maxEffect": ""
+            "effect": "의욕 효과 UP, 특기율 UP"
           }
         ],
         "support": [
@@ -2977,7 +2976,6 @@
         "55"
       ],
       "events": {
-        "common": [],
         "once": [
           {
             "title": {
@@ -3004,7 +3002,7 @@
                 "result": "스킬 Pt+30 \"二の矢\"(두번째 화살)힌트Lv+1 인연게이지-5"
               }
             ],
-            "condition": ""
+            "condition": "연속 이벤트"
           },
           {
             "title": {
@@ -3019,17 +3017,17 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "選択肢なし"
+                  "ja": "없음"
                 },
                 "result": "스피드+5 스테미너+5"
               }
             ],
-            "condition": ""
+            "condition": "연속 이벤트"
           },
           {
             "title": {
               "ko": "",
-              "ja": "ゆる募、助言者"
+              "ja": "すべては勝つために"
             },
             "eventType": "once",
             "tags": [
@@ -3039,19 +3037,12 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "場所が悪いのかも"
+                  "ja": "없음"
                 },
-                "result": "지능+5 인연게이지+5"
-              },
-              {
-                "description": {
-                  "ko": "",
-                  "ja": "釣り竿の動かし方を変えたら？"
-                },
-                "result": "\"リードキープ\"(리드 킵)힌트Lv+1 인연게이지+5"
+                "result": "체력 +10 의욕상승 스피드+5 스태미나+5 지능+5 스킬Pt+5 랜덤으로 힌트 1개 획득 \"急ぎ足\"(빠른 걸음) 힌트Lv+1 OR \"脱出術\"(탈출 술) 힌트 Lv+3"
               }
             ],
-            "condition": ""
+            "condition": "연속 이벤트"
           },
           {
             "title": {
@@ -3079,11 +3070,41 @@
               }
             ],
             "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ゆる募、助言者"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "場所が悪いのかも"
+                },
+                "result": "지능+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "釣竿の動かし方を変えたら？"
+                },
+                "result": "\"リードキープ\"(리드 킵) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
           }
         ],
         "multipleTimes": []
       },
-      "id": 8
+      "id": 8,
+      "trainingObjects": null,
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": []
     },
     {
       "star": 3,
@@ -7549,7 +7570,7 @@
                   "ko": "",
                   "ja": "今の君なら大丈夫"
                 },
-                "result": "파워+15 근성+10 스킬Pt+15 \"豪脚\"(호걸의 다리)힌트Lv+3 인연게이지+5"
+                "result": "파워+15 근성+10 스킬Pt+15 \"豪脚\"(호각)힌트Lv+3 인연게이지+5"
               },
               {
                 "description": {
