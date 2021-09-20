@@ -54,7 +54,7 @@ const CardStatus = ({ data, onChange }: CardStatusProps) => {
         value={data.duct?.rank || "G"}
         id="duct-rank"
         name="duct-rank"
-        label="덕트 적성"
+        label="더트 적성"
         onChange={onChange}
       >
         {ranks.map((option) => (
@@ -68,7 +68,7 @@ const CardStatus = ({ data, onChange }: CardStatusProps) => {
         required
         id="duct-bonus"
         name="duck-bonus"
-        label="덕트 적성 보너스"
+        label="더트 적성 보너스"
         value={data.duct?.bonus || "0"}
         onChange={onChange}
       />
