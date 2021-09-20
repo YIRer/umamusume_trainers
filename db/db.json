@@ -66901,6 +66901,33 @@
           {
             "title": {
               "ko": "",
+              "ja": "ウマ娘ちゃんクイズ☆～ルーツ編～"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ケンタッキー州"
+                },
+                "result": "파워+15 \"マイルコーナー◯\"(마일 코너◯) 힌트 Lv+1"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "テキサス州"
+                },
+                "result": "파워+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
               "ja": "仰げば尊死！　幽体離脱！？"
             },
             "eventType": "once",
