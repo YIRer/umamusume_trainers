@@ -37,7 +37,7 @@ const StatusTable = ({ data }: { data: CardType }) => {
         <TableHead>
           <TableRow classes={{ root: clsx(classes.tableRoot) }}>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              덕트
+              더트
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
               잔디(터프)
