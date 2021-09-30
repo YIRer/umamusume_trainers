@@ -66978,6 +66978,33 @@
               }
             ],
             "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ダンスレッスン"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "難度の高いダンスに挑戦してみよう"
+                },
+                "result": "파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "得意なダンスでGO！"
+                },
+                "result": "지능+10"
+              }
+            ],
+            "condition": ""
           }
         ],
         "multipleTimes": [
