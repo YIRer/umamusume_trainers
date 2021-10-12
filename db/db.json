@@ -28421,7 +28421,7 @@
         {
           "object": "슈카상 (秋華賞) 3착 이내",
           "time": "클래식급 10월 후반",
-          "fan": "7500만 이상",
+          "fan": "7500명 이상",
           "raceCourse": "G1 / 교토 / 잔디 / 2000m(중거리) / 우내"
         },
         {
@@ -29656,7 +29656,7 @@
         {
           "object": "엘리자베스 여왕배 (エリザベス女王杯) 3착 이내",
           "time": "클래식급 11월 전반",
-          "fan": "10000인 이상",
+          "fan": "10000명 이상",
           "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우외"
         },
         {
@@ -34587,7 +34587,7 @@
         {
           "object": "킷카상 (菊花賞) 3착 이내",
           "time": "클래식급 10월 후반",
-          "fan": "7500만 이상",
+          "fan": "7500명 이상",
           "raceCourse": "G1 / 교토 / 잔디 / 3000m(장거리) / 우외"
         },
         {
@@ -56541,7 +56541,7 @@
         {
           "object": "킷카상 (菊花賞) 3착 이내",
           "time": "클래식급 10월 후반",
-          "fan": "7500만 이상",
+          "fan": "7500명 이상",
           "raceCourse": "G1 / 교토 / 잔디 / 3000m(장거리) / 우외"
         },
         {
@@ -70627,6 +70627,936 @@
         "multipleTimes": []
       },
       "id": 142
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "카와카미 프린세스",
+        "ja": "カワカミプリンセス"
+      },
+      "targetID": "39",
+      "imageSrc": "/image/KawakamiPrincess/cards/training/03.png",
+      "type": "training",
+      "supportType": "",
+      "trainingObjects": [
+        {
+          "object": "주니어 급 메이크데뷔에 출주",
+          "time": "",
+          "fan": "",
+          "raceCourse": ""
+        },
+        {
+          "object": "스프링S (スプリングS) 에서 5착 이내",
+          "time": "클래식급 3월 후반",
+          "fan": "1750명 이상 (1등 달성)",
+          "raceCourse": "G2 / 나카야마 / 잔디 / 1800m(마일)) / 우, 내"
+        },
+        {
+          "object": "오크스 (オークス) 5착 이내",
+          "time": "클래식급 5월 후반",
+          "fan": "6000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        },
+        {
+          "object": "슈카상 (秋華賞) 3착 이내",
+          "time": "클래식급 10월 후반",
+          "fan": "7500명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2000m(중거리) / 우내"
+        },
+        {
+          "object": "엘리자베스 여왕배 (エリザベス女王杯) 3착 이내",
+          "time": "클래식급 11월 전반",
+          "fan": "10000명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우외"
+        },
+        {
+          "object": "킨코상 (金鯱賞) 3착 이내",
+          "time": "시니어급 3월 전반",
+          "fan": "2000명 이상",
+          "raceCourse": "G2 / 주쿄 / 잔디 / 2000m(중거리) / 좌"
+        },
+        {
+          "object": "빅토리아 마일 (ヴィクトリアマイル) 3착 이내",
+          "time": "시니어급 5월 전반",
+          "fan": "10000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 1600m(마일) / 좌"
+        },
+        {
+          "object": "타카라즈카 기념 (宝塚記念) 3착 이내",
+          "time": "시니어급 6월 후반",
+          "fan": "20000명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우, 외"
+        },
+        {
+          "object": "엘리자베스 여왕배 (エリザベス女王杯) 1착",
+          "time": "클래식급 11월 전반",
+          "fan": "10000명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우외"
+        }
+      ],
+      "playable": true,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "F",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "F",
+            "bonus": "10"
+          },
+          "guts": {
+            "rank": "G+",
+            "bonus": "20"
+          },
+          "intelligence": {
+            "rank": "G+",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "D",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "B",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "F",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "C",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "D",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [
+        "407"
+      ],
+      "trainingSkillsIds": [],
+      "hasSkillsIds": [],
+      "baseSkillsIds": [
+        "107",
+        "39",
+        "13"
+      ],
+      "awakeningSkillsIds": [
+        "35",
+        "108",
+        "149",
+        "40"
+      ],
+      "skills": [
+        {
+          "name": {
+            "ko": "장거리 직선◯",
+            "ja": "長距離直線◯"
+          },
+          "effect": "직선에서 속도가 조금 상승 <장거리>",
+          "imageSrc": "/image/skill/i_skill_001.png",
+          "tags": [
+            "장거리",
+            "직선",
+            "속도상송",
+            "랜덤발동"
+          ],
+          "id": "20"
+        },
+        {
+          "name": {
+            "ko": "스테미너 킵",
+            "ja": "スタミナキープ"
+          },
+          "effect": "레이스 초반에 조금 지치지 않게 해준다 <작전 선행>",
+          "imageSrc": "/image/skill/i_skill_024.png",
+          "tags": [
+            "작전",
+            "선행",
+            "초반",
+            "회복"
+          ],
+          "id": "182"
+        },
+        {
+          "name": {
+            "ko": "코너 회복 ◯",
+            "ja": "コーナー回復◯"
+          },
+          "effect": "깔끔한 코너링을 하면 지구력이 약간 회복",
+          "imageSrc": "/image/skill/i_skill_024.png",
+          "tags": [
+            "코너",
+            "랜덤발동",
+            "회복"
+          ],
+          "id": "193"
+        },
+        {
+          "name": {
+            "ko": "도주 망설임",
+            "ja": "逃げためらい"
+          },
+          "effect": "레이스 막바지에 작전이 도주 작전의 우마무스메를 주저하게 해 속도를 조금 줄인다",
+          "imageSrc": "/image/skill/i_skill_017.png",
+          "tags": [
+            "후반",
+            "도주",
+            "스피드디버프"
+          ],
+          "id": "211"
+        },
+        {
+          "name": {
+            "ko": "트릭 (전)",
+            "ja": "トリック(前)"
+          },
+          "effect": "레이스 중반 앞쪽에 있으면 뒤쪽 掛かり상태 우마무스메가 조금 지친다",
+          "imageSrc": "/image/skill/i_skill_022.png",
+          "tags": [
+            "중반",
+            "지구력디버프"
+          ],
+          "id": "217"
+        },
+        {
+          "name": {
+            "ko": "여유작작",
+            "ja": "余裕綽々"
+          },
+          "effect": "레이스 초반에 쉽게 지치지 않게 해준다 <작전 선행>\t \t \t",
+          "imageSrc": "/image/skill/i_skill_025.png",
+          "tags": [
+            "작전",
+            "선행",
+            "회복",
+            "상위",
+            "초반",
+            "랜덤발동"
+          ],
+          "id": "258"
+        },
+        {
+          "name": {
+            "ko": "",
+            "ja": "Drain for rose"
+          },
+          "effect": "레이스 중반에 좋은 위치로 주행에 바싹 다가가게 되면 앞쪽의 우마무스메로 부터 지구력을 흡수한다",
+          "imageSrc": "/image/skill/i_skill_026.png",
+          "tags": [
+            "Drain for rose",
+            "고유스킬",
+            "라이스샤워",
+            "스태미나",
+            "회복"
+          ],
+          "id": "403"
+        },
+        {
+          "name": {
+            "ko": "홀딱 반하는 트릭",
+            "ja": "見惚れるトリック"
+          },
+          "effect": "레이스 중반 앞쪽에 있으면 뒤에 있는 우마무스메가 피곤해진다",
+          "imageSrc": "/image/skill/i_skill_023.png",
+          "tags": [
+            "見惚れるトリック",
+            "홀딱 반하는 트릭",
+            "디버프",
+            "지구력",
+            "중반"
+          ],
+          "id": "404"
+        }
+      ],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "新年の抱負"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "極限までスピードを極めるプリファイ45話"
+                },
+                "result": "스피드+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "癒やされる最新プリファイのライブ映像"
+                },
+                "result": "체력+20"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "必殺技が魅力の劇場版"
+                },
+                "result": "스킬pt+20"
+              }
+            ],
+            "condition": "클래식급 1월 전반"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "夏合宿（2年目）にて"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "滝の近くでパワー特訓"
+                },
+                "result": "파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "根性で海を渡る"
+                },
+                "result": "근성+10"
+              }
+            ],
+            "condition": "클래식급 8월 후반"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "初詣"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……無理をしないでほしい"
+                },
+                "result": "체력+30"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "少年、俺たちもサッカーに混ぜてくれ！"
+                },
+                "result": "올스탯+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……俺がすごいキックを見せるから貸して"
+                },
+                "result": "스킬pt+35"
+              }
+            ],
+            "condition": "시니어급 1월 전반"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "決意はドレスにこめて"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "そのドレス、似合ってるよ"
+                },
+                "result": "스피드+20"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "プリンセスの走りを、見せつけよう！"
+                },
+                "result": "근성+20"
+              }
+            ],
+            "condition": "승부복 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "受け止めます、姫のパワーで！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "落ち着いて、姫らしくなだめてみるとか？"
+                },
+                "result": "스태미나+10 파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "これもプリンセスパワーで解決だ！"
+                },
+                "result": "지능+10 스킬Pt+15"
+              }
+            ],
+            "condition": "승부복 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "いつか一流のプリンセスに"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "頑張った努力はなくならない"
+                },
+                "result": "파워+20 『練習上手◯』상태랜덤흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "キングヘイローはむしろ喜ぶんじゃないか？"
+                },
+                "result": "스태미나+10 지능+10 キングヘイローはむしろ喜ぶんじゃないか？"
+              }
+            ],
+            "condition": "승부복 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ダンスレッスン"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "脚を使ってみよう"
+                },
+                "result": "파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "一緒に踊ってみるとか？"
+                },
+                "result": "지능+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "元ガキ大将の風格"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "せっかくだし教えてあげようよ"
+                },
+                "result": "스태미나+5 스킬Pt+15"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "この調子で町内制覇だ！"
+                },
+                "result": "파워+10"
+              }
+            ],
+            "condition": "외출시 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "元ガキ大将の背中"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "プリンセスらしくなったね"
+                },
+                "result": "파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ょっと豪快すぎないか……？"
+                },
+                "result": "지능+10"
+              }
+            ],
+            "condition": "외출시 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "元ガキ大将の誓い"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……あの子のためにも活躍しないとな"
+                },
+                "result": "스피드+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "一緒に走る時が来たりしてな"
+                },
+                "result": "스태미나+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ガキ大将を継ぐ者が必要だな……"
+                },
+                "result": "파워+10"
+              }
+            ],
+            "condition": "외출시 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "努力の円舞曲"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "恥ずかしいのかな"
+                },
+                "result": "파워+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "一緒に、お手本を見せよう！"
+                },
+                "result": "근성+10"
+              }
+            ],
+            "condition": "외출시 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "この胸にあふれる想いは！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "姫には涙は似合わないぞ！"
+                },
+                "result": "파워+5 근성+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "泣きたいだけ、泣かせてあげよう"
+                },
+                "result": "스피드+10"
+              }
+            ],
+            "condition": "외출시 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "じゃじゃウマ娘のパーティー"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "本人なりの全力投球だから……"
+                },
+                "result": "스피드+5 파워+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "マナーを教えてあげて"
+                },
+                "result": "지능+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "マスコット対決！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……次はせめて脚を使いたいですワン"
+                },
+                "result": "스피드+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "力いっぱい上空に飛ばしてくださいワン"
+                },
+                "result": "파워+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "王子様の優雅なる休日"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……体より心が試されるやつとかは？"
+                },
+                "result": "근성+15"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "こう、変則的なやつで……"
+                },
+                "result": "\"抜け出し準備\"(뛰쳐나갈 준비) 힌트 Lv+1"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "完成！究極フォーム！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……やっちゃうか！"
+                },
+                "result": "성공시 파워+30 OR 실패시 체력 -10 파워+30 OR 대실패시 체력-15 파워+30 지능-10 OR"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "やめておこう……"
+                },
+                "result": "체력+10"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "無茶は厳禁！"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "そういわれても心配だ……(여름합숙중：とにかく労わる)"
+                },
+                "result": "체력 +10 의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "悪化したらどうするの？(여름합숙중：厳しくいく！)"
+                },
+                "result": "성공시 체력+10 『練習上手◯』상태흭득  실패시  의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여"
+              }
+            ],
+            "condition": "훈련 실패율 70%이상 확정"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "お大事に！"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "安静にしておこう(여름합숙중：きっちり休ませる)"
+                },
+                "result": "의욕저하 실패한훈련 스탯-5 ~ -10 『練習下手』(훈련실패율 감소)상태랜덤흭득"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "ちゃんと気を付けながらね(여름합숙중：頑張らせる)"
+                },
+                "result": "성공시 『練習上手〇』(훈련실패율 감소)상태흭득 실패시 의욕저하 스탯-10 「練習ベタ」(훈련실패율 증가)상태흭득"
+              }
+            ],
+            "condition": "훈련 실패시"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "レース勝利！"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "誇らしいよ"
+                },
+                "result": "체력-15~20 스탯+5~10 스킬PT+30~48 랜덤스킬레벨힌트"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "次も勝とうね！"
+                },
+                "result": "체력-5~30 스탯+5~11 스킬PT+30~55 랜덤스킬레벨힌트"
+              }
+            ],
+            "condition": "일반 레이스 승리"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "レース入着"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "よく頑張ったね！"
+                },
+                "result": "체력-10~20 스탯+3~7 스킬PT+30~48"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "次は1着！"
+                },
+                "result": "체력-5~30 스탯+3~8 스킬PT+33~51"
+              }
+            ],
+            "condition": "일반 레이스 2~5착일반 레이스 2~5착"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "レース敗北"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まだ次がある"
+                },
+                "result": "체력-25 스탯+4~5 스킬PT+11~29 랜덤디버프된스킬흭득(보라색스킬)"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "負けた理由を探ろう"
+                },
+                "result": "체력-15~30 스탯+3~4 스킬PT+11~30 랜덤디버프된스킬흭득(보라색스킬)"
+              }
+            ],
+            "condition": "일반 레이스 패배(6위부터)"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "追加の自主トレ"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "少しだけトレーニングに付き合うよ"
+                },
+                "result": "체력-5 이전훈련스탯+5 이사장인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "気持ちだけで嬉しいよ"
+                },
+                "result": "체력+5"
+              }
+            ],
+            "condition": "훈련이후 랜덤발생"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "リトルプリンセスたちの夢"
+            },
+            "eventType": "multipleTimes",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "食欲ぶち上げは厳禁で"
+                },
+                "result": "체력+10 스킬PT+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "好きなだけ食べよう！"
+                },
+                "result": "성공시 체력+30 스킬PT+10 실패시 체력+30 스킬PT+10 스피드-5 파워+5 「太り気味」(훈련에서 스피드가 상승X)상태흭득"
+              }
+            ],
+            "condition": ""
+          }
+        ]
+      },
+      "id": 143
     }
   ],
   "skills": [
@@ -78722,6 +79652,26 @@
       ],
       "condition": "",
       "id": 406
+    },
+    {
+      "name": {
+        "ko": "공주다운 자, 승리를 이 손에",
+        "ja": "姫たるもの、勝利をこの手に"
+      },
+      "effect": "최후반 직선 주행중에 중단에서 경합하면, 우아하게 날려버리며 속도가 상승한다",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "고유스킬",
+        "속도상승",
+        "카와카미프린세스",
+        "姫たるもの、勝利をこの手に",
+        "공주다운 자",
+        " 승리를 이 손에",
+        "후반",
+        "직선"
+      ],
+      "condition": "",
+      "id": 407
     }
   ],
   "conditions": []
