@@ -11258,8 +11258,7 @@
         "unique": [
           {
             "level": "25",
-            "effect": "트레이닝 효과 UP, 득의율 UP",
-            "maxEffect": ""
+            "effect": "트레이닝 효과 UP, 득의율 UP"
           }
         ],
         "support": [
@@ -11331,7 +11330,6 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "common": [],
         "once": [
           {
             "title": {
@@ -11386,7 +11384,7 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "いつもこんなに走り込んでいるのか？"
+                  "ja": "……いつもこんなに走りこんでいるのか？"
                 },
                 "result": "스태미나+10 인연게이지+5"
               },
