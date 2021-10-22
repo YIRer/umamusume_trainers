@@ -4,7 +4,6 @@ import { SimpleCardType } from "types/Card/card";
 export type SkillType = {
   id: string;
   name: NameAndTitleType;
-  // targetIDs: string[];
   relatedCards: SimpleCardType[];
   effect: string;
   imageSrc: string;
