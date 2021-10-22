@@ -99,7 +99,11 @@ export const CardList = () => {
   return (
     <div className={classes.cardsWrapper}>
       <h1>육성/서포터 카드 리스트</h1>
-      <SearchForm data={data.cards} handleSearch={setCardList} />
+      <SearchForm
+        data={data.cards}
+        handleSearch={setCardList}
+        searchType={"Card"}
+      />
       <div className={classes.cardWrapper}>
         {cardList.map(
           ({ name, id, imageSrc, star, type, limited, supportType }) => {

@@ -81,7 +81,11 @@ export const Skills = () => {
   return (
     <div className={classes.skillListWrapper}>
       <h1>스킬 리스트</h1>
-      <SearchForm data={data.skills} handleSearch={setSkillList} />
+      <SearchForm
+        data={data.skills}
+        handleSearch={setSkillList}
+        searchType={"Skill"}
+      />
       <div className={classes.skillsWrapper}>
         {skillList.map(({ name, id, imageSrc }) => {
           return (
