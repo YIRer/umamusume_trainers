@@ -99,6 +99,12 @@ const SearchCards = (props: SearchCardsProps) => {
     setSearchResult(searchData);
   };
 
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      onSearch();
+    }
+  };
+
   const handleSelect = (card: CardType, isSelected: boolean) => {
     if (props.type === "training") {
       if (isSelected) {
@@ -139,6 +145,7 @@ const SearchCards = (props: SearchCardsProps) => {
             label="카드 이름"
             onChange={handleChange}
             onBlur={onSearch}
+            onKeyUp={handleKeyUp}
           />
           <Button
             className={classes.searchBtn}
