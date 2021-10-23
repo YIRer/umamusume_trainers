@@ -89,10 +89,6 @@ export const filterSupportType: FilterFnType<CardType> = (
 ) => {
   const { supportType } = item;
 
-  if (searchOptions.types === "training") {
-    return false;
-  }
-
   if (searchOptions.supportTypes.length === 0) {
     return true;
   }
@@ -126,13 +122,13 @@ export const filterSKillDistance: FilterFnType<SkillType> = (
   item,
   searchOptions
 ) => {
-  const { effect } = item;
+  const { tags } = item;
   if (searchOptions.skillDistance.length === 0) {
     return true;
   }
 
   return searchOptions.skillDistance.some((distance) => {
-    return effect.includes(distance);
+    return tags.includes(distance);
   });
 };
 
@@ -140,12 +136,12 @@ export const filterSKillStrategy: FilterFnType<SkillType> = (
   item,
   searchOptions
 ) => {
-  const { effect } = item;
+  const { tags } = item;
   if (searchOptions.skillStrategy.length === 0) {
     return true;
   }
   return searchOptions.skillStrategy.some((strategy) => {
-    return effect.includes(strategy);
+    return tags.includes(strategy);
   });
 };
 
