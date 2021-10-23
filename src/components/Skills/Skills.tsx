@@ -86,6 +86,7 @@ export const Skills = () => {
         handleSearch={setSkillList}
         searchType={"Skill"}
       />
+      검색된 스킬 수: {skillList.length}
       <div className={classes.skillsWrapper}>
         {skillList.map(({ name, id, imageSrc }) => {
           return (

@@ -104,7 +104,7 @@ export const CardList = () => {
         handleSearch={setCardList}
         searchType={"Card"}
       />
-      total: {cardList.length}
+      검색된 카드 수: {cardList.length}
       <div className={classes.cardWrapper}>
         {cardList.map(
           ({ name, id, imageSrc, star, type, limited, supportType }) => {
