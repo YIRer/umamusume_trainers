@@ -139,26 +139,30 @@ export default function SearchForm({
           검색
         </Button>
       </div>
-      <div className={classes.filterWrapper}>
-        <Collapse in={openedFilter} timeout="auto" unmountOnExit>
-          <SearchFilter
-            searchOptions={searchOptions}
-            searchType={searchType}
-            handleOnChange={onUpdateStateByAction}
-            hideFilter={hideFilter}
-            showBottomControl
-          />
-        </Collapse>
-      </div>
-      {!openedFilter && (
-        <Button
-          type="button"
-          variant="outlined"
-          color="primary"
-          onClick={showFilter}
-        >
-          필터 열기
-        </Button>
+      {searchType !== "Umamusume" && (
+        <React.Fragment>
+          <div className={classes.filterWrapper}>
+            <Collapse in={openedFilter} timeout="auto" unmountOnExit>
+              <SearchFilter
+                searchOptions={searchOptions}
+                searchType={searchType}
+                handleOnChange={onUpdateStateByAction}
+                hideFilter={hideFilter}
+                showBottomControl
+              />
+            </Collapse>
+          </div>
+          {!openedFilter && (
+            <Button
+              type="button"
+              variant="outlined"
+              color="primary"
+              onClick={showFilter}
+            >
+              필터 열기
+            </Button>
+          )}
+        </React.Fragment>
       )}
     </div>
   );
