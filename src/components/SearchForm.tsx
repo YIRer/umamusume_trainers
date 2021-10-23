@@ -1,4 +1,4 @@
-import React, { Dispatch, useReducer } from "react";
+import React, { Dispatch, useReducer, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,6 +13,8 @@ import {
 } from "helper";
 
 import { initialState, reducer, ACTION_TYPES } from "./SearchReducers";
+
+import SearchFilter from "./SearchFilter";
 
 const useStyles = makeStyles((_theme) => ({
   wrapper: {
@@ -47,6 +49,10 @@ export default function SearchForm({
 }: SearchFormProps) {
   const classes = useStyles();
   const [searchOptions, stateDispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    onSearch();
+  }, [searchOptions]);
 
   const handleChangeKeyword = (
     e: React.ChangeEvent<HTMLInputElement> & React.FocusEvent<HTMLInputElement>
@@ -92,6 +98,14 @@ export default function SearchForm({
     }
   };
 
+  const onUpdateStateByAction = ({ type, payload, checked }) => {
+    stateDispatch({
+      type,
+      payload,
+      checked,
+    });
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.searchWrapper}>
@@ -112,6 +126,11 @@ export default function SearchForm({
           검색
         </Button>
       </div>
+      <SearchFilter
+        searchOptions={searchOptions}
+        searchType={searchType}
+        handleOnChange={onUpdateStateByAction}
+      />
     </div>
   );
 }

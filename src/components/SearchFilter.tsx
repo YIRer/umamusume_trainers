@@ -1,59 +1,333 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
 import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import AutorenewIcon from "@material-ui/icons/Autorenew";
 
-const SEARCH_FILTTER_OPTIONS = {
-  ["Card"]: {
-    rarity: {
-      type: "text",
-      selector: "checkbox",
-      values: [1, 2, 3],
-      label: ["N", "SR", "SSR"],
+import { ACTION_TYPES } from "./SearchReducers";
+import { SEARCH_FILTTER_OPTIONS } from "./constants";
+import { prefixImgSrc } from "helper";
+import {
+  CheckboxFilterItemType,
+  CheckboxFilterType,
+  RadioFilterItemType,
+  RadioFilterType,
+  FilterRenderHelperProps,
+  SearchFilterProps,
+  SeachFilterCardStateKey,
+  SeachFilterSkillStateKey,
+} from "./types";
+
+const useStyles = makeStyles((_theme) => ({
+  filterWrapper: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  filterGroupWrapper: {
+    display: "grid",
+    gridTemplateColumns: "auto 1fr",
+    alignItems: "center",
+    gridGap: "10px 8px",
+    border: "1px solid #eee",
+    padding: "8px",
+    "& nth-last-child": {
+      borderTop: "none",
     },
-    types: {
-      type: "icon",
-      selector: "radio",
-      values: ["none", "training", "support"],
-      label: ["전체", "육성", "서포터"],
+    "& > span": {
+      borderRight: "1px solid #eee",
+      display: "flex",
+      height: "100%",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "8px",
+      width: "100px",
     },
-    supportTypes: {
-      type: "icon",
-      selector: "checkbox",
-      values: ["none", "speed", "stamina", "power", "guts", "intelligence"],
-      label: ["전체", "스피드", "스태미나", "파워", "근성", "지능"],
-    },
-    limited: {
-      type: "icon",
-      selector: "radio",
-      values: ["none", true, false],
-      label: ["전체", "한정", "일반"],
+    "& img": {
+      width: "40px",
+      height: "40px",
     },
   },
-  ["Skill"]: {
-    rarity: {
-      type: "text",
-      selector: "checkbox",
-      values: [1, 2, 3],
-      label: ["N", "SR", "SSR"],
-    },
-    distance: {
-      type: "text",
-      selector: "checkbox",
-      values: ["단거리", "마일", "중거리", "장거리"],
-      label: ["단거리", "마일", "중거리", "장거리"],
-    },
-    strategy: {
-      type: "text",
-      selector: "checkbox",
-      values: ["도주", "선행", "선입", "추입"],
-      label: ["도주", "선행", "선입", "추입"],
-    },
+  gradientText: {
+    color: " #ffffff",
+    fontSize: "30px",
+    fontWeight: "bold",
   },
-};
+  ssrText: {
+    textTransform: "uppercase",
+    "-webkit-background-clip": "text",
+    textStroke: "4px transparent",
+    background:
+      "linear-gradient(90deg, rgba(200,255,255,1) 16%, rgba(255,205,239,1) 43%, rgba(255,255,255,1) 64%, rgba(200,255,255,1) 70%, rgba(255,205,239,1) 100%)",
+  },
+  srText: {
+    textTransform: "uppercase",
+    "-webkit-background-clip": "text",
+    textStroke: "4px transparent",
+    background:
+      "linear-gradient(90deg, rgba(255,194,56,1) 0%, rgba(251,255,200,1) 24%, rgba(255,217,67,1) 44%, rgba(255,255,255,1) 58%, rgba(252,250,132,1) 60%, rgba(255,194,56,1) 100%)",
+  },
+  clearButton: {
+    width: "200px",
+  },
+}));
 
-function SearchFilter({ searchType, onUpdateSearchFilter }) {
-  return <div></div>;
+function CheckboxFilterItem({
+  checked,
+  onChange,
+  value,
+  label,
+  searchType,
+  optionKey,
+  disabled,
+  imgSrc,
+  classes,
+}: CheckboxFilterItemType) {
+  const handleChange = () => {
+    let type = "";
+    if (searchType === "Card") {
+      switch (optionKey) {
+        case "rarity":
+          type = ACTION_TYPES.UPDATE_RARITY_FILTER;
+          break;
+        case "supportTypes":
+          type = ACTION_TYPES.UPDATE_SUPPORT_TYPE_FILTER;
+          break;
+      }
+    } else if (searchType === "Skill") {
+      switch (optionKey) {
+        case "skillRarity":
+          type = ACTION_TYPES.UPDATE_SKILL_RARITY_FILTER;
+          break;
+        case "skillDistance":
+          type = ACTION_TYPES.UPDATE_SKILL_DISTANCE_FILTER;
+          break;
+        case "skillStrategy":
+          type = ACTION_TYPES.UPDATE_SKILL_STRATEGY_FILTER;
+          break;
+      }
+    }
+
+    onChange({
+      type,
+      payload: value,
+      checked,
+    });
+  };
+  const iconImgOrLabel = imgSrc ? (
+    <img src={prefixImgSrc(imgSrc)} alt={label} />
+  ) : (
+    <span
+      className={clsx({
+        [classes.gradientText]: optionKey === "rarity",
+        [classes.srText]: optionKey === "rarity" && value === 2,
+        [classes.ssrText]: optionKey === "rarity" && value === 3,
+      })}
+    >
+      {label}
+    </span>
+  );
+  return (
+    <FormControlLabel
+      control={
+        <Checkbox
+          checked={checked}
+          onChange={handleChange}
+          name={label}
+          disabled={disabled}
+        />
+      }
+      label={iconImgOrLabel}
+    />
+  );
+}
+
+function CheckboxFilter({
+  data,
+  options,
+  onChange,
+  optionKey,
+  searchType,
+  conditionProps,
+}: CheckboxFilterType) {
+  const classes = useStyles();
+  return (
+    <React.Fragment>
+      {options.values.map((value, index) => {
+        const label = options.labels[index];
+        const imgSrc =
+          (optionKey === "skillRarity" || optionKey === "supportTypes") &&
+          options.imgSrc[index];
+
+        return (
+          <CheckboxFilterItem
+            key={`checkbox-${label}-${index}`}
+            checked={(data as Array<string | number | boolean>).includes(value)}
+            onChange={onChange}
+            value={value}
+            label={label}
+            searchType={searchType}
+            optionKey={optionKey}
+            disabled={
+              optionKey === "supportTypes" &&
+              conditionProps?.types === "training"
+            }
+            imgSrc={imgSrc}
+            classes={classes}
+          />
+        );
+      })}
+    </React.Fragment>
+  );
+}
+
+function RadioFilterItem({
+  checked,
+  onChange,
+  value,
+  label,
+  optionKey,
+}: RadioFilterItemType) {
+  const handleChange = () => {
+    let type = "";
+    switch (optionKey) {
+      case "types":
+        type = ACTION_TYPES.UPDATE_PLAYABLE_FILTER;
+        break;
+      case "limited":
+        type = ACTION_TYPES.UPDATE_LIMITED_FILTER;
+        break;
+    }
+    onChange({
+      type,
+      payload: value,
+    });
+  };
+
+  return (
+    <FormControlLabel
+      control={<Radio checked={checked} onChange={handleChange} />}
+      value={value}
+      label={label}
+    />
+  );
+}
+
+function RadioFilter({ data, options, onChange, optionKey }: RadioFilterType) {
+  return (
+    <RadioGroup>
+      {options.values.map((value, index) => {
+        const label = options.labels[index];
+
+        return (
+          <RadioFilterItem
+            key={`radio-${label}-${index}`}
+            checked={data === value}
+            onChange={onChange}
+            value={value}
+            label={label}
+            optionKey={optionKey}
+          />
+        );
+      })}
+    </RadioGroup>
+  );
+}
+
+function FilterRenderHelper({
+  data,
+  searchOption,
+  onChange,
+  searchType,
+  optionKey,
+  conditionProps,
+}: FilterRenderHelperProps) {
+  const { selector } = searchOption;
+
+  if (selector === "checkbox") {
+    return (
+      <CheckboxFilter
+        data={data}
+        options={searchOption}
+        onChange={onChange}
+        searchType={searchType}
+        optionKey={optionKey}
+        conditionProps={conditionProps}
+      />
+    );
+  }
+
+  if (selector === "radio") {
+    return (
+      <RadioFilter
+        data={data}
+        options={searchOption}
+        onChange={onChange}
+        optionKey={optionKey}
+      />
+    );
+  }
+}
+
+function FilterClearAll({ onChange }) {
+  const classes = useStyles();
+  const clearAllFilter = () => {
+    onChange({
+      type: ACTION_TYPES.CLEAR_ALL_FILTER,
+    });
+  };
+
+  return (
+    <Button
+      className={classes.clearButton}
+      onClick={clearAllFilter}
+      color={"secondary"}
+      variant="contained"
+    >
+      상세필터 초기화
+      <AutorenewIcon />
+    </Button>
+  );
+}
+
+function SearchFilter({
+  searchOptions,
+  searchType,
+  handleOnChange,
+}: SearchFilterProps) {
+  if (searchType === "Umamusume") {
+    return null;
+  }
+  const classes = useStyles();
+  const filterOptions = SEARCH_FILTTER_OPTIONS[searchType];
+  const keyOfFilterOptions = Object.keys(filterOptions);
+
+  return (
+    <div className={classes.filterWrapper}>
+      <FilterClearAll onChange={handleOnChange} />
+      {keyOfFilterOptions.map((key) => (
+        <div className={classes.filterGroupWrapper} key={`filter-${key}`}>
+          <span>{filterOptions[key].type}</span>
+          <div>
+            <FilterRenderHelper
+              data={searchOptions[key]}
+              searchOption={filterOptions[key]}
+              onChange={handleOnChange}
+              searchType={searchType}
+              optionKey={
+                key as SeachFilterCardStateKey | SeachFilterSkillStateKey
+              }
+              conditionProps={{ types: searchOptions.types }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default SearchFilter;

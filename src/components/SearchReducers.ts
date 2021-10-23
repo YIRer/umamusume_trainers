@@ -1,4 +1,5 @@
 import { TypeOfCard, TypeOfSupportCard } from "types/Card/card";
+import { omit } from "lodash";
 
 export type SeachFilterStateType = {
   keyword: string;
@@ -29,7 +30,7 @@ export const ACTION_TYPES = {
   UPDATE_SUPPORT_TYPE_FILTER: "SearchForm/UPDATE_SUPPORT_TYPE_FILTER",
   UPDATE_LIMITED_FILTER: "SearchForm/UPDATE_LIMITED_FILTER",
   UPDATE_SKILL_RARITY_FILTER: "SearchForm/UPDATE_SKILL_RARITY_FILTER",
-  UPDATE_SKILL_DISTANCE_FILTER: "SearchForm/UPDATE_SKILL_RARITY_FILTER",
+  UPDATE_SKILL_DISTANCE_FILTER: "SearchForm/UPDATE_SKILL_DISTANCE_FILTER",
   UPDATE_SKILL_STRATEGY_FILTER: "SearchForm/UPDATE_SKILL_STRATEGY_FILTER",
 
   CLEAR_KEYWORD_FILTER: "SearchForm/CLEAR_KEYWORD_FILTER",
@@ -40,65 +41,148 @@ export const ACTION_TYPES = {
   CLEAR_SKILL_RARITY_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_DISTANCE_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_STRATEGY_FILTER: "SearchForm/CLEAR_SKILL_STRATEGY_FILTER",
+  CLEAR_ALL_FILTER: "SearchForm/CLEAR_ALL_FILTER",
   CLEAR_ALL: "SearchForm/CLEAR_ALL",
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPES.UPDATE_KEYWORD_FILTER:
-      state.keyword = action.payload;
-      break;
+      return {
+        ...state,
+        keyword: action.payload,
+      };
     case ACTION_TYPES.UPDATE_RARITY_FILTER:
-      state.rarity = [...state.rarity, action.payload];
+      if (action.checked) {
+        return {
+          ...state,
+          rarity: state.rarity.filter((rarity) => rarity !== action.payload),
+        };
+      }
+      return {
+        ...state,
+        rarity: [...state.rarity, action.payload],
+      };
     case ACTION_TYPES.UPDATE_PLAYABLE_FILTER:
-      state.types = action.payload;
-      break;
+      if (action.payload === "training") {
+        return {
+          ...state,
+          types: action.payload,
+          supportTypes: [],
+        };
+      }
+      return {
+        ...state,
+        types: action.payload,
+      };
     case ACTION_TYPES.UPDATE_SUPPORT_TYPE_FILTER:
-      state.supportTypes = [...state.rarity, action.payload];
-      break;
+      if (action.checked) {
+        return {
+          ...state,
+          supportTypes: state.supportTypes.filter(
+            (supportType) => supportType !== action.payload
+          ),
+        };
+      }
+
+      return {
+        ...state,
+        supportTypes: [...state.supportTypes, action.payload],
+      };
     case ACTION_TYPES.UPDATE_LIMITED_FILTER:
-      state.limited = action.payload;
-      break;
+      return {
+        ...state,
+        limited: action.payload,
+      };
     case ACTION_TYPES.UPDATE_SKILL_RARITY_FILTER:
-      state.skillRarity = [...state.skillRarity, action.payload];
-      break;
+      if (action.checked) {
+        return {
+          ...state,
+          skillRarity: state.skillRarity.filter(
+            (rarity) => rarity !== action.payload
+          ),
+        };
+      }
+      return {
+        ...state,
+        skillRarity: [...state.skillRarity, action.payload],
+      };
     case ACTION_TYPES.UPDATE_SKILL_DISTANCE_FILTER:
-      state.skillDistance = [...state.skillDistance, action.payload];
-      break;
+      if (action.checked) {
+        return {
+          ...state,
+          skillDistance: state.skillDistance.filter(
+            (distance) => distance !== action.payload
+          ),
+        };
+      }
+      return {
+        ...state,
+        skillDistance: [...state.skillDistance, action.payload],
+      };
     case ACTION_TYPES.UPDATE_SKILL_STRATEGY_FILTER:
-      state.skillStrategy = [...state.skillStrategy, action.payload];
-      break;
+      if (action.checked) {
+        return {
+          ...state,
+          skillStrategy: state.skillStrategy.filter(
+            (strategy) => strategy !== action.payload
+          ),
+        };
+      }
+      return {
+        ...state,
+        skillStrategy: [...state.skillStrategy, action.payload],
+      };
 
     case ACTION_TYPES.CLEAR_KEYWORD_FILTER:
-      state.keyword = "";
-      break;
+      return {
+        ...state,
+        keyword: "",
+      };
     case ACTION_TYPES.CLEAR_RARITY_FILTER:
-      state.rarity = [];
-      break;
+      return {
+        ...state,
+        rarity: [],
+      };
     case ACTION_TYPES.CLEAR_PLAYABLE_FILTER:
-      state.types = "none";
-      break;
+      return {
+        ...state,
+        types: "none",
+      };
     case ACTION_TYPES.CLEAR_SUPPORT_TYPE_FILTER:
-      state.supportTypes = [];
-      break;
+      return {
+        ...state,
+        supportTypes: [],
+      };
     case ACTION_TYPES.CLEAR_LIMITED_FILTER:
-      state.limited = "none";
-      break;
+      return {
+        ...state,
+        limited: "none",
+      };
     case ACTION_TYPES.CLEAR_SKILL_RARITY_FILTER:
-      state.skillRarity = [];
-      break;
+      return {
+        ...state,
+        skillRarity: [],
+      };
     case ACTION_TYPES.CLEAR_SKILL_DISTANCE_FILTER:
-      state.skillDistance = [];
-      break;
+      return {
+        ...state,
+        skillDistance: [],
+      };
     case ACTION_TYPES.CLEAR_SKILL_STRATEGY_FILTER:
-      state.skillStrategy = [];
-      break;
-    case ACTION_TYPES.CLEAR_ALL:
-      state = initialState;
-      break;
-    default:
-      break;
-  }
+      return {
+        ...state,
+        skillStrategy: [],
+      };
+    case ACTION_TYPES.CLEAR_ALL_FILTER:
+      return {
+        ...state,
+        ...omit(initialState, ["keyword"]),
+      };
 
-  return state;
+    case ACTION_TYPES.CLEAR_ALL:
+      return initialState;
+    default:
+      return state;
+  }
 };

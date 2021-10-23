@@ -240,3 +240,19 @@ export const skillTypes = [
     label: "고유 특성",
   },
 ];
+
+export const getIconDataMap = () => {
+  const data = {
+    values: [],
+    labels: [],
+    imgSrc: [],
+  };
+
+  iconData.forEach((iconInfo) => {
+    data.values.push(iconInfo.id);
+    data.labels.push(iconInfo.label);
+    data.imgSrc.push(iconInfo.value);
+  });
+
+  return data;
+};
