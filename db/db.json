@@ -3712,7 +3712,7 @@
       "id": 10
     },
     {
-      "star": 1,
+      "star": 3,
       "name": {
         "ko": "아이네스 후우진",
         "ja": "アイネスフウジン"
@@ -3798,8 +3798,7 @@
         "unique": [
           {
             "level": "30",
-            "effect": "트레이닝 효과 UP, 초기 근성 UP",
-            "maxEffect": ""
+            "effect": "트레이닝 효과 UP, 초기 근성 UP"
           }
         ],
         "support": [
@@ -3871,7 +3870,6 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "common": [],
         "once": [
           {
             "title": {
@@ -14024,7 +14022,7 @@
       "id": 48
     },
     {
-      "star": 1,
+      "star": 2,
       "name": {
         "ko": "나이스 네이처",
         "ja": "ナイスネイチャ"
@@ -14110,8 +14108,7 @@
         "unique": [
           {
             "level": "25",
-            "effect": "의욕 효과 UP, 초기 근성 UP",
-            "maxEffect": ""
+            "effect": "의욕 효과 UP, 초기 근성 UP"
           }
         ],
         "support": [
@@ -14180,7 +14177,6 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "common": [],
         "once": [
           {
             "title": {
@@ -48347,7 +48343,7 @@
       "targetID": "39",
       "imageSrc": "/image/KawakamiPrincess/cards/support/01.png",
       "type": "support",
-      "supportType": "",
+      "supportType": "speed",
       "trainingObjects": [],
       "playable": false,
       "limited": false,
@@ -57474,7 +57470,7 @@
       "targetID": "16",
       "imageSrc": "/image/NaritaBrian/cards/support/01.png",
       "type": "support",
-      "supportType": "",
+      "supportType": "speed",
       "trainingObjects": [],
       "playable": false,
       "limited": false,
