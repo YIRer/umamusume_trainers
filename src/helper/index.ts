@@ -4,7 +4,7 @@ import { UmamusumeType } from "types/Umamusume/umamusume";
 import { SkillType } from "types/Skill/skill";
 import { CardType } from "types/Card/card";
 import { CardBonusType } from "types/Card/bonus";
-import { SeachFilterStateType } from "components/SearchReducers";
+import { SeachFilterStateType } from "components/Search/SearchReducers";
 
 export type FilterFnType<T> = (
   item: T,
