@@ -52,6 +52,8 @@ export type SearchFilterProps = {
   searchOptions: SeachFilterStateType;
   searchType: "Umamusume" | "Card" | "Skill";
   handleOnChange: FilterUpdateFnType;
+  hideFilter: () => void;
+  showBottomControl?: boolean;
 };
 
 export type RadioFilterType = {

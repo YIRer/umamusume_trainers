@@ -1,6 +1,9 @@
-import React, { Dispatch, useReducer, useEffect } from "react";
+import React, { Dispatch, useReducer, useEffect, useState } from "react";
+
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Collapse from "@material-ui/core/Collapse";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 import { UmamusumeType } from "types/Umamusume/umamusume";
@@ -33,7 +36,9 @@ const useStyles = makeStyles((_theme) => ({
   searchBtn: {
     marginLeft: "16px",
   },
-  filterWrapper: {},
+  filterWrapper: {
+    margin: "10px 0",
+  },
 }));
 
 type SearchFormProps = {
@@ -48,6 +53,7 @@ export default function SearchForm({
   searchType,
 }: SearchFormProps) {
   const classes = useStyles();
+  const [openedFilter, setFilterOpened] = useState(false);
   const [searchOptions, stateDispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -106,6 +112,13 @@ export default function SearchForm({
     });
   };
 
+  const showFilter = () => {
+    setFilterOpened(true);
+  };
+  const hideFilter = () => {
+    setFilterOpened(false);
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.searchWrapper}>
@@ -126,11 +139,27 @@ export default function SearchForm({
           검색
         </Button>
       </div>
-      <SearchFilter
-        searchOptions={searchOptions}
-        searchType={searchType}
-        handleOnChange={onUpdateStateByAction}
-      />
+      <div className={classes.filterWrapper}>
+        <Collapse in={openedFilter} timeout="auto" unmountOnExit>
+          <SearchFilter
+            searchOptions={searchOptions}
+            searchType={searchType}
+            handleOnChange={onUpdateStateByAction}
+            hideFilter={hideFilter}
+            showBottomControl
+          />
+        </Collapse>
+      </div>
+      {!openedFilter && (
+        <Button
+          type="button"
+          variant="outlined"
+          color="primary"
+          onClick={showFilter}
+        >
+          필터 열기
+        </Button>
+      )}
     </div>
   );
 }

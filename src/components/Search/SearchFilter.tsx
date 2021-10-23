@@ -71,8 +71,11 @@ const useStyles = makeStyles((_theme) => ({
     background:
       "linear-gradient(90deg, rgba(255,194,56,1) 0%, rgba(251,255,200,1) 24%, rgba(255,217,67,1) 44%, rgba(255,255,255,1) 58%, rgba(252,250,132,1) 60%, rgba(255,194,56,1) 100%)",
   },
-  clearButton: {
-    width: "200px",
+  filterControlWrapper: {
+    display: "grid",
+    gridGap: "8px",
+    gridTemplateColumns: "1fr 1fr",
+    margin: "10px 0",
   },
 }));
 
@@ -273,7 +276,7 @@ function FilterRenderHelper({
   }
 }
 
-function FilterClearAll({ onChange }) {
+function FilterControl({ onChange, hideFilter }) {
   const classes = useStyles();
   const clearAllFilter = () => {
     onChange({
@@ -282,15 +285,20 @@ function FilterClearAll({ onChange }) {
   };
 
   return (
-    <Button
-      className={classes.clearButton}
-      onClick={clearAllFilter}
-      color={"secondary"}
-      variant="contained"
-    >
-      상세필터 초기화
-      <AutorenewIcon />
-    </Button>
+    <div className={classes.filterControlWrapper}>
+      <Button
+        type="button"
+        variant="outlined"
+        color="primary"
+        onClick={hideFilter}
+      >
+        필터 닫기
+      </Button>
+      <Button onClick={clearAllFilter} color={"secondary"} variant="contained">
+        상세필터 초기화
+        <AutorenewIcon />
+      </Button>
+    </div>
   );
 }
 
@@ -298,6 +306,8 @@ function SearchFilter({
   searchOptions,
   searchType,
   handleOnChange,
+  hideFilter,
+  showBottomControl = false,
 }: SearchFilterProps) {
   if (searchType === "Umamusume") {
     return null;
@@ -308,7 +318,7 @@ function SearchFilter({
 
   return (
     <div className={classes.filterWrapper}>
-      <FilterClearAll onChange={handleOnChange} />
+      <FilterControl onChange={handleOnChange} hideFilter={hideFilter} />
       {keyOfFilterOptions.map((key) => (
         <div className={classes.filterGroupWrapper} key={`filter-${key}`}>
           <span>{filterOptions[key].type}</span>
@@ -326,6 +336,9 @@ function SearchFilter({
           </div>
         </div>
       ))}
+      {showBottomControl && (
+        <FilterControl onChange={handleOnChange} hideFilter={hideFilter} />
+      )}
     </div>
   );
 }

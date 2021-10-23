@@ -17,7 +17,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Loader from "components/Common/Loader";
 
 import CardTags from "./CardTags";
-import SearchForm from "../SearchForm";
+import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
@@ -104,6 +104,7 @@ export const CardList = () => {
         handleSearch={setCardList}
         searchType={"Card"}
       />
+      total: {cardList.length}
       <div className={classes.cardWrapper}>
         {cardList.map(
           ({ name, id, imageSrc, star, type, limited, supportType }) => {

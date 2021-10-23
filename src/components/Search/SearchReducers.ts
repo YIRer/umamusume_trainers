@@ -24,6 +24,7 @@ export const initialState: SeachFilterStateType = {
 };
 
 export const ACTION_TYPES = {
+  UPDATE_ALL_STATE: "SearchForm/UPDATE_ALL_STATE",
   UPDATE_KEYWORD_FILTER: "SearchForm/UPDATE_KEYWORD_FILTER",
   UPDATE_RARITY_FILTER: "SearchForm/UPDATE_RARITY_FILTER",
   UPDATE_PLAYABLE_FILTER: "SearchForm/UPDATE_PLAYABLE_FILTER",
@@ -47,6 +48,11 @@ export const ACTION_TYPES = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
+    case ACTION_TYPES.UPDATE_ALL_STATE:
+      return {
+        ...state,
+        ...action.payload,
+      };
     case ACTION_TYPES.UPDATE_KEYWORD_FILTER:
       return {
         ...state,

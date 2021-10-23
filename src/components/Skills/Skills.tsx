@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Loader from "components/Common/Loader";
 
-import SearchForm from "../SearchForm";
+import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 

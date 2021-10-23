@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
 
-import SearchForm from "../SearchForm";
+import SearchForm from "components/Search/SearchForm";
 import Loader from "components/Common/Loader";
 
 import { isDev } from "../../constants";
