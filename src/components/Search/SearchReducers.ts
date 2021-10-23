@@ -43,6 +43,7 @@ export const ACTION_TYPES = {
   CLEAR_SKILL_DISTANCE_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_STRATEGY_FILTER: "SearchForm/CLEAR_SKILL_STRATEGY_FILTER",
   CLEAR_ALL_FILTER: "SearchForm/CLEAR_ALL_FILTER",
+  CLEAR_ALL_FILTER_BY_PAYLOAD: "SearchForm/CLEAR_ALL_FILTER_BY_PAYLOAD",
   CLEAR_ALL: "SearchForm/CLEAR_ALL",
 };
 
@@ -184,6 +185,12 @@ export const reducer = (state, action) => {
       return {
         ...state,
         ...omit(initialState, ["keyword"]),
+      };
+
+    case ACTION_TYPES.CLEAR_ALL_FILTER_BY_PAYLOAD:
+      return {
+        ...state,
+        ...action.payload,
       };
 
     case ACTION_TYPES.CLEAR_ALL:

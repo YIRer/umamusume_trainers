@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import _ from "lodash";
+import React, { useState, useReducer, useEffect, useMemo } from "react";
+import _, { divide } from "lodash";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -7,16 +7,25 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "@material-ui/core/Button";
 
+import Collapse from "@material-ui/core/Collapse";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
-import { prefixImgSrc } from "helper";
+import { prefixImgSrc, searchCardsHelper } from "helper";
 
 import { SearchCardsProps } from "./types";
 import { CardType } from "types/Card/card";
+import {
+  initialState,
+  reducer,
+  ACTION_TYPES,
+} from "components/Search/SearchReducers";
+import SearchFilter from "components/Search/SearchFilter";
+import { isEqual, omit } from "lodash";
 
 const useStyles = makeStyles((theme) => ({
-  paper: { minHeight: "500px" },
+  paper: { minHeight: "500px", width: "400px" },
 
   cardWrapper: {
     display: "grid",
@@ -59,6 +68,20 @@ const useStyles = makeStyles((theme) => ({
   searchBtn: {
     marginLeft: "10px",
   },
+  openFilter: {
+    width: "100%",
+    margin: "10px 0",
+  },
+  titleRoot: {
+    position: "relative",
+  },
+  filterWrapper: {
+    position: "absolute",
+    left: 0,
+    padding: "0px 24px 10px",
+    background: "#ffffff",
+    zIndex: 10,
+  },
 }));
 
 const CardItem = ({ itemData, classes, selectFn, targets }) => {
@@ -81,21 +104,39 @@ const CardItem = ({ itemData, classes, selectFn, targets }) => {
 const SearchCards = (props: SearchCardsProps) => {
   const classes = useStyles();
 
-  const [keyword, setKeyword] = useState("");
+  const initData = {
+    ...initialState,
+    types: props.type,
+  };
+
+  const [openedFilter, setFilterOpened] = useState(false);
   const [targets, setTargets] = useState(props.selectedData || []);
   const [searchResult, setSearchResult] = useState(props.data);
+  const [searchOptions, stateDispatch] = useReducer(reducer, initData);
+
+  useEffect(() => {
+    onSearch();
+  }, [searchOptions]);
+
+  const appliedFilter = useMemo(() => {
+    const omittedInit = omit(initData, "keyword");
+    const omittedSearchOptions = omit(searchOptions, "keyword");
+    return !isEqual(omittedInit, omittedSearchOptions);
+  }, [searchOptions]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setKeyword(value);
-    onSearch();
+    stateDispatch({
+      type: ACTION_TYPES.UPDATE_KEYWORD_FILTER,
+      payload: value,
+    });
   };
 
   const onSearch = () => {
-    const searchData = props.data.filter(({ name }) => {
-      const trimedKeyword = keyword.trim();
-      return name.ja.includes(trimedKeyword) || name.ko.includes(trimedKeyword);
-    });
+    const searchData = searchCardsHelper({
+      data: props.data as CardType[],
+      searchOptions,
+    }) as CardType[];
     setSearchResult(searchData);
   };
 
@@ -130,13 +171,38 @@ const SearchCards = (props: SearchCardsProps) => {
     props.onClose();
   };
 
+  const onUpdateStateByAction = ({ type, payload, checked }) => {
+    stateDispatch({
+      type,
+      payload,
+      checked,
+    });
+  };
+
+  const showFilter = () => {
+    setFilterOpened(true);
+  };
+  const hideFilter = () => {
+    setFilterOpened(false);
+  };
+  const handleClear = () => {
+    stateDispatch({
+      type: ACTION_TYPES.CLEAR_ALL_FILTER_BY_PAYLOAD,
+      payload: initData,
+    });
+  };
+
   return (
     <Dialog
       open={props.open}
       onClose={props.onClose}
       classes={{ paper: clsx(classes.paper) }}
     >
-      <DialogTitle>
+      <DialogTitle
+        classes={{
+          root: clsx(classes.titleRoot),
+        }}
+      >
         {props.type === "training" ? "육성" : "서포터"} 카드 선택
         <div className={clsx(classes.searchBar)}>
           <TextField
@@ -156,6 +222,34 @@ const SearchCards = (props: SearchCardsProps) => {
             검색
           </Button>
         </div>
+        <div className={classes.filterWrapper}>
+          <Collapse in={openedFilter} timeout="auto" unmountOnExit>
+            <SearchFilter
+              searchOptions={searchOptions}
+              searchType={"Card"}
+              handleOnChange={onUpdateStateByAction}
+              hideFilter={hideFilter}
+              showBottomControl={props.type === "support"}
+              hideOption={
+                props.type === "training"
+                  ? "hideTypeAndSupportTypeAndLimited"
+                  : "hideType"
+              }
+              onClear={handleClear}
+            />
+          </Collapse>
+        </div>
+        {!openedFilter && (
+          <Button
+            type="button"
+            variant={appliedFilter ? "contained" : "outlined"}
+            color={appliedFilter ? "secondary" : "primary"}
+            onClick={showFilter}
+            className={clsx(classes.openFilter)}
+          >
+            필터 열기
+          </Button>
+        )}
       </DialogTitle>
       <DialogContent>
         {searchResult.length === 0 ? (

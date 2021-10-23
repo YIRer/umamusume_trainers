@@ -21,6 +21,7 @@ import {
   SearchFilterProps,
   SeachFilterCardStateKey,
   SeachFilterSkillStateKey,
+  FilterControlType,
 } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
@@ -46,6 +47,8 @@ const useStyles = makeStyles((_theme) => ({
       justifyContent: "center",
       padding: "8px",
       width: "100px",
+      textAlign: "center",
+      wordBreak: "keep-all",
     },
     "& img": {
       width: "40px",
@@ -70,6 +73,14 @@ const useStyles = makeStyles((_theme) => ({
     textStroke: "4px transparent",
     background:
       "linear-gradient(90deg, rgba(255,194,56,1) 0%, rgba(251,255,200,1) 24%, rgba(255,217,67,1) 44%, rgba(255,255,255,1) 58%, rgba(252,250,132,1) 60%, rgba(255,194,56,1) 100%)",
+  },
+
+  nText: {
+    textTransform: "uppercase",
+    "-webkit-background-clip": "text",
+    textStroke: "4px transparent",
+    background:
+      "linear-gradient(90deg, rgba(119,125,125,1) 0%, rgba(255,255,255,1) 72%, rgba(119,125,125,1) 100%)",
   },
   filterControlWrapper: {
     display: "grid",
@@ -127,6 +138,7 @@ function CheckboxFilterItem({
     <span
       className={clsx({
         [classes.gradientText]: optionKey === "rarity",
+        [classes.nText]: optionKey === "rarity" && value === 1,
         [classes.srText]: optionKey === "rarity" && value === 2,
         [classes.ssrText]: optionKey === "rarity" && value === 3,
       })}
@@ -250,7 +262,6 @@ function FilterRenderHelper({
   conditionProps,
 }: FilterRenderHelperProps) {
   const { selector } = searchOption;
-
   if (selector === "checkbox") {
     return (
       <CheckboxFilter
@@ -276,9 +287,13 @@ function FilterRenderHelper({
   }
 }
 
-function FilterControl({ onChange, hideFilter }) {
+function FilterControl({ onChange, hideFilter, onClear }: FilterControlType) {
   const classes = useStyles();
   const clearAllFilter = () => {
+    if (onClear) {
+      onClear();
+      return;
+    }
     onChange({
       type: ACTION_TYPES.CLEAR_ALL_FILTER,
     });
@@ -308,6 +323,8 @@ function SearchFilter({
   handleOnChange,
   hideFilter,
   showBottomControl = false,
+  hideOption,
+  onClear,
 }: SearchFilterProps) {
   if (searchType === "Umamusume") {
     return null;
@@ -318,26 +335,43 @@ function SearchFilter({
 
   return (
     <div className={classes.filterWrapper}>
-      <FilterControl onChange={handleOnChange} hideFilter={hideFilter} />
-      {keyOfFilterOptions.map((key) => (
-        <div className={classes.filterGroupWrapper} key={`filter-${key}`}>
-          <span>{filterOptions[key].type}</span>
-          <div>
-            <FilterRenderHelper
-              data={searchOptions[key]}
-              searchOption={filterOptions[key]}
-              onChange={handleOnChange}
-              searchType={searchType}
-              optionKey={
-                key as SeachFilterCardStateKey | SeachFilterSkillStateKey
-              }
-              conditionProps={{ types: searchOptions.types }}
-            />
+      <FilterControl
+        onChange={handleOnChange}
+        hideFilter={hideFilter}
+        onClear={onClear}
+      />
+      {keyOfFilterOptions.map((key) => {
+        if (
+          (hideOption === "hideTypeAndSupportTypeAndLimited" &&
+            (key === "types" || key === "supportTypes" || key === "limited")) ||
+          (hideOption === "hideType" && key === "types")
+        ) {
+          return null;
+        }
+        return (
+          <div className={classes.filterGroupWrapper} key={`filter-${key}`}>
+            <span>{filterOptions[key].type}</span>
+            <div>
+              <FilterRenderHelper
+                data={searchOptions[key]}
+                searchOption={filterOptions[key]}
+                onChange={handleOnChange}
+                searchType={searchType}
+                optionKey={
+                  key as SeachFilterCardStateKey | SeachFilterSkillStateKey
+                }
+                conditionProps={{ types: searchOptions.types, hideOption }}
+              />
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
       {showBottomControl && (
-        <FilterControl onChange={handleOnChange} hideFilter={hideFilter} />
+        <FilterControl
+          onChange={handleOnChange}
+          hideFilter={hideFilter}
+          onClear={onClear}
+        />
       )}
     </div>
   );

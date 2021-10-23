@@ -6,8 +6,8 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
     rarity: {
       type: "등급",
       selector: "checkbox",
-      values: [2, 3],
-      labels: ["SR", "SSR"],
+      values: [1, 2, 3],
+      labels: ["N", "SR", "SSR"],
     },
     types: {
       type: "타입",

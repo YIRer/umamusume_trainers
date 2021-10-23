@@ -6,7 +6,7 @@ export type FilterUpdateFnType = ({
   checked,
 }: {
   type: string;
-  payload: string | number | boolean;
+  payload?: string | number | boolean;
   checked?: boolean;
 }) => void;
 
@@ -53,7 +53,15 @@ export type SearchFilterProps = {
   searchType: "Umamusume" | "Card" | "Skill";
   handleOnChange: FilterUpdateFnType;
   hideFilter: () => void;
+  onClear?: () => void;
   showBottomControl?: boolean;
+  hideOption?: string;
+};
+
+export type FilterControlType = {
+  onChange: FilterUpdateFnType;
+  hideFilter: () => void;
+  onClear?: () => void;
 };
 
 export type RadioFilterType = {
