@@ -75793,7 +75793,7 @@
       "targetID": "16",
       "imageSrc": "/image/NaritaBrian/cards/support/02.png",
       "type": "support",
-      "supportType": "speed",
+      "supportType": "stamina",
       "trainingObjects": [],
       "playable": false,
       "limited": false,
@@ -76235,7 +76235,7 @@
       "targetID": "29",
       "imageSrc": "/image/YukinoBijin/cards/support/04.png",
       "type": "support",
-      "supportType": "int",
+      "supportType": "guts",
       "trainingObjects": [],
       "playable": false,
       "limited": true,
@@ -76491,7 +76491,6 @@
         }
       ],
       "events": {
-        "common": null,
         "once": [
           {
             "title": {
