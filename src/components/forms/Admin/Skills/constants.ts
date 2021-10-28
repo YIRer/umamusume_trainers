@@ -55,6 +55,11 @@ export const iconData = [
     id: "i_skill_010",
   },
   {
+    value: "/image/skill/i_skill_047.png",
+    label: "스피드 버프",
+    id: "i_skill_047",
+  },
+  {
     value: "/image/skill/i_skill_013.png",
     label: "스태미나 버프",
     id: "i_skill_013",
