@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router";
+import { useHistory } from "react-router";
 import { useParams, Link } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import {
@@ -21,7 +21,6 @@ import Loader from "components/Common/Loader";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import { UmamusumeProps } from "./types";
 import { UmamusumeType } from "types/Umamusume/umamusume";
 import { TypeOfCard } from "types/Card/card";
 
@@ -91,8 +90,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const Umamusume = (props: UmamusumeProps) => {
+const Umamusume = () => {
   const classes = useStyles();
+  const history = useHistory();
   const { id } = useParams<{ id: string }>();
   const { loading, error, data } = useQuery<{ umamusume: UmamusumeType }>(
     GET_UMAMUSUME,
@@ -113,7 +113,7 @@ const Umamusume = (props: UmamusumeProps) => {
       refetchQueries: [{ query: GET_UMAMUSUMES }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.replace(`/umamusume`);
+      history.replace(`/umamusume`);
     });
   };
 
@@ -197,4 +197,4 @@ const Umamusume = (props: UmamusumeProps) => {
   );
 };
 
-export default withRouter(Umamusume);
+export default Umamusume;

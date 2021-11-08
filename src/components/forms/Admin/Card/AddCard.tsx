@@ -15,7 +15,13 @@ import clsx from "clsx";
 import _ from "lodash";
 
 import { GET_CARDS, ADD_CARD } from "queries/cards";
-import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
+import {
+  stars,
+  cardTypes,
+  initialStatusData,
+  supportTypes,
+  commonOnceEvents,
+} from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
@@ -215,7 +221,7 @@ const AddCard = (props: AddCardProps) => {
       pushing,
       ...others
     } = statusData;
-    
+
     const {
       ko,
       ja,
@@ -233,7 +239,8 @@ const AddCard = (props: AddCardProps) => {
         ? `/image/${targetInfo.name.default}/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
-    const addedMultipleEvents = addMultipleEvents(events);
+    const addedOnceEvents = addOnceEvents(events);
+    const addedMultipleEvents = addMultipleEvents(addedOnceEvents);
 
     const spType = playable ? "" : supportType ? supportType : "speed";
     const input = {
@@ -307,6 +314,16 @@ const AddCard = (props: AddCardProps) => {
       once,
       multipleTimes,
     };
+  };
+
+  const addOnceEvents = (events) => {
+    if (formData.type === "training") {
+      events.once = [...commonOnceEvents].concat(
+        events.once
+      );
+    }
+
+    return events;
   };
 
   const addMultipleEvents = (events) => {

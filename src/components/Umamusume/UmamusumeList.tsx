@@ -12,7 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import clsx from "clsx";
 
-import SearchForm from "../SearchForm";
+import SearchForm from "components/Search/SearchForm";
 import Loader from "components/Common/Loader";
 
 import { isDev } from "../../constants";
@@ -77,7 +77,11 @@ export const UmamusumeList = () => {
   return (
     <div className={classes.umamusumeListWrapper}>
       <h1>우마무스메 리스트</h1>
-      <SearchForm data={data.umamusumeList} handleSearch={setUmamusumeList} />
+      <SearchForm
+        data={data.umamusumeList}
+        handleSearch={setUmamusumeList}
+        searchType={"Umamusume"}
+      />
       <div className={classes.listWrapper}>
         {umamusumeList.map(({ name, id, imageSrc }) => {
           return (

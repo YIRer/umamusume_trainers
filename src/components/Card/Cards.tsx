@@ -17,7 +17,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Loader from "components/Common/Loader";
 
 import CardTags from "./CardTags";
-import SearchForm from "../SearchForm";
+import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
@@ -99,7 +99,12 @@ export const CardList = () => {
   return (
     <div className={classes.cardsWrapper}>
       <h1>육성/서포터 카드 리스트</h1>
-      <SearchForm data={data.cards} handleSearch={setCardList} />
+      <SearchForm
+        data={data.cards}
+        handleSearch={setCardList}
+        searchType={"Card"}
+      />
+      검색된 카드 수: {cardList.length}
       <div className={classes.cardWrapper}>
         {cardList.map(
           ({ name, id, imageSrc, star, type, limited, supportType }) => {

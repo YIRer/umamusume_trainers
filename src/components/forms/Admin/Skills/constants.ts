@@ -55,6 +55,11 @@ export const iconData = [
     id: "i_skill_010",
   },
   {
+    value: "/image/skill/i_skill_047.png",
+    label: "스피드 버프",
+    id: "i_skill_047",
+  },
+  {
     value: "/image/skill/i_skill_013.png",
     label: "스태미나 버프",
     id: "i_skill_013",
@@ -187,42 +192,42 @@ export const iconData = [
   {
     value: "/image/skill/i_skill_039.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_039.",
   },
   {
     value: "/image/skill/i_skill_040.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_040",
   },
   {
     value: "/image/skill/i_skill_041.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_041",
   },
   {
     value: "/image/skill/i_skill_042.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_042",
   },
   {
     value: "/image/skill/i_skill_043.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_043",
   },
   {
     value: "/image/skill/i_skill_044.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_044",
   },
   {
     value: "/image/skill/i_skill_045.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_045",
   },
   {
     value: "/image/skill/i_skill_046.png",
     label: "아오하루배 스킬",
-    id: "i_skill_029",
+    id: "i_skill_046",
   },
 ];
 
@@ -240,3 +245,19 @@ export const skillTypes = [
     label: "고유 특성",
   },
 ];
+
+export const getIconDataMap = () => {
+  const data = {
+    values: [],
+    labels: [],
+    imgSrc: [],
+  };
+
+  iconData.forEach((iconInfo) => {
+    data.values.push(iconInfo.id);
+    data.labels.push(iconInfo.label);
+    data.imgSrc.push(iconInfo.value);
+  });
+
+  return data;
+};
