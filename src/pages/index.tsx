@@ -28,6 +28,7 @@ const useStyles = makeStyles((_theme) => ({
     display: "flex",
     justifyContent: "center",
     cursor: "pointer",
+    textAlign: "center",
   },
 }));
 

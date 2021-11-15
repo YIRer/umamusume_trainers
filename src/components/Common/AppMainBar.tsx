@@ -46,11 +46,15 @@ const useStyles = makeStyles((_theme) => ({
   },
 
   iconButton: {
-    color: "white",
+    color: "white !important",
+  },
+  logo: {
+    fontSize: "20px",
+    fontWeight: 400,
   },
 }));
 
-export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
+const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
   const handleOnClick = () => {
     onClose();
   };
@@ -73,7 +77,7 @@ export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
   );
 };
 
-export const AppMainBar = () => {
+const AppMainBar = () => {
   const classes = useStyles();
   const router = useRouter();
   const [openNav, setOpenNav] = useState(false);
@@ -97,7 +101,11 @@ export const AppMainBar = () => {
           <MenuIcon />
         </IconButton>
         <NavDrawer open={openNav} onClose={hideNavDrawer} />
-        <Link href={"/"}> 우마무스메 트레이너스</Link>
+        <Link href={"/"}>
+          <a>
+            <h1 className={classes.logo}>우마무스메 트레이너스</h1>
+          </a>
+        </Link>
         <IconButton onClick={handleClickBack} className={classes.iconButton}>
           <ArrowBackRoundedIcon />
         </IconButton>

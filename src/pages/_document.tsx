@@ -1,11 +1,17 @@
 import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { ServerStyleSheets } from "@material-ui/styles";
-export default class MyDocument extends Document {
+import { ServerStyleSheets } from "@material-ui/core/styles";
+
+export default class AppDocument extends Document {
   render() {
     return (
-      <Html lang="en">
-        <Head></Head>
+      <Html lang="ko">
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />
@@ -17,7 +23,7 @@ export default class MyDocument extends Document {
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+AppDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
@@ -39,13 +45,9 @@ MyDocument.getInitialProps = async (ctx) => {
   // 2. page.getInitialProps
   // 3. app.render
   // 4. page.render
-
+  // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets();
-
   const originalRenderPage = ctx.renderPage;
-
-  // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
-  // However, be aware that it can have global side effects.
 
   ctx.renderPage = () =>
     originalRenderPage({
@@ -53,8 +55,6 @@ MyDocument.getInitialProps = async (ctx) => {
     });
 
   const initialProps = await Document.getInitialProps(ctx);
-  // This is important. It prevents emotion to render invalid HTML.
-  // See https://github.com/mui-org/material-ui/issues/26561#issuecomment-855286153
 
   return {
     ...initialProps,

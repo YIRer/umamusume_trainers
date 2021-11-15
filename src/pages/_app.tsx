@@ -1,10 +1,15 @@
-import * as React from "react";
+import { useEffect } from "react";
 import App from "next/app";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+
+import { CookiesProvider } from "react-cookie";
+
 import { ApolloProvider } from "@apollo/client";
+
+import Layout from "components/Layout";
 import withApollo from "apollo-client";
-import ClientApp from "../App";
+
 import "../styles/globals.css";
 
 const theme = createMuiTheme({
@@ -19,24 +24,25 @@ const theme = createMuiTheme({
   },
 });
 
-function MyApp(props) {
+function RootApp(props) {
   const { Component, pageProps, apollo } = props;
 
   return (
-    <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-      <CssBaseline />
-      <ApolloProvider client={apollo}>
-        <ClientApp>
-          <Component {...pageProps} />
-        </ClientApp>
-      </ApolloProvider>
-    </ThemeProvider>
+    <ApolloProvider client={apollo}>
+      <CookiesProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </CookiesProvider>
+    </ApolloProvider>
   );
 }
 
-MyApp.getInitialProps = async (appContext) => {
+RootApp.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
   return { ...appProps };
 };
-export default withApollo(MyApp);
+export default withApollo(RootApp);
