@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { withRouter, useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,7 +12,7 @@ import clsx from "clsx";
 import Loader from "components/Common/Loader";
 
 import { GET_UMAMUSUME, EDIT_UMAMUSUME } from "queries/umamusume";
-import { EditUmamusumeProps, FormInputTpye } from "./types";
+import { FormInputTpye } from "./types";
 import { UmamusumeType } from "types/Umamusume/umamusume";
 
 const useStyles = makeStyles((_theme) => ({
@@ -31,9 +31,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditUmamusume = (props: EditUmamusumeProps) => {
+const EditUmamusume = () => {
   const classes = useStyles();
-  const { id } = useParams<{ id: string }>();
+  const router = useRouter();
+  const { id } = router.query;
 
   const { loading, error, data } = useQuery<{ umamusume: UmamusumeType }>(
     GET_UMAMUSUME,
@@ -99,7 +100,7 @@ const EditUmamusume = (props: EditUmamusumeProps) => {
       refetchQueries: [{ query: GET_UMAMUSUME, variables: { id } }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push(`/umamusume/${id}`);
+      router.push(`/umamusume/${id}`);
     });
   };
 
@@ -151,4 +152,4 @@ const EditUmamusume = (props: EditUmamusumeProps) => {
   );
 };
 
-export default withRouter(EditUmamusume);
+export default EditUmamusume;

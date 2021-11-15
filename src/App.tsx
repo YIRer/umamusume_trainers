@@ -10,6 +10,7 @@ const useStyles = makeStyles((_theme) => ({
   root: {
     padding: "16px",
     marginTop: "80px",
+    minHeight: "calc(100vh - 80px)",
   },
 }));
 

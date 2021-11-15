@@ -61,7 +61,9 @@ export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
           return (
             <ListItem key={navData.text} onClick={handleOnClick}>
               <Link href={navData.path}>
-                <ListItemText primary={navData.text} />
+                <a>
+                  <ListItemText primary={navData.text} />
+                </a>
               </Link>
             </ListItem>
           );

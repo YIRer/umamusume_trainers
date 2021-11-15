@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { GET_CARDS } from "queries/cards";
+import React, { useState } from "react";
+import Link from "next/link";
+import Error from "next/error";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -14,14 +13,10 @@ import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRoun
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import Loader from "components/Common/Loader";
-
 import CardTags from "./CardTags";
 import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
-
-import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   cardsWrapper: {
@@ -82,19 +77,13 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const CardList = () => {
+export const CardList = ({ data, statusCode }) => {
   const classes = useStyles();
-  const { loading, error, data } = useQuery<{ cards: CardType[] }>(GET_CARDS);
-  const [cardList, setCardList] = useState([]);
+  const [cardList, setCardList] = useState(data.cards);
 
-  useEffect(() => {
-    if (data && data.cards) {
-      setCardList(data.cards);
-    }
-  }, [data]);
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
 
   return (
     <div className={classes.cardsWrapper}>
@@ -116,30 +105,32 @@ export const CardList = () => {
                     color="secondary"
                   />
                 )}
-                <Link className={clsx(classes.linkWrapper)} to={`/cards/${id}`}>
-                  <div className={classes.cardImgWrapper}>
-                    <CardMedia
-                      className={clsx(classes.cardMedia)}
-                      image={prefixImgSrc(imageSrc || "/image/temp.png")}
-                      title={`${name.ja} ${name.ko}`}
-                    />
-                    {supportType && (
-                      <img
-                        className={classes.typeIcon}
-                        src={prefixImgSrc(`/image/icons/${supportType}.png`)}
-                        alt={supportType}
+                <Link href={`/cards/${id}`}>
+                  <a className={clsx(classes.linkWrapper)}>
+                    <div className={classes.cardImgWrapper}>
+                      <CardMedia
+                        className={clsx(classes.cardMedia)}
+                        image={prefixImgSrc(imageSrc || "/image/temp.png")}
+                        title={`${name.ja} ${name.ko}`}
                       />
-                    )}
-                  </div>
-                  <CardContent className={clsx(classes.cardContent)}>
-                    <div className={classes.name}>
-                      {name.ja}
-                      <br />
-                      {name.ko}
+                      {supportType && (
+                        <img
+                          className={classes.typeIcon}
+                          src={prefixImgSrc(`/image/icons/${supportType}.png`)}
+                          alt={supportType}
+                        />
+                      )}
                     </div>
-                    <Rating max={5} value={star} name={name.ja} disabled />
-                    <CardTags type={type} limited={limited} />
-                  </CardContent>
+                    <CardContent className={clsx(classes.cardContent)}>
+                      <div className={classes.name}>
+                        {name.ja}
+                        <br />
+                        {name.ko}
+                      </div>
+                      <Rating max={5} value={star} name={name.ja} disabled />
+                      <CardTags type={type} limited={limited} />
+                    </CardContent>
+                  </a>
                 </Link>
               </Card>
             );
@@ -147,8 +138,10 @@ export const CardList = () => {
         )}
       </div>
       {isDev && (
-        <Link to={"/admin/cards/new"} className={classes.addButton}>
-          <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+        <Link href={"/admin/cards/new"}>
+          <a className={classes.addButton}>
+            <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+          </a>
         </Link>
       )}
     </div>

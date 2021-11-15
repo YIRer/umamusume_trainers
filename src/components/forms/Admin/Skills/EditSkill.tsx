@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { withRouter, useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -69,9 +69,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditSkill = (props: EditSkillProps) => {
+const EditSkill = () => {
   const classes = useStyles();
-  const { id } = useParams<{ id: string }>();
+  const router = useRouter()
+  const { id } = router.query;
 
   const { loading, error, data } = useQuery<{ skill: SkillType }>(GET_SKill, {
     variables: { id },
@@ -145,7 +146,7 @@ const EditSkill = (props: EditSkillProps) => {
       ],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push(`/skills/${id}`);
+      router.push(`/skills/${id}`);
     });
   };
 
@@ -236,4 +237,4 @@ const EditSkill = (props: EditSkillProps) => {
   );
 };
 
-export default withRouter(EditSkill);
+export default EditSkill;

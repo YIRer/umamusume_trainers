@@ -1,7 +1,10 @@
 import React from "react";
-import { withRouter, useParams, Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import { GET_SKill, GET_SKILLS, DELTE_Skill } from "queries/skills";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+import Error from "next/error";
+import { useMutation } from "@apollo/client";
+import { GET_SKILLS, DELTE_Skill } from "queries/skills";
 
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
@@ -11,15 +14,10 @@ import Chip from "@material-ui/core/Chip";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import Loader from "components/Common/Loader";
-
 import clsx from "clsx";
 
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
-
-import { SkillInfoProps } from "./types";
-import { SkillType } from "types/Skill/skill";
 
 import Helmet from "Helmet/Helmet";
 
@@ -67,6 +65,7 @@ const useStyles = makeStyles((_theme) => ({
   },
   cardWrapper: {
     marginRight: "16px",
+    display: "inline-block",
   },
   card: {
     width: "100px",
@@ -78,12 +77,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const SkillInfo = (props: SkillInfoProps) => {
+const SkillInfo = ({ data, statusCode }) => {
   const classes = useStyles();
-  const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<{ skill: SkillType }>(GET_SKill, {
-    variables: { id },
-  });
+  const router = useRouter();
+  const { id } = router.query;
 
   const [deleteSkill, _mutationData] = useMutation(DELTE_Skill);
 
@@ -96,14 +93,15 @@ const SkillInfo = (props: SkillInfoProps) => {
       refetchQueries: [{ query: GET_SKILLS }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.replace(`/skills`);
+      router.replace(`/skills`);
     });
   };
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
+
   const { skill } = data;
-  if (!skill) return <p>Error :(</p>;
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
@@ -116,11 +114,13 @@ const SkillInfo = (props: SkillInfoProps) => {
       <div className={classes.header}>
         {isDev && (
           <div className={classes.icons}>
-            <Link to={`/admin/skills/${id}/edit`} className={classes.link}>
-              <BorderColorRoundedIcon
-                className={clsx(classes.icon)}
-                color="primary"
-              />
+            <Link href={`/admin/skills/${id}/edit`}>
+              <a className={classes.link}>
+                <BorderColorRoundedIcon
+                  className={clsx(classes.icon)}
+                  color="primary"
+                />
+              </a>
             </Link>
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon
@@ -157,17 +157,15 @@ const SkillInfo = (props: SkillInfoProps) => {
         <h4>관련 카드</h4>
         {skill.relatedCards.length > 0 ? (
           skill.relatedCards.map((card) => (
-            <Link
-              to={`/cards/${card.id}`}
-              key={`card-${card.id}`}
-              className={classes.cardWrapper}
-            >
-              <div
-                className={classes.card}
-                style={{
-                  backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
-                }}
-              />
+            <Link href={`/cards/${card.id}`} key={`card-${card.id}`}>
+              <a className={classes.cardWrapper}>
+                <div
+                  className={classes.card}
+                  style={{
+                    backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
+                  }}
+                />
+              </a>
             </Link>
           ))
         ) : (
@@ -178,4 +176,4 @@ const SkillInfo = (props: SkillInfoProps) => {
   );
 };
 
-export default withRouter(SkillInfo);
+export default SkillInfo;
