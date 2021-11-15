@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -31,36 +31,36 @@ export const Admin = () => {
       <List component="ul">
         <ListSubheader>우마무스메 관리</ListSubheader>
         <ListItem>
-          <Link to="/admin/umamusume">
+          <Link href="/admin/umamusume">
             <ListItemText primary="우마무스메 리스트" />
           </Link>
         </ListItem>
         <ListItem>
-          <Link to="/admin/umamusume/new">
+          <Link href="/admin/umamusume/new">
             <ListItemText primary="우마무스메 추가" />
           </Link>
         </ListItem>
         <Divider />
         <ListSubheader>카드 관리</ListSubheader>
         <ListItem>
-          <Link to="/cards">
+          <Link href="/cards">
             <ListItemText primary="카드 리스트" />
           </Link>
         </ListItem>
         <ListItem>
-          <Link to="/admin/cards/new">
+          <Link href="/admin/cards/new">
             <ListItemText primary="카드 추가" />
           </Link>
         </ListItem>
         <Divider />
         <ListSubheader>스킬 관리</ListSubheader>{" "}
         <ListItem>
-          <Link to="/skills">
+          <Link href="/skills">
             <ListItemText primary="스킬 리스트" />
           </Link>
         </ListItem>
         <ListItem>
-          <Link to="/cards">
+          <Link href="/cards">
             <ListItemText primary="스킬 리스트" />
           </Link>
         </ListItem>

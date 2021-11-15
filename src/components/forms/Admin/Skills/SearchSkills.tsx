@@ -108,7 +108,7 @@ const SkillItem = ({ itemData, classes, selectFn, targets }: SkillItem) => {
   );
 };
 
-const SearchSkills = (props) => {
+const SearchSkillsComp = (props) => {
   const classes = useStyles();
   const { loading, data } = useQuery<{ skills: SkillType[] }>(GET_SKILLS);
 
@@ -207,4 +207,4 @@ const SearchSkills = (props) => {
   );
 };
 
-export default SearchSkills;
+export default SearchSkillsComp;

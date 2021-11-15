@@ -5,7 +5,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import Main from "pages/Main";
+import Main from "pages";
 import Admin from "pages/Admin";
 import UmamusumeList from "components/Umamusume/UmamusumeList";
 import Umamusume from "components/Umamusume/Umamusume";
