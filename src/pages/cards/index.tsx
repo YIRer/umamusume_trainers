@@ -1,7 +1,13 @@
 import { GET_CARDS } from "queries/cards";
 
 import { getGhlErrorStatus } from "helper";
-import CardList from "components/Card/Cards";
+
+import dynamic from "next/dynamic";
+import Loader from "components/Common/Loader";
+
+const CardList = dynamic(() => import("components/Card/Cards"), {
+  loading: () => <Loader />,
+});
 
 export const CardListPage = ({ data, statusCode }) => {
   return <CardList data={data} statusCode={statusCode} />;

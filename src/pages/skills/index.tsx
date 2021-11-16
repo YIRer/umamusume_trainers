@@ -1,7 +1,13 @@
 import { GET_SKILLS } from "queries/skills";
 
 import { getGhlErrorStatus } from "helper";
-import SkillList from "components/Skills/Skills";
+
+import dynamic from "next/dynamic";
+import Loader from "components/Common/Loader";
+
+const SkillList = dynamic(() => import("components/Skills/Skills"), {
+  loading: () => <Loader />,
+});
 
 export const SkillListPage = ({ data, statusCode }) => {
   return <SkillList data={data} statusCode={statusCode} />;
