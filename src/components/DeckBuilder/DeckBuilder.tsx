@@ -191,7 +191,7 @@ const DeckBuilder = () => {
       <Helmet
         title={"덱 빌더"}
         url={"/deck-builder"}
-        description={"덱 빌더 페이지 입니다."}
+        description={"덱 빌더 페이지 입니다. 육성, 서포트 카드를 선택하고 한 눈에 정보를 확인하세요!"}
       />
       <div>
         {deckList.length > 0

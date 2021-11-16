@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import Loader from "components/Common/Loader";
+
+import Helmet from "Helmet/Helmet";
 import { GET_UMAMUSUMES } from "queries/umamusume";
 
 import { getGhlErrorStatus } from "helper";
@@ -10,7 +12,16 @@ const UmamusumeList = dynamic(
 );
 
 export const UmamusumeListPage = ({ data, statusCode }) => {
-  return <UmamusumeList data={data} statusCode={statusCode} />;
+  return (
+    <>
+      <Helmet
+        title={'우마무스메 리스트'}
+        url={`/umamusume`}
+        description={'현재 등록된 우마무스메/주요 등장 인물 리스트 페이지 입니다'}
+      />
+      <UmamusumeList data={data} statusCode={statusCode} />
+    </>
+  );
 };
 
 UmamusumeListPage.getInitialProps = async (ctx) => {

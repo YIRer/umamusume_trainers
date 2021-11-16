@@ -4,13 +4,23 @@ import { getGhlErrorStatus } from "helper";
 
 import dynamic from "next/dynamic";
 import Loader from "components/Common/Loader";
+import Helmet from "Helmet/Helmet";
 
 const CardList = dynamic(() => import("components/Card/Cards"), {
   loading: () => <Loader />,
 });
 
 export const CardListPage = ({ data, statusCode }) => {
-  return <CardList data={data} statusCode={statusCode} />;
+  return (
+    <>
+      <Helmet
+        title={"카드 리스트"}
+        url={`/cards`}
+        description={"육성, 서포터 카드 리스트 페이지 입니다"}
+      />
+      <CardList data={data} statusCode={statusCode} />
+    </>
+  );
 };
 
 CardListPage.getInitialProps = async (ctx) => {
