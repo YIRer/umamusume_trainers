@@ -1,6 +1,8 @@
 import * as React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
+import { isDev } from "../constants";
+const isClient = typeof window !== "undefined";
 
 export default class AppDocument extends Document {
   render() {
@@ -8,10 +10,31 @@ export default class AppDocument extends Document {
       <Html lang="ko">
         <Head>
           <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
+          {!isDev && (
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-E32NNR4F7D"
+            ></script>
+          )}
+          {!isDev && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                      function gtag() {
+                    dataLayer.push(arguments);
+                  }
+                  gtag("js", new Date());
+              
+                  gtag("config", "G-E32NNR4F7D");
+                `,
+              }}
+            ></script>
+          )}
         </Head>
         <body>
           <Main />
