@@ -21,6 +21,12 @@ app.prepare().then(() => {
     expressGraphQL.graphqlHTTP({ graphiql: isDev, schema })
   );
 
+  if (!isDev) {
+    server.get("/admin/**", (req, res) => {
+      return res.redirect("/");
+    });
+  }
+
   server.get("*", (req, res) => {
     return handle(req, res);
   });

@@ -1,7 +1,7 @@
 {
   "name": "umamusume-trainers",
-  "homepage": ".",
-  "version": "0.1.0",
+  "homepage": "https://umamusume-trainers.me",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.13",
@@ -58,10 +58,9 @@
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_ENV=development nodemon ./server.js",
     "server": "cross-env NODE_ENV=development nodemon ./server.js",
-    "prod-server": "node ./server-prod.js",
-    "deploy": "next start",
+    "deploy": "cross-env NODE_ENV=production node ./server.js",
     "pre-build": "rimraf build",
     "build": "next build",
     "lint": "next lint"
