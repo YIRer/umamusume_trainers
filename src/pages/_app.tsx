@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import App from "next/app";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";

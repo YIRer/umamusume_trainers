@@ -7,9 +7,10 @@ export default class AppDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"
           />
         </Head>
         <body>
