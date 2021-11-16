@@ -46,7 +46,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 
   iconButton: {
-    color: "white !important",
+    color: "white",
   },
   logo: {
     fontSize: "20px",
