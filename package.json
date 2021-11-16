@@ -46,6 +46,7 @@
     "fs-extra": "^9.1.0",
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.4.0",
+    "next-sitemap": "^1.6.203",
     "react-hot-loader": "^4.13.0",
     "rimraf": "^3.0.2",
     "ts-loader": "^9.1.1",
@@ -63,7 +64,8 @@
     "deploy": "cross-env NODE_ENV=production node ./server.js",
     "pre-build": "rimraf build",
     "build": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sitemap": "next-sitemap --config ./next-sitemap.config.js"
   },
   "eslintConfig": {},
   "browserslist": {
