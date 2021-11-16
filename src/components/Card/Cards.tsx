@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Error from "next/error";
+import Image from "next/image";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -69,6 +70,7 @@ const useStyles = makeStyles((_theme) => ({
   },
 
   typeIcon: {
+    display: "inline-block",
     width: "25px",
     height: "25px",
     position: "absolute",
@@ -114,11 +116,16 @@ export const CardList = ({ data, statusCode }) => {
                         title={`${name.ja} ${name.ko}`}
                       />
                       {supportType && (
-                        <img
-                          className={classes.typeIcon}
-                          src={prefixImgSrc(`/image/icons/${supportType}.png`)}
-                          alt={supportType}
-                        />
+                        <div className={classes.typeIcon}>
+                          <Image
+                            src={prefixImgSrc(
+                              `/image/icons/${supportType}.png`
+                            )}
+                            alt={supportType}
+                            width={25}
+                            height={25}
+                          />
+                        </div>
                       )}
                     </div>
                     <CardContent className={clsx(classes.cardContent)}>

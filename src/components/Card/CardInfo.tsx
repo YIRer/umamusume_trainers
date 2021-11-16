@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Error from "next/error";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 import { useMutation, useLazyQuery } from "@apollo/client";
@@ -112,9 +113,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "220px",
   },
   skillMedia: {
-    width: "50px",
-    height: "50px",
-    backgroundPosition: "center",
+    display: "inline-block",
     marginRight: "10px",
   },
   skillInfo: {
@@ -169,9 +168,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   typeIcon: {
-    width: "20px",
-    height: "20px",
     marginRight: "8px",
+    display: "inline-block",
   },
   nameWrapper: {
     wordBreak: "keep-all",
@@ -289,11 +287,15 @@ const CardInfo = ({ data, statusCode }) => {
         <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
           <Link href={`/skills/${skill.id}`}>
             <a className={classes.skillImgAndInfo}>
-              <img
-                className={clsx(classes.skillMedia)}
-                src={prefixImgSrc(skill.imageSrc)}
-                alt={skill.name.ko}
-              />
+              <div className={clsx(classes.skillMedia)}>
+                <Image
+                  src={prefixImgSrc(skill.imageSrc)}
+                  alt={skill.name.ko}
+                  width={50}
+                  height={50}
+                  placeholder="empty"
+                />
+              </div>
               <div className={classes.skillInfo}>
                 <b>
                   {skill.name.ja}
@@ -323,11 +325,15 @@ const CardInfo = ({ data, statusCode }) => {
       <div className={classes.header}>
         <h3 className={classes.head}>
           {card.supportType && (
-            <img
-              className={classes.typeIcon}
-              src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
-              alt={card.supportType}
-            />
+            <div className={classes.typeIcon}>
+              <Image
+                src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
+                alt={card.supportType}
+                width={20}
+                height={20}
+                placeholder="empty"
+              />
+            </div>
           )}
           <div className={classes.nameWrapper}>
             {card.name.ja} {card.name.ko}
