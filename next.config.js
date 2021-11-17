@@ -1,8 +1,10 @@
 const { hostname } = require("./constants");
-const isDev = process.env.NODE_ENV === "development";
+const isProd = process.env.NODE_ENV === "production";
 
 const images = {
-  domains: isDev ? ["umamusume-trainers.s3.ap-northeast-2.amazonaws.com"] : [],
+  domains: isProd
+    ? ["umamusume-trainers.s3.ap-northeast-2.amazonaws.com"]
+    : ["localhost"],
 };
 
 module.exports = {

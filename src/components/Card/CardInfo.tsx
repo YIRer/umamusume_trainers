@@ -75,9 +75,7 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "100%",
     marginTop: "16px",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
+    position: "relative",
   },
   icon: {
     fontSize: "1.5rem",
@@ -362,12 +360,15 @@ const CardInfo = ({ data, statusCode }) => {
         )}
       </div>
       <CardTags type={card.type} limited={card.limited} />
-      <div
-        style={{
-          backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
-        }}
-        className={classes.image}
-      />
+      <div className={classes.image}>
+        <Image
+          src={prefixImgSrc(card.imageSrc)}
+          placeholder="blur"
+          blurDataURL={prefixImgSrc("/image/image-blur-placeholder.png")}
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
       {card.playable && <StatusTable data={card} />}
       {card.type === "support" && <BonusTable data={card.bonus} />}
       {card.type === "training" && (
