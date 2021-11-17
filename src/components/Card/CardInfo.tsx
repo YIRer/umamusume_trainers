@@ -367,6 +367,7 @@ const CardInfo = ({ data, statusCode }) => {
           blurDataURL={prefixImgSrc("/image/image-blur-placeholder.png")}
           layout="fill"
           objectFit="contain"
+          alt={`${card.name.ko} ${card.name.ja}`}
         />
       </div>
       {card.playable && <StatusTable data={card} />}
