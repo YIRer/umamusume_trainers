@@ -7,6 +7,7 @@ import { CookiesProvider } from "react-cookie";
 import { ApolloProvider } from "@apollo/client";
 
 import Layout from "components/Layout";
+import Helmet from "Helmet/Helmet";
 import withApollo from "apollo-client";
 
 import "../styles/globals.css";
@@ -31,6 +32,7 @@ function RootApp(props) {
       <CookiesProvider>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Helmet />
           <Layout>
             <Component {...pageProps} />
           </Layout>
