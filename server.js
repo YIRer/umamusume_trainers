@@ -22,7 +22,7 @@ app.prepare().then(() => {
   );
 
   if (!isDev) {
-    server.get("/admin/**", (req, res) => {
+    server.get("/admin/**", (_req, res) => {
       return res.redirect("/");
     });
   }
