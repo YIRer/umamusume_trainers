@@ -3,6 +3,7 @@ import Link from "next/link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Helmet from "Helmet/Helmet";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { prefixImgSrc } from "helper";
@@ -36,6 +37,7 @@ const MainPage = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <Helmet />
       <h1>우마무스메 트레이너스</h1>
 
       <img
