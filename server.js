@@ -15,6 +15,9 @@ app.prepare().then(() => {
 
   const port = process.env.PORT || 8080;
 
+  server.use("/sitemap.xml", function (_req, res) {
+    res.sendFile(__dirname + "/public/sitemap.xml");
+  });
   server.use("/api", jsonServer.router("./db/db.json"));
   server.use(
     "/graphql",
