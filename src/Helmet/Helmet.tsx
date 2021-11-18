@@ -16,7 +16,7 @@ const RHelmet = ({
   description,
   imageUrl,
 }: HelemtTypes) => {
-  const formattedTitle = `${title ? title + "- " : ""}우마무스메 트레이너스`;
+  const formattedTitle = `${title ? title + " - " : ""}우마무스메 트레이너스`;
 
   return (
     <Head>
@@ -59,6 +59,15 @@ const RHelmet = ({
       <link
         rel="canonical"
         href={`https://umamusume-trainers.me${url ?? ""}`}
+      />
+      <meta name="twitter:title" content={formattedTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta
+        name="twitter:image"
+        content={
+          imageUrl ||
+          "https://umamusume-trainers.s3.ap-northeast-2.amazonaws.com/image/logo.png"
+        }
       />
       <title>{formattedTitle}</title>
     </Head>
