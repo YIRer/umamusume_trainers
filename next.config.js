@@ -1,4 +1,5 @@
 const { hostname } = require("./constants");
+const WebpackBar = require("webpackbar");
 const isProd = process.env.NODE_ENV === "production";
 
 const images = {
@@ -10,6 +11,10 @@ const images = {
 module.exports = {
   env: {
     HOST: hostname,
+  },
+  webpack: (config, _options) => {
+    config.plugins = [...config.plugins, new WebpackBar()];
+    return config;
   },
   images,
 };
