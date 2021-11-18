@@ -10,7 +10,7 @@ React, GraphQL, json-server, Material-ui
 | npm run server | DB서버 실행 |
 | npm run pre-build | 빌드 전 이전에 생성된 파일 삭제 |
 | npm run build | 배포를 위한 프로덕션 빌드 |
-| npm run prod | 서버 배포, 8080 port로 배포됨 |
+| npm run deploy | 서버 배포, 8080 port로 배포됨 |
 
 ### 주의 사항
 
