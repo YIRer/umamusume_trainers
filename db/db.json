@@ -48482,7 +48482,136 @@
       "baseSkillsIds": [],
       "awakeningSkillsIds": [],
       "events": {
-        "once": [],
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "つつましく！豪快に！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "『姫たるもののポーズ』で"
+                },
+                "result": "의욕상승 스피드+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "『屈強なるもののポーズ』かな"
+                },
+                "result": "스킬Pt+10 \"束縛\"(속박) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "プリンセスパワー☆フルマックス！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+5 근성+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "ぶちかませ！お姫様ロード！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "きっと王子様の方から現れるよ"
+                },
+                "result": "스피드+15 근성+15 \"注目の踊り子\"(주목의 무희) 힌트 Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "君自身が王子様になる可能性もある"
+                },
+                "result": "체력+25 스킬Pt+25"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "プリンセス、殴る！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "次を最後の1発に！"
+                },
+                "result": "근성+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "倒す相手をイメージしてみるとか？"
+                },
+                "result": "의욕상승 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "プリンセス、逃走！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "次は鬼を交代！"
+                },
+                "result": "체력+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もっとハンデをつけてあげたら？"
+                },
+                "result": "\"食い下がり\"(물고 늘어지기) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
         "multipleTimes": []
       },
       "id": 100
