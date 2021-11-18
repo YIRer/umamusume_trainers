@@ -109,6 +109,7 @@ const SkillInfo = ({ data, statusCode }) => {
         title={`${skill.name.ko}(${skill.name.ja})`}
         url={`/skills/${id}`}
         description={`${skill.effect}`}
+        imageUrl={prefixImgSrc(skill.imageSrc)}
       />
 
       <div className={classes.header}>

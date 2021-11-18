@@ -144,6 +144,7 @@ const Umamusume = ({ data, statusCode }) => {
         title={`${umamusume.name.ko}(${umamusume.name.ja})`}
         url={`/umamusume/${id}`}
         description={`${umamusume.name.ko}(${umamusume.name.ja})의 육성, 서포트 카드 목록입니다.`}
+        imageUrl={prefixImgSrc(umamusume.imageSrc)}
       />
       <div className={classes.header}>
         <h3>

@@ -319,6 +319,7 @@ const CardInfo = ({ data, statusCode }) => {
         title={`${card.name.ko}(${card.name.ja})`}
         url={`/cards/${id}`}
         description={formattedDescriptionForCards(card)}
+        imageUrl={prefixImgSrc(card.imageSrc)}
       />
       <div className={classes.header}>
         <h3 className={classes.head}>
