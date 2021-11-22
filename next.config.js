@@ -12,6 +12,7 @@ module.exports = {
   env: {
     HOST: hostname,
   },
+  rootDir: "src",
   webpack: (config, _options) => {
     config.plugins = [...config.plugins, new WebpackBar()];
     return config;
