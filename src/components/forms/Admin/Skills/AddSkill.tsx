@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -13,7 +13,7 @@ import { GET_SKILLS, ADD_Sklill } from "queries/skills";
 import IconRadioGroups from "./IconRadioGroups";
 import { iconData } from "./constants";
 
-import { AddSkillProps, skillInputType } from "./types";
+import { skillInputType } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -43,8 +43,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const AddSkill = (props: AddSkillProps) => {
+const AddSkill = () => {
   const classes = useStyles();
+  const router = useRouter();
   const [addSkill, _mutationData] = useMutation(ADD_Sklill);
   const [formData, setFormInput] = useReducer(
     (state: skillInputType, newState: Partial<skillInputType>) => ({
@@ -84,7 +85,7 @@ const AddSkill = (props: AddSkillProps) => {
       name: { ko, ja },
       tags: convertTags,
     };
-    
+
     addSkill({
       variables: {
         input,
@@ -92,7 +93,7 @@ const AddSkill = (props: AddSkillProps) => {
       refetchQueries: [{ query: GET_SKILLS }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/skills");
+      router.push("/skills");
     });
   };
 
@@ -158,4 +159,4 @@ const AddSkill = (props: AddSkillProps) => {
   );
 };
 
-export default withRouter(AddSkill);
+export default AddSkill;

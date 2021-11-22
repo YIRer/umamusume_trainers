@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { GET_SKILLS } from "queries/skills";
+import React, { useState } from "react";
+import Link from "next/link";
+
+import Error from "next/error";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -12,13 +12,9 @@ import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRoun
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import Loader from "components/Common/Loader";
-
 import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
-
-import { SkillType } from "types/Skill/skill";
 
 const useStyles = makeStyles((_theme) => ({
   skillListWrapper: {
@@ -64,20 +60,14 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const Skills = () => {
+export const Skills = ({ data, statusCode }) => {
   const classes = useStyles();
-  const { loading, error, data } =
-    useQuery<{ skills: SkillType[] }>(GET_SKILLS);
-  const [skillList, setSkillList] = useState([]);
+  const [skillList, setSkillList] = useState(data.skills);
 
-  useEffect(() => {
-    if (data && data.skills) {
-      setSkillList(data.skills);
-    }
-  }, [data]);
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
   return (
     <div className={classes.skillListWrapper}>
       <h1>스킬 리스트</h1>
@@ -90,30 +80,32 @@ export const Skills = () => {
       <div className={classes.skillsWrapper}>
         {skillList.map(({ name, id, imageSrc }) => {
           return (
-            <Link
-              className={clsx(classes.linkWrapper)}
-              to={`/skills/${id}`}
-              key={id + name.default}
-            >
-              <Card className={clsx(classes.cardRoot)}>
-                <CardMedia
-                  className={clsx(classes.cardMedia)}
-                  image={prefixImgSrc(imageSrc || "/image/temp.png")}
-                  title={name}
-                />
-                <CardContent classes={{ root: clsx(classes.cardContentRoot) }}>
-                  {name.ja}
-                  <br />
-                  {name.ko}
-                </CardContent>
-              </Card>
+            <Link href={`/skills/${id}`} key={id + name.default}>
+              <a className={clsx(classes.linkWrapper)}>
+                <Card className={clsx(classes.cardRoot)}>
+                  <CardMedia
+                    className={clsx(classes.cardMedia)}
+                    image={prefixImgSrc(imageSrc || "/image/temp.png")}
+                    title={name}
+                  />
+                  <CardContent
+                    classes={{ root: clsx(classes.cardContentRoot) }}
+                  >
+                    {name.ja}
+                    <br />
+                    {name.ko}
+                  </CardContent>
+                </Card>
+              </a>
             </Link>
           );
         })}
       </div>
       {isDev && (
-        <Link to={"/admin/skills/new"} className={classes.addButton}>
-          <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+        <Link href={"/admin/skills/new"}>
+          <a className={classes.addButton}>
+            <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+          </a>
         </Link>
       )}
     </div>

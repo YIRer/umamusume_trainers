@@ -1,12 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router";
-import { useParams, Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
-import {
-  GET_UMAMUSUME,
-  GET_UMAMUSUMES,
-  DELTE_UMAMUSUME,
-} from "queries/umamusume";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Error from "next/error";
+import { useMutation } from "@apollo/client";
+import { GET_UMAMUSUMES, DELTE_UMAMUSUME } from "queries/umamusume";
 
 import BorderColorRoundedIcon from "@material-ui/icons/BorderColorRounded";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
@@ -16,12 +13,9 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
-import Loader from "components/Common/Loader";
-
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import { UmamusumeType } from "types/Umamusume/umamusume";
 import { TypeOfCard } from "types/Card/card";
 
 import { CardType } from "types/Card/card";
@@ -66,6 +60,7 @@ const useStyles = makeStyles((_theme) => ({
   },
   cardWrapper: {
     marginRight: "16px",
+    display: "inline-block",
   },
   card: {
     width: "100px",
@@ -90,16 +85,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const Umamusume = () => {
+const Umamusume = ({ data, statusCode }) => {
   const classes = useStyles();
-  const history = useHistory();
-  const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<{ umamusume: UmamusumeType }>(
-    GET_UMAMUSUME,
-    {
-      variables: { id },
-    }
-  );
+  const router = useRouter();
+  const { id } = router.query;
 
   const [deleteUmamusume, _mutationData] = useMutation(DELTE_UMAMUSUME);
 
@@ -110,10 +99,8 @@ const Umamusume = () => {
         id,
         cards: data.umamusume.cards,
       },
-      refetchQueries: [{ query: GET_UMAMUSUMES }],
-      awaitRefetchQueries: true,
     }).then(() => {
-      history.replace(`/umamusume`);
+      router.replace(`/umamusume`);
     });
   };
 
@@ -121,33 +108,33 @@ const Umamusume = () => {
     return data.map((card) => {
       if (card.type === type) {
         return (
-          <Link
-            to={`/cards/${card.id}`}
-            key={`card=${type}-${card.id}`}
-            className={classes.cardWrapper}
-          >
-            <div
-              className={classes.card}
-              style={{
-                backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
-              }}
-            >
-              {type === "support" && (
-                <img
-                  className={classes.typeIcon}
-                  src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
-                  alt={card.supportType}
-                />
-              )}
-            </div>
+          <Link href={`/cards/${card.id}`} key={`card=${type}-${card.id}`}>
+            <a className={classes.cardWrapper}>
+              <div
+                className={classes.card}
+                style={{
+                  backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
+                }}
+              >
+                {type === "support" && (
+                  <img
+                    className={classes.typeIcon}
+                    src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
+                    alt={card.supportType}
+                  />
+                )}
+              </div>
+            </a>
           </Link>
         );
       }
     });
   };
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
+
   const { umamusume } = data;
   if (!umamusume) return <p>Error :(</p>;
 
@@ -157,6 +144,7 @@ const Umamusume = () => {
         title={`${umamusume.name.ko}(${umamusume.name.ja})`}
         url={`/umamusume/${id}`}
         description={`${umamusume.name.ko}(${umamusume.name.ja})의 육성, 서포트 카드 목록입니다.`}
+        imageUrl={prefixImgSrc(umamusume.imageSrc)}
       />
       <div className={classes.header}>
         <h3>
@@ -165,11 +153,13 @@ const Umamusume = () => {
 
         {isDev && (
           <div className={classes.icons}>
-            <Link to={`/admin/umamusume/${id}/edit`} className={classes.link}>
-              <BorderColorRoundedIcon
-                className={clsx(classes.icon)}
-                color="primary"
-              />
+            <Link href={`/admin/umamusume/${id}/edit`}>
+              <a className={classes.link}>
+                <BorderColorRoundedIcon
+                  className={clsx(classes.icon)}
+                  color="primary"
+                />
+              </a>
             </Link>
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon

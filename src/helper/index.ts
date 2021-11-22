@@ -193,3 +193,15 @@ export const searchSkillsHelper: SearchFilterFnType = ({
     filterSKillStrategy,
   ])(data, searchOptions);
 };
+
+export const getGhlErrorStatus = (err): number => {
+  try {
+    const status = Number(err.graphQLErrors[0].message.split(" ").pop());
+    if (isNaN(status)) {
+      return 500;
+    }
+    return status;
+  } catch (_e) {
+    return 500;
+  }
+};

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
@@ -93,10 +94,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "220px",
   },
   skillMedia: {
-    width: "50px",
-    height: "50px",
-    backgroundPosition: "center",
     marginRight: "10px",
+    display: "inline-block",
   },
   skillInfo: {
     display: "flex",
@@ -137,8 +136,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   typeIcon: {
-    width: "20px",
-    height: "20px",
+    display: "inline-block",
     marginRight: "8px",
   },
 }));
@@ -162,11 +160,14 @@ const CardInfo = (props: CardInfoProps) => {
       skill && (
         <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
           <div className={classes.skillImgAndInfo}>
-            <img
-              className={clsx(classes.skillMedia)}
-              src={prefixImgSrc(skill.imageSrc)}
-              alt={skill.name.ko}
-            />
+            <div className={clsx(classes.skillMedia)}>
+              <Image
+                src={prefixImgSrc(skill.imageSrc)}
+                alt={skill.name.ko}
+                width={50}
+                height={50}
+              />
+            </div>
             <div className={classes.skillInfo}>
               <b>
                 {skill.name.ja}
@@ -189,11 +190,14 @@ const CardInfo = (props: CardInfoProps) => {
       <div className={classes.header}>
         <h3 className={classes.head}>
           {data.supportType && (
-            <img
-              className={classes.typeIcon}
-              src={prefixImgSrc(`/image/icons/${data.supportType}.png`)}
-              alt={data.supportType}
-            />
+            <div className={classes.typeIcon}>
+              <Image
+                src={prefixImgSrc(`/image/icons/${data.supportType}.png`)}
+                alt={data.supportType}
+                width={20}
+                height={20}
+              />
+            </div>
           )}
           {data.name.ko}
           <br />

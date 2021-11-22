@@ -1,5 +1,5 @@
 import React, { useReducer, useState, useEffect } from "react";
-import { withRouter, useParams } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 
 import Button from "@material-ui/core/Button";
@@ -33,7 +33,6 @@ import _ from "lodash";
 import { CardType } from "types/Card/card";
 
 import {
-  EditCardProps,
   CardStatusData,
   CardTargetType,
   TrainingObjectsType,
@@ -88,9 +87,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EditCard = (props: EditCardProps) => {
+const EditCard = () => {
   const classes = useStyles();
-  const { id } = useParams<{ id: string }>();
+  const router = useRouter();
+  const { id } = router.query;
 
   const { loading, error, data } = useQuery<{ card: CardType }>(GET_CARD, {
     variables: { id },
@@ -396,7 +396,7 @@ const EditCard = (props: EditCardProps) => {
       ],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push(`/cards/${id}`);
+      router.push(`/cards/${id}`);
     });
   };
 
@@ -779,4 +779,4 @@ const EditCard = (props: EditCardProps) => {
   );
 };
 
-export default withRouter(EditCard);
+export default EditCard;

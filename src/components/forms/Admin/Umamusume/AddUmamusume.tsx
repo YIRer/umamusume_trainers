@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { withRouter } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,8 +28,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const AddUmamusume = (props: AddUmamusumeProps) => {
+const AddUmamusume = () => {
   const classes = useStyles();
+  const router = useRouter()
   const [addUmamusume, _mutationData] = useMutation(ADD_UMAMUSUME);
   const [formData, setFormInput] = useReducer(
     (state: FormInputTpye, newState: Partial<FormInputTpye>) => ({
@@ -68,7 +69,7 @@ const AddUmamusume = (props: AddUmamusumeProps) => {
       refetchQueries: [{ query: GET_UMAMUSUMES }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/umamusume");
+      router.push("/umamusume");
     });
   };
 
@@ -112,4 +113,4 @@ const AddUmamusume = (props: AddUmamusumeProps) => {
   );
 };
 
-export default withRouter(AddUmamusume);
+export default AddUmamusume;

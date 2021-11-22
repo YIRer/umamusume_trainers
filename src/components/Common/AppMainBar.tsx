@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -14,7 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import { AppMainBarProps, NavDrawerProps } from "./types";
+import { NavDrawerProps } from "./types";
 
 const NAVIGATIONS = [
   {
@@ -47,9 +48,13 @@ const useStyles = makeStyles((_theme) => ({
   iconButton: {
     color: "white",
   },
+  logo: {
+    fontSize: "20px",
+    fontWeight: 400,
+  },
 }));
 
-export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
+const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
   const handleOnClick = () => {
     onClose();
   };
@@ -59,8 +64,10 @@ export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
         {NAVIGATIONS.map((navData) => {
           return (
             <ListItem key={navData.text} onClick={handleOnClick}>
-              <Link to={navData.path}>
-                <ListItemText primary={navData.text} />
+              <Link href={navData.path}>
+                <a>
+                  <ListItemText primary={navData.text} />
+                </a>
               </Link>
             </ListItem>
           );
@@ -70,12 +77,13 @@ export const NavDrawer = ({ open, onClose }: NavDrawerProps) => {
   );
 };
 
-export const AppMainBar = (props: AppMainBarProps) => {
+const AppMainBar = () => {
   const classes = useStyles();
+  const router = useRouter();
   const [openNav, setOpenNav] = useState(false);
   const handleClickBack = (e) => {
     e.preventDefault();
-    props.history.goBack();
+    router.back();
   };
 
   const showNavDrawer = () => {
@@ -93,7 +101,11 @@ export const AppMainBar = (props: AppMainBarProps) => {
           <MenuIcon />
         </IconButton>
         <NavDrawer open={openNav} onClose={hideNavDrawer} />
-        <Link to={"/"}> 우마무스메 트레이너스</Link>
+        <Link href={"/"}>
+          <a>
+            <h1 className={classes.logo}>우마무스메 트레이너스</h1>
+          </a>
+        </Link>
         <IconButton onClick={handleClickBack} className={classes.iconButton}>
           <ArrowBackRoundedIcon />
         </IconButton>
@@ -102,4 +114,4 @@ export const AppMainBar = (props: AppMainBarProps) => {
   );
 };
 
-export default withRouter(AppMainBar);
+export default AppMainBar;

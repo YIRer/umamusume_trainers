@@ -25,6 +25,11 @@ export const iconData = [
     id: "i_skill_005",
   },
   {
+    value: "/image/skill/i_skill_048.png",
+    label: "가속도 상승(고유)",
+    id: "i_skill_048",
+  },
+  {
     value: "/image/skill/i_skill_006.png",
     label: "위치선정",
     id: "i_skill_006",
@@ -63,6 +68,11 @@ export const iconData = [
     value: "/image/skill/i_skill_013.png",
     label: "스태미나 버프",
     id: "i_skill_013",
+  },
+  {
+    value: "/image/skill/i_skill_049.png",
+    label: "스태미나 버프",
+    id: "i_skill_049",
   },
   {
     value: "/image/skill/i_skill_012.png",

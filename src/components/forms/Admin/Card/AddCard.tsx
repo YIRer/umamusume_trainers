@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 
 import Button from "@material-ui/core/Button";
@@ -101,8 +101,9 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const AddCard = (props: AddCardProps) => {
+const AddCard = () => {
   const classes = useStyles();
+  const router = useRouter();
   const [isTrainingType, setTrainingType] = useState(true);
   const [targetInfo, setTarget] = useState<CardTargetType>(null);
   const [relatedSkills, setRelatedSkills] = useState<RelatedSkillsType>({
@@ -290,7 +291,7 @@ const AddCard = (props: AddCardProps) => {
       refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.push("/cards");
+      router.push("/cards");
     });
   };
 
@@ -318,9 +319,7 @@ const AddCard = (props: AddCardProps) => {
 
   const addOnceEvents = (events) => {
     if (formData.type === "training") {
-      events.once = [...commonOnceEvents].concat(
-        events.once
-      );
+      events.once = [...commonOnceEvents].concat(events.once);
     }
 
     return events;
@@ -644,4 +643,4 @@ const AddCard = (props: AddCardProps) => {
   );
 };
 
-export default withRouter(AddCard);
+export default AddCard;

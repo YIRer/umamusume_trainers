@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { Link } from "react-router-dom";
-import { GET_UMAMUSUMES } from "queries/umamusume";
+import React, { useState } from "react";
+import Link from "next/link";
+
+import Error from "next/error";
 
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -13,11 +13,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
 import SearchForm from "components/Search/SearchForm";
-import Loader from "components/Common/Loader";
 
 import { isDev } from "../../constants";
-import { prefixImgSrc } from "helper";
-import { UmamusumeType } from "types/Umamusume/umamusume";
+import { prefixImgSrc, getGhlErrorStatus } from "helper";
 
 const useStyles = makeStyles((_theme) => ({
   umamusumeListWrapper: {
@@ -59,20 +57,13 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-export const UmamusumeList = () => {
+export const UmamusumeList = ({ data, statusCode }) => {
   const classes = useStyles();
-  const { loading, error, data } =
-    useQuery<{ umamusumeList: UmamusumeType[] }>(GET_UMAMUSUMES);
-  const [umamusumeList, setUmamusumeList] = useState([]);
+  const [umamusumeList, setUmamusumeList] = useState(data.umamusumeList);
 
-  useEffect(() => {
-    if (data && data.umamusumeList) {
-      setUmamusumeList(data.umamusumeList);
-    }
-  }, [data]);
-
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
 
   return (
     <div className={classes.umamusumeListWrapper}>
@@ -86,26 +77,27 @@ export const UmamusumeList = () => {
         {umamusumeList.map(({ name, id, imageSrc }) => {
           return (
             <Card className={clsx(classes.cardRoot)} key={id + name.default}>
-              <Link
-                className={clsx(classes.linkWrapper)}
-                to={`/umamusume/${id}`}
-              >
-                <CardMedia
-                  className={clsx(classes.cardMedia)}
-                  image={prefixImgSrc(imageSrc || "/image/temp.png")}
-                  title={name.en}
-                />
-                <CardContent classes={{ root: classes.cardName }}>
-                  {name.ko}
-                </CardContent>
+              <Link href={`/umamusume/${id}`}>
+                <a className={clsx(classes.linkWrapper)}>
+                  <CardMedia
+                    className={clsx(classes.cardMedia)}
+                    image={prefixImgSrc(imageSrc || "/image/temp.png")}
+                    title={name.en}
+                  />
+                  <CardContent classes={{ root: classes.cardName }}>
+                    {name.ko}
+                  </CardContent>
+                </a>
               </Link>
             </Card>
           );
         })}
       </div>
       {isDev && (
-        <Link to={"/admin/umamusume/new"} className={classes.addButton}>
-          <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+        <Link href={"/admin/umamusume/new"}>
+          <a className={classes.addButton}>
+            <AddCircleOutlineRoundedIcon fontSize="large" color="primary" />
+          </a>
         </Link>
       )}
     </div>

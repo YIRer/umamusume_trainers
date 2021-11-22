@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { withRouter, useParams, Link } from "react-router-dom";
-import { useQuery, useMutation, useLazyQuery } from "@apollo/client";
-import { GET_CARD, GET_CARDS, ADD_CARD, DELTE_CARD } from "queries/cards";
+import Link from "next/link";
+import Error from "next/error";
+import Image from "next/image";
+import { useRouter } from "next/router";
+
+import { useMutation, useLazyQuery } from "@apollo/client";
+import { GET_CARDS, ADD_CARD, DELTE_CARD } from "queries/cards";
 import { GET_UMAMUSUME } from "queries/umamusume";
 
 import Card from "@material-ui/core/Card";
@@ -15,8 +19,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
 
-import Loader from "components/Common/Loader";
-
 import CardTags from "./CardTags";
 import StatusTable from "./StatusTable";
 import BonusTable from "./BonusTable";
@@ -28,7 +30,7 @@ import { commonEvents } from "components/forms/Admin/Card/constants";
 
 import TrainingObjects from "./TrainingObjects";
 
-import { CardInfoProps, CardTargetType } from "./types";
+import { CardTargetType } from "./types";
 import { CardType } from "types/Card/card";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 
@@ -73,9 +75,7 @@ const useStyles = makeStyles((theme) => ({
     display: "block",
     width: "100%",
     marginTop: "16px",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
+    position: "relative",
   },
   icon: {
     fontSize: "1.5rem",
@@ -111,9 +111,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "220px",
   },
   skillMedia: {
-    width: "50px",
-    height: "50px",
-    backgroundPosition: "center",
+    display: "inline-block",
     marginRight: "10px",
   },
   skillInfo: {
@@ -168,21 +166,20 @@ const useStyles = makeStyles((theme) => ({
   },
 
   typeIcon: {
-    width: "20px",
-    height: "20px",
     marginRight: "8px",
+    display: "inline-block",
   },
   nameWrapper: {
     wordBreak: "keep-all",
   },
 }));
 
-const CardInfo = (props: CardInfoProps) => {
+const CardInfo = ({ data, statusCode }) => {
   const classes = useStyles();
-  const { id } = useParams<{ id: string }>();
-  const { loading, error, data } = useQuery<{ card: CardType }>(GET_CARD, {
-    variables: { id },
-  });
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { card } = data;
 
   const [relatedSkills, setRelatedSkills] = useState<RelatedSkillsType>({
     unique: [],
@@ -242,13 +239,14 @@ const CardInfo = (props: CardInfoProps) => {
   };
 
   useEffect(() => {
-    if (data?.card) {
-      setInitialSkills(data.card);
-    }
-    if (data?.card.targetID && !targetData) {
+    setInitialSkills(data.card);
+  }, []);
+
+  useEffect(() => {
+    if (!targetData) {
       getTargetInfo({ variables: { id: data.card.targetID } });
     }
-  }, [data, targetData]);
+  }, [targetData]);
 
   const handleDelete = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -259,7 +257,7 @@ const CardInfo = (props: CardInfoProps) => {
       refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
     }).then(() => {
-      props.history.replace(`/cards`);
+      router.replace(`/cards`);
     });
   };
 
@@ -277,7 +275,7 @@ const CardInfo = (props: CardInfoProps) => {
       refetchQueries: [{ query: GET_CARDS }],
       awaitRefetchQueries: true,
     }).then(({ data }) => {
-      props.history.push(`/cards/${data.addCard.id}`);
+      router.push(`/cards/${data.addCard.id}`);
     });
   };
 
@@ -285,30 +283,35 @@ const CardInfo = (props: CardInfoProps) => {
     return (
       skill && (
         <Card key={skill.id} classes={{ root: clsx(classes.skillWrapper) }}>
-          <Link to={`/skills/${skill.id}`} className={classes.skillImgAndInfo}>
-            <img
-              className={clsx(classes.skillMedia)}
-              src={prefixImgSrc(skill.imageSrc)}
-              alt={skill.name.ko}
-            />
-            <div className={classes.skillInfo}>
-              <b>
-                {skill.name.ja}
-                <br />
-                {skill.name.ko}
-              </b>
-              <span>{skill.effect}</span>
-            </div>
+          <Link href={`/skills/${skill.id}`}>
+            <a className={classes.skillImgAndInfo}>
+              <div className={clsx(classes.skillMedia)}>
+                <Image
+                  src={prefixImgSrc(skill.imageSrc)}
+                  alt={skill.name.ko}
+                  width={50}
+                  height={50}
+                  placeholder="empty"
+                />
+              </div>
+              <div className={classes.skillInfo}>
+                <b>
+                  {skill.name.ja}
+                  <br />
+                  {skill.name.ko}
+                </b>
+                <span>{skill.effect}</span>
+              </div>
+            </a>
           </Link>
         </Card>
       )
     );
   };
 
-  if (loading) return <Loader />;
-  if (error) return <p>Error :(</p>;
-  const { card } = data;
-  if (!card) return <p>Error :(</p>;
+  if (statusCode) {
+    return <Error statusCode={statusCode} />;
+  }
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
@@ -316,15 +319,20 @@ const CardInfo = (props: CardInfoProps) => {
         title={`${card.name.ko}(${card.name.ja})`}
         url={`/cards/${id}`}
         description={formattedDescriptionForCards(card)}
+        imageUrl={prefixImgSrc(card.imageSrc)}
       />
       <div className={classes.header}>
         <h3 className={classes.head}>
           {card.supportType && (
-            <img
-              className={classes.typeIcon}
-              src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
-              alt={card.supportType}
-            />
+            <div className={classes.typeIcon}>
+              <Image
+                src={prefixImgSrc(`/image/icons/${card.supportType}.png`)}
+                alt={card.supportType}
+                width={20}
+                height={20}
+                placeholder="empty"
+              />
+            </div>
           )}
           <div className={classes.nameWrapper}>
             {card.name.ja} {card.name.ko}
@@ -335,11 +343,13 @@ const CardInfo = (props: CardInfoProps) => {
             <IconButton onClick={handleDuplicate}>
               <FileCopyIcon className={clsx(classes.icon)} color="primary" />
             </IconButton>
-            <Link to={`/admin/cards/${id}/edit`} className={classes.link}>
-              <BorderColorRoundedIcon
-                className={clsx(classes.icon)}
-                color="primary"
-              />
+            <Link href={`/admin/cards/${id}/edit`}>
+              <a className={classes.link}>
+                <BorderColorRoundedIcon
+                  className={clsx(classes.icon)}
+                  color="primary"
+                />
+              </a>
             </Link>
             <IconButton onClick={handleDelete}>
               <DeleteRoundedIcon
@@ -351,12 +361,16 @@ const CardInfo = (props: CardInfoProps) => {
         )}
       </div>
       <CardTags type={card.type} limited={card.limited} />
-      <div
-        style={{
-          backgroundImage: `url(${prefixImgSrc(card.imageSrc)})`,
-        }}
-        className={classes.image}
-      />
+      <div className={classes.image}>
+        <Image
+          src={prefixImgSrc(card.imageSrc)}
+          placeholder="blur"
+          blurDataURL={prefixImgSrc("/image/image-blur-placeholder.png")}
+          layout="fill"
+          objectFit="contain"
+          alt={`${card.name.ko} ${card.name.ja}`}
+        />
+      </div>
       {card.playable && <StatusTable data={card} />}
       {card.type === "support" && <BonusTable data={card.bonus} />}
       {card.type === "training" && (
@@ -438,16 +452,18 @@ const CardInfo = (props: CardInfoProps) => {
       <section className={classes.section}>
         <h4>관련 우마무스메</h4>
         {targetData?.umamusume ? (
-          <Link to={`/umamusume/${targetData.umamusume.id}`}>
-            <div
-              className={classes.umamusume}
-              style={{
-                backgroundImage: `url(${prefixImgSrc(
-                  targetData.umamusume.imageSrc
-                )})`,
-              }}
-            />
-            <b>{targetData.umamusume.name.ko}</b>
+          <Link href={`/umamusume/${targetData.umamusume.id}`}>
+            <a>
+              <div
+                className={classes.umamusume}
+                style={{
+                  backgroundImage: `url(${prefixImgSrc(
+                    targetData.umamusume.imageSrc
+                  )})`,
+                }}
+              />
+              <b>{targetData.umamusume.name.ko}</b>
+            </a>
           </Link>
         ) : (
           <span>없음</span>
@@ -457,4 +473,4 @@ const CardInfo = (props: CardInfoProps) => {
   );
 };
 
-export default withRouter(CardInfo);
+export default CardInfo;
