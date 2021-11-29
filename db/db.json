@@ -81401,6 +81401,279 @@
         "multipleTimes": []
       },
       "id": 159
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "마블러스 선데이",
+        "ja": "マーベラスサンデー"
+      },
+      "targetID": "54",
+      "imageSrc": "/image/MarvelousSunday/cards/support/03.png",
+      "type": "support",
+      "supportType": "power",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": true,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "40",
+            "effect": "우정 보너스, 레이스 보너스",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 25%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 스태미나 UP 10",
+            "maxEffect": "육성 시작시 초기 스태미나 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 파워 UP 10",
+            "maxEffect": "육성 시작시 초기 파워 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 20%"
+          },
+          {
+            "level": "15",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스태미나의 상승량 UP",
+            "maxEffect": "함께 트레이닝 시 스태미나의 상승량 UP 1"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "38",
+        "37",
+        "145",
+        "158"
+      ],
+      "hasSkillsIds": [
+        "45",
+        "55",
+        "52",
+        "211",
+        "212"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "マーベラスへご案内☆"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+10"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "キラッと輝くマーベラス☆"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "疲れてるのかも……"
+                },
+                "result": "체력+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もう一度この目で確かめてみたい……！"
+                },
+                "result": "\"曇りの日◯\"(흐린 날◯) 힌트 Lv+2 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "白銀のマーベラス☆"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "인연게이지+5 성공시 스피드+5 스킬 Pt+5 \"迅速果断\"(신속 과단) 힌트 Lv+3 인연게이지+5 OR 실패시 스피드+5 스킬 Pt+10 \"位置取り押し上げ\"(위치선정 밀어붙이기) 힌트 Lv+3"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "問答無用のマーベラス☆"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "最近、力が出なくて"
+                },
+                "result": "체력+10 스피드+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もっとやる気を出したいんだ"
+                },
+                "result": "의욕상승 스피드+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "マーベラスにするために☆"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "自分から全力でぶつかっていくとか…？"
+                },
+                "result": "체력+10 의욕상승 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "関西人みたいなノリと勢いで、とか…？"
+                },
+                "result": "\"阪神レース場◯\"*(한신 경마장◯) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 160
     }
   ],
   "skills": [
