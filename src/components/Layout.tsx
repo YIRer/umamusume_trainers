@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
     <Paper elevation={0} classes={{ root: classes.root }}>
       <AppMainBar />
       {children}
-      <SideButtons />
+      <SideButtons isFixed={true} />
     </Paper>
   );
 };
