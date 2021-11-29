@@ -62,7 +62,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "server": "cross-env NODE_ENV=development nodemon ./server.js",
+    "server": "cross-env NODE_ENV=development node ./server.js",
     "build": "next build",
     "deploy": "cross-env NODE_ENV=production node ./deploy.js",
     "lint": "next lint",
