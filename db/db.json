@@ -79955,7 +79955,7 @@
         "ja": "ビワハヤヒデ"
       },
       "targetID": "23",
-      "imageSrc": "/image/BiwaHayahide/cards/training/02.png",
+      "imageSrc": "/image/BiwaHayahide/cards/training/03.png",
       "type": "training",
       "supportType": "",
       "trainingObjects": [
@@ -80034,19 +80034,19 @@
           },
           "stamina": {
             "rank": "G+",
-            "bonus": "0"
+            "bonus": "12"
           },
           "power": {
             "rank": "G+",
-            "bonus": "0"
+            "bonus": "12"
           },
           "guts": {
             "rank": "G+",
-            "bonus": "10"
+            "bonus": "0"
           },
           "intelligence": {
             "rank": "G+",
-            "bonus": "20"
+            "bonus": "6"
           }
         },
         "distance": {
@@ -80091,20 +80091,20 @@
         "support": []
       },
       "uniqueSkillsIds": [
-        "76"
+        "421"
       ],
       "trainingSkillsIds": [],
       "hasSkillsIds": [],
       "baseSkillsIds": [
-        "151",
-        "182",
-        "173"
+        "53",
+        "180",
+        "175"
       ],
       "awakeningSkillsIds": [
-        "136",
-        "258",
-        "236",
-        "174"
+        "163",
+        "422",
+        "31",
+        "54"
       ],
       "skills": [
         {
@@ -80228,7 +80228,6 @@
         }
       ],
       "events": {
-        "common": null,
         "once": [
           {
             "title": {
@@ -80328,7 +80327,7 @@
           {
             "title": {
               "ko": "",
-              "ja": "持つべきか、捨てるべきか"
+              "ja": "お願い、お姉さん！"
             },
             "eventType": "once",
             "tags": [
@@ -80338,16 +80337,16 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "それがハヤヒデの武器だよ"
+                  "ja": "ハヤヒデの選んだ色っぽいマニキュア"
                 },
-                "result": "지능+20"
+                "result": "스피드+15"
               },
               {
                 "description": {
                   "ko": "",
-                  "ja": "いっそメモ取るのやめてみる？"
+                  "ja": "タイシンの選んだクールな耳飾り"
                 },
-                "result": "스태미나+10 파워+10"
+                "result": "스태미나+15"
               }
             ],
             "condition": "승부복 이벤트"
@@ -80355,7 +80354,7 @@
           {
             "title": {
               "ko": "",
-              "ja": "理論に基づいた昔ばなし"
+              "ja": "助っ人参上！"
             },
             "eventType": "once",
             "tags": [
@@ -80365,16 +80364,16 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "君なりにやってみてもいいかも"
+                  "ja": "1日だけ体験してみたら？"
                 },
-                "result": "파워+20"
+                "result": "스태미나+5 스킬 Pt+15"
               },
               {
                 "description": {
                   "ko": "",
-                  "ja": "いっそ勉強会にしてみる？"
+                  "ja": "妹を見てもらうっていう条件で入ったら？"
                 },
-                "result": "근성+20"
+                "result": "\"追い上げ\"(쫓아가기) 힌트 Lv+2"
               }
             ],
             "condition": "승부복 이벤트"
@@ -80382,7 +80381,7 @@
           {
             "title": {
               "ko": "",
-              "ja": "理論こそ最大の武器"
+              "ja": "もうひとつの星"
             },
             "eventType": "once",
             "tags": [
@@ -80392,16 +80391,16 @@
               {
                 "description": {
                   "ko": "",
-                  "ja": "かっこよかった・・・！"
+                  "ja": "インパクトで勝負！後ろ姿だ！"
                 },
-                "result": "스태미나+20 「注目株」상태랜덤흭득"
+                "result": "체력-10 스피드+30 근성+10 \"冬ウマ娘◯\"(겨울 우마무스메◯) 힌트 Lv+2"
               },
               {
                 "description": {
                   "ko": "",
-                  "ja": "理論が役立ったな！"
+                  "ja": "主役らしく普通に渡そう"
                 },
-                "result": "지능+20 「注目株」상태랜덤흭득"
+                "result": "체력+15 스킬 Pt+20 \"冬ウマ娘◯\"(겨울 우마무스메◯) 힌트 Lv+2"
               }
             ],
             "condition": "승부복 이벤트"
@@ -89166,6 +89165,36 @@
       ],
       "condition": "",
       "id": 420
+    },
+    {
+      "name": {
+        "ko": "",
+        "ja": "Presents from X"
+      },
+      "effect": "스타트 이후부터 레이스 후반까지 좋은 위치를 계속해서 유지하면 레이스 중반에 승리로의 길을 찾아내어 속도를 높인다",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "PresentsfromX",
+        "비와하야히데",
+        "고유스킬",
+        "속도상승"
+      ],
+      "condition": "",
+      "id": 421
+    },
+    {
+      "name": {
+        "ko": "VIP 안면 패스",
+        "ja": "VIP顔パス"
+      },
+      "effect": "추월할 기분이 들어 덜 피로해진다 <장거리>",
+      "imageSrc": "/image/skill/i_skill_025.png",
+      "tags": [
+        "스태미나회복",
+        "장거리"
+      ],
+      "condition": "",
+      "id": 422
     }
   ],
   "conditions": []
