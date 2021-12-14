@@ -82901,6 +82901,264 @@
         "multipleTimes": []
       },
       "id": 162
+    },
+    {
+      "star": 2,
+      "name": {
+        "ko": "이나리 원",
+        "ja": "イナリワン"
+      },
+      "targetID": "34",
+      "imageSrc": "/image/InariOne/cards/support/01.png",
+      "type": "support",
+      "supportType": "power",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "25",
+            "effect": "우정 보너스, 스태미나 보너스"
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 25%"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 3"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP 5%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 50%"
+          },
+          {
+            "level": "10",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 5%"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 파워 UP",
+            "maxEffect": "육성 시작시 초기 파워 UP 20"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "30",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 60"
+          },
+          {
+            "level": "45",
+            "effect": "함께 트레이닝 시 파워의 상승량 UP",
+            "maxEffect": "함께 트레이닝 시 파워의 상승량 UP"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "144",
+        "147"
+      ],
+      "hasSkillsIds": [
+        "55",
+        "52",
+        "400",
+        "425",
+        "223",
+        "130",
+        "133",
+        "160"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "いきちょん！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-10 스피드+12 파워+12 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "おうすうちゃん！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "スピードは抑えてほしい…"
+                },
+                "result": "체력-5 의욕상승 스피드+3 파워+3 근성+3 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "いつも通り走って大丈夫！"
+                },
+                "result": "체력-5 스피드+10 \"大井レース場◯\"(오이 레이스장◯) 힌트 Lv+3"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "喧嘩だワッショイ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "健闘を讃えてあげよう"
+                },
+                "result": "체력-5 파워+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "飲み物差し入れるとか"
+                },
+                "result": "의욕상승 근성+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "神輿だワッショイ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "突き進む躍動感？"
+                },
+                "result": "스킬Pt+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "観客がいないからでは？"
+                },
+                "result": "\"京都レース場◯\"(교토 레이스장◯) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 163
     }
   ],
   "skills": [
@@ -91263,6 +91521,40 @@
       ],
       "condition": "",
       "id": 423
+    },
+    {
+      "name": {
+        "ko": "",
+        "ja": "Fairy tale"
+      },
+      "effect": "레이스 후반에 좋은 위치에서 경쟁하면 달리는 것에 가슴이 뛰어 속도를 올린다",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "Fairytale",
+        "파인모션",
+        "고유스킬",
+        "속도상승",
+        "후반"
+      ],
+      "condition": "",
+      "id": 424
+    },
+    {
+      "name": {
+        "ko": "모래 먼지 익숙해지기",
+        "ja": "砂塵慣れ"
+      },
+      "effect": "레이스 중반에 후방에 있으면 지구력을 근소하게 회복한다 <더트>",
+      "imageSrc": "/image/skill/i_skill_024.png",
+      "tags": [
+        "더트",
+        "스태미나",
+        "회복",
+        "중반",
+        "후방"
+      ],
+      "condition": "",
+      "id": 425
     }
   ],
   "conditions": []
