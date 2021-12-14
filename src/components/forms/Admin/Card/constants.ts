@@ -170,7 +170,7 @@ export const commonEvents = [
   {
     title: { ko: "", ja: "協快ッ！密着取材 !" },
     eventType: "common",
-    tags: ["공통", "이벤트", "스테미나", "기자인연게이지", "근성"],
+    tags: ["공통", "이벤트", "스태미나", "기자인연게이지", "근성"],
     choices: [
       {
         description: {
@@ -482,7 +482,7 @@ export const bonusTypes = [
 
 export const supportTypes = [
   { value: "speed", label: "스피드" },
-  { value: "stamina", label: "스테미너" },
+  { value: "stamina", label: "스태미나" },
   { value: "power", label: "파워" },
   { value: "guts", label: "근성" },
   { value: "int", label: "지능" },
