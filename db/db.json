@@ -83948,6 +83948,274 @@
         ]
       },
       "id": 164
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "사일런스 스즈카",
+        "ja": "サイレンススズカ"
+      },
+      "targetID": "2",
+      "imageSrc": "/image/SilenceSuzuka/cards/support/04.png",
+      "type": "support",
+      "supportType": "speed",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "40",
+            "effect": "트레이닝 효과 UP, 레이스 보너스",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 25%"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 10"
+          },
+          {
+            "level": "10",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 50"
+          },
+          {
+            "level": "15",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP Lv2"
+          },
+          {
+            "level": "15",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 30%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스피드의 상승량 UP 1",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP 15%",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "170",
+        "135"
+      ],
+      "hasSkillsIds": [
+        "26",
+        "28",
+        "29",
+        "30",
+        "87",
+        "90",
+        "113",
+        "169",
+        "162"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "❝景色❞へ導く"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+15"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "仲間と見る❝景色❞"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스킬Pt+20"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "未来の❝景色❞"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+15 \"切り開く者\"(개척자) 힌트 Lv+1"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "どこまでも"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "構わないよ"
+                },
+                "result": "스피드+10 스태미나+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "全力で走ってみて"
+                },
+                "result": "스피드+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "どうすれば"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "一緒に併走してあげるのは？"
+                },
+                "result": "스피드+5 스태미나+5 지능+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "その左回りにコツが隠されてるのかも"
+                },
+                "result": "\"左回り◯\"(좌회전◯) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 165
     }
   ],
   "skills": [
