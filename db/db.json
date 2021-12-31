@@ -86046,6 +86046,884 @@
         ]
       },
       "id": 167
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "어드마이어 베가",
+        "ja": "アドマイヤベガ"
+      },
+      "targetID": "33",
+      "imageSrc": "/image/AdmireVega/cards/support/01.png",
+      "type": "support",
+      "supportType": "power",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "트레이닝 효과 UP, 힌트 발생률 UP"
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 30%"
+          },
+          {
+            "level": "none",
+            "effect": "함께 트레이닝 시 효과 UP 1%",
+            "maxEffect": "함께 트레이닝 시 효과 UP 15%"
+          },
+          {
+            "level": "15",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "15",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 35"
+          },
+          {
+            "level": "25",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 1"
+          },
+          {
+            "level": "25",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 20%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 파워의 상승량 UP",
+            "maxEffect": "함께 트레이닝 시 파워의 상승량 UP 1"
+          },
+          {
+            "level": "45",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "45",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 15%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "1",
+        "432",
+        "226",
+        "230"
+      ],
+      "hasSkillsIds": [
+        "42",
+        "44",
+        "127",
+        "190",
+        "208"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "アヤベさんは見過ごせない"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もう1度考えてみてあげたら？"
+                },
+                "result": "성공시 파워+5 지능+15 \"先行焦り\"(선행 조바심) 힌트 Lv+2 OR 실패시 파워+5 지능+10"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "完成したポスターを見るのが楽しみ！"
+                },
+                "result": "체력+15 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "アヤベさんは譲れない"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "파워+7 지능+7"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "アヤベさんは挫けない"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "俺も温泉入ればよかったな"
+                },
+                "result": "파워+15 지능+10 \"強攻策\"(강공책) 힌트 Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "実はモデル向いてるんじゃない？"
+                },
+                "result": "스피드+15 스킬 Pt+30 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "不器用なトライアングラム"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "力を合わせよう！"
+                },
+                "result": "파워+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まずは落ち着かせよう"
+                },
+                "result": "체력+10"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "孤高のケフェウス"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "先に片づけておこう"
+                },
+                "result": "\"先行けん制\"(선행 견제) 힌트 Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……彼女の意見を尊重しよう"
+                },
+                "result": "지능+10 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 168
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "마치카네 후쿠키타루",
+        "ja": "マチカネフクキタル"
+      },
+      "targetID": "55",
+      "imageSrc": "/image/Matikanefukukitaru/cards/support/03.png",
+      "type": "support",
+      "supportType": "speed",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "의욕 효과 UP, 훈련 실패율 DOWN",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 스피드 UP 7",
+            "maxEffect": "육성 시작시 초기 스피드 UP 30"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 스태미나 UP 7",
+            "maxEffect": "육성 시작시 초기 스태미나 UP 30"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 파워 UP 7",
+            "maxEffect": "육성 시작시 초기 파워 UP 30"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 근성 UP 7",
+            "maxEffect": "육성 시작시 초기 근성 UP 30"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 지능 UP 7",
+            "maxEffect": "육성 시작시 초기 지능 UP 30"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "15",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 소모되는 체력 양이 DOWN",
+            "maxEffect": "함께 트레이닝 시 소모되는 체력 양이 DOWN 10%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 10%"
+          },
+          {
+            "level": "45",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "45",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 15%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [
+        "155",
+        "154"
+      ],
+      "trainingSkillsIds": [
+        "36",
+        "198",
+        "200",
+        "186",
+        "218",
+        "148",
+        "154"
+      ],
+      "hasSkillsIds": [],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "謎の儀式図で運試し！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "最高にハッピーな秘術かも！？"
+                },
+                "result": "성공시 모든 스탯+7 인연게이지+7 OR 실패시 지능+4 *연속 이벤트 종료(실패시)"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "……封印しておくべきもの、とか"
+                },
+                "result": "체력+5 인연게이지+5 *연속 이벤트 종료"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "仲間と一緒に笑福万来！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まだ正体は謎のままだぞ！"
+                },
+                "result": "성공시 모든 스탯+7 인연게이지+7 OR 실패시 지능+4 *연속 이벤트 종료"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "地図、大事にしないとな"
+                },
+                "result": "체력+5 인연게이지+5 *연속 이벤트 종료"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "辿り着いたよミラクルハッピー！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "인연게이지+7 대성공시 모든 스탯+7 스킬 Pt+77 \"スーパーラッキーセブン\"(슈퍼 럭키 세븐) 힌트 Lv+3 OR 성공시 모든 스탯 +7 스킬 Pt+7 \"スーパーラッキーセブン\"(슈퍼 럭키 세븐) 힌트 Lv+1 OR 실패시 스킬 Pt+7 \"ラッキーセブン\"(럭키 세븐) 힌트 Lv+3"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "信仰心と親切心が交わる時ーー"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "片っ端から作業を振ってみる"
+                },
+                "result": "스킬 Pt+30 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "自分に親切にしてみるとかはどう？"
+                },
+                "result": "체력+20 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "力スピリチュアル"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "だ急いでいるだけの気が……"
+                },
+                "result": "지능+5 스킬 Pt+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "もう少し気合いも込めてみたら？"
+                },
+                "result": "체력-10 스피드+5 스태미나+5 파워+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 169
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "메이쇼 도토",
+        "ja": "メイショウドトウ"
+      },
+      "targetID": "57",
+      "imageSrc": "/image/MeishoDoto/cards/support/03.png",
+      "type": "support",
+      "supportType": "stamina",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": true,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "40",
+            "effect": "트레이닝 효과 UP, 힌트 이벤트 발생률 UP",
+            "maxEffect": ""
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 25%"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 스태미나 UP 10",
+            "maxEffect": "육성 시작시 초기 스태미나 UP 35"
+          },
+          {
+            "level": "none",
+            "effect": "육성 시작시 초기 근성 UP 10",
+            "maxEffect": "육성 시작시 초기 근성 UP 35"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 효과 UP",
+            "maxEffect": "함께 트레이닝 시 효과 UP 5%"
+          },
+          {
+            "level": "15",
+            "effect": "육성 시작시 초기 인연 게이지 UP",
+            "maxEffect": "육성 시작시 초기 인연 게이지 UP 20"
+          },
+          {
+            "level": "15",
+            "effect": "특기 트레이닝에 배치될 확률 UP",
+            "maxEffect": "특기 트레이닝에 배치될 확률 UP 35"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 스태미나의 상승량 ",
+            "maxEffect": "함께 트레이닝 시 스태미나의 상승량  1"
+          },
+          {
+            "level": "45",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP ",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 3"
+          },
+          {
+            "level": "45",
+            "effect": "힌트 이벤트가 발생할 확률 UP",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 40%"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "17",
+        "15",
+        "32"
+      ],
+      "hasSkillsIds": [
+        "35",
+        "123",
+        "197",
+        "137",
+        "150",
+        "152",
+        "161"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "覇王の危機！？"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まごころが通じたんだろう"
+                },
+                "result": "체력+10 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "放っておいたら何が起きていたんだろう"
+                },
+                "result": "스태미나+5 \"中距離コーナー◯\"(장거리 코너◯) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "お食事券事件"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "스피드+3 스태미나+3 파워+3 스킬 Pt+10"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "めーめー団の新団員"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "체력-20 스피드+5 스태미나+10 \"キラーチューン\"(킬러 튠) 힌트 Lv+3 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "にんじん……買ってくださいっ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "トレセン学園に掛け合ってみよう"
+                },
+                "result": "체력+10 지능+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "人の多いところで呼び込みをしよう"
+                },
+                "result": "\"先行コーナー◯\"(선행 코너◯) 힌트 Lv+1 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "私……改革ですっ"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まずは揺るぎない自信を見習おう"
+                },
+                "result": "체력+10 의욕 상승 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "まずはあのバイタリティを見習おう"
+                },
+                "result": "근성+15 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 170
     }
   ],
   "skills": [
@@ -94540,6 +95418,21 @@
       ],
       "condition": "",
       "id": 431
+    },
+    {
+      "name": {
+        "ko": "강공책",
+        "ja": "強攻策"
+      },
+      "effect": "레이스 중반에 후방에 있으면 잠시 속도가 조금 상승한다 <작전 선행>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "선행"
+      ],
+      "condition": "",
+      "id": 432
     }
   ],
   "conditions": []
