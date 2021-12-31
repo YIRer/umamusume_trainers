@@ -84245,7 +84245,7 @@
       "id": 165
     },
     {
-      "star": 1,
+      "star": 3,
       "name": {
         "ko": "하루 우라라",
         "ja": "ハルウララ"
@@ -84386,11 +84386,22 @@
         "unique": [],
         "support": []
       },
-      "uniqueSkillsIds": [],
+      "uniqueSkillsIds": [
+        "428"
+      ],
       "trainingSkillsIds": [],
       "hasSkillsIds": [],
-      "baseSkillsIds": [],
-      "awakeningSkillsIds": [],
+      "baseSkillsIds": [
+        "118",
+        "13",
+        "100"
+      ],
+      "awakeningSkillsIds": [
+        "197",
+        "119",
+        "159",
+        "101"
+      ],
       "skills": [
         {
           "name": {
@@ -87531,7 +87542,7 @@
     },
     {
       "name": {
-        "ko": "분발",
+        "ko": "근면한 태도",
         "ja": "がんばり屋"
       },
       "targetIDs": [
@@ -93579,6 +93590,23 @@
       ],
       "condition": "",
       "id": 427
+    },
+    {
+      "name": {
+        "ko": "113전 114기",
+        "ja": "113転び114起き"
+      },
+      "effect": "최종 코너에서 선두와 멀리 떨어져 있으면 그 거리가 멀수록 힘을 내게 되어 속도가 조금씩 오른다",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "고유스킬",
+        "하루우라라",
+        "113転び114起き",
+        "113전114기",
+        "속도상승"
+      ],
+      "condition": "",
+      "id": 428
     }
   ],
   "conditions": []
