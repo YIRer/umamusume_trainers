@@ -916,6 +916,17 @@
       "imageSrc": "/image/MejiroBright/main.png",
       "cards": [],
       "id": 76
+    },
+    {
+      "name": {
+        "default": "AnshinzawaSasami",
+        "ko": "안신자와 사사미",
+        "ja": "安心沢刺々美",
+        "en": "Anshinzawa Sasami"
+      },
+      "imageSrc": "/image/AnshinzawaSasami/main.png",
+      "cards": [],
+      "id": 77
     }
   ],
   "cards": [
