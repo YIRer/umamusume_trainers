@@ -86434,8 +86434,7 @@
         "unique": [
           {
             "level": "30",
-            "effect": "의욕 효과 UP, 훈련 실패율 DOWN",
-            "maxEffect": ""
+            "effect": "의욕 효과 UP, 훈련 실패율 DOWN"
           }
         ],
         "support": [
@@ -86623,7 +86622,7 @@
           {
             "title": {
               "ko": "",
-              "ja": "力スピリチュアル"
+              "ja": "全力スピリチュアル"
             },
             "eventType": "once",
             "tags": [
