@@ -927,6 +927,17 @@
       "imageSrc": "/image/AnshinzawaSasami/main.png",
       "cards": [],
       "id": 77
+    },
+    {
+      "name": {
+        "default": "NaritaTopRoad",
+        "ko": "나리타 탑 로드",
+        "ja": "ナリタトップロード",
+        "en": "NaritaTopRoad"
+      },
+      "imageSrc": "/image/NaritaTopRoad/main.png",
+      "cards": [],
+      "id": 78
     }
   ],
   "cards": [
