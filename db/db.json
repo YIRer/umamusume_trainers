@@ -90452,6 +90452,298 @@
         "multipleTimes": []
       },
       "id": 176
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "사쿠라 바쿠신 오",
+        "ja": "サクラバクシンオー"
+      },
+      "targetID": "41",
+      "imageSrc": "/image/SakuraBakushinO/cards/support/03.png",
+      "type": "support",
+      "supportType": "guts",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [
+          {
+            "level": "30",
+            "effect": "인연게이지가 80이상이고 특기 트레이닝이 아닌 경우, 트레이닝 효과 UP"
+          }
+        ],
+        "support": [
+          {
+            "level": "none",
+            "effect": "우정 트레이닝 발생으로 인한 효과 UP 10%",
+            "maxEffect": "우정 트레이닝 발생으로 인한 효과 UP 35%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 스텟 상승량 UP 10%"
+          },
+          {
+            "level": "none",
+            "effect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 1%",
+            "maxEffect": "경주에 출주한 결과로 상승하는 팬 수의 상승량 UP 20%"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 1",
+            "maxEffect": "힌트 이벤트에서 얻은 힌트 Lv이 UP 3"
+          },
+          {
+            "level": "none",
+            "effect": "힌트 이벤트가 발생할 확률 UP 5%",
+            "maxEffect": "힌트 이벤트가 발생할 확률 UP 50%"
+          },
+          {
+            "level": "10",
+            "effect": "육성 시작 시 초기 인연 게이지가 UP",
+            "maxEffect": "육성 시작 시 초기 인연 게이지가 UP 25"
+          },
+          {
+            "level": "15",
+            "effect": "함께 트레이닝 시 의욕에 의한 효과 UP",
+            "maxEffect": "함께 트레이닝 시 의욕에 의한 효과 UP 30%"
+          },
+          {
+            "level": "35",
+            "effect": "함께 트레이닝 시 근성의 상승량 UP",
+            "maxEffect": ""
+          },
+          {
+            "level": "45",
+            "effect": "육성 시작시 초기 근성 UP 15",
+            "maxEffect": "육성 시작시 초기 근성 UP 30"
+          }
+        ]
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "441",
+        "5",
+        "442",
+        "106"
+      ],
+      "hasSkillsIds": [
+        "3",
+        "1",
+        "2",
+        "79",
+        "81",
+        "206",
+        "229",
+        "233"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "events": {
+        "once": [
+          {
+            "title": {
+              "ko": "",
+              "ja": "『ちびっ子ウマ娘徒競走大会』"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "今はそっとしておこう"
+                },
+                "result": "근성+5 \"地固め\"(땅 고르기) 힌트 Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "特訓をしてあげるとか！"
+                },
+                "result": "최대 체력+4 스피드+5 인연게이지+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "姉の背中"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "わかった、応援してるよ"
+                },
+                "result": "근성+10 스피드+5 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "準備、手伝わせてほしい\t"
+                },
+                "result": "스킬Pt+30 *연속 이벤트 종료"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "貴方らしく"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "없음"
+                },
+                "result": "\"意気衝天\"(의기충천) 힌트 Lv+3 성공시 스피드+15 근성+15 OR 실패시 스피드+5 근성+5"
+              }
+            ],
+            "condition": "연속 이벤트"
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "優等生の一石二鳥！！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "雑巾がけで、スピード強化！"
+                },
+                "result": "스피드+15 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "資料室の整理で、パワーも強化！"
+                },
+                "result": "스피드+5 파워+10 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          },
+          {
+            "title": {
+              "ko": "",
+              "ja": "走りだすほどの！！"
+            },
+            "eventType": "once",
+            "tags": [
+              ""
+            ],
+            "choices": [
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "読み終わったら借りてもいいか？"
+                },
+                "result": "\"詰め寄り\"(바짝 쫓기) 힌트 Lv+1 인연게이지+5"
+              },
+              {
+                "description": {
+                  "ko": "",
+                  "ja": "参考に、走りを見せてもらえるか？"
+                },
+                "result": "체력-10 스피드+10 파워+5 인연게이지+5"
+              }
+            ],
+            "condition": ""
+          }
+        ],
+        "multipleTimes": []
+      },
+      "id": 177
     }
   ],
   "skills": [
@@ -99089,6 +99381,36 @@
       ],
       "condition": "",
       "id": 440
+    },
+    {
+      "name": {
+        "ko": "의기충천",
+        "ja": "意気衝天"
+      },
+      "effect": "레이스 후반에 전방에 있으면 속도가 오른다<단거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "후반",
+        "단거리",
+        "속도상승"
+      ],
+      "condition": "",
+      "id": 441
+    },
+    {
+      "name": {
+        "ko": "경쾌한 발걸음",
+        "ja": "軽い足取り"
+      },
+      "effect": "레이스 후반에 전방에 있으면 속도가 약간 상승한다<단거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "단거리",
+        "후반",
+        "속도상승"
+      ],
+      "condition": "",
+      "id": 442
     }
   ],
   "conditions": []
