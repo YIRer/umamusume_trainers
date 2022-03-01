@@ -80,6 +80,11 @@ export const iconData = [
     id: "i_skill_012",
   },
   {
+    value: "/image/skill/i_skill_050.png",
+    label: "파워, 피지컬 버프",
+    id: "i_skill_050",
+  },
+  {
     value: "/image/skill/i_skill_014.png",
     label: "파워, 피지컬 버프",
     id: "i_skill_014",
