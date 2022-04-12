@@ -33,6 +33,20 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
+const routes: {href: string; text: string;}[] = [{
+  href: "/umamusume",
+  text: "우마무스메 리스트"
+}, {
+  href: "/cards",
+  text: "육성/서포터 카드 리스트"
+}, {
+  href: "/skills",
+  text: "스킬 리스트"
+}, {
+  href: "/deck-builder",
+  text: "덱 빌더"
+}]
+
 const MainPage = () => {
   const classes = useStyles();
   return (
@@ -47,26 +61,13 @@ const MainPage = () => {
       />
       <div className={classes.links}>
         <List component="ul">
-          <ListItem classes={{ root: classes.linkItem }}>
-            <Link href="/umamusume">
-              <ListItemText primary="우마무스메 리스트" />
-            </Link>
-          </ListItem>
-          <ListItem classes={{ root: classes.linkItem }}>
-            <Link href="/cards">
-              <ListItemText primary="육성/서포터 카드 리스트" />
-            </Link>
-          </ListItem>
-          <ListItem classes={{ root: classes.linkItem }}>
-            <Link href="/skills">
-              <ListItemText primary="스킬 리스트" />
-            </Link>
-          </ListItem>
-          <ListItem classes={{ root: classes.linkItem }}>
-            <Link href="/deck-builder">
-              <ListItemText primary="덱 빌더" />
-            </Link>
-          </ListItem>
+          {routes.map(({href, text}) => (
+            <ListItem key={href} classes={{ root: classes.linkItem }}>
+              <Link href={href}>
+                <ListItemText primary={text} />
+              </Link>
+            </ListItem>
+          ))}
         </List>
       </div>
     </div>
