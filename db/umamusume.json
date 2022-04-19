@@ -1,0 +1,1008 @@
+{
+  "umamusume": [
+  {
+    "name": {
+      "default": "SpecialWeek",
+      "ko": "스페셜위크",
+      "ja": "スペシャルウィーク",
+      "en": "Special Week"
+    },
+    "imageSrc": "/image/SpecialWeek/main.png",
+    "cards": [],
+    "id": 1
+  },
+  {
+    "name": {
+      "default": "SilenceSuzuka",
+      "ko": "사일런스 스즈카",
+      "ja": "サイレンススズカ",
+      "en": "Silence Suzuka"
+    },
+    "imageSrc": "/image/SilenceSuzuka/main.png",
+    "cards": [],
+    "id": 2
+  },
+  {
+    "name": {
+      "default": "TokaiTeio",
+      "ko": "토카이 테이오",
+      "ja": "トウカイテイオー",
+      "en": "Tokai Teio"
+    },
+    "imageSrc": "/image/TokaiTeio/main.png",
+    "cards": [],
+    "id": 3
+  },
+  {
+    "name": {
+      "default": "Maruzensky",
+      "ko": "마루젠스키",
+      "ja": "マルゼンスキー",
+      "en": "Maruzensky"
+    },
+    "imageSrc": "/image/Maruzensky/main.png",
+    "cards": [],
+    "id": 4
+  },
+  {
+    "name": {
+      "default": "FujiKiseki",
+      "ko": "후지 키세키",
+      "ja": "フジキセキ",
+      "en": "Fuji Kiseki"
+    },
+    "imageSrc": "/image/FujiKiseki/main.png",
+    "cards": [],
+    "id": 5
+  },
+  {
+    "name": {
+      "default": "OguriCap",
+      "ko": "오구리 캡",
+      "ja": "オグリキャップ",
+      "en": "Oguri Cap"
+    },
+    "imageSrc": "/image/OguriCap/main.png",
+    "cards": [],
+    "id": 6
+  },
+  {
+    "name": {
+      "default": "GoldShip",
+      "ko": "골드 십",
+      "ja": "ゴールドシップ",
+      "en": "Gold Ship"
+    },
+    "imageSrc": "/image/GoldShip/main.png",
+    "cards": [],
+    "id": 7
+  },
+  {
+    "name": {
+      "default": "Vodka",
+      "ko": "보드카",
+      "ja": "ウオッカ",
+      "en": "Vodka"
+    },
+    "imageSrc": "/image/Vodka/main.png",
+    "cards": [],
+    "id": 8
+  },
+  {
+    "name": {
+      "default": "DaiwaScarlet",
+      "ko": "다이와 스칼렛",
+      "ja": "ダイワスカーレット",
+      "en": "Daiwa Scarlet"
+    },
+    "imageSrc": "/image/DaiwaScarlet/main.png",
+    "cards": [],
+    "id": 9
+  },
+  {
+    "name": {
+      "default": "TaikiShuttle",
+      "ko": "타이키 셔틀",
+      "ja": "タイキシャトル",
+      "en": "Taiki Shuttle"
+    },
+    "imageSrc": "/image/TaikiShuttle/main.png",
+    "cards": [],
+    "id": 10
+  },
+  {
+    "name": {
+      "default": "GrassWonder",
+      "ko": "그라스 원더",
+      "ja": "グラスワンダー",
+      "en": "Grass Wonder"
+    },
+    "imageSrc": "/image/GrassWonder/main.png",
+    "cards": [
+      {
+        "star": 3,
+        "name": {
+          "ko": "그라스 원더",
+          "ja": "グラスワンダー"
+        },
+        "id": "6",
+        "imageSrc": "/image/GrassWonder/cards/support/02.png",
+        "type": "support",
+        "supportType": "guts",
+        "playable": false,
+        "limited": false
+      },
+      {
+        "star": 2,
+        "name": {
+          "ko": "그라스 원더",
+          "ja": "グラスワンダー"
+        },
+        "id": "73",
+        "imageSrc": "/image/GrassWonder/cards/training/02.png",
+        "type": "training",
+        "supportType": "",
+        "playable": true,
+        "limited": false
+      }
+    ],
+    "id": 11
+  },
+  {
+    "name": {
+      "default": "HishiAmazon",
+      "ko": "히시 아마존",
+      "ja": "ヒシアマゾン",
+      "en": "Hishi Amazon"
+    },
+    "imageSrc": "/image/HishiAmazon/main.png",
+    "cards": [],
+    "id": 12
+  },
+  {
+    "name": {
+      "default": "MejiroMcQueen",
+      "ko": "메지로 맥퀸",
+      "ja": "メジロマックイーン",
+      "en": "Mejiro McQueen"
+    },
+    "imageSrc": "/image/MejiroMcQueen/main.png",
+    "cards": [],
+    "id": 13
+  },
+  {
+    "name": {
+      "default": "ElCondorPasa",
+      "ko": "엘 콘도르 파사",
+      "ja": "エルコンドルパサー",
+      "en": "El Condor Pasa"
+    },
+    "imageSrc": "/image/ElCondorPasa/main.png",
+    "cards": [],
+    "id": 14
+  },
+  {
+    "name": {
+      "default": "TMOperao",
+      "ko": "티엠 오페라 오",
+      "ja": "テイエムオペラオー",
+      "en": "TM Opera O"
+    },
+    "imageSrc": "/image/TMOperao/main.png",
+    "cards": [],
+    "id": 15
+  },
+  {
+    "name": {
+      "default": "NaritaBrian",
+      "ko": "나리타 브라이언",
+      "ja": "ナリタブライアン",
+      "en": "Narita Brian"
+    },
+    "imageSrc": "/image/NaritaBrian/main.png",
+    "cards": [],
+    "id": 16
+  },
+  {
+    "name": {
+      "default": "SymboliRudolf",
+      "ko": "심볼리 루돌프",
+      "ja": "シンボリルドルフ",
+      "en": "Symboli Rudolf"
+    },
+    "imageSrc": "/image/SymboliRudolf/main.png",
+    "cards": [],
+    "id": 17
+  },
+  {
+    "name": {
+      "default": "AirGroove",
+      "ko": "에어 그루브",
+      "ja": "エアグルーヴ",
+      "en": "Air Groove"
+    },
+    "imageSrc": "/image/AirGroove/main.png",
+    "cards": [],
+    "id": 18
+  },
+  {
+    "name": {
+      "default": "AgnesDigital",
+      "ko": "아그네스 디지털",
+      "ja": "アグネスデジタル",
+      "en": "Agnes Digital"
+    },
+    "imageSrc": "/image/AgnesDigital/main.png",
+    "cards": [],
+    "id": 19
+  },
+  {
+    "name": {
+      "default": "TamamoCross",
+      "ko": "타마모 크로스",
+      "ja": "タマモクロス",
+      "en": "Tamamo Cross"
+    },
+    "imageSrc": "/image/TamamoCross/main.png",
+    "cards": [],
+    "id": 20
+  },
+  {
+    "name": {
+      "default": "SeiunSky",
+      "ko": "세이운 스카이",
+      "ja": "セイウンスカイ",
+      "en": "Seiun Sky"
+    },
+    "imageSrc": "/image/SeiunSky/main.png",
+    "cards": [],
+    "id": 21
+  },
+  {
+    "name": {
+      "default": "FineMotion",
+      "ko": "파인 모션",
+      "ja": "ファインモーション",
+      "en": "Fine Motion"
+    },
+    "imageSrc": "/image/FineMotion/main.png",
+    "cards": [
+      {
+        "star": 3,
+        "name": {
+          "ko": "파인 모션",
+          "ja": "ファインモーション"
+        },
+        "id": "10",
+        "imageSrc": "/image/FineMotion/cards/support/02.png",
+        "type": "support",
+        "supportType": "int",
+        "playable": false,
+        "limited": false
+      }
+    ],
+    "id": 22
+  },
+  {
+    "name": {
+      "default": "BiwaHayahide",
+      "ko": "비와 하야히데",
+      "ja": "ビワハヤヒデ",
+      "en": "Biwa Hayahide"
+    },
+    "imageSrc": "/image/BiwaHayahide/main.png",
+    "cards": [],
+    "id": 23
+  },
+  {
+    "name": {
+      "default": "MayanoTopGun",
+      "ko": "마야노 탑건",
+      "ja": "マヤノトップガン",
+      "en": "Mayano Top Gun"
+    },
+    "imageSrc": "/image/MayanoTopGun/main.png",
+    "cards": [],
+    "id": 24
+  },
+  {
+    "name": {
+      "default": "ManhattanCafe",
+      "ko": "맨하탄 카페",
+      "ja": "マンハッタンカフェ",
+      "en": "Manhattan Cafe"
+    },
+    "imageSrc": "/image/ManhattanCafe/main.png",
+    "cards": [],
+    "id": 25
+  },
+  {
+    "name": {
+      "default": "MihonoBourbon",
+      "ko": "미호노 부르봉",
+      "ja": "ミホノブルボン",
+      "en": "Mihono Bourbon"
+    },
+    "imageSrc": "/image/MihonoBourbon/main.png",
+    "cards": [],
+    "id": 26
+  },
+  {
+    "name": {
+      "default": "MejiroRyan",
+      "ko": "메지로 라이언",
+      "ja": "メジロライアン",
+      "en": "Mejiro Ryan"
+    },
+    "imageSrc": "/image/MejiroRyan/main.png",
+    "cards": [],
+    "id": 27
+  },
+  {
+    "name": {
+      "default": "HishiAkebono",
+      "ko": "히시 아케보노",
+      "ja": "ヒシアケボノ",
+      "en": "Hishi Akebono"
+    },
+    "imageSrc": "/image/HishiAkebono/main.png",
+    "cards": [],
+    "id": 28
+  },
+  {
+    "name": {
+      "default": "YukinoBijin",
+      "ko": "유키노 비진",
+      "ja": "ユキノビジン",
+      "en": "Yukino Bijin"
+    },
+    "imageSrc": "/image/YukinoBijin/main.png",
+    "cards": [],
+    "id": 29
+  },
+  {
+    "name": {
+      "default": "RiceShower",
+      "ko": "라이스 샤워",
+      "ja": "ライスシャワー",
+      "en": "Rice Shower"
+    },
+    "imageSrc": "/image/RiceShower/main.png",
+    "cards": [],
+    "id": 30
+  },
+  {
+    "name": {
+      "default": "InesFujin",
+      "ko": "아이네스 후우진",
+      "ja": "アイネスフウジン",
+      "en": "Ines Fujin"
+    },
+    "imageSrc": "/image/InesFujin/main.png",
+    "cards": [],
+    "id": 31
+  },
+  {
+    "name": {
+      "default": "AgnesTachyon",
+      "ko": "아그네스 타키온",
+      "ja": "アグネスタキオン",
+      "en": "Agnes Tachyon"
+    },
+    "imageSrc": "/image/AgnesTachyon/main.png",
+    "cards": [],
+    "id": 32
+  },
+  {
+    "name": {
+      "default": "AdmireVega",
+      "ko": "어드마이어 베가",
+      "ja": "アドマイヤベガ",
+      "en": "Admire Vega"
+    },
+    "imageSrc": "/image/AdmireVega/main.png",
+    "cards": [],
+    "id": 33
+  },
+  {
+    "name": {
+      "default": "InariOne",
+      "ko": "이나리 원",
+      "ja": "イナリワン",
+      "en": "Inari One"
+    },
+    "imageSrc": "/image/InariOne/main.png",
+    "cards": [],
+    "id": 34
+  },
+  {
+    "name": {
+      "default": "WinningTicket",
+      "ko": "위닝 티켓",
+      "ja": "ウイニングチケット",
+      "en": "Winning Ticket"
+    },
+    "imageSrc": "/image/WinningTicket/main.png",
+    "cards": [],
+    "id": 35
+  },
+  {
+    "name": {
+      "default": "AirShakur",
+      "ko": "에어 샤커",
+      "ja": "エアシャカール",
+      "en": "Air Shakur"
+    },
+    "imageSrc": "/image/AirShakur/main.png",
+    "cards": [],
+    "id": 36
+  },
+  {
+    "name": {
+      "default": "EishinFlash",
+      "ko": "에이신 플래쉬",
+      "ja": "エイシンフラッシュ",
+      "en": "Eishin Flash"
+    },
+    "imageSrc": "/image/EishinFlash/main.png",
+    "cards": [],
+    "id": 37
+  },
+  {
+    "name": {
+      "default": "CurrenChan",
+      "ko": "카렌짱",
+      "ja": "カレンチャン",
+      "en": "Curren Chan"
+    },
+    "imageSrc": "/image/CurrenChan/main.png",
+    "cards": [],
+    "id": 38
+  },
+  {
+    "name": {
+      "default": "KawakamiPrincess",
+      "ko": "카와카미 프린세스",
+      "ja": "カワカミプリンセス",
+      "en": "Kawakami Princess"
+    },
+    "imageSrc": "/image/KawakamiPrincess/main.png",
+    "cards": [],
+    "id": 39
+  },
+  {
+    "name": {
+      "default": "GoldCity",
+      "ko": "골드 시티",
+      "ja": "ゴールドシチー",
+      "en": "Gold City"
+    },
+    "imageSrc": "/image/GoldCity/main.png",
+    "cards": [],
+    "id": 40
+  },
+  {
+    "name": {
+      "default": "SakuraBakushinO",
+      "ko": "사쿠라 바쿠신 오",
+      "ja": "サクラバクシンオー",
+      "en": "Sakura Bakushin O"
+    },
+    "imageSrc": "/image/SakuraBakushinO/main.png",
+    "cards": [],
+    "id": 41
+  },
+  {
+    "name": {
+      "default": "SeekingThePearl",
+      "ko": "시킹 더 펄",
+      "ja": "シーキングザパール",
+      "en": "Seeking the Pearl"
+    },
+    "imageSrc": "/image/SeekingThePearl/main.png",
+    "cards": [],
+    "id": 42
+  },
+  {
+    "name": {
+      "default": "ShinkoWindy",
+      "ko": "신코 윈디",
+      "ja": "シンコウウインディ",
+      "en": "Shinko Windy"
+    },
+    "imageSrc": "/image/ShinkoWindy/main.png",
+    "cards": [],
+    "id": 43
+  },
+  {
+    "name": {
+      "default": "SweepTosho",
+      "ko": "스윕 토쇼",
+      "ja": "スイープトウショウ",
+      "en": "Sweep Tosho"
+    },
+    "imageSrc": "/image/SweepTosho/main.png",
+    "cards": [],
+    "id": 44
+  },
+  {
+    "name": {
+      "default": "SuperCreek",
+      "ko": "슈퍼 크릭",
+      "ja": "スーパークリーク",
+      "en": "Super Creek"
+    },
+    "imageSrc": "/image/SuperCreek/main.png",
+    "cards": [
+      {
+        "star": 3,
+        "name": {
+          "ko": "슈퍼 크릭",
+          "ja": "スーパークリーク"
+        },
+        "id": "16",
+        "imageSrc": "/image/SuperCreek/cards/support/02.png",
+        "type": "support",
+        "supportType": "stamina",
+        "playable": false,
+        "limited": false
+      },
+      {
+        "star": 2,
+        "name": {
+          "ko": "슈퍼 크릭",
+          "ja": "スーパークリーク"
+        },
+        "id": "77",
+        "imageSrc": "/image/SuperCreek/cards/training/02.png",
+        "type": "training",
+        "supportType": "",
+        "playable": true,
+        "limited": false
+      },
+      {
+        "star": 3,
+        "name": {
+          "ko": "슈퍼 크릭",
+          "ja": "スーパークリーク"
+        },
+        "id": "139",
+        "imageSrc": "/image/SuperCreek/cards/training/03.png",
+        "type": "training",
+        "supportType": "",
+        "playable": true,
+        "limited": false
+      }
+    ],
+    "id": 45
+  },
+  {
+    "name": {
+      "default": "SmartFalcon",
+      "ko": "스마트 팔콘",
+      "ja": "スマートファルコン",
+      "en": "Smart Falcon"
+    },
+    "imageSrc": "/image/SmartFalcon/main.png",
+    "cards": [],
+    "id": 46
+  },
+  {
+    "name": {
+      "default": "ZennoRobRoy",
+      "ko": "젠노 롭 로이",
+      "ja": "ゼンノロブロイ",
+      "en": "Zenno Rob Roy"
+    },
+    "imageSrc": "/image/ZennoRobRoy/main.png",
+    "cards": [],
+    "id": 47
+  },
+  {
+    "name": {
+      "default": "TosenJordan",
+      "ko": "토센 조던",
+      "ja": "トーセンジョーダン",
+      "en": "Tosen Jordan"
+    },
+    "imageSrc": "/image/TosenJordan/main.png",
+    "cards": [],
+    "id": 48
+  },
+  {
+    "name": {
+      "default": "NakayamaFesta",
+      "ko": "나카야마 페스타",
+      "ja": "ナカヤマフェスタ",
+      "en": "Nakayama Festa"
+    },
+    "imageSrc": "/image/NakayamaFesta/main.png",
+    "cards": [],
+    "id": 49
+  },
+  {
+    "name": {
+      "default": "NaritaTaishin",
+      "ko": "나리타 타이신",
+      "ja": "ナリタタイシン",
+      "en": "Narita Taishin"
+    },
+    "imageSrc": "/image/NaritaTaishin/main.png",
+    "cards": [],
+    "id": 50
+  },
+  {
+    "name": {
+      "default": "NishinoFlower",
+      "ko": "니시노 플라워",
+      "ja": "ニシノフラワー",
+      "en": "Nishino Flower"
+    },
+    "imageSrc": "/image/NishinoFlower/main.png",
+    "cards": [],
+    "id": 51
+  },
+  {
+    "name": {
+      "default": "HaruUrara",
+      "ko": "하루 우라라",
+      "ja": "ハルウララ",
+      "en": "Haru Urara"
+    },
+    "imageSrc": "/image/HaruUrara/main.png",
+    "cards": [],
+    "id": 52
+  },
+  {
+    "name": {
+      "default": "BambooMemory",
+      "ko": "뱀부 메모리",
+      "ja": "バンブーメモリー",
+      "en": "Bamboo Memory"
+    },
+    "imageSrc": "/image/BambooMemory/main.png",
+    "cards": [],
+    "id": 53
+  },
+  {
+    "name": {
+      "default": "MarvelousSunday",
+      "ko": "마블러스 선데이",
+      "ja": "マーベラスサンデー",
+      "en": "Marvelous Sunday"
+    },
+    "imageSrc": "/image/MarvelousSunday/main.png",
+    "cards": [],
+    "id": 54
+  },
+  {
+    "name": {
+      "default": "Matikanefukukitaru",
+      "ko": "마치카네 후쿠키타루",
+      "ja": "マチカネフクキタル",
+      "en": "Matikanefukukitaru"
+    },
+    "imageSrc": "/image/Matikanefukukitaru/main.png",
+    "cards": [],
+    "id": 55
+  },
+  {
+    "name": {
+      "default": "MrCB",
+      "ko": "미스터 CB",
+      "ja": "ミスターシービー",
+      "en": "Mr C B"
+    },
+    "imageSrc": "/image/MrCB/main.png",
+    "cards": [],
+    "id": 56
+  },
+  {
+    "name": {
+      "default": "MeishoDoto",
+      "ko": "메이쇼 도토",
+      "ja": "メイショウドトウ",
+      "en": "Meisho Doto"
+    },
+    "imageSrc": "/image/MeishoDoto/main.png",
+    "cards": [],
+    "id": 57
+  },
+  {
+    "name": {
+      "default": "MejiroDober",
+      "ko": "메지로 도베르",
+      "ja": "メジロドーベル",
+      "en": "Mejiro Dober"
+    },
+    "imageSrc": "/image/MejiroDober/main.png",
+    "cards": [],
+    "id": 58
+  },
+  {
+    "name": {
+      "default": "NiceNature",
+      "ko": "나이스 네이처",
+      "ja": "ナイスネイチャ",
+      "en": "Nice Nature"
+    },
+    "imageSrc": "/image/NiceNature/main.png",
+    "cards": [],
+    "id": 59
+  },
+  {
+    "name": {
+      "default": "KingHalo",
+      "ko": "킹 헤일로",
+      "ja": "キングヘイロー",
+      "en": "King halo"
+    },
+    "imageSrc": "/image/KingHalo/main.png",
+    "cards": [],
+    "id": 60
+  },
+  {
+    "name": {
+      "default": "Matikanetannhauser",
+      "ko": "마치카네 탄호이저",
+      "ja": "マチカネタンホイザ",
+      "en": "Matikanetannhauser"
+    },
+    "imageSrc": "/image/Matikanetannhauser/main.png",
+    "cards": [],
+    "id": 61
+  },
+  {
+    "name": {
+      "default": "IkunoDictus",
+      "ko": "이쿠노 딕터스",
+      "ja": "イクノディクタス",
+      "en": "Ikuno Dictus"
+    },
+    "imageSrc": "/image/IkunoDictus/main.png",
+    "cards": [],
+    "id": 62
+  },
+  {
+    "name": {
+      "default": "MejiroPalmer",
+      "ko": "메지로 파머",
+      "ja": "メジロパーマー",
+      "en": "Mejiro Palmer"
+    },
+    "imageSrc": "/image/MejiroPalmer/main.png",
+    "cards": [],
+    "id": 63
+  },
+  {
+    "name": {
+      "default": "DaitakuHelios",
+      "ko": "다이타쿠 헬리오스",
+      "ja": "ダイタクヘリオス",
+      "en": "Daitaku Helios"
+    },
+    "imageSrc": "/image/DaitakuHelios/main.png",
+    "cards": [],
+    "id": 64
+  },
+  {
+    "name": {
+      "default": "TwinTurbo",
+      "ko": "트윈 터보",
+      "ja": "ツインターボ",
+      "en": "Twin Turbo"
+    },
+    "imageSrc": "/image/TwinTurbo/main.png",
+    "cards": [],
+    "id": 65
+  },
+  {
+    "name": {
+      "default": "SatonoDiamond",
+      "ko": "사토노 다이아몬드",
+      "ja": "サトノダイヤモンド",
+      "en": "Satono Diamond"
+    },
+    "imageSrc": "/image/SatonoDiamond/main.png",
+    "cards": [],
+    "id": 66
+  },
+  {
+    "name": {
+      "default": "KitasanBlack",
+      "ko": "키타산 블랙",
+      "ja": "キタサンブラック",
+      "en": "Kitasan Black"
+    },
+    "imageSrc": "/image/KitasanBlack/main.png",
+    "cards": [],
+    "id": 67
+  },
+  {
+    "name": {
+      "default": "MejiroArdan",
+      "ko": "메지로 아르당",
+      "ja": "メジロアルダン",
+      "en": "Mejiro Ardan"
+    },
+    "imageSrc": "/image/MejiroArdan/main.png",
+    "cards": [],
+    "id": 68
+  },
+  {
+    "name": {
+      "default": "SakuraChiyonoO",
+      "ko": "사쿠라 치요노 오",
+      "ja": "サクラチヨノオー",
+      "en": "Sakura Chiyono O"
+    },
+    "imageSrc": "/image/SakuraChiyonoO/main.png",
+    "cards": [],
+    "id": 69
+  },
+  {
+    "name": {
+      "default": "SiriusSymboli",
+      "ko": "시리우스 심볼리",
+      "ja": "シリウスシンボリ",
+      "en": "Sirius Symboli"
+    },
+    "imageSrc": "/image/SiriusSymboli/main.png",
+    "cards": [],
+    "id": 70
+  },
+  {
+    "name": {
+      "default": "YaenoMuteki",
+      "ko": "야에노 무테키",
+      "ja": "ヤエノムテキ",
+      "en": "Yaeno Muteki"
+    },
+    "imageSrc": "/image/YaenoMuteki/main.png",
+    "cards": [],
+    "id": 71
+  },
+  {
+    "name": {
+      "default": "BikoPegasus",
+      "ko": "비코 페가수스",
+      "ja": "ビコーペガサス",
+      "en": "Biko Pegasus"
+    },
+    "imageSrc": "/image/BikoPegasus/main.png",
+    "cards": [],
+    "id": 72
+  },
+  {
+    "name": {
+      "default": "HayakawaTazuna",
+      "ko": "하야카와 타즈나",
+      "ja": "駿川たづな",
+      "en": "Hayakawa Tazuna"
+    },
+    "imageSrc": "/image/HayakawaTazuna/main.png",
+    "cards": [],
+    "id": 73
+  },
+  {
+    "name": {
+      "default": "KiryuinAoi",
+      "ko": "키류인 아오이",
+      "ja": "桐生院葵",
+      "en": "Kiryuin Aoi"
+    },
+    "imageSrc": "/image/KiryuinAoi/main.png",
+    "cards": [],
+    "id": 74
+  },
+  {
+    "name": {
+      "default": "KashimotoRiko",
+      "ko": "카시모토 리코",
+      "ja": "樫本理子",
+      "en": "Kashimoto Riko"
+    },
+    "imageSrc": "/image/KashimotoRiko/main.png",
+    "cards": [],
+    "id": 75
+  },
+  {
+    "name": {
+      "default": "MejiroBright",
+      "ko": "메지로 브라이트",
+      "ja": "メジロブライト",
+      "en": "Mejiro Bright"
+    },
+    "imageSrc": "/image/MejiroBright/main.png",
+    "cards": [],
+    "id": 76
+  },
+  {
+    "name": {
+      "default": "AnshinzawaSasami",
+      "ko": "안신자와 사사미",
+      "ja": "安心沢刺々美",
+      "en": "Anshinzawa Sasami"
+    },
+    "imageSrc": "/image/AnshinzawaSasami/main.png",
+    "cards": [],
+    "id": 77
+  },
+  {
+    "name": {
+      "default": "NaritaTopRoad",
+      "ko": "나리타 탑 로드",
+      "ja": "ナリタトップロード",
+      "en": "NaritaTopRoad"
+    },
+    "imageSrc": "/image/NaritaTopRoad/main.png",
+    "cards": [],
+    "id": 78
+  },
+  {
+    "name": {
+      "default": "SakuraLaurel",
+      "ko": "사쿠라 로렐",
+      "ja": "サクラローレル",
+      "en": "Sakura Laurel"
+    },
+    "imageSrc": "/image/SakuraLaurel/main.png",
+    "cards": [],
+    "id": 79
+  },
+  {
+    "name": {
+      "default": "YamaninZephyr",
+      "ko": "야마닌 제퍼",
+      "ja": "ヤマニンゼファー",
+      "en": "Yamanin Zephyr"
+    },
+    "imageSrc": "/image/YamaninZephyr/main.png",
+    "cards": [],
+    "id": 80
+  },
+  {
+    "name": {
+      "default": "AstonMachan",
+      "ko": "애스턴 마짱",
+      "ja": "アストンマーチャン",
+      "en": "Aston Machan"
+    },
+    "imageSrc": "/image/AstonMachan/main.png",
+    "cards": [],
+    "id": 81
+  },
+  {
+    "name": {
+      "default": "LittleCocon",
+      "ko": "리틀 코콘",
+      "ja": "リトルココン",
+      "en": "Little Cocon"
+    },
+    "imageSrc": "/image/LittleCocon/main.png",
+    "cards": [],
+    "id": 82
+  },
+  {
+    "name": {
+      "default": "BitterGlasse",
+      "ko": "비터 글라세",
+      "ja": "ビターグラッセ",
+      "en": "Bitter Glasse"
+    },
+    "imageSrc": "/image/BitterGlasse/main.png",
+    "cards": [],
+    "id": 83
+  },
+  {
+    "name": {
+      "default": "TsurumaruTsuyoshi",
+      "ko": "츠루마루 츠요시",
+      "ja": "ツルマルツヨシ",
+      "en": "Tsurumaru Tsuyoshi"
+    },
+    "imageSrc": "/image/TsurumaruTsuyoshi/main.png",
+    "cards": [],
+    "id": 84
+  }
+]}
