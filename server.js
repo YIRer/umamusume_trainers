@@ -8,7 +8,7 @@ const server = express();
 const port = process.env.PORT || 8080;
 
 server.use(cors());
-server.use("/api", jsonServer.router(require('./db/routes.js')()));
+server.use("/api", jsonServer.router("./db/db.json"));
 server.use("/graphql", expressGraphQL.graphqlHTTP({ graphiql: true, schema }));
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
