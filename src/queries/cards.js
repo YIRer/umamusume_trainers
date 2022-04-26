@@ -342,6 +342,10 @@ export const GET_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         once {
@@ -358,6 +362,10 @@ export const GET_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         multipleTimes {
@@ -374,6 +382,72 @@ export const GET_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
+          }
+        }
+      }
+      aoharu {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
           }
         }
       }
@@ -387,6 +461,15 @@ export const GET_CARD = gql`
           effect
           maxEffect
         }
+      }
+      bonusEffectTable {
+        name
+        effects
+      }
+      hiddenTitle {
+        name
+        condition
+        rewards
       }
     }
   }
@@ -513,6 +596,10 @@ export const GET_CARDS_BY_TYPE = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         once {
@@ -529,6 +616,10 @@ export const GET_CARDS_BY_TYPE = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         multipleTimes {
@@ -545,6 +636,72 @@ export const GET_CARDS_BY_TYPE = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
+          }
+        }
+      }
+      aoharu {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
           }
         }
       }
@@ -558,6 +715,15 @@ export const GET_CARDS_BY_TYPE = gql`
           effect
           maxEffect
         }
+      }
+      bonusEffectTable {
+        name
+        effects
+      }
+      hiddenTitle {
+        name
+        condition
+        rewards
       }
     }
   }
@@ -684,6 +850,10 @@ export const ADD_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         once {
@@ -700,6 +870,10 @@ export const ADD_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         multipleTimes {
@@ -716,6 +890,72 @@ export const ADD_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
+          }
+        }
+      }
+      aoharu {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
           }
         }
       }
@@ -729,6 +969,15 @@ export const ADD_CARD = gql`
           effect
           maxEffect
         }
+      }
+      bonusEffectTable {
+        name
+        effects
+      }
+      hiddenTitle {
+        name
+        condition
+        rewards
       }
     }
   }
@@ -855,6 +1104,10 @@ export const EDIT_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         once {
@@ -871,6 +1124,10 @@ export const EDIT_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         multipleTimes {
@@ -887,6 +1144,72 @@ export const EDIT_CARD = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
+          }
+        }
+      }
+      aoharu {
+        common {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        once {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
+          }
+        }
+        multipleTimes {
+          title {
+            ko
+            ja
+          }
+          eventType
+          tags
+          condition
+          choices {
+            description {
+              ko
+              ja
+            }
+            result
+            results {
+              condition
+              result
+            }
           }
         }
       }
@@ -900,6 +1223,15 @@ export const EDIT_CARD = gql`
           effect
           maxEffect
         }
+      }
+      bonusEffectTable {
+        name
+        effects
+      }
+      hiddenTitle {
+        name
+        condition
+        rewards
       }
     }
   }

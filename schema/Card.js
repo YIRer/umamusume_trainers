@@ -188,7 +188,7 @@ const CardEventChoiceType = new GraphQLObjectType({
   fields: () => ({
     description: { type: CardEventTilteAndSelectionType },
     result: { type: GraphQLString },
-    results: { type: new GraphQLObjectType(CardEventChoiceResultType) }
+    results: { type: new GraphQLList(CardEventChoiceResultType) }
   }),
 });
 
