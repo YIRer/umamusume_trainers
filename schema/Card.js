@@ -175,11 +175,20 @@ const CardInputType = new GraphQLInputObjectType({
   }),
 });
 
+const CardEventChoiceResultType = new GraphQLObjectType({
+  name: "CardEventChoiceResultType",
+  fields: () => ({
+    condition: { type: GraphQLString },
+    result: { type: GraphQLString },
+  }),
+});
+
 const CardEventChoiceType = new GraphQLObjectType({
   name: "CardEventChoiceType",
   fields: () => ({
     description: { type: CardEventTilteAndSelectionType },
     result: { type: GraphQLString },
+    results: { type: new GraphQLObjectType(CardEventChoiceResultType) }
   }),
 });
 
@@ -304,6 +313,23 @@ const CardObjectsType = new GraphQLObjectType({
   }),
 });
 
+const BonusEffectTableRow = new GraphQLObjectType({
+  name: "BonusEffectTableRow",
+  fields: () => ({
+    name: { type: GraphQLString },
+    effects: { type: new GraphQLList(GraphQLString) }
+  })
+})
+
+const HiddenTitle = new GraphQLObjectType({
+  name: "HiddenTitle",
+  fields: () => ({
+    name: { type: GraphQLString },
+    condition: { type: GraphQLString },
+    rewards: { type: GraphQLString }
+  })
+})
+
 const CardType = new GraphQLObjectType({
   name: "Card",
   fields: () => ({
@@ -354,6 +380,11 @@ const CardType = new GraphQLObjectType({
     events: {
       type: CardEventType,
     },
+    aoharu: {
+      type: CardEventType,
+    },
+    bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
+    hiddenTitle: { type: HiddenTitle }
   }),
 });
 
