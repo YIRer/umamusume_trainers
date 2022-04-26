@@ -47,3 +47,9 @@ export type SimpleCardType = Pick<
   | "playable"
   | "limited"
 >;
+
+export type HiddenTitle = {
+  name: string;
+  condition: string;
+  rewards: string;
+}

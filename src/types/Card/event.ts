@@ -3,6 +3,10 @@ import { NameAndTitleType } from "types/nameAndTitle";
 export type CardEventChoiceType = {
   description: NameAndTitleType;
   result: string;
+  results?: Array<{
+    condition: string;
+    result: string;
+  }>;
 };
 
 export type CardEventType = {
