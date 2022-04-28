@@ -106213,7 +106213,7 @@
       "supportType": "power",
       "trainingObjects": [],
       "playable": false,
-      "limited": false,
+      "limited": true,
       "status": {
         "ground": {
           "turf": {
