@@ -384,7 +384,7 @@ const CardType = new GraphQLObjectType({
       type: CardEventType,
     },
     bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
-    hiddenTitle: { type: HiddenTitle }
+    hiddenTitle: { type: new GraphQLList(HiddenTitle) }
   }),
 });
 

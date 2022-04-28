@@ -53,3 +53,8 @@ export type HiddenTitle = {
   condition: string;
   rewards: string;
 }
+
+export type BonusEffectTableRow = {
+  name: string;
+  effects: string[];
+}

@@ -68,7 +68,8 @@ export type FormDataType = {
   aoharu?: CardEventObjectType;
   bonus: CardBonusObjectType;
   imageName?: string;
-  hiddenTitle?: HiddenTitle;
+  hiddenTitle?: HiddenTitle[];
+  bonusEffectTable?: HiddenTitle[];
 };
 
 export type SelectedSkillTypes = keyof RelatedSkillsType | "";
