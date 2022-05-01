@@ -46,6 +46,7 @@ import { CardEventObjectType } from "types/Card/event";
 import { CardBonusObjectType } from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import { commonMultipleEvent } from "./constants";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -142,10 +143,6 @@ const AddCard = () => {
         once: [],
         multipleTimes: [],
       },
-      aoharu: {
-        once: [],
-        multipleTimes: [],
-      },
       bonus: {
         unique: [],
         support: [],
@@ -208,10 +205,6 @@ const AddCard = () => {
     setFormInput({ events: eventData });
   };
 
-  const handleChangeAoharuEvents = (eventData: CardEventObjectType) => {
-    setFormInput({ aoharu: eventData });
-  };
-
   const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
   };
@@ -239,7 +232,6 @@ const AddCard = () => {
       type,
       imageName,
       events,
-      aoharu,
       bonus,
       playable,
       supportType,
@@ -253,9 +245,6 @@ const AddCard = () => {
 
     const addedOnceEvents = addOnceEvents(events);
     const addedMultipleEvents = addMultipleEvents(addedOnceEvents);
-
-    const addedOnceAoharuEvents = addOnceEvents(aoharu);
-    const addedMultipleAoharuEvents = addMultipleEvents(addedOnceAoharuEvents);
 
     const spType = playable ? "" : supportType ? supportType : "speed";
     const input = {
@@ -292,7 +281,6 @@ const AddCard = () => {
         status: others,
       },
       events: removeEventTempIDs(addedMultipleEvents),
-      aoharu: removeEventTempIDs(addedMultipleAoharuEvents),
       bonus: removeBonusTempIDs(bonus),
       trainingObjects,
       supportType: spType,
@@ -504,12 +492,7 @@ const AddCard = () => {
           onChangeEvents={handleChangeEvents}
           isTrainingType={isTrainingType}
         />
-
-        <CardEventForm
-          onChangeEvents={handleChangeAoharuEvents}
-          isTrainingType={isTrainingType}
-        />
-
+        
         {targetInfo && (
           <div
             className={classes.card}

@@ -389,68 +389,6 @@ export const GET_CARD = gql`
           }
         }
       }
-      aoharu {
-        common {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        once {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        multipleTimes {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-      }
       bonus {
         unique {
           level
@@ -582,68 +520,6 @@ export const GET_CARDS_BY_TYPE = gql`
         }
       }
       events {
-        common {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        once {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        multipleTimes {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-      }
-      aoharu {
         common {
           title {
             ko
@@ -897,68 +773,6 @@ export const ADD_CARD = gql`
           }
         }
       }
-      aoharu {
-        common {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        once {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        multipleTimes {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-      }
       bonus {
         unique {
           level
@@ -1090,68 +904,6 @@ export const EDIT_CARD = gql`
         }
       }
       events {
-        common {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        once {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-        multipleTimes {
-          title {
-            ko
-            ja
-          }
-          eventType
-          tags
-          condition
-          choices {
-            description {
-              ko
-              ja
-            }
-            result
-            results {
-              condition
-              result
-            }
-          }
-        }
-      }
-      aoharu {
         common {
           title {
             ko

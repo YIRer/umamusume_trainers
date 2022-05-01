@@ -65,7 +65,6 @@ export type FormDataType = {
   supportType: TypeOfSupportCard;
   limited: boolean;
   events: CardEventObjectType;
-  aoharu?: CardEventObjectType;
   bonus: CardBonusObjectType;
   imageName?: string;
   hiddenTitle?: HiddenTitle[];

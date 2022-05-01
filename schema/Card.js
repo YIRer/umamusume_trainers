@@ -380,9 +380,6 @@ const CardType = new GraphQLObjectType({
     events: {
       type: CardEventType,
     },
-    aoharu: {
-      type: CardEventType,
-    },
     bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
     hiddenTitle: { type: new GraphQLList(HiddenTitle) }
   }),
