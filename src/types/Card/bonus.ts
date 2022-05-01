@@ -8,3 +8,7 @@ export type CardBonusObjectType = {
   unique: CardBonusType[];
   support: CardBonusType[];
 };
+export type CardBonusEffectTableRowType = {
+  name: string;
+  effects: string[];
+};

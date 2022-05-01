@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import RemoveIcon from "@material-ui/icons/Remove";
@@ -51,13 +51,13 @@ const EventMulitpleChoiceItem = ({
       <div>
         <TextField
           id="selection-results-condition"
-          name="selection-ko"
+          name="selection-results-condition"
           label="조건"
           value={condition}
           onChange={onChangeCondition}
         />
         <TextField
-          id="result"
+          id="selection-result"
           name="selection-result"
           label="결과"
           value={result}

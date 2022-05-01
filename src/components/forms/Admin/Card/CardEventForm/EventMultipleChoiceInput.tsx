@@ -86,13 +86,13 @@ const EventMultipleChoiceInput = ({ updateResults }) => {
         <div>
           <TextField
             id="selection-results-condition"
-            name="selection-ko"
+            name="selection-results-condition"
             label="조건"
             value={condition}
             onChange={onChangeCondition}
           />
           <TextField
-            id="result"
+            id="selection-result"
             name="selection-result"
             label="결과"
             value={result}

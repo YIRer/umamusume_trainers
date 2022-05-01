@@ -30,6 +30,7 @@ import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
+import BonusTableForm from "./CardBonusTableForm/BonusTableForm";
 
 import { prefixImgSrc } from "helper";
 
@@ -43,10 +44,12 @@ import {
 } from "./types";
 
 import { CardEventObjectType } from "types/Card/event";
-import { CardBonusObjectType } from "types/Card/bonus";
+import {
+  CardBonusObjectType,
+  CardBonusEffectTableRowType,
+} from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import { commonMultipleEvent } from "./constants";
-import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -207,6 +210,12 @@ const AddCard = () => {
 
   const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
+  };
+
+  const handleUpdateBonusTable = (bonusData: CardBonusEffectTableRowType) => {
+    setFormInput({
+      bonusEffectTable: [...formData.bonusEffectTable, bonusData],
+    });
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -478,7 +487,10 @@ const AddCard = () => {
         {isTrainingType ? (
           <CardStatus data={statusData} onChange={handleStatusChange} />
         ) : (
-          <CardBonusForm onChangeBonus={handleUpdateBonus} />
+          <>
+            <CardBonusForm onChangeBonus={handleUpdateBonus} />
+            <BonusTableForm updateTableRow={handleUpdateBonusTable} />
+          </>
         )}
 
         {isTrainingType && (
@@ -492,7 +504,7 @@ const AddCard = () => {
           onChangeEvents={handleChangeEvents}
           isTrainingType={isTrainingType}
         />
-        
+
         {targetInfo && (
           <div
             className={classes.card}

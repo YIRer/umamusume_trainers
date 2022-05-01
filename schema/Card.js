@@ -172,6 +172,8 @@ const CardInputType = new GraphQLInputObjectType({
     events: {
       type: CardEventInputType,
     },
+    bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
+    hiddenTitle: { type: new GraphQLList(HiddenTitle) }
   }),
 });
 

@@ -8,7 +8,10 @@ import {
 
 import { UmamusumeType } from "types/Umamusume/umamusume";
 import { CardEventObjectType } from "types/Card/event";
-import { CardBonusObjectType } from "types/Card/bonus";
+import {
+  CardBonusObjectType,
+  CardBonusEffectTableRowType,
+} from "types/Card/bonus";
 import { CardObjectType } from "types/Card/object";
 import { TypeOfCard, TypeOfSupportCard, HiddenTitle } from "types/Card/card";
 
@@ -68,7 +71,7 @@ export type FormDataType = {
   bonus: CardBonusObjectType;
   imageName?: string;
   hiddenTitle?: HiddenTitle[];
-  bonusEffectTable?: HiddenTitle[];
+  bonusEffectTable?: CardBonusEffectTableRowType[];
 };
 
 export type SelectedSkillTypes = keyof RelatedSkillsType | "";
