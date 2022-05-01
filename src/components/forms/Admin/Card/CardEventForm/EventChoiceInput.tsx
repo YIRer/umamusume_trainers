@@ -2,11 +2,12 @@ import React, { useReducer, useEffect } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import EventMultipleChoiceInput from "./EventMultipleChoiceInput";
 
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
-import  { EventChoiceInputProps } from "./types";
+import { EventChoiceInputProps } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   wrapper: {
@@ -47,6 +48,7 @@ const EventChoiceInput = ({
       ko: "",
       ja: "",
       result: "",
+      results: [],
     }
   );
 
@@ -55,6 +57,7 @@ const EventChoiceInput = ({
       ko: choiceData.description.ko,
       ja: choiceData.description.ja,
       result: choiceData.result,
+      results: choiceData.results,
     });
   }, [choiceData]);
 
@@ -63,6 +66,10 @@ const EventChoiceInput = ({
     const value = e.target.value;
 
     setChoiceInputData({ [name]: value });
+  };
+
+  const handleChangeMultipleResults = (results) => {
+    setChoiceInputData({ results: results });
   };
 
   const handleConfirmChoice = () => {
@@ -109,6 +116,7 @@ const EventChoiceInput = ({
         value={choiceInputData.result}
         onChange={handleChange}
       />
+      <EventMultipleChoiceInput updateResults={handleChangeMultipleResults} />
       <div className={classes.buttonWrapper}>
         <Button
           className={classes.button}
