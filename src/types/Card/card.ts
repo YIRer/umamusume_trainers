@@ -1,5 +1,9 @@
 import { NameAndTitleType } from "types/nameAndTitle";
-import { CardBonusObjectType } from "./bonus";
+import {
+  CardBonusObjectType,
+  CardBonusEffectTableRowType,
+  CardOriginalEffectType,
+} from "./bonus";
 import { CardEventObjectType } from "./event";
 import { CardObjectType } from "./object";
 import { CardStatusObject } from "./status";
@@ -33,6 +37,9 @@ export type CardType = {
   awakeningSkillsIds: string[];
   skills: any[];
   events: CardEventObjectType;
+  originalEffect: CardOriginalEffectType;
+  bonusEffectTable: CardBonusEffectTableRowType;
+  hiddenTitle: HiddenTitle;
 };
 
 export type SimpleCardType = Pick<
@@ -52,9 +59,9 @@ export type HiddenTitle = {
   name: string;
   condition: string;
   rewards: string;
-}
+};
 
 export type BonusEffectTableRow = {
   name: string;
   effects: string[];
-}
+};

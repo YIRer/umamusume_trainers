@@ -11,6 +11,7 @@ import { CardEventObjectType } from "types/Card/event";
 import {
   CardBonusObjectType,
   CardBonusEffectTableRowType,
+  CardOriginalEffectType
 } from "types/Card/bonus";
 import { CardObjectType } from "types/Card/object";
 import { TypeOfCard, TypeOfSupportCard, HiddenTitle } from "types/Card/card";
@@ -70,6 +71,7 @@ export type FormDataType = {
   events: CardEventObjectType;
   bonus: CardBonusObjectType;
   imageName?: string;
+  originalEffect: CardOriginalEffectType;
   hiddenTitle?: HiddenTitle[];
   bonusEffectTable?: CardBonusEffectTableRowType[];
 };

@@ -16,6 +16,16 @@ const {
   GraphQLNonNull,
 } = graphql;
 
+const CardOriginalEffect = new GraphQLInputObjectType({
+  name: "CardOriginalEffect",
+  fields: () => ({
+    level: {
+      type: GraphQLString,
+    },
+    effect: GraphQLString,
+  }),
+});
+
 const CardEventChoiceInputType = new GraphQLInputObjectType({
   name: "CardEventChoiceInputType",
   fields: () => ({
@@ -172,8 +182,9 @@ const CardInputType = new GraphQLInputObjectType({
     events: {
       type: CardEventInputType,
     },
+    originalEffect: { type: CardOriginalEffect},
     bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
-    hiddenTitle: { type: new GraphQLList(HiddenTitle) }
+    hiddenTitle: { type: new GraphQLList(HiddenTitle) },
   }),
 });
 
@@ -190,7 +201,7 @@ const CardEventChoiceType = new GraphQLObjectType({
   fields: () => ({
     description: { type: CardEventTilteAndSelectionType },
     result: { type: GraphQLString },
-    results: { type: new GraphQLList(CardEventChoiceResultType) }
+    results: { type: new GraphQLList(CardEventChoiceResultType) },
   }),
 });
 
@@ -319,18 +330,18 @@ const BonusEffectTableRow = new GraphQLObjectType({
   name: "BonusEffectTableRow",
   fields: () => ({
     name: { type: GraphQLString },
-    effects: { type: new GraphQLList(GraphQLString) }
-  })
-})
+    effects: { type: new GraphQLList(GraphQLString) },
+  }),
+});
 
 const HiddenTitle = new GraphQLObjectType({
   name: "HiddenTitle",
   fields: () => ({
     name: { type: GraphQLString },
     condition: { type: GraphQLString },
-    rewards: { type: GraphQLString }
-  })
-})
+    rewards: { type: GraphQLString },
+  }),
+});
 
 const CardType = new GraphQLObjectType({
   name: "Card",
@@ -382,8 +393,9 @@ const CardType = new GraphQLObjectType({
     events: {
       type: CardEventType,
     },
+    originalEffect: { type: CardOriginalEffect},
     bonusEffectTable: { type: new GraphQLList(BonusEffectTableRow) },
-    hiddenTitle: { type: new GraphQLList(HiddenTitle) }
+    hiddenTitle: { type: new GraphQLList(HiddenTitle) },
   }),
 });
 

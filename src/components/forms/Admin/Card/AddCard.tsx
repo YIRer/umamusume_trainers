@@ -30,6 +30,7 @@ import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
+import OriginalEffectForm from "./CardBonusTableForm/OriginalEffectForm";
 import BonusTableForm from "./CardBonusTableForm/BonusTableForm";
 
 import { prefixImgSrc } from "helper";
@@ -47,6 +48,7 @@ import { CardEventObjectType } from "types/Card/event";
 import {
   CardBonusObjectType,
   CardBonusEffectTableRowType,
+  CardOriginalEffectType
 } from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import { commonMultipleEvent } from "./constants";
@@ -150,6 +152,10 @@ const AddCard = () => {
         unique: [],
         support: [],
       },
+      originalEffect: {
+        level: "",
+        effect: "",
+      },
       hiddenTitle: [],
       bonusEffectTable: [],
     }
@@ -215,6 +221,12 @@ const AddCard = () => {
   const handleUpdateBonusTable = (bonusData: CardBonusEffectTableRowType) => {
     setFormInput({
       bonusEffectTable: [...formData.bonusEffectTable, bonusData],
+    });
+  };
+
+  const handleUpdateOriginalEffect = (effect: CardOriginalEffectType) => {
+    setFormInput({
+      originalEffect: effect,
     });
   };
 
@@ -489,6 +501,7 @@ const AddCard = () => {
         ) : (
           <>
             <CardBonusForm onChangeBonus={handleUpdateBonus} />
+            <OriginalEffectForm updateOriginalEffect={handleUpdateOriginalEffect} />
             <BonusTableForm updateTableRow={handleUpdateBonusTable} />
           </>
         )}

@@ -171,6 +171,10 @@ export const GET_CARDS_All_DATA = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         once {
@@ -187,6 +191,10 @@ export const GET_CARDS_All_DATA = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
         multipleTimes {
@@ -203,6 +211,10 @@ export const GET_CARDS_All_DATA = gql`
               ja
             }
             result
+            results {
+              condition
+              result
+            }
           }
         }
       }
@@ -216,6 +228,19 @@ export const GET_CARDS_All_DATA = gql`
           effect
           maxEffect
         }
+      }
+      originalEffect {
+        level
+        effect
+      }
+      bonusEffectTable {
+        name
+        effects
+      }
+      hiddenTitle {
+        name
+        condition
+        rewards
       }
     }
   }
@@ -399,6 +424,10 @@ export const GET_CARD = gql`
           effect
           maxEffect
         }
+      }
+      originalEffect {
+        level
+        effect
       }
       bonusEffectTable {
         name
@@ -592,6 +621,10 @@ export const GET_CARDS_BY_TYPE = gql`
           maxEffect
         }
       }
+      originalEffect {
+        level
+        effect
+      }
       bonusEffectTable {
         name
         effects
@@ -784,6 +817,14 @@ export const ADD_CARD = gql`
           maxEffect
         }
       }
+      originalEffect {
+        level
+        effect
+      }
+      originalEffect {
+        level
+        effect
+      }
       bonusEffectTable {
         name
         effects
@@ -975,6 +1016,10 @@ export const EDIT_CARD = gql`
           effect
           maxEffect
         }
+      }
+      originalEffect {
+        level
+        effect
       }
       bonusEffectTable {
         name
