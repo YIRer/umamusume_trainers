@@ -36,8 +36,8 @@ const OriginalEffectForm = ({ updateOriginalEffect, initialData }: Props) => {
   return (
     <div>
       <div>
-        <Typography variant="body1">{initialData.level}</Typography>
-        <Typography variant="body2">{initialData.effect}</Typography>
+        <Typography variant="body1">{initialData?.level}</Typography>
+        <Typography variant="body2">{initialData?.effect}</Typography>
 
         <IconButton onClick={removeEffect}>
           <Remove />
