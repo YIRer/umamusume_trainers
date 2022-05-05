@@ -71,9 +71,9 @@ export type FormDataType = {
   events: CardEventObjectType;
   bonus: CardBonusObjectType;
   imageName?: string;
-  originalEffect: CardOriginalEffectType;
-  hiddenTitle?: HiddenTitle[];
-  bonusEffectTable?: CardBonusEffectTableRowType[];
+  originalEffect?: CardOriginalEffectType;
+  hiddenTitle?: Array<HiddenTitle>;
+  bonusEffectTable?: Array<CardBonusEffectTableRowType>;
 };
 
 export type SelectedSkillTypes = keyof RelatedSkillsType | "";

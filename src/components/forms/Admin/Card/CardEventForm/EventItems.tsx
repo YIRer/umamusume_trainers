@@ -161,6 +161,22 @@ const EventItems = ({
                       <b>결과</b>
                       <span>{choice.result}</span>
                     </div>
+                    <div className={classes.result}>
+                      {choice.results?.map(({ condition, result }, idx) => {
+                        return (
+                          <div key={`result-${condition}-${result}-${idx}`}>
+                            <div>
+                              <b>조건: </b>
+                              <span>{condition}</span>
+                            </div>
+                            <div>
+                              <b>결과: </b>
+                              <span>{result}</span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               ))}

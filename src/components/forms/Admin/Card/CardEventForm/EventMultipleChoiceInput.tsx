@@ -20,10 +20,10 @@ const useStyles = makeStyles((_theme) => ({
   },
 }));
 
-const EventMultipleChoiceInput = ({ updateResults }) => {
+const EventMultipleChoiceInput = ({ updateResults, initialData }) => {
   const classes = useStyles();
 
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(initialData ?? []);
   const [condition, setCondition] = useState("");
   const [result, setResult] = useState("");
 
@@ -55,7 +55,9 @@ const EventMultipleChoiceInput = ({ updateResults }) => {
     updateResults(updatedResults);
   };
   const deleteEventResult = (idx) => {
-    setResults(results.filter((_r, index) => index !== idx));
+    const filteredResults = results.filter((_r, index) => index !== idx);
+    setResults(filteredResults);
+    updateResults(filteredResults);
   };
 
   const onChangeCondition = (e) => {

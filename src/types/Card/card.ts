@@ -37,9 +37,9 @@ export type CardType = {
   awakeningSkillsIds: string[];
   skills: any[];
   events: CardEventObjectType;
-  originalEffect: CardOriginalEffectType;
-  bonusEffectTable: CardBonusEffectTableRowType;
-  hiddenTitle: HiddenTitle;
+  originalEffect?: CardOriginalEffectType;
+  hiddenTitle?: Array<HiddenTitle>;
+  bonusEffectTable?: Array<CardBonusEffectTableRowType>;
 };
 
 export type SimpleCardType = Pick<

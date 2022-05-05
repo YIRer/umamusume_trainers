@@ -116,7 +116,10 @@ const EventChoiceInput = ({
         value={choiceInputData.result}
         onChange={handleChange}
       />
-      <EventMultipleChoiceInput updateResults={handleChangeMultipleResults} />
+      <EventMultipleChoiceInput
+        updateResults={handleChangeMultipleResults}
+        initialData={choiceData.results}
+      />
       <div className={classes.buttonWrapper}>
         <Button
           className={classes.button}

@@ -4,37 +4,43 @@ import IconButton from "@material-ui/core/IconButton";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import { Typography } from "@material-ui/core";
+import { CardOriginalEffectType } from "types/Card/bonus";
 
-const OriginalEffectForm = ({ updateOriginalEffect }) => {
-  const [level, setLevel] = useState("");
-  const [effect, setEffect] = useState("");
+interface Props {
+  updateOriginalEffect: (effect: CardOriginalEffectType) => void;
+  initialData?: CardOriginalEffectType;
+}
+
+const OriginalEffectForm = ({ updateOriginalEffect, initialData }: Props) => {
+  const [level, setLevel] = useState(initialData?.level ?? "");
+  const [effect, setEffect] = useState(initialData?.effect ?? "");
 
   const updateEffect = () => {
-    setLevel('')
-    setEffect('')
     updateOriginalEffect({
       level,
       effect,
     });
+    setLevel("");
+    setEffect("");
   };
 
   const removeEffect = () => {
-    setLevel('')
-    setEffect('')
+    setLevel("");
+    setEffect("");
     updateOriginalEffect({
-      level:'',
-      effect:''
+      level: "",
+      effect: "",
     });
   };
 
   return (
     <div>
       <div>
-        <Typography variant="h4">{level}</Typography>
-        <Typography variant="body1">{effect}</Typography>
-        
-        <IconButton>
-          <Remove onClick={removeEffect} />
+        <Typography variant="body1">{initialData.level}</Typography>
+        <Typography variant="body2">{initialData.effect}</Typography>
+
+        <IconButton onClick={removeEffect}>
+          <Remove />
         </IconButton>
       </div>
       <div>
@@ -57,8 +63,8 @@ const OriginalEffectForm = ({ updateOriginalEffect }) => {
           }}
         />
 
-        <IconButton>
-          <Add onClick={updateEffect} />
+        <IconButton onClick={updateEffect}>
+          <Add />
         </IconButton>
       </div>
     </div>

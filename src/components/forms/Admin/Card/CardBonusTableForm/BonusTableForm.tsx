@@ -7,10 +7,15 @@ import TableBody from "@material-ui/core/TableBody";
 import TableHead from "@material-ui/core/TableHead";
 import TableCell from "@material-ui/core/TableCell";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { CardBonusEffectTableRowType } from "types/Card/bonus";
 
-const BonusTableForm = ({ updateTableRow }) => {
-  const [bonusRows, setBonusRows] = useState([]);
+interface Props {
+  updateTableRow: (bonusData: CardBonusEffectTableRowType[]) => void;
+  initialData?: CardBonusEffectTableRowType[];
+}
+
+const BonusTableForm = ({ updateTableRow, initialData }: Props) => {
+  const [bonusRows, setBonusRows] = useState(initialData ?? []);
 
   const addEffectRow = (rowData) => {
     const updatedTable = [...bonusRows, rowData];

@@ -27,6 +27,10 @@ import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
 
+import OriginalEffectForm from "./CardBonusTableForm/OriginalEffectForm";
+import BonusTableForm from "./CardBonusTableForm/BonusTableForm";
+import HiddenTitleForm from "./HiddenTitle/HiddenTitleForm";
+
 import { prefixImgSrc } from "helper";
 
 import _ from "lodash";
@@ -43,8 +47,14 @@ import {
 import { UmamusumeType } from "types/Umamusume/umamusume";
 
 import { CardEventObjectType } from "types/Card/event";
-import { CardBonusObjectType } from "types/Card/bonus";
+import {
+  CardBonusObjectType,
+  CardBonusEffectTableRowType,
+  CardOriginalEffectType,
+} from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
+
+import { HiddenTitle } from "types/Card/card";
 
 const getImageName = (imageSrc: string) => {
   try {
@@ -143,6 +153,12 @@ const EditCard = () => {
         unique: [],
         support: [],
       },
+      originalEffect: {
+        level: "",
+        effect: "",
+      },
+      hiddenTitle: [],
+      bonusEffectTable: [],
     }
   );
 
@@ -187,8 +203,12 @@ const EditCard = () => {
         awakeningSkillsIds,
         trainingObjects,
         supportType,
+        originalEffect,
+        hiddenTitle,
+        bonusEffectTable,
         ...others
       } = card;
+      
       const imageName = getImageName(imageSrc);
       const spType = playable ? "" : supportType ? supportType : "speed";
       setFormInput({
@@ -200,6 +220,9 @@ const EditCard = () => {
         bonus: addBonusTempIDs(bonus),
         supportType: spType,
         playable,
+        originalEffect: originalEffect,
+        hiddenTitle: hiddenTitle,
+        bonusEffectTable: bonusEffectTable,
         ...others,
       });
       setCardObjectsInput(trainingObjects);
@@ -310,6 +333,23 @@ const EditCard = () => {
 
   const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
+  };
+
+  const handleUpdateBonusTable = (bonusData: CardBonusEffectTableRowType[]) => {
+    setFormInput({
+      bonusEffectTable: bonusData,
+    });
+  };
+
+  const handleUpdateOriginalEffect = (effect: CardOriginalEffectType) => {
+    setFormInput({
+      originalEffect: effect,
+    });
+  };
+  const handleUpdateHiddenTitle = (hiddenTitles: HiddenTitle[]) => {
+    setFormInput({
+      hiddenTitle: hiddenTitles,
+    });
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -602,16 +642,33 @@ const EditCard = () => {
         {isTrainingType ? (
           <CardStatus data={statusData} onChange={handleStatusChange} />
         ) : (
-          <CardBonusForm
-            initialData={formData.bonus}
-            onChangeBonus={handleUpdateBonus}
-          />
+          <>
+            <CardBonusForm
+              initialData={formData.bonus}
+              onChangeBonus={handleUpdateBonus}
+            />
+            <OriginalEffectForm
+              updateOriginalEffect={handleUpdateOriginalEffect}
+              initialData={formData.originalEffect}
+            />
+            <BonusTableForm
+              updateTableRow={handleUpdateBonusTable}
+              initialData={formData.bonusEffectTable}
+            />
+          </>
         )}
 
         {isTrainingType && (
           <CardObjectForm
             list={trainingObjects}
             updateList={setCardObjectsInput}
+          />
+        )}
+
+        {isTrainingType && (
+          <HiddenTitleForm
+            updateHiddnTitle={handleUpdateHiddenTitle}
+            initialData={formData.hiddenTitle}
           />
         )}
 
