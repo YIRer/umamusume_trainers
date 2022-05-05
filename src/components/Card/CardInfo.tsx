@@ -374,15 +374,18 @@ const CardInfo = ({ data, statusCode }) => {
         />
       </div>
       {card.playable && <StatusTable data={card} />}
-      {card.type === "support" && <BonusTable data={card.bonus} />}
-      {card.type === "support" &&
-        card.bonusEffectTable &&
-        card.originalEffect && (
-          <SimpleBonusTable
-            tableData={card.bonusEffectTable}
-            originalEffect={card.originalEffect}
-          />
-        )}
+      {card.type === "support" && (
+        <React.Fragment>
+          {card.bonusEffectTable && card.originalEffect ? (
+            <SimpleBonusTable
+              tableData={card.bonusEffectTable}
+              originalEffect={card.originalEffect}
+            />
+          ) : (
+            <BonusTable data={card.bonus} />
+          )}
+        </React.Fragment>
+      )}
       {card.type === "training" && (
         <section className={classes.section}>
           <h4>고유 스킬</h4>

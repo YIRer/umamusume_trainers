@@ -17,12 +17,17 @@ import {
 const useStyles = makeStyles((_theme) => ({
   section: {
     margin: "10px",
+    overflow: "auto",
   },
   tableRoot: {
     backgroundColor: "#333333",
+    maxWidth: "100%",
+    whiteSpace: "nowrap",
   },
   tableRow: {
     color: "#fff",
+    maxWidth: "100%",
+    whiteSpace: "nowrap",
   },
 }));
 
