@@ -1004,6 +1004,61 @@
       "imageSrc": "/image/TsurumaruTsuyoshi/main.png",
       "cards": [],
       "id": 84
+    },
+    {
+      "name": {
+        "default": "SymboliKrisS",
+        "ko": "심볼리 크리스 에스",
+        "ja": "シンボリクリスエス",
+        "en": "Symboli Kris S"
+      },
+      "imageSrc": "/image/SymboliKrisS/main.png",
+      "cards": [],
+      "id": 85
+    },
+    {
+      "name": {
+        "default": "TaninoGimlet",
+        "ko": "타니노 김렛",
+        "ja": "タニノギムレット",
+        "en": "Tanino Gimlet"
+      },
+      "imageSrc": "/image/TaninoGimlet/main.png",
+      "cards": [],
+      "id": 86
+    },
+    {
+      "name": {
+        "default": "CopanoRickey",
+        "ko": "코파노 리키",
+        "ja": "コパノリッキー",
+        "en": "Copano Rickey"
+      },
+      "imageSrc": "/image/CopanoRickey/main.png",
+      "cards": [],
+      "id": 87
+    },
+    {
+      "name": {
+        "default": "AkasakaMisato",
+        "ko": "아카사카 미사토",
+        "ja": "赤坂美聡",
+        "en": "Akasaka Misato"
+      },
+      "imageSrc": "/image/AkasakaMisato/main.png",
+      "cards": [],
+      "id": 88
+    },
+    {
+      "name": {
+        "default": "HosoeJunko",
+        "ko": "호소에 쥰코",
+        "ja": "細江純子",
+        "en": "Hosoe Junko"
+      },
+      "imageSrc": "/image/HosoeJunko/main.png",
+      "cards": [],
+      "id": 89
     }
   ],
   "cards": [
