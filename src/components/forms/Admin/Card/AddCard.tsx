@@ -30,11 +30,13 @@ import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
+import OriginalEffectForm from "./CardBonusTableForm/OriginalEffectForm";
+import BonusTableForm from "./CardBonusTableForm/BonusTableForm";
+import HiddenTitleForm from "./HiddenTitle/HiddenTitleForm";
 
 import { prefixImgSrc } from "helper";
 
 import {
-  AddCardProps,
   CardStatusData,
   CardTargetType,
   TrainingObjectsType,
@@ -43,9 +45,14 @@ import {
 } from "./types";
 
 import { CardEventObjectType } from "types/Card/event";
-import { CardBonusObjectType } from "types/Card/bonus";
+import {
+  CardBonusObjectType,
+  CardBonusEffectTableRowType,
+  CardOriginalEffectType,
+} from "types/Card/bonus";
 import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import { commonMultipleEvent } from "./constants";
+import { HiddenTitle } from "types/Card/card";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -146,6 +153,12 @@ const AddCard = () => {
         unique: [],
         support: [],
       },
+      originalEffect: {
+        level: "",
+        effect: "",
+      },
+      hiddenTitle: [],
+      bonusEffectTable: [],
     }
   );
 
@@ -204,6 +217,23 @@ const AddCard = () => {
 
   const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
+  };
+
+  const handleUpdateBonusTable = (bonusData: CardBonusEffectTableRowType[]) => {
+    setFormInput({
+      bonusEffectTable: bonusData,
+    });
+  };
+
+  const handleUpdateOriginalEffect = (effect: CardOriginalEffectType) => {
+    setFormInput({
+      originalEffect: effect,
+    });
+  };
+  const handleUpdateHiddenTitle = (hiddenTitles: HiddenTitle[]) => {
+    setFormInput({
+      hiddenTitle: hiddenTitles,
+    });
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
@@ -475,7 +505,14 @@ const AddCard = () => {
         {isTrainingType ? (
           <CardStatus data={statusData} onChange={handleStatusChange} />
         ) : (
-          <CardBonusForm onChangeBonus={handleUpdateBonus} />
+          <>
+            <CardBonusForm onChangeBonus={handleUpdateBonus} />
+            <OriginalEffectForm
+              updateOriginalEffect={handleUpdateOriginalEffect}
+              initialData={formData.originalEffect}
+            />
+            <BonusTableForm updateTableRow={handleUpdateBonusTable} />
+          </>
         )}
 
         {isTrainingType && (
@@ -483,6 +520,10 @@ const AddCard = () => {
             list={trainingObjects}
             updateList={setCardObjectsInput}
           />
+        )}
+
+        {isTrainingType && (
+          <HiddenTitleForm updateHiddnTitle={handleUpdateHiddenTitle} />
         )}
 
         <CardEventForm

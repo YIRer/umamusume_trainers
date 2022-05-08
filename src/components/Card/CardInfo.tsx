@@ -22,6 +22,8 @@ import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
 import CardTags from "./CardTags";
 import StatusTable from "./StatusTable";
 import BonusTable from "./BonusTable";
+import SimpleBonusTable from "./SimpleBonusTable";
+import HiddenTitles from "./HiddenTitles";
 
 import clsx from "clsx";
 import { isDev } from "../../constants";
@@ -372,7 +374,18 @@ const CardInfo = ({ data, statusCode }) => {
         />
       </div>
       {card.playable && <StatusTable data={card} />}
-      {card.type === "support" && <BonusTable data={card.bonus} />}
+      {card.type === "support" && (
+        <React.Fragment>
+          {card.bonusEffectTable && card.originalEffect ? (
+            <SimpleBonusTable
+              tableData={card.bonusEffectTable}
+              originalEffect={card.originalEffect}
+            />
+          ) : (
+            <BonusTable data={card.bonus} />
+          )}
+        </React.Fragment>
+      )}
       {card.type === "training" && (
         <section className={classes.section}>
           <h4>고유 스킬</h4>
@@ -416,6 +429,12 @@ const CardInfo = ({ data, statusCode }) => {
         <section className={classes.section}>
           <h4>육성 목표</h4>
           <TrainingObjects data={card.trainingObjects} />
+        </section>
+      )}
+      {card.type === "training" && card.hiddenTitle && (
+        <section className={classes.section}>
+          <h4>히든 칭호</h4>
+          <HiddenTitles HiddenTitles={card.hiddenTitle} />
         </section>
       )}
       <section className={classes.section}>

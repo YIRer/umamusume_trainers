@@ -9,6 +9,9 @@ import EventItems from "components/forms/Admin/Card/CardEventForm/EventItems";
 import CardTags from "../Card/CardTags";
 import StatusTable from "../Card/StatusTable";
 import BonusTable from "../Card/BonusTable";
+import SimpleBonusTable from "../Card/SimpleBonusTable";
+import HiddenTitles from "../Card/HiddenTitles";
+
 import SideButtons from "../Common/SideButtons";
 
 import clsx from "clsx";
@@ -212,7 +215,18 @@ const CardInfo = (props: CardInfoProps) => {
         className={classes.image}
       />
       {data.playable && <StatusTable data={data} />}
-      {data.type === "support" && <BonusTable data={data.bonus} />}
+      {data.type === "support" && (
+        <React.Fragment>
+          {data.bonusEffectTable && data.originalEffect ? (
+            <SimpleBonusTable
+              tableData={data.bonusEffectTable}
+              originalEffect={data.originalEffect}
+            />
+          ) : (
+            <BonusTable data={data.bonus} />
+          )}
+        </React.Fragment>
+      )}
       {data.type === "training" && (
         <section className={classes.section}>
           <h4>고유 스킬</h4>
@@ -256,6 +270,12 @@ const CardInfo = (props: CardInfoProps) => {
         <section className={classes.section}>
           <h4>육성 목표</h4>
           <TrainingObjects data={data.trainingObjects} />
+        </section>
+      )}
+      {data.type === "training" && data.hiddenTitle && (
+        <section className={classes.section}>
+          <h4>히든 칭호</h4>
+          <HiddenTitles HiddenTitles={data.hiddenTitle} />
         </section>
       )}
       <section className={classes.section} ref={selectionElement}>
