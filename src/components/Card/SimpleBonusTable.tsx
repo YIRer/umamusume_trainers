@@ -56,7 +56,7 @@ const SimpleBonusTable = ({
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell>{originalEffect.level}</TableCell>
+            <TableCell>Lv {originalEffect.level}</TableCell>
             <TableCell>{originalEffect.effect}</TableCell>
             <TableCell></TableCell>
           </TableRow>
