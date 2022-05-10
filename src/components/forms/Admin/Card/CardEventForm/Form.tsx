@@ -7,8 +7,7 @@ import _ from "lodash";
 
 import EventInputForm from "./EventInputForm";
 import EventItems from "./EventItems";
-import { commonEvents } from "../constants";
-import  { CardEventFormProps, CardEventTypeWithTempID } from "./types";
+import { CardEventFormProps, CardEventTypeWithTempID } from "./types";
 
 const useStyles = makeStyles((_theme) => ({
   button: {
@@ -32,14 +31,15 @@ const CardEventForm = ({
       ...newState,
     }),
     {
+      common: [],
       once: [],
       multipleTimes: [],
     }
   );
 
   const setInitialData = () => {
-    const { once, multipleTimes } = initialData;
-    setEventObjectInput({ once, multipleTimes });
+    const { common, once, multipleTimes } = initialData;
+    setEventObjectInput({ common, once, multipleTimes });
   };
 
   useEffect(() => {
@@ -69,16 +69,23 @@ const CardEventForm = ({
       (ele) => ele.__tempID !== eventData.__tempID
     );
 
+    const updatedEventsObj = {
+      ...eventObject,
+      [eventData.eventType]: updatedData,
+    };
+
     setEventObjectInput({ [eventData.eventType]: updatedData });
+
+    onChangeEvents(updatedEventsObj);
   };
 
   const handleEditEvent = (
     eventData: CardEventTypeWithTempID,
-    changedEventType?: boolean
+    isChangedEventType: boolean,
+    changedEventType?: string
   ) => {
-    if (changedEventType) {
-      const removeTarget =
-        eventData.eventType === "once" ? "multipleTimes" : "once";
+    if (isChangedEventType) {
+      const removeTarget = changedEventType;
 
       const removedData = [...eventObject[removeTarget]].filter(
         (ele) => ele.__tempID !== eventData.__tempID
@@ -89,9 +96,9 @@ const CardEventForm = ({
       const updatedData = [...eventObject[eventData.eventType], eventData];
 
       const updatedEventsObj = {
-        once: removeTarget === "once" ? removedData : updatedData,
-        multipleTimes:
-          removeTarget === "multipleTimes" ? removedData : updatedData,
+        ...eventObject,
+        [removeTarget]: removedData,
+        [eventData.eventType]: updatedData,
       };
 
       setEventObjectInput(updatedEventsObj);
@@ -118,9 +125,22 @@ const CardEventForm = ({
           <div>
             <h4>공통 이벤트</h4>
             <div>
-              {commonEvents.map((d) => (
-                <EventItems key={d.title.ja} eventData={d} editable={false} />
-              ))}
+              {eventObject.common.length > 0
+                ? eventObject.common.map((d) => {
+                    if (!d.__tempID) {
+                      d = { ...d, __tempID: _.uniqueId(d.eventType) };
+                    }
+
+                    return (
+                      <EventItems
+                        key={`event-common-${d.__tempID}`}
+                        eventData={d}
+                        onDelete={handleDelete}
+                        onEdit={handleEditEvent}
+                      />
+                    );
+                  })
+                : "없음"}
             </div>
           </div>
         )}

@@ -114,7 +114,7 @@ const EventItems = ({
       return;
     }
     const eventTypeChanged = updatedData.eventType !== itemData.eventType;
-    onEdit(updatedData, eventTypeChanged);
+    onEdit(updatedData, eventTypeChanged, itemData.eventType);
     hanldeEditMode();
   };
 

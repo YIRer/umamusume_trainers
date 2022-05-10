@@ -45,7 +45,12 @@ const BonusTableForm = ({ updateTableRow, initialData }: Props) => {
         <TableBody>
           {bonusRows.map((bonus, idx) => {
             return (
-              <BonusRow bonus={bonus} index={idx} deleteRow={deleteEffectRow} />
+              <BonusRow
+                key={`bonus-${bonus}-${idx}`}
+                bonus={bonus}
+                index={idx}
+                deleteRow={deleteEffectRow}
+              />
             );
           })}
         </TableBody>

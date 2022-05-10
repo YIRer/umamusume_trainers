@@ -17,7 +17,13 @@ import clsx from "clsx";
 
 import { GET_UMAMUSUME } from "queries/umamusume";
 import { GET_CARD, EDIT_CARD } from "queries/cards";
-import { stars, cardTypes, initialStatusData, supportTypes } from "./constants";
+import {
+  stars,
+  cardTypes,
+  initialStatusData,
+  supportTypes,
+  commonEvents,
+} from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
@@ -146,6 +152,7 @@ const EditCard = () => {
       supportType: "",
       limited: false,
       events: {
+        common: [],
         once: [],
         multipleTimes: [],
       },
@@ -208,7 +215,7 @@ const EditCard = () => {
         bonusEffectTable,
         ...others
       } = card;
-      
+
       const imageName = getImageName(imageSrc);
       const spType = playable ? "" : supportType ? supportType : "speed";
       setFormInput({
@@ -441,16 +448,23 @@ const EditCard = () => {
   };
 
   const addEventTempIDs = (events: CardEventObjectType) => {
+    const commonList = events.common ?? [...commonEvents];
+
+    const common = commonList.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("common-event"),
+    }));
     const once = events.once.map((d) => ({
       ...d,
-      __tempID: _.uniqueId("bonus-data"),
+      __tempID: _.uniqueId("once-event"),
     }));
     const multipleTimes = events.multipleTimes.map((d) => ({
       ...d,
-      __tempID: _.uniqueId("bonus-data"),
+      __tempID: _.uniqueId("mulitple-event"),
     }));
 
     return {
+      common,
       once,
       multipleTimes,
     };
@@ -483,12 +497,14 @@ const EditCard = () => {
   };
 
   const removeEventTempIDs = (events: CardEventObjectType) => {
+    const common = events.common.map((d) => _.omit(d, ["__tempID"]));
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
     );
 
     return {
+      common,
       once,
       multipleTimes,
     };

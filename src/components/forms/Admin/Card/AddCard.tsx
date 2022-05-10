@@ -21,12 +21,12 @@ import {
   initialStatusData,
   supportTypes,
   commonOnceEvents,
+  commonEvents
 } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
 import SearchSkills from "../Skills/SearchSkills";
 import CardStatus from "./CardStatus";
-import CardEventForm from "./CardEventForm/Form";
 import CardBonusForm from "./CardBonusForm/Form";
 import SkillIcons from "./SkillIcons";
 import CardObjectForm from "./CardObjectForm/Form";
@@ -44,7 +44,6 @@ import {
   SelectedSkillTypes,
 } from "./types";
 
-import { CardEventObjectType } from "types/Card/event";
 import {
   CardBonusObjectType,
   CardBonusEffectTableRowType,
@@ -146,6 +145,7 @@ const AddCard = () => {
       supportType: "",
       limited: false,
       events: {
+        common: [],
         once: [],
         multipleTimes: [],
       },
@@ -211,10 +211,6 @@ const AddCard = () => {
     setStatusInput({ [type]: newState });
   };
 
-  const handleChangeEvents = (eventData: CardEventObjectType) => {
-    setFormInput({ events: eventData });
-  };
-
   const handleUpdateBonus = (bonusData: CardBonusObjectType) => {
     setFormInput({ bonus: { ...bonusData } });
   };
@@ -270,7 +266,8 @@ const AddCard = () => {
         ? `/image/${targetInfo.name.default}/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
-    const addedOnceEvents = addOnceEvents(events);
+    const addedCommonEvents = addCommonEvents(events);
+    const addedOnceEvents = addOnceEvents(addedCommonEvents);
     const addedMultipleEvents = addMultipleEvents(addedOnceEvents);
 
     const spType = playable ? "" : supportType ? supportType : "speed";
@@ -336,15 +333,25 @@ const AddCard = () => {
   };
 
   const removeEventTempIDs = (events) => {
+    const common = events.common.map((d) => _.omit(d, ["__tempID"]));
     const once = events.once.map((d) => _.omit(d, ["__tempID"]));
     const multipleTimes = events.multipleTimes.map((d) =>
       _.omit(d, ["__tempID"])
     );
 
     return {
+      common,
       once,
       multipleTimes,
     };
+  };
+
+  const addCommonEvents = (events) => {
+    if (formData.type === "training") {
+      events.common = [...commonEvents].concat(events.common);
+    }
+
+    return events;
   };
 
   const addOnceEvents = (events) => {
@@ -525,11 +532,6 @@ const AddCard = () => {
         {isTrainingType && (
           <HiddenTitleForm updateHiddnTitle={handleUpdateHiddenTitle} />
         )}
-
-        <CardEventForm
-          onChangeEvents={handleChangeEvents}
-          isTrainingType={isTrainingType}
-        />
 
         {targetInfo && (
           <div

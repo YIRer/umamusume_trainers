@@ -13,7 +13,11 @@ export type CardEventTypeWithTempID = CardEventType & {
 export type EventItemsProps = {
   eventData: CardEventTypeWithTempID;
   onDelete?: (d: CardEventTypeWithTempID) => void;
-  onEdit?: (d: CardEventTypeWithTempID, changedEventType: boolean) => void;
+  onEdit?: (
+    d: CardEventTypeWithTempID,
+    isChangedEventType: boolean,
+    changedEventType?: string
+  ) => void;
   editable?: boolean;
 };
 
