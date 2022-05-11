@@ -29,6 +29,11 @@ const useStyles = makeStyles((_theme) => ({
     maxWidth: "100%",
     whiteSpace: "nowrap",
   },
+
+  tableRowCell: {
+    whiteSpace: "pre-wrap",
+    wordBreak: "keep-all",
+  },
 }));
 
 const SimpleBonusTable = ({
@@ -88,7 +93,10 @@ const SimpleBonusTable = ({
         </TableHead>
         <TableBody>
           {tableData.map((item, index) => (
-            <TableRow key={`unique-${index}`}>
+            <TableRow
+              key={`unique-${index}`}
+              classes={{ root: clsx(classes.tableRowCell) }}
+            >
               <TableCell>{item.name}</TableCell>
               {item.effects.map((effect, index) => {
                 return (
