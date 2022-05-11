@@ -23,6 +23,8 @@ import {
   initialStatusData,
   supportTypes,
   commonEvents,
+  commonOnceEvents,
+  commonMultipleEvent,
 } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
@@ -448,17 +450,29 @@ const EditCard = () => {
   };
 
   const addEventTempIDs = (events: CardEventObjectType) => {
-    const commonList = events.common ?? [...commonEvents];
+    const commonEventList = events.common ?? [...commonEvents];
+    const commonOnceEventList =
+      events.once.length > 0
+        ? events.once
+        : isTrainingType
+        ? [...commonOnceEvents]
+        : [];
+    const commonMulitpleEventList =
+      events.multipleTimes.length > 0
+        ? events.multipleTimes
+        : isTrainingType
+        ? [...commonMultipleEvent]
+        : [];
 
-    const common = commonList.map((d) => ({
+    const common = commonEventList.map((d) => ({
       ...d,
       __tempID: _.uniqueId("common-event"),
     }));
-    const once = events.once.map((d) => ({
+    const once = commonOnceEventList.map((d) => ({
       ...d,
       __tempID: _.uniqueId("once-event"),
     }));
-    const multipleTimes = events.multipleTimes.map((d) => ({
+    const multipleTimes = commonMulitpleEventList.map((d) => ({
       ...d,
       __tempID: _.uniqueId("mulitple-event"),
     }));
@@ -548,6 +562,58 @@ const EditCard = () => {
   const showAwakeningSkillSearchModal = () => {
     setSelectedSkillType("awakening");
     showSkillSearchModal();
+  };
+
+  const onClikcAddCommonEvent = () => {
+    const events = commonEvents.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("common-event"),
+    }));
+
+    setFormInput({
+      events: {
+        ...formData.events,
+        common: [...formData.events.common, ...events],
+      },
+    });
+  };
+
+  const onClikcAddCommonOnceEvent = () => {
+    const events = commonOnceEvents.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("common-event"),
+    }));
+
+    setFormInput({
+      events: {
+        ...formData.events,
+        once: [...formData.events.once, ...events],
+      },
+    });
+  };
+
+  const onClikcAddCommonMultipleEvent = () => {
+    const events = commonMultipleEvent.map((d) => ({
+      ...d,
+      __tempID: _.uniqueId("common-event"),
+    }));
+
+    setFormInput({
+      events: {
+        ...formData.events,
+        multipleTimes: [...formData.events.multipleTimes, ...events],
+      },
+    });
+  };
+
+  const clearSkills = () => {
+    setRelatedSkills({
+      ...relatedSkills,
+      training: [],
+      has: [],
+      base: [],
+      awakening: [],
+    });
   };
 
   if (loading) return <Loader />;
@@ -688,6 +754,12 @@ const EditCard = () => {
           />
         )}
 
+        <Button onClick={onClikcAddCommonEvent}>공통 이벤트 추가</Button>
+        <Button onClick={onClikcAddCommonOnceEvent}>일회성 이벤트 추가</Button>
+        <Button onClick={onClikcAddCommonMultipleEvent}>
+          연속 이벤트 추가
+        </Button>
+
         <CardEventForm
           onChangeEvents={handleChangeEvents}
           initialData={formData.events}
@@ -721,6 +793,10 @@ const EditCard = () => {
             onClose={hideSearchModal}
           />
         )}
+
+        <div>
+          <Button onClick={clearSkills}>스킬 초기화(고유 스킬 제외)</Button>
+        </div>
 
         {relatedSkills.unique.length > 0 && (
           <div>

@@ -758,18 +758,20 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "完治するまでトレーニングは禁止(여름합숙중：とにかく労わる)",
+          ja: "今は休んだほうがいい",
         },
         result:
           "체력 +10 의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여",
+        results: null,
       },
       {
         description: {
           ko: "",
-          ja: "ダメだ、メニューから考え直そう！(여름합숙중：厳しくいく！)",
+          ja: "わかった、できる範囲で頑張ろう",
         },
         result:
           "성공시 체력+10 『練習上手◯』상태흭득  실패시  의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여",
+        results: null,
       },
     ],
     condition: "훈련 실패율 70%이상 확정",
@@ -785,18 +787,29 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "今日は休んだ方が良さそうだな",
+          ja: "心配だから、ちゃんと休もう",
         },
         result:
           "의욕저하 실패한훈련 스탯-5 ~ -10 『練習下手』(훈련실패율 감소)상태랜덤흭득",
+        results: null,
       },
       {
         description: {
           ko: "",
-          ja: "これからは周りに注意しないとな",
+          ja: "無理のない範囲でやろう",
         },
-        result:
-          "성공시 『練習上手〇』(훈련실패율 감소)상태흭득 실패시 의욕저하 스탯-10 「練習ベタ」(훈련실패율 증가)상태흭득",
+        result: "",
+        results: [
+          {
+            condition: "성공시",
+            result: "『練習上手〇』(훈련실패율 감소)상태흭득",
+          },
+          {
+            condition: "실패시",
+            result:
+              "의욕저하 직전 훈련 스탯-10 「練習ベタ」(훈련실패율 증가)상태흭득",
+          },
+        ],
       },
     ],
     condition: "훈련 실패시",
@@ -812,19 +825,57 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "やった、やったぞーっ！！",
+          ja: "素晴らしい走りだった",
         },
-        result: "체력-15~20 스탯+5~10 스킬PT+30~48 랜덤스킬레벨힌트",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯 중 랜덤 한개 +10 스킬 Pt+45",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯 중 랜덤 한개 +8 스킬 Pt+35",
+          },
+          {
+            condition: "op",
+            result: "올 스탯 중 랜덤 한개 +5 스킬 Pt+30",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력-15 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
       {
         description: {
           ko: "",
-          ja: "更なる高みを目指そう！",
+          ja: "次のレースも勝とう",
         },
-        result: "체력-5~30 스탯+5~11 스킬PT+30~55 랜덤스킬레벨힌트",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯 중 랜덤 한개 +10 스킬 Pt+45",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯 중 랜덤 한개 +8 스킬 Pt+35",
+          },
+          {
+            condition: "op",
+            result: "올 스탯 중 랜덤 한개 +5 스킬 Pt+30",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력-5~30 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
     ],
-    condition: "일반 레이스 승리",
+    condition: "일반 레이스 승리(1착)",
   },
   {
     title: {
@@ -837,19 +888,57 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "マックイーンなら上がっていける！",
+          ja: "悪くない走りはできてたよ",
         },
-        result: "체력-10~20 스탯+3~7 스킬PT+30~48",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯중 랜덤 한 개 +5~8 스킬 Pt+40~45",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯중 랜덤 한 개 +4~6 스킬 Pt+30~45",
+          },
+          {
+            condition: "op",
+            result: "올 스탯중 랜덤 한 개 +2~4 스킬 Pt+20~45",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력 -20 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
       {
         description: {
           ko: "",
-          ja: "もっと実力をつけよう",
+          ja: "次は必ず勝とう！",
         },
-        result: "체력-5~30 스탯+3~8 스킬PT+33~51",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯중 랜덤 한 개 +5~8 스킬 Pt+40~45",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯중 랜덤 한 개 +4~6 스킬 Pt+30~45",
+          },
+          {
+            condition: "op",
+            result: "올 스탯중 랜덤 한 개 +2~4 스킬 Pt+20~45",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력 -10~30 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
     ],
-    condition: "일반 레이스 2~5착일반 레이스 2~5착",
+    condition: "일반 레이스 2~5착",
   },
   {
     title: {
@@ -862,18 +951,54 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "その悔しさを糧にしよう！",
+          ja: "君は絶対に強くなれる",
         },
-        result:
-          "체력-25 스탯+4~5 스킬PT+11~29 랜덤디버프된스킬흭득(보라색스킬)",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯중 랜덤 한 개 +4 스킬 Pt+25",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯중 랜덤 한 개 +3 스킬 Pt+20",
+          },
+          {
+            condition: "op",
+            result: "스킬 Pt+10",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력-25 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
       {
         description: {
           ko: "",
-          ja: "だったら逃げ出す？",
+          ja: "次は勝とう",
         },
-        result:
-          "체력-15~30 스탯+3~4 스킬PT+11~30 랜덤디버프된스킬흭득(보라색스킬)",
+        result: "",
+        results: [
+          {
+            condition: "G1",
+            result: "올 스탯중 랜덤 한 개 +4 스킬 Pt+25",
+          },
+          {
+            condition: "G2~G3",
+            result: "올 스탯중 랜덤 한 개 +3 스킬 Pt+20",
+          },
+          {
+            condition: "op",
+            result: "스킬 Pt+10",
+          },
+          {
+            condition: "공통",
+            result:
+              "체력-15~35 랜덤으로 출주한 마장, 레이스장과 관련된 스킬힌트 획득",
+          },
+        ],
       },
     ],
     condition: "일반 레이스 패배(6위부터)",
@@ -889,19 +1014,67 @@ export const commonMultipleEvent = [
       {
         description: {
           ko: "",
-          ja: "なら、徹底的に追い込もう！",
+          ja: "頑張ってきて！",
         },
-        result: "체력-5 이전훈련스탯+5 이사장인연게이지+5",
+        result: "체력-5 이전훈련스탯+5 시나리오 NPC 인연게이지+5",
+        results: [
+          {
+            condition: "URA",
+            result: "아키카와 야요이",
+          },
+          {
+            condition: "아오하루",
+            result: "카시모토 리코",
+          },
+        ],
       },
       {
         description: {
           ko: "",
-          ja: "効率を考えれば許可できない",
+          ja: "オーバーワークになるから自転車で",
         },
         result: "체력+5",
+        results: null,
       },
     ],
     condition: "훈련이후 랜덤발생",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "たい焼きパーティー！",
+    },
+    eventType: "multipleTimes",
+    tags: [""],
+    choices: [
+      {
+        description: {
+          ko: "",
+          ja: "カロリーは大丈夫……？",
+        },
+        result: "체력+10 스킬Pt+5",
+        results: null,
+      },
+      {
+        description: {
+          ko: "",
+          ja: "頑張った分、たくさん食べて",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result: "체력+30 스킬Pt+10",
+          },
+          {
+            condition: "실패",
+            result:
+              "체력+30 스킬 Pt+10 스피드-5 파워+5 「太り気味 살찐기미」 상태가 됨",
+          },
+        ],
+      },
+    ],
+    condition: "",
   },
 ];
 
@@ -1360,7 +1533,8 @@ export const commonOnceEvents = [
       },
     ],
     condition: "",
-  },{
+  },
+  {
     title: {
       ko: "",
       ja: "ダンスレッスン",
@@ -1402,6 +1576,35 @@ export const supportTypes = [
   { value: "friend", label: "친구" },
 ];
 
+export const bonusOptions = [
+  "우정 보너스",
+  "의욕에 의한 효과",
+  "초기 인연 게이지",
+  "레이스 보너스",
+  "팬 보너스",
+  "득의율",
+  "스킬 Pt 보너스",
+  "힌트 Lv",
+  "힌트 발생률",
+  "트레이닝 효과",
+  "초기 스피드",
+  "초기 스태미나",
+  "초기 파워",
+  "초기 근성",
+  "초기 지능",
+  "스피드 보너스",
+  "스태미나 보너스",
+  "파워 보너스",
+  "근성 보너스",
+  "지능 보너스",
+  "체력의 최대치",
+  "지능 우정 트레이닝 회복량",
+  "이벤트 회복량",
+  "이벤트 효과",
+  "실패율 DOWN",
+  "체력 소모량 DOWN",
+];
+
 export default {
   ranks,
   stars,
@@ -1412,4 +1615,5 @@ export default {
   initialStatusData,
   bonusTypes,
   supportTypes,
+  bonusOptions,
 };

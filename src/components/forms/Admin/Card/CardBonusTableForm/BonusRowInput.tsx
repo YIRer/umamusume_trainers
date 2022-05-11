@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
+import MenuItem from "@material-ui/core/MenuItem";
+
 import Add from "@material-ui/icons/Add";
+import { bonusOptions } from "../constants";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,12 +53,12 @@ const BonusRowInput = ({ addRow }) => {
       effects: [lv30, lv35, lv40, lv45, lv50],
     });
 
-    setName('')
-    setLv30('')
-    setLv35('')
-    setLv40('')
-    setLv45('')
-    setLv50('')
+    setName("");
+    setLv30("");
+    setLv35("");
+    setLv40("");
+    setLv45("");
+    setLv50("");
   };
 
   return (
@@ -66,10 +69,17 @@ const BonusRowInput = ({ addRow }) => {
           name="event-effect-table-name"
           label="효과"
           value={name}
+          select
           onChange={(e) => {
             setName(e.target.value);
           }}
-        />
+        >
+          {bonusOptions.map((option, index) => (
+            <MenuItem key={`bonus-effect-${option}-${index}`} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
         <TextField
           id="event-effect-table-lv30"
           name="event-effect-table-lv30"
