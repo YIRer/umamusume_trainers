@@ -22,9 +22,18 @@ const useStyles = makeStyles((_theme) => ({
   },
   tableRow: {
     color: "#fff",
+    whiteSpace: "nowrap",
+    tableLayout: "fixed",
+    widht: "100%",
   },
   bonus: {
     color: "#0569ed",
+    display: "inline-block",
+    width: "max-content",
+  },
+  emptyBonus: {
+    display: "inline-block",
+    width: "max-content",
   },
 }));
 
@@ -46,28 +55,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell>
-              {data.status.ground.duct.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]: Number(data.status.ground.duct.bonus) > 0,
-                })}
-              >
-                +({data.status.ground.duct.bonus}%)
-              </span>
-            </TableCell>
-            <TableCell>
-              {data.status.ground.turf.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]: Number(data.status.ground.turf.bonus) > 0,
-                })}
-              >
-                +({data.status.ground.turf.bonus}%)
-              </span>
-            </TableCell>
+            <TableCell>{data.status.ground.duct.rank}</TableCell>
+            <TableCell>{data.status.ground.turf.rank}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -90,51 +79,10 @@ const StatusTable = ({ data }: { data: CardType }) => {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell>
-              {data.status.distance.short.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]: Number(data.status.distance.short.bonus) > 0,
-                })}
-              >
-                +({data.status.distance.short.bonus}%)
-              </span>
-            </TableCell>
-            <TableCell>
-              {data.status.distance.mile.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]: Number(data.status.distance.mile.bonus) > 0,
-                })}
-              >
-                +({data.status.distance.mile.bonus}%)
-              </span>
-            </TableCell>
-            <TableCell>
-              {data.status.distance.medium.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]:
-                    Number(data.status.distance.medium.bonus) > 0,
-                })}
-              >
-                +({data.status.distance.medium.bonus}%)
-              </span>
-            </TableCell>
-            <TableCell>
-              {data.status.distance.long.rank}
-              <br />
-              <span
-                className={clsx({
-                  [classes.bonus]: Number(data.status.distance.long.bonus) > 0,
-                })}
-              >
-                +({data.status.distance.long.bonus}%)
-              </span>
-            </TableCell>
+            <TableCell>{data.status.distance.short.rank}</TableCell>
+            <TableCell>{data.status.distance.mile.rank}</TableCell>
+            <TableCell>{data.status.distance.medium.rank}</TableCell>
+            <TableCell>{data.status.distance.long.rank}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -160,50 +108,18 @@ const StatusTable = ({ data }: { data: CardType }) => {
             <TableCell>
               {data.status.strategy.escape.rank}
               <br />
-              <span
-                className={clsx({
-                  [classes.bonus]:
-                    Number(data.status.strategy.escape.bonus) > 0,
-                })}
-              >
-                +({data.status.strategy.escape.bonus}%)
-              </span>
             </TableCell>
             <TableCell>
               {data.status.strategy.leading.rank}
               <br />
-              <span
-                className={clsx({
-                  [classes.bonus]:
-                    Number(data.status.strategy.leading.bonus) > 0,
-                })}
-              >
-                +({data.status.strategy.leading.bonus}%)
-              </span>
             </TableCell>
             <TableCell>
               {data.status.strategy.between.rank}
               <br />
-              <span
-                className={clsx({
-                  [classes.bonus]:
-                    Number(data.status.strategy.between.bonus) > 0,
-                })}
-              >
-                +({data.status.strategy.between.bonus}%)
-              </span>
             </TableCell>
             <TableCell>
               {data.status.strategy.pushing.rank}
               <br />
-              <span
-                className={clsx({
-                  [classes.bonus]:
-                    Number(data.status.strategy.pushing.bonus) > 0,
-                })}
-              >
-                +({data.status.strategy.pushing.bonus}%)
-              </span>
             </TableCell>
           </TableRow>
         </TableBody>
@@ -236,6 +152,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
               <span
                 className={clsx({
                   [classes.bonus]: Number(data.status.status.speed.bonus) > 0,
+                  [classes.emptyBonus]:
+                    Number(data.status.status.speed.bonus) === 0,
                 })}
               >
                 +({data.status.status.speed.bonus}%)
@@ -247,6 +165,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
               <span
                 className={clsx({
                   [classes.bonus]: Number(data.status.status.stamina.bonus) > 0,
+                  [classes.emptyBonus]:
+                    Number(data.status.status.stamina.bonus) === 0,
                 })}
               >
                 +({data.status.status.stamina.bonus}%)
@@ -258,6 +178,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
               <span
                 className={clsx({
                   [classes.bonus]: Number(data.status.status.power.bonus) > 0,
+                  [classes.emptyBonus]:
+                    Number(data.status.status.power.bonus) === 0,
                 })}
               >
                 +({data.status.status.power.bonus}%)
@@ -269,6 +191,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
               <span
                 className={clsx({
                   [classes.bonus]: Number(data.status.status.guts.bonus) > 0,
+                  [classes.emptyBonus]:
+                    Number(data.status.status.guts.bonus) === 0,
                 })}
               >
                 +({data.status.status.guts.bonus}%)
@@ -281,6 +205,8 @@ const StatusTable = ({ data }: { data: CardType }) => {
                 className={clsx({
                   [classes.bonus]:
                     Number(data.status.status.intelligence.bonus) > 0,
+                  [classes.emptyBonus]:
+                    Number(data.status.status.intelligence.bonus) === 0,
                 })}
               >
                 +({data.status.status.intelligence.bonus}%)
