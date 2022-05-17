@@ -145,7 +145,7 @@ export const commonEvents = [
         results: [
           {
             condition: "성공",
-            result: "올 스탯+20",
+            result: "랜덤 스탯 3개+20",
           },
           {
             condition: "실패",
@@ -301,7 +301,7 @@ export const commonEvents = [
           ko: "",
           ja: "特賞(温泉旅行券)",
         },
-        result: "체력+30 의욕 2단계 상승 올 스탯+10",
+        result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
         results: null,
       },
       {
@@ -309,7 +309,7 @@ export const commonEvents = [
           ko: "",
           ja: "1等(당근 햄버그)",
         },
-        result: "체력+30 의욕 2단계 상승 올 스탯+10",
+        result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
         results: null,
       },
       {
@@ -317,7 +317,7 @@ export const commonEvents = [
           ko: "",
           ja: "2等(당근 한 무더기)",
         },
-        result: "체력+20 의욕상승 올 스탯+5",
+        result: "체력+20 의욕상승 랜덤 스탯 3개+5",
         results: null,
       },
       {
@@ -441,11 +441,11 @@ export const commonEvents = [
           },
           {
             condition: "없음",
-            result: "올 스탯+3 스킬Pt+10",
+            result: "랜덤 스탯 3개+3 스킬Pt+10",
           },
           {
             condition: "없음",
-            result: "올 스탯+5 스킬Pt+20",
+            result: "랜덤 스탯 3개+5 스킬Pt+20",
           },
         ],
       },
@@ -554,28 +554,28 @@ export const commonEvents = [
           ja: "タイキの＜HOP CHEERS＞",
         },
         result:
-          '올 스탯+10 스킬Pt+50 "マイルの支配者"(마일의 지배자) 힌트 Lv+1',
+          '랜덤 스탯 3개+10 스킬Pt+50 "マイルの支配者"(마일의 지배자) 힌트 Lv+1',
       },
       {
         description: {
           ko: "",
           ja: "フクキタルの＜ハレノヒ・ランナーズ＞",
         },
-        result: '올 스탯+10 스킬Pt+50 "千里眼"(천리안) 힌트 Lv+1',
+        result: '랜덤 스탯 3개+10 스킬Pt+50 "千里眼"(천리안) 힌트 Lv+1',
       },
       {
         description: {
           ko: "",
           ja: "ウララの＜にんじんぷりん＞",
         },
-        result: '올 스탯+10 스킬Pt+50 "不屈の心"(불굴의 마음) 힌트 Lv+1',
+        result: '랜덤 스탯 3개+10 스킬Pt+50 "不屈の心"(불굴의 마음) 힌트 Lv+1',
       },
       {
         description: {
           ko: "",
           ja: "ライスの＜ブルームス＞",
         },
-        result: '올 스탯+10 스킬Pt+50 "クールダウン"(쿨 다운) 힌트 Lv+1',
+        result: '랜덤 스탯 3개+10 스킬Pt+50 "クールダウン"(쿨 다운) 힌트 Lv+1',
       },
       {
         description: {
@@ -583,7 +583,7 @@ export const commonEvents = [
           ja: "チーム＜キャロッツ＞",
         },
         result:
-          '올 스탯+10 스킬Pt+50 "ノンストップガール"(논스톱 걸) 힌트 Lv+1',
+          '랜덤 스탯 3개+10 스킬Pt+50 "ノンストップガール"(논스톱 걸) 힌트 Lv+1',
       },
     ],
     condition: "아오하루",
@@ -606,12 +606,12 @@ export const commonEvents = [
           {
             condition: "시나리오 링크 발생 있음(시나리오 링크 말딸 육성)",
             result:
-              '팀 종합력 상승, 올 스탯+6 "アガッてきた！"(텐션 올라온다!) 힌트 Lv+3',
+              '팀 종합력 상승, 랜덤 스탯 3개+6 "アガッてきた！"(텐션 올라온다!) 힌트 Lv+3',
           },
           {
             condition: "시나리오 링크 말딸 육성 X",
             result:
-              '팀 종합력 상승, 올 스탯+5 "アガッてきた！"(텐션 올라온다!) 힌트 Lv+1',
+              '팀 종합력 상승, 랜덤 스탯 3개+5 "アガッてきた！"(텐션 올라온다!) 힌트 Lv+1',
           },
         ],
       },
@@ -1185,15 +1185,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯+3 스킬 Pt+30 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+3 스킬 Pt+30 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+30 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+30 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1217,15 +1217,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+35~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+35~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1249,15 +1249,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1281,16 +1281,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result:
-              '올 스탯+3 스킬 Pt+45 "逃げコーナー◯"(도주 코너◯) 힌트 Lv+1 시나리오 NPC 인연게이지+4',
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1314,15 +1313,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1346,15 +1345,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "체력-15 올 스탯 중 랜덤 1개 +10 스킬Pt+45",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
-            condition: "2~5위",
-            result: "체력-15 올 스탯 중 랜덤 1개 +5~8 스킬Pt+35~45",
+            condition: "2위",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
-            condition: "6위 이하",
-            result: "체력-15 올 스탯 중 랜덤 1개 +4 스킬Pt+25",
+            condition: "3위 이하",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1378,16 +1377,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result:
-              '올 스탯+3 스킬 Pt+45 "逃げコーナー◯"(도주 코너◯) 시나리오 NPC 인연게이지+4',
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위",
-            result: "올 스탯+1 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1411,15 +1409,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "체력-15 올 스탯 중 랜덤 1개 +10 스킬Pt+45",
+            result: "올 스탯 중 랜덤 3개 +10 스킬Pt+45",
           },
           {
             condition: "2~5위",
-            result: "체력-15 올 스탯 중 랜덤 1개 +5~8 스킬Pt+35~45",
+            result: "올 스탯 중 랜덤 2개 +5~8 스킬Pt+35~45",
           },
           {
             condition: "6위 이하",
-            result: "체력-15 올 스탯 중 랜덤 1개 +4 스킬Pt+25",
+            result: "올 스탯 중 랜덤 1개 +4 스킬Pt+25",
           },
         ],
       },
@@ -1443,16 +1441,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result:
-              '올 스탯+3 스킬 Pt+45 "逃げコーナー◯"(도주 코너◯) 시나리오 NPC 인연게이지+4',
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1473,6 +1470,20 @@ export const commonOnceEvents = [
           ja: "없음",
         },
         result: "",
+        results: [
+          {
+            condition: "1위",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+          },
+          {
+            condition: "2위",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+          },
+          {
+            condition: "3위 이하",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+          },
+        ],
       },
     ],
     condition: "재팬컵 출주",
@@ -1494,8 +1505,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result:
-              '올 스탯+3 스킬 Pt+45 "急ぎ足"(빠른 걸음) 시나리오 NPC 인연게이지+4',
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+          },
+          {
+            condition: "2위",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+          },
+          {
+            condition: "3위 이하",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
@@ -1519,15 +1537,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+3 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "2위",
-            result: "올 스탯+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+2 스킬 Pt+45 시나리오 NPC 인연게이지+4",
           },
           {
             condition: "3위 이하",
-            result: "올 스탯+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
+            result: "랜덤 스탯 3개+1 스킬 Pt+30~45 시나리오 NPC 인연게이지+4",
           },
         ],
       },
