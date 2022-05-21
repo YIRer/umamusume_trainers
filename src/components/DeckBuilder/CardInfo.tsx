@@ -266,6 +266,15 @@ const CardInfo = (props: CardInfoProps) => {
         </section>
       )}
 
+      {props.skillData?.special?.length > 0 && (
+        <section className={classes.section}>
+          <h4>스폐셜 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {props.skillData.special.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+
       {data.type === "training" && (
         <section className={classes.section}>
           <h4>육성 목표</h4>
