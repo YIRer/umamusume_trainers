@@ -16,6 +16,7 @@ const setInitialSkills = (cardData: CardType) => {
     hasSkillsIds,
     baseSkillsIds,
     awakeningSkillsIds,
+    specialSkillsIds,
     skills,
   } = cardData;
 
@@ -25,6 +26,7 @@ const setInitialSkills = (cardData: CardType) => {
     has: [],
     base: [],
     awakening: [],
+    special: [],
   };
 
   uniqueSkillsIds.forEach((sid) => {
@@ -47,6 +49,13 @@ const setInitialSkills = (cardData: CardType) => {
     const skill = skills.find(({ id }) => id === sid);
     if (skill) {
       skillData.awakening.push(skill);
+    }
+  });
+  
+  specialSkillsIds?.forEach((sid) => {
+    const skill = skills.find(({ id }) => id === sid);
+    if (skill) {
+      skillData.special.push(skill);
     }
   });
 
