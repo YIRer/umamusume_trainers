@@ -90,6 +90,9 @@ const SkillType = new GraphQLObjectType({
           axios.get(
             `${dbServer}/cards?awakeningSkillsIds_like=${parentValue.id}`
           ),
+          axios.get(
+            `${dbServer}/cards?specialSkillsIds_like=${parentValue.id}`
+          ),
         ])
           .then((res) => {
             const cards = [];
@@ -105,6 +108,7 @@ const SkillType = new GraphQLObjectType({
                     hasSkillsIds = [],
                     baseSkillsIds = [],
                     awakeningSkillsIds = [],
+                    specialSkillsIds = []
                   } = card;
 
                   const skills = _.concat(
@@ -112,7 +116,8 @@ const SkillType = new GraphQLObjectType({
                     trainingSkillsIds,
                     hasSkillsIds,
                     baseSkillsIds,
-                    awakeningSkillsIds
+                    awakeningSkillsIds,
+                    specialSkillsIds
                   );
 
                   if (skills.includes(strID)) {

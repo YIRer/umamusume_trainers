@@ -35,6 +35,7 @@ export type CardType = {
   hasSkillsIds: string[];
   baseSkillsIds: string[];
   awakeningSkillsIds: string[];
+  specialSkillsIds: string[];
   skills: any[];
   events: CardEventObjectType;
   originalEffect?: CardOriginalEffectType;

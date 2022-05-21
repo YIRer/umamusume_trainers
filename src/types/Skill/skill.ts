@@ -17,4 +17,5 @@ export type RelatedSkillsType = {
   has: SkillType[];
   base: SkillType[];
   awakening: SkillType[];
+  special: SkillType[];
 };

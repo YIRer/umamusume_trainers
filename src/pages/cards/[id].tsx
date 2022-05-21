@@ -22,6 +22,7 @@ CardInfoPage.getInitialProps = async (ctx) => {
 
     return { data };
   } catch (err) {
+    console.log(err)
     return { data: {}, statusCode: getGhlErrorStatus(err) };
   }
 };

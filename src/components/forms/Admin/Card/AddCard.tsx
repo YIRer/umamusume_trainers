@@ -118,6 +118,7 @@ const AddCard = () => {
     has: [],
     base: [],
     awakening: [],
+    special: [],
   });
   const [selectedSkillType, setSelectedSkillType] =
     useState<SelectedSkillTypes>("");
@@ -285,6 +286,7 @@ const AddCard = () => {
       hasSkillsIds: relatedSkills.has.map(({ id }) => id),
       baseSkillsIds: relatedSkills.base.map(({ id }) => id),
       awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
+      specialSkillsIds: relatedSkills.special.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -409,6 +411,10 @@ const AddCard = () => {
 
   const showAwakeningSkillSearchModal = () => {
     setSelectedSkillType("awakening");
+    showSkillSearchModal();
+  };
+  const showSpecialSkillSearchModal = () => {
+    setSelectedSkillType("special");
     showSkillSearchModal();
   };
 
@@ -662,6 +668,15 @@ const AddCard = () => {
             className={classes.skillButton}
           >
             {isTrainingType ? "각성" : "소지"} 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showSpecialSkillSearchModal}
+            className={classes.skillButton}
+          >
+            스폐셜 스킬 선택
           </Button>
         </div>
         {skillSearchModalOpened && (

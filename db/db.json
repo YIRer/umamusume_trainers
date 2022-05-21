@@ -128721,14 +128721,16 @@
                   "ko": "",
                   "ja": "逃げにも色々あるんだな"
                 },
-                "result": "스피드+20"
+                "result": "스피드+20",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "友人想いだな"
                 },
-                "result": "지능+20"
+                "result": "지능+20",
+                "results": null
               }
             ],
             "condition": "승부복 이베튼"
@@ -128748,14 +128750,16 @@
                   "ko": "",
                   "ja": "急いで帰ろう"
                 },
-                "result": "스태미나+20"
+                "result": "스태미나+20",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "雨宿りがてら、お茶でもしていく？"
                 },
-                "result": "파워+10 근성+10"
+                "result": "파워+10 근성+10",
+                "results": null
               }
             ],
             "condition": "승부복 이벤트"
@@ -128775,14 +128779,16 @@
                   "ko": "",
                   "ja": "この際、とことん付き合ってみるしか……"
                 },
-                "result": "스태미나+20 『愛嬌◯』상태랜덤흭득"
+                "result": "스태미나+20 『愛嬌◯』상태랜덤흭득",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "目的地を決めてあげたほうがいいのかも"
                 },
-                "result": "지능+20"
+                "result": "지능+20",
+                "results": null
               }
             ],
             "condition": "승부복 이벤트"
@@ -128802,14 +128808,16 @@
                   "ko": "",
                   "ja": "俺も嬉しいよ！"
                 },
-                "result": "스태미나+10"
+                "result": "스태미나+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "最強の売り子だな……！"
                 },
-                "result": "파워+5 스킬 Pt+15"
+                "result": "파워+5 스킬 Pt+15",
+                "results": null
               }
             ],
             "condition": "외출시 랜덤발생"
@@ -128829,14 +128837,16 @@
                   "ko": "",
                   "ja": "君を支えるのが生きがいなんだから"
                 },
-                "result": "근성+10"
+                "result": "근성+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "俺たちらしい関係でいい"
                 },
-                "result": "스피드+10"
+                "result": "스피드+10",
+                "results": null
               }
             ],
             "condition": "외출시 랜덤발생"
@@ -128856,21 +128866,24 @@
                   "ko": "",
                   "ja": "もっと甘えていいくらいだよ"
                 },
-                "result": "파워+10"
+                "result": "파워+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "寄り添い合い、支え合っていこう！"
                 },
-                "result": "스태미나+10"
+                "result": "스태미나+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "こちらこそ、ありがとう"
                 },
-                "result": "지능+10"
+                "result": "지능+10",
+                "results": null
               }
             ],
             "condition": "외출시 랜덤발생"
@@ -128890,14 +128903,16 @@
                   "ko": "",
                   "ja": "その時は、絵本にサインしてな！"
                 },
-                "result": "파워+10"
+                "result": "파워+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "いい絵本になりそうだな"
                 },
-                "result": "스피드+10"
+                "result": "스피드+10",
+                "results": null
               }
             ],
             "condition": "외출시 랜덤발생"
@@ -128917,14 +128932,16 @@
                   "ko": "",
                   "ja": "なかなかできる事じゃない"
                 },
-                "result": "근성+10"
+                "result": "근성+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "勉強になったよ"
                 },
-                "result": "지능+10"
+                "result": "지능+10",
+                "results": null
               }
             ],
             "condition": "외출시 랜덤발생"
@@ -128944,14 +128961,16 @@
                   "ko": "",
                   "ja": "ファンも体力勝負だな"
                 },
-                "result": "스태미나+10"
+                "result": "스태미나+10",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "罪作りだなぁ〜"
                 },
-                "result": "근성+10"
+                "result": "근성+10",
+                "results": null
               }
             ],
             "condition": ""
@@ -128971,14 +128990,16 @@
                   "ko": "",
                   "ja": "せっかくだし、ちょっと走ろうか？"
                 },
-                "result": "스피드+5 파워+5"
+                "result": "스피드+5 파워+5",
+                "results": null
               },
               {
                 "description": {
                   "ko": "",
                   "ja": "相乗効果ってやつだな"
                 },
-                "result": "스태미나+5 지능+5"
+                "result": "스태미나+5 지능+5",
+                "results": null
               }
             ],
             "condition": ""
@@ -129378,7 +129399,10 @@
           "rewards": "칭호 획득"
         }
       ],
-      "id": 214
+      "id": 214,
+      "specialSkillsIds": [
+        "478"
+      ]
     }
   ],
   "skills": [

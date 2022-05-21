@@ -189,6 +189,7 @@ const CardInfo = ({ data, statusCode }) => {
     has: [],
     base: [],
     awakening: [],
+    special: [],
   });
   const [deleteCard, _mutationData] = useMutation(DELTE_CARD);
   const [addCard, _mutationAddData] = useMutation(ADD_CARD);
@@ -203,6 +204,7 @@ const CardInfo = ({ data, statusCode }) => {
       hasSkillsIds,
       baseSkillsIds,
       awakeningSkillsIds,
+      specialSkillsIds,
       skills,
     } = cardData;
 
@@ -212,6 +214,7 @@ const CardInfo = ({ data, statusCode }) => {
       has: [],
       base: [],
       awakening: [],
+      special: [],
     };
 
     uniqueSkillsIds.forEach((sid) => {
@@ -234,6 +237,13 @@ const CardInfo = ({ data, statusCode }) => {
       const skill = skills.find(({ id }) => id === sid);
       if (skill) {
         skillData.awakening.push(skill);
+      }
+    });
+
+    specialSkillsIds?.forEach((sid) => {
+      const skill = skills.find(({ id }) => id === sid);
+      if (skill) {
+        skillData.special.push(skill);
       }
     });
 
@@ -423,6 +433,15 @@ const CardInfo = ({ data, statusCode }) => {
           <h4>소지 스킬</h4>
           <div className={classes.skillCardsWrapper}>
             {relatedSkills.has.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+
+      {relatedSkills.special?.length > 0 && (
+        <section className={classes.section}>
+          <h4>스폐셜 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.special.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}

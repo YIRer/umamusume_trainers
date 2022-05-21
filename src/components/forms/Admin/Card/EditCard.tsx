@@ -124,6 +124,7 @@ const EditCard = () => {
     has: [],
     base: [],
     awakening: [],
+    special:[]
   });
   const [selectedSkillType, setSelectedSkillType] =
     useState<SelectedSkillTypes>("");
@@ -210,6 +211,7 @@ const EditCard = () => {
         hasSkillsIds,
         baseSkillsIds,
         awakeningSkillsIds,
+        specialSkillsIds,
         trainingObjects,
         supportType,
         originalEffect,
@@ -248,6 +250,7 @@ const EditCard = () => {
       const hasSkills = [];
       const baseSkills = [];
       const awakeningSkills = [];
+      const specialSkills = [];
 
       uniqueSkillsIds?.forEach((sid) => {
         const findSkill = skills.find(({ id }) => id === sid);
@@ -284,12 +287,20 @@ const EditCard = () => {
         }
       });
 
+      specialSkillsIds?.forEach((sid) => {
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          specialSkills.push(findSkill);
+        }
+      });
+
       setRelatedSkills({
         unique: uniqueSkills,
         training: traniningSkills,
         has: hasSkills,
         base: baseSkills,
         awakening: awakeningSkills,
+        special: specialSkills,
       });
       if (targetData) {
         setTarget(targetData.umamusume || null);
@@ -407,6 +418,7 @@ const EditCard = () => {
       hasSkillsIds: relatedSkills.has.map(({ id }) => id),
       baseSkillsIds: relatedSkills.base.map(({ id }) => id),
       awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
+      specialSkillsIds: relatedSkills.special.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -561,6 +573,10 @@ const EditCard = () => {
 
   const showAwakeningSkillSearchModal = () => {
     setSelectedSkillType("awakening");
+    showSkillSearchModal();
+  };
+  const showSpecialSkillSearchModal = () => {
+    setSelectedSkillType("special");
     showSkillSearchModal();
   };
 
@@ -868,6 +884,20 @@ const EditCard = () => {
           </div>
         )}
 
+        {relatedSkills.special.length > 0 && (
+          <div>
+            <b>스폐셜 스킬</b>
+            {relatedSkills.special.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`special_skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
         <div className={classes.skillWrapper}>
           <Button
             type="button"
@@ -903,6 +933,15 @@ const EditCard = () => {
             className={classes.skillButton}
           >
             {isTrainingType ? "각성" : "소지"} 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showSpecialSkillSearchModal}
+            className={classes.skillButton}
+          >
+            스페셜 스킬 선택
           </Button>
         </div>
 

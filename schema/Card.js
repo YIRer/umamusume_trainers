@@ -199,6 +199,7 @@ const CardInputType = new GraphQLInputObjectType({
     hasSkillsIds: { type: new GraphQLList(GraphQLID) },
     baseSkillsIds: { type: new GraphQLList(GraphQLID) },
     awakeningSkillsIds: { type: new GraphQLList(GraphQLID) },
+    specialSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillInputType),
     },
@@ -394,6 +395,7 @@ const CardType = new GraphQLObjectType({
     hasSkillsIds: { type: new GraphQLList(GraphQLID) },
     baseSkillsIds: { type: new GraphQLList(GraphQLID) },
     awakeningSkillsIds: { type: new GraphQLList(GraphQLID) },
+    specialSkillsIds: { type: new GraphQLList(GraphQLID) },
     skills: {
       type: new GraphQLList(SkillType),
       resolve(parentValue, _args) {
@@ -403,6 +405,7 @@ const CardType = new GraphQLObjectType({
           hasSkillsIds = [],
           baseSkillsIds = [],
           awakeningSkillsIds = [],
+          specialSkillsIds = [],
         } = parentValue;
 
         const skillIds = [
@@ -411,6 +414,7 @@ const CardType = new GraphQLObjectType({
           ...hasSkillsIds,
           ...baseSkillsIds,
           ...awakeningSkillsIds,
+          ...specialSkillsIds,
         ]
           .map((id) => `id=${id}`)
           .join("&");
