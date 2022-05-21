@@ -105,6 +105,11 @@ export const iconData = [
     id: "i_skill_016",
   },
   {
+    value: "/image/skill/i_skill_051.png",
+    label: "대도주",
+    id: "i_skill_051",
+  },
+  {
     value: "/image/skill/i_skill_017.png",
     label: "스피드 디버프",
     id: "i_skill_017",
