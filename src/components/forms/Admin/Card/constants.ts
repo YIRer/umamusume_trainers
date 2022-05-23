@@ -1454,7 +1454,7 @@ export const commonOnceEvents = [
         ],
       },
     ],
-    condition: "다카라즈카 기념 출주",
+    condition: "타카라즈카 기념 출주",
   },
   {
     title: {
