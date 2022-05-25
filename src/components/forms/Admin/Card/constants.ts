@@ -211,7 +211,7 @@ export const commonEvents = [
           ja: "不安なのでやめておく",
         },
         result: "체력+10",
-        results: null,
+        results: [],
       },
     ],
     condition: "",
@@ -230,7 +230,7 @@ export const commonEvents = [
           ja: "尊敬すべき理事長です",
         },
         result: "스태미나+10, 기자인연게이지+5",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -238,7 +238,7 @@ export const commonEvents = [
           ja: "暴走することが多いような",
         },
         result: "근성+10, 기자인연게이지+5",
-        results: null,
+        results: [],
       },
     ],
     condition: "",
@@ -268,7 +268,7 @@ export const commonEvents = [
         },
         result:
           '체력-10, 파워+20, 근성+20, "ハヤテ一文字"(하야테 일문자) 힌트 Lv+1',
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -276,7 +276,7 @@ export const commonEvents = [
           ja: "では、にんじんを分けていただけますか？",
         },
         result: '체력+30, 스태미나+20, "好転一息"(호전일식) 힌트 Lv+1',
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -302,7 +302,7 @@ export const commonEvents = [
           ja: "特賞(温泉旅行券)",
         },
         result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -310,7 +310,7 @@ export const commonEvents = [
           ja: "1等(당근 햄버그)",
         },
         result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -318,7 +318,7 @@ export const commonEvents = [
           ja: "2等(당근 한 무더기)",
         },
         result: "체력+20 의욕상승 랜덤 스탯 3개+5",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -326,7 +326,7 @@ export const commonEvents = [
           ja: "3等(당근 1개)",
         },
         result: "체력+20",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -334,7 +334,7 @@ export const commonEvents = [
           ja: "はずれ(꽝)",
         },
         result: "의욕저하",
-        results: null,
+        results: [],
       },
     ],
     condition: "",
@@ -762,14 +762,14 @@ export const commonMultipleEvent = [
         },
         result:
           "체력 +10 의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여",
-        results: null,
+        results: [],
       },
       {
         description: {
           ko: "",
           ja: "わかった、できる範囲で頑張ろう",
         },
-        result: null,
+        result: "",
         results: [
           {
             condition: "성공",
@@ -800,7 +800,7 @@ export const commonMultipleEvent = [
         },
         result:
           "의욕저하 실패한훈련 스탯-5 ~ -10 『練習下手』(훈련실패율 감소)상태랜덤흭득",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -1043,7 +1043,7 @@ export const commonMultipleEvent = [
           ja: "オーバーワークになるから自転車で",
         },
         result: "체력+5",
-        results: null,
+        results: [],
       },
     ],
     condition: "훈련이후 랜덤발생",
@@ -1062,7 +1062,7 @@ export const commonMultipleEvent = [
           ja: "カロリーは大丈夫……？",
         },
         result: "체력+10 스킬Pt+5",
-        results: null,
+        results: [],
       },
       {
         description: {
@@ -1540,9 +1540,9 @@ export const commonOnceEvents = [
       {
         description: {
           ko: "",
-          ja: "天皇賞(秋)の後に",
+          ja: "",
         },
-        result: "천황상(가을) 출주",
+        result: "없음",
         results: [
           {
             condition: "1위",
