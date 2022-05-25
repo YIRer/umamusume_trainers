@@ -769,9 +769,18 @@ export const commonMultipleEvent = [
           ko: "",
           ja: "わかった、できる範囲で頑張ろう",
         },
-        result:
-          "성공시 체력+10 『練習上手◯』상태흭득  실패시  의욕저하 -3 직전 교육에 진행한 스탯 -10 무작위로 2개의 스탯을 -10 랜덤으로 『練習ベタ』 상태 부여",
-        results: null,
+        result: null,
+        results: [
+          {
+            condition: "성공",
+            result: "체력+10 『練習上手◯』상태흭득",
+          },
+          {
+            condition: "실패",
+            result:
+              "의욕저하, 직전 교육에 진행한 스탯-10, 랜덤 스탯 2개-10 랜덤으로 『練習ベタ』가 된다",
+          },
+        ],
       },
     ],
     condition: "훈련 실패율 70%이상 확정",
