@@ -124,7 +124,7 @@ const EditCard = () => {
     has: [],
     base: [],
     awakening: [],
-    special:[]
+    special: [],
   });
   const [selectedSkillType, setSelectedSkillType] =
     useState<SelectedSkillTypes>("");
@@ -403,6 +403,8 @@ const EditCard = () => {
     const imageSrc =
       targetInfo && imageName
         ? `/image/${targetInfo.name.default}/cards/${type}/${imageName}.png`
+        : !targetInfo && imageName
+        ? `/image/ETC/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
     const input = {
@@ -465,15 +467,15 @@ const EditCard = () => {
     const commonEventList = events.common ?? [...commonEvents];
     const commonOnceEventList =
       events.once.length > 0
-        ? events.once
-        : isTrainingType
-        ? [...commonOnceEvents]
+        ? events.once && isTrainingType
+          ? [...commonOnceEvents]
+          : events.once
         : [];
     const commonMulitpleEventList =
       events.multipleTimes.length > 0
-        ? events.multipleTimes
-        : isTrainingType
-        ? [...commonMultipleEvent]
+        ? events.multipleTimes && isTrainingType
+          ? [...commonMultipleEvent]
+          : events.multipleTimes
         : [];
 
     const common = commonEventList.map((d) => ({
@@ -488,6 +490,11 @@ const EditCard = () => {
       ...d,
       __tempID: _.uniqueId("mulitple-event"),
     }));
+
+    console.log("isTrainingType", isTrainingType);
+    console.log("common", common);
+    console.log("events.events", events);
+    console.log("commonMulitpleEventList", commonMulitpleEventList);
 
     return {
       common,

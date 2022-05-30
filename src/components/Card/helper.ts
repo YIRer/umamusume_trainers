@@ -7,6 +7,7 @@ export const supportTypes = {
   guts: "근성",
   int: "지능",
   friend: "친구",
+  group: "그룹",
 };
 
 export const formattedDescriptionForCards = (cardData: CardType): string => {

@@ -21,7 +21,7 @@ import {
   initialStatusData,
   supportTypes,
   commonOnceEvents,
-  commonEvents
+  commonEvents,
 } from "./constants";
 
 import SearchUmamusume from "../Umamusume/SearchUmamusume";
@@ -265,6 +265,8 @@ const AddCard = () => {
     const imageSrc =
       targetInfo && imageName
         ? `/image/${targetInfo.name.default}/cards/${type}/${imageName}.png`
+        : !targetInfo && imageName
+        ? `/image/ETC/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
     const addedCommonEvents = addCommonEvents(events);

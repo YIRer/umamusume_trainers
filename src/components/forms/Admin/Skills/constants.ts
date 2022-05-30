@@ -10,6 +10,11 @@ export const iconData = [
     id: "i_skill_002",
   },
   {
+    value: "/image/skill/i_skill_052.png",
+    label: "속도 상승",
+    id: "i_skill_052",
+  },
+  {
     value: "/image/skill/i_skill_003.png",
     label: "속도 상승(고유)",
     id: "i_skill_003",

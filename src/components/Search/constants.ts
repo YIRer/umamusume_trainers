@@ -18,8 +18,8 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
     supportTypes: {
       type: "서포터 타입",
       selector: "checkbox",
-      values: ["speed", "stamina", "power", "guts", "int", "friend"],
-      labels: ["스피드", "스태미나", "파워", "근성", "지능", "친구"],
+      values: ["speed", "stamina", "power", "guts", "int", "friend", "group"],
+      labels: ["스피드", "스태미나", "파워", "근성", "지능", "친구", "그룹"],
       imgSrc: [
         "/image/icons/speed.png",
         "/image/icons/stamina.png",
@@ -27,6 +27,7 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
         "/image/icons/guts.png",
         "/image/icons/int.png",
         "/image/icons/friend.png",
+        "/image/icons/group.png",
       ],
     },
     limited: {

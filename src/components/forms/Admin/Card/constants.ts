@@ -1601,6 +1601,7 @@ export const supportTypes = [
   { value: "guts", label: "근성" },
   { value: "int", label: "지능" },
   { value: "friend", label: "친구" },
+  { value: "group", label: "그룹" },
 ];
 
 export const bonusOptions = [
