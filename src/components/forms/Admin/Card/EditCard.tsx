@@ -114,7 +114,7 @@ const EditCard = () => {
     variables: { id },
   });
 
-  const [isTrainingType, setTrainingType] = useState(true);
+  const [isTrainingType, setTrainingType] = useState(false);
   const [targetInfo, setTarget] = useState<CardTargetType>(null);
   const [modalOpened, setModalState] = useState(false);
   const [skillSearchModalOpened, setSkillSearchModalState] = useState(false);
@@ -465,6 +465,7 @@ const EditCard = () => {
 
   const addEventTempIDs = (events: CardEventObjectType) => {
     const commonEventList = events.common ?? [...commonEvents];
+    console.log(events.once)
     const commonOnceEventList =
       events.once.length > 0
         ? events.once && isTrainingType
