@@ -465,7 +465,6 @@ const EditCard = () => {
 
   const addEventTempIDs = (events: CardEventObjectType) => {
     const commonEventList = events.common ?? [...commonEvents];
-    console.log(events.once)
     const commonOnceEventList =
       events.once.length > 0
         ? events.once && isTrainingType
@@ -491,11 +490,6 @@ const EditCard = () => {
       ...d,
       __tempID: _.uniqueId("mulitple-event"),
     }));
-
-    console.log("isTrainingType", isTrainingType);
-    console.log("common", common);
-    console.log("events.events", events);
-    console.log("commonMulitpleEventList", commonMulitpleEventList);
 
     return {
       common,
