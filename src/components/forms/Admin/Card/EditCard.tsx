@@ -467,15 +467,11 @@ const EditCard = () => {
     const commonEventList = events.common ?? [...commonEvents];
     const commonOnceEventList =
       events.once.length > 0
-        ? events.once && isTrainingType
-          ? [...commonOnceEvents]
-          : events.once
+        ? events.once
         : [];
     const commonMulitpleEventList =
       events.multipleTimes.length > 0
-        ? events.multipleTimes && isTrainingType
-          ? [...commonMultipleEvent]
-          : events.multipleTimes
+        ? events.multipleTimes
         : [];
 
     const common = commonEventList.map((d) => ({

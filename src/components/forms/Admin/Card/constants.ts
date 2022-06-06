@@ -1559,7 +1559,7 @@ export const commonOnceEvents = [
         ],
       },
     ],
-    condition: "",
+    condition: "천황상(가을) 출주",
   },
   {
     title: {
