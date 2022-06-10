@@ -840,15 +840,15 @@ export const commonMultipleEvent = [
         results: [
           {
             condition: "G1",
-            result: "올 스탯 중 랜덤 한개 +10 스킬 Pt+45",
+            result: "랜덤 스탯 한개 +10 스킬 Pt+45",
           },
           {
             condition: "G2~G3",
-            result: "올 스탯 중 랜덤 한개 +8 스킬 Pt+35",
+            result: "랜덤 스탯 한개 +8 스킬 Pt+35",
           },
           {
             condition: "op",
-            result: "올 스탯 중 랜덤 한개 +5 스킬 Pt+30",
+            result: "랜덤 스탯 한개 +5 스킬 Pt+30",
           },
           {
             condition: "공통",
@@ -866,15 +866,15 @@ export const commonMultipleEvent = [
         results: [
           {
             condition: "G1",
-            result: "올 스탯 중 랜덤 한개 +10 스킬 Pt+45",
+            result: "랜덤 스탯 한개 +10 스킬 Pt+45",
           },
           {
             condition: "G2~G3",
-            result: "올 스탯 중 랜덤 한개 +8 스킬 Pt+35",
+            result: "랜덤 스탯 한개 +8 스킬 Pt+35",
           },
           {
             condition: "op",
-            result: "올 스탯 중 랜덤 한개 +5 스킬 Pt+30",
+            result: "랜덤 스탯 한개 +5 스킬 Pt+30",
           },
           {
             condition: "공통",
@@ -1418,15 +1418,15 @@ export const commonOnceEvents = [
         results: [
           {
             condition: "1위",
-            result: "올 스탯 중 랜덤 3개 +10 스킬Pt+45",
+            result: "랜덤 스탯 3개 +10 스킬Pt+45",
           },
           {
             condition: "2~5위",
-            result: "올 스탯 중 랜덤 2개 +5~8 스킬Pt+35~45",
+            result: "랜덤 스탯 2개 +5~8 스킬Pt+35~45",
           },
           {
             condition: "6위 이하",
-            result: "올 스탯 중 랜덤 1개 +4 스킬Pt+25",
+            result: "랜덤 스탯 1개 +4 스킬Pt+25",
           },
         ],
       },
