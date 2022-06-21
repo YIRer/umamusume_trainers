@@ -465,14 +465,9 @@ const EditCard = () => {
 
   const addEventTempIDs = (events: CardEventObjectType) => {
     const commonEventList = events.common ?? [...commonEvents];
-    const commonOnceEventList =
-      events.once.length > 0
-        ? events.once
-        : [];
+    const commonOnceEventList = events.once.length > 0 ? events.once : [];
     const commonMulitpleEventList =
-      events.multipleTimes.length > 0
-        ? events.multipleTimes
-        : [];
+      events.multipleTimes.length > 0 ? events.multipleTimes : [];
 
     const common = commonEventList.map((d) => ({
       ...d,
@@ -749,7 +744,7 @@ const EditCard = () => {
             />
             <BonusTableForm
               updateTableRow={handleUpdateBonusTable}
-              initialData={formData.bonusEffectTable}
+              initialData={card.bonusEffectTable || formData.bonusEffectTable}
             />
           </>
         )}
