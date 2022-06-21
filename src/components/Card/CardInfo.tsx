@@ -174,6 +174,12 @@ const useStyles = makeStyles((theme) => ({
   nameWrapper: {
     wordBreak: "keep-all",
   },
+
+  warning: {
+    fontSize: "16px",
+    color: "crimson",
+    fontWeight: "bold",
+  },
 }));
 
 const CardInfo = ({ data, statusCode }) => {
@@ -459,6 +465,9 @@ const CardInfo = ({ data, statusCode }) => {
         </section>
       )}
       <section className={classes.section}>
+        <span className={classes.warning}>
+          한국판과 선택지 결과로 얻는 보너스가 다릅니다.
+        </span>
         {card.type === "training" && (
           <div>
             <h4>공통 이벤트</h4>

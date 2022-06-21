@@ -142,6 +142,12 @@ const useStyles = makeStyles((theme) => ({
     display: "inline-block",
     marginRight: "8px",
   },
+
+  warning: {
+    fontSize: "16px",
+    color: "crimson",
+    fontWeight: "bold",
+  },
 }));
 
 const CardInfo = (props: CardInfoProps) => {
@@ -288,6 +294,9 @@ const CardInfo = (props: CardInfoProps) => {
         </section>
       )}
       <section className={classes.section} ref={selectionElement}>
+        <span className={classes.warning}>
+          한국판과 선택지 결과로 얻는 보너스가 다릅니다.
+        </span>
         {data.type === "training" && (
           <div>
             <h4>공통 이벤트</h4>
