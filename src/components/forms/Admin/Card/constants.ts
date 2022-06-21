@@ -575,7 +575,7 @@ export const commonEvents = [
           ko: "",
           ja: "ライスの＜ブルームス＞",
         },
-        result: '랜덤 스탯 3개+10 스킬Pt+50 "クールダウン"(쿨 다운) 힌트 Lv+1',
+        result: '랜덤 스탯 3개+10 스킬Pt+50 "クールダウン"(쿨다운) 힌트 Lv+1',
       },
       {
         description: {
