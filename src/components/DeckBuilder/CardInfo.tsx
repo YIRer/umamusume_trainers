@@ -295,7 +295,7 @@ const CardInfo = (props: CardInfoProps) => {
       )}
       <section className={classes.section} ref={selectionElement}>
         <span className={classes.warning}>
-          한국판과 선택지 결과로 얻는 보너스가 다릅니다.
+          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.
         </span>
         {data.type === "training" && (
           <div>

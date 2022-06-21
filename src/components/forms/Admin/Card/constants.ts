@@ -118,7 +118,7 @@ export const cardEventTypes = [
 export const commonEvents = [
   {
     title: {
-      ko: "",
+      ko: "안심~ 세침사 등☆장",
       ja: "あんし〜ん笹針師、参☆上",
     },
     eventType: "common",
@@ -341,7 +341,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "밸런타인",
       ja: "バレンタイン",
     },
     eventType: "common",
@@ -369,7 +369,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "팬 감사제",
       ja: "ファン感謝祭",
     },
     eventType: "common",
@@ -397,7 +397,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "다음번엔 지지 않아!",
       ja: "今度こそ負けない！",
     },
     eventType: "common",
@@ -454,7 +454,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "오토나시 기자의 철저한 취재",
       ja: "乙名史記者の徹底取材",
     },
     eventType: "common",
@@ -462,7 +462,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "현재 상황을 진지하게 받아들이겠습니다.",
           ja: "現状を真摯に受け止めます",
         },
         result: "",
@@ -481,7 +481,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "이대로 밀고 나가겠습니다!!",
           ja: "このまま突き進みます！！",
         },
         result:
@@ -749,7 +749,7 @@ export const commonEvents = [
 export const commonMultipleEvent = [
   {
     title: {
-      ko: "",
+      ko: "무리는 금물!",
       ja: "無茶は厳禁！",
     },
     eventType: "multipleTimes",
@@ -787,7 +787,7 @@ export const commonMultipleEvent = [
   },
   {
     title: {
-      ko: "",
+      ko: "몸조심!",
       ja: "お大事に！",
     },
     eventType: "multipleTimes",
@@ -825,7 +825,7 @@ export const commonMultipleEvent = [
   },
   {
     title: {
-      ko: "",
+      ko: "레이스 우승!",
       ja: "レース勝利！",
     },
     eventType: "multipleTimes",
@@ -888,7 +888,7 @@ export const commonMultipleEvent = [
   },
   {
     title: {
-      ko: "",
+      ko: "레이스 입상",
       ja: "レース入着",
     },
     eventType: "multipleTimes",
@@ -951,7 +951,7 @@ export const commonMultipleEvent = [
   },
   {
     title: {
-      ko: "",
+      ko: "레이스 패배",
       ja: "レース敗北",
     },
     eventType: "multipleTimes",
@@ -1014,7 +1014,7 @@ export const commonMultipleEvent = [
   },
   {
     title: {
-      ko: "",
+      ko: "추가 자율 트레이닝",
       ja: "追加の自主トレ",
     },
     eventType: "multipleTimes",
@@ -1090,7 +1090,7 @@ export const commonMultipleEvent = [
 export const commonOnceEvents = [
   {
     title: {
-      ko: "",
+      ko: "신년 포부",
       ja: "新年の抱負",
     },
     eventType: "once",
@@ -1122,7 +1122,7 @@ export const commonOnceEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "여름 합숙(2년차)에서",
       ja: "夏合宿（2年目）にて",
     },
     eventType: "once",
@@ -1147,7 +1147,7 @@ export const commonOnceEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "새해 첫 참배",
       ja: "初詣",
     },
     eventType: "once",
@@ -1179,7 +1179,7 @@ export const commonOnceEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "데뷔전 후에",
       ja: "デビュー戦の後に",
     },
     eventType: "once",
@@ -1563,7 +1563,7 @@ export const commonOnceEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "댄스 레슨",
       ja: "ダンスレッスン",
     },
     eventType: "once",
