@@ -138,7 +138,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "강한 우마무스메가 되는 혈을 찌른다",
           ja: "強いウマ娘になれる秘孔を狙う",
         },
         result: "",
@@ -155,7 +155,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "레이스에서 이기는 혈을 찌른다",
           ja: "レースで勝てる秘孔を狙う",
         },
         result: "",
@@ -172,7 +172,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "힘이 넘치고 건강해지는 혈을 찌른다",
           ja: "元気で健康になれる秘孔を狙う",
         },
         result:
@@ -190,7 +190,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "매력이 커지는 혈을 찌른다",
           ja: "魅力アップの秘孔を狙う",
         },
         result: "",
@@ -207,7 +207,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "불안하니까 포기한다",
           ja: "不安なのでやめておく",
         },
         result: "체력+10",
@@ -218,7 +218,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "유쾌! 밀착취재!",
       ja: "協快ッ！密着取材 !",
     },
     eventType: "common",
@@ -226,7 +226,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "존경스러운 이사장님입니다.",
           ja: "尊敬すべき理事長です",
         },
         result: "스태미나+10, 기자인연게이지+5",
@@ -234,7 +234,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "자주 폭주하시는 듯한...",
           ja: "暴走することが多いような",
         },
         result: "근성+10, 기자인연게이지+5",
@@ -245,7 +245,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "좋은 표정이로다!",
       ja: "上々の画構えッ！",
     },
     eventType: "common",
@@ -263,7 +263,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "그럼 새 훈련 도구를 부탁해도 될까요?",
           ja: "では、新しい練習用具をいただけますか？",
         },
         result:
@@ -272,7 +272,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "그럼 당근을 나눠주실 수 있나요?",
           ja: "では、にんじんを分けていただけますか？",
         },
         result: '체력+30, 스태미나+20, "好転一息"(호전일식) 힌트 Lv+1',
@@ -290,7 +290,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "경품 추첨 찬스!",
       ja: "福引チャンス！",
     },
     eventType: "common",
@@ -298,7 +298,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "특별상(온천여행권)",
           ja: "特賞(温泉旅行券)",
         },
         result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
@@ -306,7 +306,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "1등(당근 햄버그)",
           ja: "1等(당근 햄버그)",
         },
         result: "체력+30 의욕 2단계 상승 랜덤 스탯 3개+10",
@@ -314,7 +314,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "2등(당근 한 무더기)",
           ja: "2等(당근 한 무더기)",
         },
         result: "체력+20 의욕상승 랜덤 스탯 3개+5",
@@ -322,7 +322,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "3등(당근 1개)",
           ja: "3等(당근 1개)",
         },
         result: "체력+20",
@@ -330,7 +330,7 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "꽝(티슈)",
           ja: "はずれ(꽝)",
         },
         result: "의욕저하",
@@ -422,7 +422,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "월간 트윙클 증간호",
       ja: "月刊トゥインクル増刊号",
     },
     eventType: "common",
@@ -1078,7 +1078,7 @@ export const commonMultipleEvent = [
           {
             condition: "실패",
             result:
-              "체력+30 스킬 Pt+10 스피드-5 파워+5 「太り気味 살찐기미」 상태가 됨",
+              "체력+30 스킬 Pt+10 스피드-5 파워+5 「太り気味 살찜 주의」 상태가 됨",
           },
         ],
       },
