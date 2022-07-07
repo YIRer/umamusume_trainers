@@ -2,3 +2,8 @@
 User-agent: *
 
 Disallow: /admin
+Disallow: /umamusume
+Disallow: /cards
+Disallow: /skills
+
+Sitemap: https://umamusume-trainers.me/sitemap.xml
