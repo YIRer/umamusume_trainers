@@ -4,8 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AppMainBar from "components/Common/AppMainBar";
-import DisplayAds from "components/ADsense/DisplayAds";
-import FooterAds from "components/ADsense/FooterAds";
 
 const SideButtons = dynamic(() => import("components/Common/SideButtons"), {
   ssr: false,
@@ -23,11 +21,9 @@ const Layout = ({ children }) => {
   const classes = useStyles();
   return (
     <Paper elevation={0} classes={{ root: classes.root }}>
-      <DisplayAds />
       <AppMainBar />
       {children}
       <SideButtons isFixed={true} />
-      <FooterAds />
     </Paper>
   );
 };
