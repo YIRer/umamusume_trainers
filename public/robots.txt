@@ -1,6 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 
+Allow /umamusume/*
+Allow /cards/*
+Allow /skills/*
+
 Disallow: /admin
 Disallow: /umamusume
 Disallow: /cards
