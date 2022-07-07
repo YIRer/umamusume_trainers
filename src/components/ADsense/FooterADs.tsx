@@ -1,25 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const FooterADs = () => {
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {
+      if (process.env.NODE_ENV !== "production") {
+        console.error("AdvertiseError", err);
+      }
+    }
+  }, []);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <ins
-        className="adsbygoogle"
-        style={{
-          display: "block",
-        }}
-        data-ad-format="autorelaxed"
-        data-ad-client="ca-pub-6261389729177556"
-        data-ad-slot="2124060646"
-      ></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    <ins
+    className="adsbygoogle"
+    style={{
+      display: "block",
+    }}
+    data-ad-format="autorelaxed"
+    data-ad-client="ca-pub-6261389729177556"
+    data-ad-slot="2124060646"
+  ></ins>
   );
 };
 
