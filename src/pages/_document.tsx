@@ -34,6 +34,13 @@ export default class AppDocument extends Document {
               }}
             ></script>
           )}
+          {!isDev && (
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6261389729177556"
+              crossOrigin="anonymous"
+            ></script>
+          )}
         </Head>
         <body>
           <Main />
