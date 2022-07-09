@@ -10,6 +10,7 @@ const InFeed = () => {
       }
     }
   }, []);
+
   return (
     <ins
     className="adsbygoogle"

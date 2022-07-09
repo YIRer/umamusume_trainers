@@ -16,7 +16,7 @@ import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
@@ -73,7 +73,7 @@ export const Skills = ({ data, statusCode }) => {
 
   return (
     <div className={classes.skillListWrapper}>
-      <DisplayAds />
+      <InFeed />
       <h1>스킬 리스트</h1>
       <SearchForm
         data={data.skills}

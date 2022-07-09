@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const DisplayAds = () => {
+const InFeed = () => {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -24,4 +24,4 @@ const DisplayAds = () => {
   );
 };
 
-export default DisplayAds;
+export default InFeed;

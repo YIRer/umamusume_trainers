@@ -22,7 +22,7 @@ import { CardType } from "types/Card/card";
 
 import Helmet from "Helmet/Helmet";
 
-import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
@@ -143,7 +143,7 @@ const Umamusume = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
-      <DisplayAds />
+      <InFeed />
       <Helmet
         title={`${umamusume.name.ko}(${umamusume.name.ja})`}
         url={`/umamusume/${id}`}

@@ -21,7 +21,7 @@ import { prefixImgSrc } from "helper";
 
 import Helmet from "Helmet/Helmet";
 
-import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
@@ -108,7 +108,7 @@ const SkillInfo = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
-      <DisplayAds />
+      <InFeed />
       <Helmet
         title={`${skill.name.ko}(${skill.name.ja})`}
         url={`/skills/${id}`}
