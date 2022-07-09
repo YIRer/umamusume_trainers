@@ -165,7 +165,7 @@ const CardInfo = (props: CardInfoProps) => {
     if (props.showSelection) {
       goTosection();
     }
-  }, []);
+  }, [props.showSelection]);
 
   const renderSkillCards = (skill: SkillType) => {
     return (
