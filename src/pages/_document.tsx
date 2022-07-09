@@ -1,23 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import { isDev } from "../constants";
 
 export default function AppDocument() {
-  useEffect(() => {
-
-    const ads = document.getElementsByClassName("adsbygoogle").length;
-    for (var i = 0; i < ads; i++) {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (err) {
-        if (process.env.NODE_ENV !== "production") {
-          console.error("AdvertiseError", err);
-        }
-      }
-    }
-  }, []);
-
   return (
     <Html lang="ko">
       <Head>
