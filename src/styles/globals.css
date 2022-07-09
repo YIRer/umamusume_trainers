@@ -12,3 +12,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
