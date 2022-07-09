@@ -1,52 +1,64 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import { isDev } from "../constants";
 
-export default class AppDocument extends Document {
-  render() {
-    return (
-      <Html lang="ko">
-        <Head>
-          <meta charSet="utf-8" />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          />
-          {!isDev && (
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-E32NNR4F7D"
-            ></script>
-          )}
-          {!isDev && (
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                      function gtag() {
-                    dataLayer.push(arguments);
-                  }
-                  gtag("js", new Date());
-              
-                  gtag("config", "G-E32NNR4F7D");
-                `,
-              }}
-            ></script>
-          )}
+export default function AppDocument() {
+  useEffect(() => {
+
+    const ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        if (process.env.NODE_ENV !== "production") {
+          console.error("AdvertiseError", err);
+        }
+      }
+    }
+  }, []);
+
+  return (
+    <Html lang="ko">
+      <Head>
+        <meta charSet="utf-8" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+        {!isDev && (
           <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6261389729177556"
-            crossOrigin="anonymous"
+            src="https://www.googletagmanager.com/gtag/js?id=G-E32NNR4F7D"
           ></script>
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+        )}
+        {!isDev && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                    function gtag() {
+                  dataLayer.push(arguments);
+                }
+                gtag("js", new Date());
+            
+                gtag("config", "G-E32NNR4F7D");
+              `,
+            }}
+          ></script>
+        )}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6261389729177556"
+          crossOrigin="anonymous"
+        ></script>
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),

@@ -21,7 +21,7 @@ import { prefixImgSrc } from "helper";
 
 import Helmet from "Helmet/Helmet";
 
-import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -175,7 +175,7 @@ const SkillInfo = ({ data, statusCode }) => {
           <span>없음</span>
         )}
       </section>
-      <DisplayAds />
+      <InFeed />
     </Paper>
   );
 };

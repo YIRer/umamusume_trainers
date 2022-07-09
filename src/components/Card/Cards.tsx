@@ -19,7 +19,7 @@ import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
@@ -92,7 +92,7 @@ export const CardList = ({ data, statusCode }) => {
 
   return (
     <div className={classes.cardsWrapper}>
-      <DisplayAds />
+      <InFeed />
       <h1>육성/서포터 카드 리스트</h1>
       <SearchForm
         data={data.cards}

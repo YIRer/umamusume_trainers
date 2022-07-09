@@ -1,15 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { isDev } from "../../constants";
 
 const InFeed = () => {
-  useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      if (process.env.NODE_ENV !== "production") {
-        console.error("AdvertiseError", err);
-      }
-    }
-  }, []);
+  if (isDev) {
+    return null;
+  }
 
   return (
     <ins
