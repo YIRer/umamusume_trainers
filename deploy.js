@@ -18,6 +18,11 @@ app.prepare().then(() => {
   server.use("/sitemap.xml", function (_req, res) {
     res.sendFile(__dirname + "/public/sitemap.xml");
   });
+
+  server.use("/add.txt", function (_req, res) {
+    res.sendFile(__dirname + "/public/add.txt");
+  });
+
   server.use("/api", jsonServer.router("./db/db.json"));
   server.use(
     "/graphql",
