@@ -11,8 +11,10 @@ import { CardInfoModalProps } from "./types";
 import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles(() => ({
-  container: {
-    overflowY: "scroll !important !important" as "scroll",
+  root: {
+    "& > .MuiDialog-container": {
+      height: "100% !important",
+    },
   },
 }));
 
@@ -77,7 +79,7 @@ const CardInfoModal = (props: CardInfoModalProps) => {
   return (
     <Dialog
       classes={{
-        container: classes.container,
+        root: classes.root,
       }}
       open={props.open}
       onClose={props.onClose}
