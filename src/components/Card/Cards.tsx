@@ -19,9 +19,6 @@ import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
-
 const useStyles = makeStyles((_theme) => ({
   cardsWrapper: {
     maxWidth: "800px",
@@ -92,7 +89,6 @@ export const CardList = ({ data, statusCode }) => {
 
   return (
     <div className={classes.cardsWrapper}>
-      <InFeed />
       <h1>육성/서포터 카드 리스트</h1>
       <SearchForm
         data={data.cards}
@@ -155,7 +151,6 @@ export const CardList = ({ data, statusCode }) => {
           </a>
         </Link>
       )}
-      <FooterAds />
     </div>
   );
 };
