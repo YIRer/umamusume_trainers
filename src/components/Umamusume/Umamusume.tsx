@@ -23,7 +23,7 @@ import { CardType } from "types/Card/card";
 import Helmet from "Helmet/Helmet";
 
 import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
+import DisplayAds from "components/ADsense/DisplayAds";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -187,7 +187,7 @@ const Umamusume = ({ data, statusCode }) => {
           {renderCards(umamusume.cards, "support")}
         </div>
       </section>
-      <FooterAds />
+      <DisplayAds />
     </Paper>
   );
 };
