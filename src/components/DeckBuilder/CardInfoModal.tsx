@@ -4,10 +4,17 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import CardInfo from "./CardInfo";
+import { makeStyles } from "@material-ui/core/styles";
 import { isMobile } from "helper";
 
 import { CardInfoModalProps } from "./types";
 import { CardType } from "types/Card/card";
+
+const useStyles = makeStyles(() => ({
+  modalRoot: {
+    overflowY: "scroll",
+  },
+}));
 
 const setInitialSkills = (cardData: CardType) => {
   const {
@@ -51,7 +58,7 @@ const setInitialSkills = (cardData: CardType) => {
       skillData.awakening.push(skill);
     }
   });
-  
+
   specialSkillsIds?.forEach((sid) => {
     const skill = skills.find(({ id }) => id === sid);
     if (skill) {
@@ -63,11 +70,19 @@ const setInitialSkills = (cardData: CardType) => {
 };
 
 const CardInfoModal = (props: CardInfoModalProps) => {
+  const classes = useStyles();
   const modalRef = useRef(null);
   const isMobileSize = isMobile();
   const skillData = setInitialSkills(props.data);
   return (
-    <Dialog open={props.open} onClose={props.onClose} fullScreen={isMobileSize}>
+    <Dialog
+      classes={{
+        root: classes.modalRoot,
+      }}
+      open={props.open}
+      onClose={props.onClose}
+      fullScreen={isMobileSize}
+    >
       <DialogContent ref={modalRef}>
         <CardInfo
           data={props.data}

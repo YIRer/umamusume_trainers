@@ -25,7 +25,6 @@ import { SkillType } from "types/Skill/skill";
 
 import DisplayAds from "components/ADsense/DisplayAds";
 import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
