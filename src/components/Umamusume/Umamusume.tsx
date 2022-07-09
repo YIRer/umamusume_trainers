@@ -22,6 +22,9 @@ import { CardType } from "types/Card/card";
 
 import Helmet from "Helmet/Helmet";
 
+import DisplayAds from "components/ADsense/DisplayAds";
+import FooterAds from "components/ADsense/FooterAds";
+
 const useStyles = makeStyles((_theme) => ({
   root: {
     maxWidth: "50%",
@@ -140,6 +143,7 @@ const Umamusume = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <DisplayAds />
       <Helmet
         title={`${umamusume.name.ko}(${umamusume.name.ja})`}
         url={`/umamusume/${id}`}
@@ -183,6 +187,7 @@ const Umamusume = ({ data, statusCode }) => {
           {renderCards(umamusume.cards, "support")}
         </div>
       </section>
+      <FooterAds />
     </Paper>
   );
 };

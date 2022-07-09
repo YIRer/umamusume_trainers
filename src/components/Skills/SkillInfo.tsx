@@ -21,6 +21,9 @@ import { prefixImgSrc } from "helper";
 
 import Helmet from "Helmet/Helmet";
 
+import DisplayAds from "components/ADsense/DisplayAds";
+import FooterAds from "components/ADsense/FooterAds";
+
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
     padding: "10px",
@@ -105,6 +108,7 @@ const SkillInfo = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <DisplayAds />
       <Helmet
         title={`${skill.name.ko}(${skill.name.ja})`}
         url={`/skills/${id}`}
@@ -173,6 +177,7 @@ const SkillInfo = ({ data, statusCode }) => {
           <span>없음</span>
         )}
       </section>
+      <FooterAds />
     </Paper>
   );
 };

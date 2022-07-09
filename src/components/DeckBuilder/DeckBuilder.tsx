@@ -15,6 +15,9 @@ import { DeckWithID } from "./types";
 import { CardType } from "types/Card/card";
 import Helmet from "Helmet/Helmet";
 
+import DisplayAds from "components/ADsense/DisplayAds";
+import FooterAds from "components/ADsense/FooterAds";
+
 const useStyles = makeStyles((_theme) => ({
   addDeckButton: {
     width: "100%",
@@ -188,10 +191,13 @@ const DeckBuilder = () => {
 
   return (
     <div className={classes.root}>
+      <DisplayAds />
       <Helmet
         title={"덱 빌더"}
         url={"/deck-builder"}
-        description={"덱 빌더 페이지 입니다. 육성, 서포트 카드를 선택하고 한 눈에 정보를 확인하세요!"}
+        description={
+          "덱 빌더 페이지 입니다. 육성, 서포트 카드를 선택하고 한 눈에 정보를 확인하세요!"
+        }
       />
       <div>
         {deckList.length > 0
@@ -246,6 +252,7 @@ const DeckBuilder = () => {
           쿠키 제거
         </Button>
       </div>
+      <FooterAds />
     </div>
   );
 };

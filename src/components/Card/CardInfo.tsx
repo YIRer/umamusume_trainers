@@ -39,6 +39,9 @@ import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import Helmet from "Helmet/Helmet";
 import { formattedDescriptionForCards } from "./helper";
 
+import DisplayAds from "components/ADsense/DisplayAds";
+import FooterAds from "components/ADsense/FooterAds";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
@@ -335,6 +338,7 @@ const CardInfo = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
+      <DisplayAds />
       <Helmet
         title={`${card.name.ko}(${card.name.ja})`}
         url={`/cards/${id}`}
@@ -518,6 +522,7 @@ const CardInfo = ({ data, statusCode }) => {
           <span>없음</span>
         )}
       </section>
+      <FooterAds />
     </Paper>
   );
 };
