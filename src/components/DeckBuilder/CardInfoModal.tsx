@@ -11,8 +11,8 @@ import { CardInfoModalProps } from "./types";
 import { CardType } from "types/Card/card";
 
 const useStyles = makeStyles(() => ({
-  modalRoot: {
-    overflowY: "scroll",
+  container: {
+    overflowY: "scroll !important !important" as "scroll",
   },
 }));
 
@@ -77,7 +77,7 @@ const CardInfoModal = (props: CardInfoModalProps) => {
   return (
     <Dialog
       classes={{
-        root: classes.modalRoot,
+        container: classes.container,
       }}
       open={props.open}
       onClose={props.onClose}
