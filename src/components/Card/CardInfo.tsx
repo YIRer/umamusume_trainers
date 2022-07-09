@@ -39,7 +39,6 @@ import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import Helmet from "Helmet/Helmet";
 import { formattedDescriptionForCards } from "./helper";
 
-import DisplayAds from "components/ADsense/DisplayAds";
 import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
 
@@ -468,7 +467,6 @@ const CardInfo = ({ data, statusCode }) => {
           <HiddenTitles HiddenTitles={card.hiddenTitle} />
         </section>
       )}
-      <DisplayAds />
       <section className={classes.section}>
         <span className={classes.warning}>
           한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.
