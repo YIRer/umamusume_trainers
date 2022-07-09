@@ -19,8 +19,8 @@ app.prepare().then(() => {
     res.sendFile(__dirname + "/public/sitemap.xml");
   });
 
-  server.use("/add.txt", function (_req, res) {
-    res.sendFile(__dirname + "/public/add.txt");
+  server.use("/ads.txt", function (_req, res) {
+    res.sendFile(__dirname + "/public/ads.txt");
   });
 
   server.use("/api", jsonServer.router("./db/db.json"));
