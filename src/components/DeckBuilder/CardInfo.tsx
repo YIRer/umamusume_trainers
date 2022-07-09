@@ -23,6 +23,10 @@ import { prefixImgSrc } from "helper";
 import { CardInfoProps } from "./types";
 import { SkillType } from "types/Skill/skill";
 
+import DisplayAds from "components/ADsense/DisplayAds";
+import InFeed from "components/ADsense/InFeed";
+import FooterAds from "components/ADsense/FooterAds";
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
     padding: "10px",
@@ -196,6 +200,7 @@ const CardInfo = (props: CardInfoProps) => {
   if (!data) return <p>Error :(</p>;
   return (
     <div className={classes.paperRoot}>
+      <InFeed />
       <div className={classes.header}>
         <h3 className={classes.head}>
           {data.supportType && (
@@ -293,6 +298,7 @@ const CardInfo = (props: CardInfoProps) => {
           <HiddenTitles HiddenTitles={data.hiddenTitle} />
         </section>
       )}
+      <DisplayAds />
       <section className={classes.section} ref={selectionElement}>
         <span className={classes.warning}>
           한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.
