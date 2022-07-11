@@ -91,7 +91,7 @@ export const BUFF_LIST = {
     },
     {
       name: {
-        ko: "땡떙이 기질",
+        ko: "땡땡이 기질",
         ja: "なまけ癖",
       },
       result: "랜덤하게 훈련을 하지 않는다",
