@@ -1,3 +1,4 @@
+import { useQuery } from "@apollo/client";
 import { GET_CARDS } from "queries/cards";
 
 import { getGhlErrorStatus } from "helper";
@@ -10,7 +11,14 @@ const CardList = dynamic(() => import("components/Card/Cards"), {
   loading: () => <Loader />,
 });
 
-export const CardListPage = ({ data, statusCode }) => {
+export const CardListPage = () => {
+  const { data, loading, error } = useQuery(GET_CARDS);
+  const errorCode = error ? getGhlErrorStatus(error) : null;
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <Helmet
@@ -18,28 +26,9 @@ export const CardListPage = ({ data, statusCode }) => {
         url={`/cards`}
         description={"육성, 서포터 카드 리스트 페이지 입니다"}
       />
-      <CardList data={data} statusCode={statusCode} />
+      <CardList data={data} statusCode={errorCode} />
     </>
   );
-};
-
-CardListPage.getInitialProps = async (ctx) => {
-  try {
-    const apolloClient = ctx.apolloClient;
-    const { data } = await apolloClient.query({
-      query: GET_CARDS,
-    });
-    return {
-      data,
-    };
-  } catch (err) {
-    return {
-      data: {
-        cards: [],
-      },
-      statusCode: getGhlErrorStatus(err),
-    };
-  }
 };
 
 export default CardListPage;
