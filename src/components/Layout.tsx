@@ -4,7 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AppMainBar from "components/Common/AppMainBar";
-import Notice from "./Common/Notice";
 
 const SideButtons = dynamic(() => import("components/Common/SideButtons"), {
   ssr: false,
@@ -23,7 +22,6 @@ const Layout = ({ children }) => {
   return (
     <Paper elevation={0} classes={{ root: classes.root }}>
       <AppMainBar />
-      <Notice/>
       {children}
       <SideButtons isFixed={true} />
     </Paper>
