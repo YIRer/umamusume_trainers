@@ -773,7 +773,7 @@ export const commonMultipleEvent = [
         results: [
           {
             condition: "성공",
-            result: "체력+10 『練習上手◯』상태흭득",
+            result: "체력+10 『練習上手◯ 훈련능속◯』상태흭득",
           },
           {
             condition: "실패",
