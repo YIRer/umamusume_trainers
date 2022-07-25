@@ -811,7 +811,7 @@ export const commonMultipleEvent = [
         results: [
           {
             condition: "성공시",
-            result: "『練習上手〇』(훈련실패율 감소)상태흭득",
+            result: "『練習上手〇 훈련능숙〇』(훈련실패율 감소)상태흭득",
           },
           {
             condition: "실패시",
