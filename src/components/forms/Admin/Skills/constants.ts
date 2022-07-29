@@ -254,6 +254,16 @@ export const iconData = [
     label: "아오하루배 스킬",
     id: "i_skill_046",
   },
+  {
+    value: "/image/skill/i_skill_053.png",
+    label: "뉴 트랙 스킬",
+    id: "i_skill_053",
+  },
+  {
+    value: "/image/skill/i_skill_054.png",
+    label: "뉴 트랙 스킬",
+    id: "i_skill_053",
+  },
 ];
 
 export const skillTypes = [
