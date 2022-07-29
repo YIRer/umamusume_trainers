@@ -262,7 +262,7 @@ export const iconData = [
   {
     value: "/image/skill/i_skill_054.png",
     label: "뉴 트랙 스킬",
-    id: "i_skill_053",
+    id: "i_skill_054",
   },
 ];
 
