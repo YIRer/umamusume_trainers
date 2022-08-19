@@ -492,6 +492,31 @@ export const commonEvents = [
   },
   {
     title: {
+      ko: "트레이너 수준의 지식",
+      ja: "トレーナー並の知識",
+    },
+    eventType: "common",
+    tags: [""],
+    choices: [
+      {
+        description: {
+          ko: "파워가 과제입니다만...",
+          ja: "力強さが課題なんですが……",
+        },
+        result: "파워+10 오토나시 기자의 인연게이지+5",
+      },
+      {
+        description: {
+          ko: "스피드가 과제입니다만...",
+          ja: "スピードが課題なんですが……",
+        },
+        result: "스피드+10 오토나시 기자의 인연게이지+5",
+      },
+    ],
+    condition: "",
+  },
+  {
+    title: {
       ko: "",
       ja: "ついに集まったチームメンバー！",
     },
