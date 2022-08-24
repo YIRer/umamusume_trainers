@@ -264,6 +264,16 @@ export const iconData = [
     label: "뉴 트랙 스킬",
     id: "i_skill_054",
   },
+  {
+    value: "/image/skill/i_skill_055.png",
+    label: "그랜드 라이브 스킬",
+    id: "i_skill_055",
+  },
+  {
+    value: "/image/skill/i_skill_056.png",
+    label: "그랜드 라이브 스킬",
+    id: "i_skill_056",
+  },
 ];
 
 export const skillTypes = [
