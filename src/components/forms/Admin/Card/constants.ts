@@ -593,7 +593,7 @@ export const commonEvents = [
           ko: "",
           ja: "ウララの＜にんじんぷりん＞",
         },
-        result: '랜덤 스탯 3개+10 스킬Pt+50 "不屈の心"(불굴의 마음) 힌트 Lv+1',
+        result: '랜덤 스탯 3개+10 스킬Pt+50 "不屈の心"(꺾이지 않는 마음) 힌트 Lv+1',
       },
       {
         description: {
