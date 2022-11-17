@@ -593,7 +593,8 @@ export const commonEvents = [
           ko: "",
           ja: "ウララの＜にんじんぷりん＞",
         },
-        result: '랜덤 스탯 3개+10 스킬Pt+50 "不屈の心"(꺾이지 않는 마음) 힌트 Lv+1',
+        result:
+          '랜덤 스탯 3개+10 스킬Pt+50 "不屈の心"(꺾이지 않는 마음) 힌트 Lv+1',
       },
       {
         description: {
@@ -768,6 +769,150 @@ export const commonEvents = [
       },
     ],
     condition: "아오하루",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "ハッピーミークと勝負！",
+    },
+    eventType: "common",
+    tags: ["URA 시나리오", "해피미크"],
+    choices: [
+      {
+        description: {
+          ko: "",
+          ja: "スピードで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '스피드 상한+4(최대치인경우 +0) 스피드+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・速"(레이스의 진수・속도) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "스피드+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "スタミナで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '스태미나 상한+4(최대치인경우 +0) 스태미나+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・体"(레이스의 진수・몸) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "스태미나+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "パワーで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '파워 상한+4(최대치인경우 +0) 파워+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・力"(레이스의 진수・힘) 힌트 Lv+1 대결 Lv 상승',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "根性で勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '근성 상한+4(최대치인경우 +0) 근성+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・根"(레이스의 진수・끈기) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "근성+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "賢さで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '지능 상한+4(최대치인경우 +0) 지능+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・賢"(레이스의 진수・현명) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "지능+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "体力の勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공(현재 체력, 의욕상태)",
+            result:
+              '*부정확한 정보입니다. 체력의 최대치+4(최대치인경우 +0) 체력+10~25 회복(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・心"(레이스의 진수・마음) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result:
+              "*부정확한 정보입니다. 체력+5~15회복(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+    ],
+    condition: "URA 시나리오에서 해피 미크와 함께 트레이닝",
+  },
+  {
+    title: {
+      ko: "URA파이널스 결승 후에",
+      ja: "URAファイナルズ決勝の後に",
+    },
+    eventType: "common",
+    tags: [""],
+    choices: [
+      {
+        description: {
+          ko: "",
+          ja: "없음",
+        },
+        result: "",
+        results: [
+          {
+            condition: "우승",
+            result: "올 스탯+10 스킬 Pt+80",
+          },
+          {
+            condition: "해피미크와의 대결 Lv이 최대치에서 우승",
+            result: '"限界の先へ"(한계 너머로) 힌트 Lv+1 올 스탯+10 스킬 Pt+80',
+          },
+        ],
+      },
+    ],
+    condition: "URA파이널스 결승 우승",
   },
 ];
 
@@ -1109,6 +1254,150 @@ export const commonMultipleEvent = [
       },
     ],
     condition: "",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "ハッピーミークと勝負！",
+    },
+    eventType: "common",
+    tags: ["URA 시나리오", "해피미크"],
+    choices: [
+      {
+        description: {
+          ko: "",
+          ja: "スピードで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '스피드 상한+4(최대치인경우 +0) 스피드+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・速"(레이스의 진수・속도) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "스피드+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "スタミナで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '스태미나 상한+4(최대치인경우 +0) 스태미나+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・体"(레이스의 진수・몸) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "스태미나+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "パワーで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '파워 상한+4(최대치인경우 +0) 파워+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・力"(레이스의 진수・힘) 힌트 Lv+1 대결 Lv 상승',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "根性で勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '근성 상한+4(최대치인경우 +0) 근성+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・根"(레이스의 진수・끈기) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "근성+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "賢さで勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공",
+            result:
+              '지능 상한+4(최대치인경우 +0) 지능+10~25(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・賢"(레이스의 진수・현명) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result: "지능+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "",
+          ja: "体力の勝負！",
+        },
+        result: "",
+        results: [
+          {
+            condition: "성공(현재 체력, 의욕상태)",
+            result:
+              '*부정확한 정보입니다. 체력의 최대치+4(최대치인경우 +0) 체력+10~25 회복(대결 Lv 따라 변경) 스킬 Pt+30 "レースの真髄・心"(레이스의 진수・마음) 힌트 Lv+1 대결 Lv 상승',
+          },
+          {
+            condition: "실패",
+            result:
+              "*부정확한 정보입니다. 체력+5~15회복(대결 Lv 따라 변경) 스킬 Pt+15",
+          },
+        ],
+      },
+    ],
+    condition: "URA 시나리오에서 해피 미크와 함께 트레이닝",
+  },
+  {
+    title: {
+      ko: "URA파이널스 결승 후에",
+      ja: "URAファイナルズ決勝の後に",
+    },
+    eventType: "common",
+    tags: [""],
+    choices: [
+      {
+        description: {
+          ko: "",
+          ja: "없음",
+        },
+        result: "",
+        results: [
+          {
+            condition: "우승",
+            result: "올 스탯+10 스킬 Pt+80",
+          },
+          {
+            condition: "해피미크와의 대결 Lv이 최대치에서 우승",
+            result: '"限界の先へ"(한계 너머로) 힌트 Lv+1 올 스탯+10 스킬 Pt+80',
+          },
+        ],
+      },
+    ],
+    condition: "URA파이널스 결승 우승",
   },
 ];
 
