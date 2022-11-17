@@ -274,6 +274,21 @@ export const iconData = [
     label: "그랜드 라이브 스킬",
     id: "i_skill_056",
   },
+  {
+    value: "/image/skill/i_skill_057.png",
+    label: "속도 상승 (URA 시나리오)",
+    id: "i_skill_057",
+  },
+  {
+    value: "/image/skill/i_skill_059.png",
+    label: "속도 상승 (URA 시나리오)",
+    id: "i_skill_059",
+  },
+  {
+    value: "/image/skill/i_skill_058.png",
+    label: "스태미나 버프 (URA 시나리오)",
+    id: "i_skill_058",
+  }
 ];
 
 export const skillTypes = [
