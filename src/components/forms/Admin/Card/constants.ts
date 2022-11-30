@@ -1196,16 +1196,7 @@ export const commonMultipleEvent = [
           ja: "頑張ってきて！",
         },
         result: "체력-5 이전훈련스탯+5 시나리오 NPC 인연게이지+5",
-        results: [
-          {
-            condition: "URA",
-            result: "아키카와 야요이",
-          },
-          {
-            condition: "아오하루",
-            result: "카시모토 리코",
-          },
-        ],
+        results: [],
       },
       {
         description: {
