@@ -7,7 +7,7 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
       type: "등급",
       selector: "checkbox",
       values: [1, 2, 3],
-      labels: ["N", "SR", "SSR"],
+      labels: ["R", "SR", "SSR"],
     },
     types: {
       type: "타입",
