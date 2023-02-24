@@ -274,7 +274,7 @@ const CardInfo = (props: CardInfoProps) => {
 
       {props.skillData?.special?.length > 0 && (
         <section className={classes.section}>
-          <h4>스폐셜 스킬</h4>
+          <h4>스폐셜/진화 스킬</h4>
           <div className={classes.skillCardsWrapper}>
             {props.skillData.special.map((skill) => renderSkillCards(skill))}
           </div>

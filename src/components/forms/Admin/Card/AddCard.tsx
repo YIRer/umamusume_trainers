@@ -678,7 +678,7 @@ const AddCard = () => {
             onClick={showSpecialSkillSearchModal}
             className={classes.skillButton}
           >
-            스폐셜 스킬 선택
+            스폐셜/진화 스킬 선택
           </Button>
         </div>
         {skillSearchModalOpened && (

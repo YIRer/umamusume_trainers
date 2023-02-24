@@ -879,7 +879,7 @@ const EditCard = () => {
 
         {relatedSkills.special.length > 0 && (
           <div>
-            <b>스폐셜 스킬</b>
+            <b>스폐셜/진화 스킬</b>
             {relatedSkills.special.map((skillData, index) => (
               <SkillIcons
                 name={skillData.name}

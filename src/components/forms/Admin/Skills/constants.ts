@@ -288,7 +288,102 @@ export const iconData = [
     value: "/image/skill/i_skill_058.png",
     label: "스태미나 버프 (URA 시나리오)",
     id: "i_skill_058",
-  }
+  },
+  {
+    value: "/image/skill/i_skill_060.png",
+    label: "속도상승(그랜드 마스터 시나리오)",
+    id: "i_skill_060",
+  },
+  {
+    value: "/image/skill/i_skill_061.png",
+    label: "속도 상승 진화 스킬",
+    id: "i_skill_061",
+  },
+  {
+    value: "/image/skill/i_skill_078.png",
+    label: "속도 상승 진화 스킬",
+    id: "i_skill_078",
+  },
+  {
+    value: "/image/skill/i_skill_062.png",
+    label: "가속도 상승 진화 스킬",
+    id: "i_skill_062",
+  },
+  {
+    value: "/image/skill/i_skill_063.png",
+    label: "위치선정 진화 스킬",
+    id: "i_skill_063",
+  },
+  {
+    value: "/image/skill/i_skill_064.png",
+    label: "시야 진화 스킬",
+    id: "i_skill_064",
+  },
+  {
+    value: "/image/skill/i_skill_065.png",
+    label: "스타트 진화 스킬",
+    id: "i_skill_065",
+  },
+  {
+    value: "/image/skill/i_skill_066.png",
+    label: "스피드 버프 진화 스킬",
+    id: "i_skill_066",
+  },
+  {
+    value: "/image/skill/i_skill_067.png",
+    label: "스태미나 버프 진화 스킬",
+    id: "i_skill_067",
+  },
+  {
+    value: "/image/skill/i_skill_068.png",
+    label: "파워 버프 진화 스킬",
+    id: "i_skill_068",
+  },
+  {
+    value: "/image/skill/i_skill_069.png",
+    label: "모든 스탯 버프 진화 스킬",
+    id: "i_skill_069",
+  },
+  {
+    value: "/image/skill/i_skill_070.png",
+    label: "근성 버프 진화 스킬",
+    id: "i_skill_070",
+  },
+  {
+    value: "/image/skill/i_skill_071.png",
+    label: "지능 버프 진화 스킬",
+    id: "i_skill_071",
+  },
+  {
+    value: "/image/skill/i_skill_072.png",
+    label: "스피드 디버프 진화 스킬",
+    id: "i_skill_072",
+  },
+  {
+    value: "/image/skill/i_skill_073.png",
+    label: "가속도 디버프 진화 스킬",
+    id: "i_skill_073",
+  },
+  {
+    value: "/image/skill/i_skill_074.png",
+    label: "시야 디버프 진화 스킬",
+    id: "i_skill_074",
+  },
+  {
+    value: "/image/skill/i_skill_075.png",
+    label: "도발 디버프 진화 스킬",
+    id: "i_skill_075",
+  },
+  {
+    value: "/image/skill/i_skill_076.png",
+    label: "지구력 디버프 진화 스킬",
+    id: "i_skill_076",
+  },
+  {
+    value: "/image/skill/i_skill_077.png",
+    label: "스태미나 회복 진화 스킬",
+    id: "i_skill_077",
+  },
 ];
 
 export const skillTypes = [
