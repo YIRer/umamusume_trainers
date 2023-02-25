@@ -334,26 +334,26 @@ export const iconData = [
     label: "스태미나 버프 진화 스킬",
     id: "i_skill_067",
   },
-  {
-    value: "/image/skill/i_skill_068.png",
-    label: "파워 버프 진화 스킬",
-    id: "i_skill_068",
-  },
+  // {
+  //   value: "/image/skill/i_skill_068.png",
+  //   label: "파워 버프 진화 스킬",
+  //   id: "i_skill_068",
+  // },
   {
     value: "/image/skill/i_skill_069.png",
     label: "모든 스탯 버프 진화 스킬",
     id: "i_skill_069",
   },
-  {
-    value: "/image/skill/i_skill_070.png",
-    label: "근성 버프 진화 스킬",
-    id: "i_skill_070",
-  },
-  {
-    value: "/image/skill/i_skill_071.png",
-    label: "지능 버프 진화 스킬",
-    id: "i_skill_071",
-  },
+  // {
+  //   value: "/image/skill/i_skill_070.png",
+  //   label: "근성 버프 진화 스킬",
+  //   id: "i_skill_070",
+  // },
+  // {
+  //   value: "/image/skill/i_skill_071.png",
+  //   label: "지능 버프 진화 스킬",
+  //   id: "i_skill_071",
+  // },
   {
     value: "/image/skill/i_skill_072.png",
     label: "스피드 디버프 진화 스킬",
@@ -369,11 +369,11 @@ export const iconData = [
     label: "시야 디버프 진화 스킬",
     id: "i_skill_074",
   },
-  {
-    value: "/image/skill/i_skill_075.png",
-    label: "도발 디버프 진화 스킬",
-    id: "i_skill_075",
-  },
+  // {
+  //   value: "/image/skill/i_skill_075.png",
+  //   label: "도발 디버프 진화 스킬",
+  //   id: "i_skill_075",
+  // },
   {
     value: "/image/skill/i_skill_076.png",
     label: "지구력 디버프 진화 스킬",
