@@ -108,7 +108,7 @@ export const CardList = ({ data, statusCode }) => {
                   />
                 )}
                 <Link href={`/cards/${id}`}>
-                  <a className={clsx(classes.linkWrapper)}>
+                  <a className={clsx(classes.linkWrapper)} target="_blank">
                     <div className={classes.cardImgWrapper}>
                       <CardMedia
                         className={clsx(classes.cardMedia)}

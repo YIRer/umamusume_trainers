@@ -82,7 +82,7 @@ export const UmamusumeList = ({ data, statusCode }) => {
           return (
             <Card className={clsx(classes.cardRoot)} key={id + name.default}>
               <Link href={`/umamusume/${id}`}>
-                <a className={clsx(classes.linkWrapper)}>
+                <a className={clsx(classes.linkWrapper)} target="_blank">
                   <CardMedia
                     className={clsx(classes.cardMedia)}
                     image={prefixImgSrc(imageSrc || "/image/temp.png")}

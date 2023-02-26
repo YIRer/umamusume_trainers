@@ -85,7 +85,7 @@ export const Skills = ({ data, statusCode }) => {
         {skillList.map(({ name, id, imageSrc }) => {
           return (
             <Link href={`/skills/${id}`} key={id + name.default}>
-              <a className={clsx(classes.linkWrapper)}>
+              <a className={clsx(classes.linkWrapper)} target="_blank">
                 <Card className={clsx(classes.cardRoot)}>
                   <CardMedia
                     className={clsx(classes.cardMedia)}
