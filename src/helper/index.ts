@@ -145,6 +145,17 @@ export const filterSKillStrategy: FilterFnType<SkillType> = (
   });
 };
 
+export const filterSKillGroundType: FilterFnType<SkillType> = (
+  item,
+  searchOptions
+) => {
+  const { tags } = item;
+  if (!searchOptions.skillGroundType || searchOptions.skillGroundType === 'turf') {
+    return true;
+  }
+  return tags.includes('더트');;
+};
+
 export const filterKeywords: FilterFnType<
   UmamusumeType | CardType | SkillType
 > = (item, searchOptions) => {
@@ -191,6 +202,7 @@ export const searchSkillsHelper: SearchFilterFnType = ({
     filterSKillRarity,
     filterSKillDistance,
     filterSKillStrategy,
+    filterSKillGroundType
   ])(data, searchOptions);
 };
 

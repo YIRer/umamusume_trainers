@@ -10,6 +10,7 @@ export type SeachFilterStateType = {
   skillRarity?: string[];
   skillDistance?: string[];
   skillStrategy?: string[];
+  skillGroundType?: "turf" | "duct";
 };
 
 export const initialState: SeachFilterStateType = {
@@ -21,6 +22,7 @@ export const initialState: SeachFilterStateType = {
   skillRarity: [],
   skillDistance: [],
   skillStrategy: [],
+  skillGroundType: "turf",
 };
 
 export const ACTION_TYPES = {
@@ -33,6 +35,7 @@ export const ACTION_TYPES = {
   UPDATE_SKILL_RARITY_FILTER: "SearchForm/UPDATE_SKILL_RARITY_FILTER",
   UPDATE_SKILL_DISTANCE_FILTER: "SearchForm/UPDATE_SKILL_DISTANCE_FILTER",
   UPDATE_SKILL_STRATEGY_FILTER: "SearchForm/UPDATE_SKILL_STRATEGY_FILTER",
+  UPDATE_SKILL_GROUND_FILTER: "SearchForm/UPDATE_SKILL_GROUND_FILTER",
 
   CLEAR_KEYWORD_FILTER: "SearchForm/CLEAR_KEYWORD_FILTER",
   CLEAR_RARITY_FILTER: "SearchForm/CLEAR_RARITY_FILTER",
@@ -42,6 +45,7 @@ export const ACTION_TYPES = {
   CLEAR_SKILL_RARITY_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_DISTANCE_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_STRATEGY_FILTER: "SearchForm/CLEAR_SKILL_STRATEGY_FILTER",
+  CLEAR_SKILL_GROUND_FILTER: "SearchForm/CLEAR_SKILL_GROUND_FILTER",
   CLEAR_ALL_FILTER: "SearchForm/CLEAR_ALL_FILTER",
   CLEAR_ALL_FILTER_BY_PAYLOAD: "SearchForm/CLEAR_ALL_FILTER_BY_PAYLOAD",
   CLEAR_ALL: "SearchForm/CLEAR_ALL",
@@ -139,6 +143,17 @@ export const reducer = (state, action) => {
       return {
         ...state,
         skillStrategy: [...state.skillStrategy, action.payload],
+      };
+    case ACTION_TYPES.UPDATE_SKILL_GROUND_FILTER:
+      if (action.payload === "duct") {
+        return {
+          ...state,
+          skillGroundType: "duct",
+        };
+      }
+      return {
+        ...state,
+        skillGroundType: 'turf',
       };
 
     case ACTION_TYPES.CLEAR_KEYWORD_FILTER:

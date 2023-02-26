@@ -216,7 +216,11 @@ function RadioFilterItem({
       case "limited":
         type = ACTION_TYPES.UPDATE_LIMITED_FILTER;
         break;
+      case "skillGroundType":
+        type = ACTION_TYPES.UPDATE_SKILL_GROUND_FILTER;
+        break;
     }
+
     onChange({
       type,
       payload: value,

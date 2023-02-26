@@ -35,7 +35,8 @@ export type SeachFilterCardStateKey =
 export type SeachFilterSkillStateKey =
   | "skillRarity"
   | "skillDistance"
-  | "skillStrategy";
+  | "skillStrategy"
+  | "skillGroundType";
 
 export type FilterRenderHelperProps = {
   data: Partial<SeachFilterStateType>;
