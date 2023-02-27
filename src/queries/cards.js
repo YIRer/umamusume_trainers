@@ -77,6 +77,7 @@ export const GET_CARDS_All_DATA = gql`
       baseSkillsIds
       awakeningSkillsIds
       specialSkillsIds
+      evolutionSkillsIds
       skills {
         name {
           ko
@@ -274,6 +275,7 @@ export const GET_CARD = gql`
       baseSkillsIds
       awakeningSkillsIds
       specialSkillsIds
+      evolutionSkillsIds
       skills {
         name {
           ko
@@ -471,6 +473,7 @@ export const GET_CARDS_BY_TYPE = gql`
       baseSkillsIds
       awakeningSkillsIds
       specialSkillsIds
+      evolutionSkillsIds
       skills {
         name {
           ko
@@ -668,6 +671,7 @@ export const ADD_CARD = gql`
       baseSkillsIds
       awakeningSkillsIds
       specialSkillsIds
+      evolutionSkillsIds
       skills {
         name {
           ko
@@ -869,6 +873,7 @@ export const EDIT_CARD = gql`
       baseSkillsIds
       awakeningSkillsIds
       specialSkillsIds
+      evolutionSkillsIds
       skills {
         name {
           ko

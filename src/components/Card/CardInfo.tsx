@@ -214,6 +214,7 @@ const CardInfo = ({ data, statusCode }) => {
       baseSkillsIds,
       awakeningSkillsIds,
       specialSkillsIds,
+      evolutionSkillsIds,
       skills,
     } = cardData;
 
@@ -224,6 +225,7 @@ const CardInfo = ({ data, statusCode }) => {
       base: [],
       awakening: [],
       special: [],
+      evolution: [],
     };
 
     uniqueSkillsIds.forEach((sid) => {
@@ -253,6 +255,13 @@ const CardInfo = ({ data, statusCode }) => {
       const skill = skills.find(({ id }) => id === sid);
       if (skill) {
         skillData.special.push(skill);
+      }
+    });
+
+    evolutionSkillsIds?.forEach((sid) => {
+      const skill = skills.find(({ id }) => id === sid);
+      if (skill) {
+        skillData.evolution.push(skill);
       }
     });
 
@@ -449,9 +458,17 @@ const CardInfo = ({ data, statusCode }) => {
 
       {relatedSkills.special?.length > 0 && (
         <section className={classes.section}>
-          <h4>스폐셜/진화 스킬</h4>
+          <h4>스폐셜 스킬</h4>
           <div className={classes.skillCardsWrapper}>
             {relatedSkills.special.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {relatedSkills.evolution?.length > 0 && (
+        <section className={classes.section}>
+          <h4>진화 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.evolution.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}

@@ -119,6 +119,7 @@ const AddCard = () => {
     base: [],
     awakening: [],
     special: [],
+    evolution: [],
   });
   const [selectedSkillType, setSelectedSkillType] =
     useState<SelectedSkillTypes>("");
@@ -289,6 +290,7 @@ const AddCard = () => {
       baseSkillsIds: relatedSkills.base.map(({ id }) => id),
       awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
       specialSkillsIds: relatedSkills.special.map(({ id }) => id),
+      evolutionSkillsIds: relatedSkills.evolution.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -417,6 +419,10 @@ const AddCard = () => {
   };
   const showSpecialSkillSearchModal = () => {
     setSelectedSkillType("special");
+    showSkillSearchModal();
+  };
+  const showEvolutionSkillSearchModal = () => {
+    setSelectedSkillType("evolution");
     showSkillSearchModal();
   };
 
@@ -634,6 +640,32 @@ const AddCard = () => {
             ))}
           </div>
         )}
+        {isTrainingType && relatedSkills.special.length > 0 && (
+          <div>
+            <b>스페셜 스킬</b>
+            {relatedSkills.special.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_special_${index}`}
+              />
+            ))}
+          </div>
+        )}
+        {isTrainingType && relatedSkills.evolution.length > 0 && (
+          <div>
+            <b>진화 스킬</b>
+            {relatedSkills.evolution.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_evolution_${index}`}
+              />
+            ))}
+          </div>
+        )}
 
         <div className={classes.skillWrapper}>
           <Button
@@ -678,7 +710,16 @@ const AddCard = () => {
             onClick={showSpecialSkillSearchModal}
             className={classes.skillButton}
           >
-            스폐셜/진화 스킬 선택
+            스폐셜 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showEvolutionSkillSearchModal}
+            className={classes.skillButton}
+          >
+            진화 스킬 선택
           </Button>
         </div>
         {skillSearchModalOpened && (
