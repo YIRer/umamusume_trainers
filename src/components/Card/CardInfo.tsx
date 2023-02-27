@@ -331,6 +331,12 @@ const CardInfo = ({ data, statusCode }) => {
                   {skill.name.ko}
                 </b>
                 <span>{skill.effect}</span>
+                <br />
+                {skill?.evolutionConditions?.map((condition) => (
+                  <span key={`condition_${condition}`}>
+                    {condition} <br />
+                  </span>
+                ))}
               </div>
             </a>
           </Link>

@@ -87,6 +87,7 @@ export const GET_CARDS_All_DATA = gql`
         id
         effect
         tags
+        evolutionConditions
       }
       status {
         ground {
@@ -285,6 +286,7 @@ export const GET_CARD = gql`
         id
         effect
         tags
+        evolutionConditions
       }
       status {
         ground {
@@ -483,6 +485,7 @@ export const GET_CARDS_BY_TYPE = gql`
         id
         effect
         tags
+        evolutionConditions
       }
       status {
         ground {
@@ -681,6 +684,7 @@ export const ADD_CARD = gql`
         id
         effect
         tags
+        evolutionConditions
       }
       status {
         ground {
@@ -883,6 +887,7 @@ export const EDIT_CARD = gql`
         id
         effect
         tags
+        evolutionConditions
       }
       status {
         ground {
