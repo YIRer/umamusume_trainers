@@ -71,7 +71,7 @@ const useStyles = makeStyles((_theme) => ({
 
 const EditSkill = () => {
   const classes = useStyles();
-  const router = useRouter()
+  const router = useRouter();
   const { id } = router.query;
 
   const { loading, error, data } = useQuery<{ skill: SkillType }>(GET_SKill, {
@@ -92,6 +92,7 @@ const EditSkill = () => {
       condition: "",
       imageSrc: iconData[0].value,
       tags: "",
+      evolutionConditions: "",
     }
   );
 
@@ -101,7 +102,8 @@ const EditSkill = () => {
 
   const setInitData = () => {
     if (data && data.skill) {
-      const { name, tags, effect, condition, imageSrc } = skill;
+      const { name, tags, effect, condition, imageSrc, evolutionConditions } =
+        skill;
 
       setFormInput({
         tags: tags.join(","),
@@ -110,6 +112,7 @@ const EditSkill = () => {
         effect,
         condition,
         imageSrc,
+        evolutionConditions: evolutionConditions?.join(","),
       });
     }
   };
@@ -123,14 +126,17 @@ const EditSkill = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { tags, ko, ja, effect, condition, imageSrc } = formData;
+    const { tags, ko, ja, effect, condition, imageSrc, evolutionConditions } =
+      formData;
     const convertTags = tags.split(",");
+    const convertEvolutionSkills = evolutionConditions.split(",");
     const input = {
       effect,
       condition,
       imageSrc,
       name: { ko, ja },
       tags: convertTags,
+      evolutionConditions: convertEvolutionSkills,
     };
 
     editSkill({
@@ -201,6 +207,15 @@ const EditSkill = () => {
           name="tags"
           label="태그 (쉼표로 구분, 공백이 없어야함)"
           value={formData.tags}
+          onChange={handleChange}
+        />
+
+        <TextField
+          className={clsx(classes.root)}
+          id="evolutionConditions"
+          name="evolutionConditions"
+          label="진화조건(쉼표로 구분)"
+          value={formData.evolutionConditions}
           onChange={handleChange}
         />
 

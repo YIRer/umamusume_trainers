@@ -141,6 +141,16 @@ const SkillInfo = ({ data, statusCode }) => {
           {skill.name.ko}
         </h3>
         <p>{skill.effect}</p>
+        {skill?.evolutionConditions && (
+          <p>
+            {skill?.evolutionConditions.map((condition, index) => (
+              <span key={condition + "_" + index}>
+                {condition}
+                <br />
+              </span>
+            ))}
+          </p>
+        )}
         <p>{skill.condition}</p>
         <div>
           {skill.tags.map(

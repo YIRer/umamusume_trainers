@@ -32,6 +32,10 @@ const SkillInputType = new GraphQLInputObjectType({
     tags: { type: new GraphQLList(GraphQLString) },
     id: { type: GraphQLID },
     condition: { type: GraphQLString },
+
+    evolutionConditions: {
+      type: new GraphQLNonNull(new GraphQLList(GraphQLString)),
+    },
   }),
 });
 
@@ -76,6 +80,9 @@ const SkillType = new GraphQLObjectType({
     imageSrc: { type: GraphQLString },
     tags: { type: new GraphQLList(GraphQLString) },
     condition: { type: GraphQLString },
+    evolutionConditions: {
+      type: new GraphQLList(GraphQLString),
+    },
 
     relatedCards: {
       type: new GraphQLList(SimpleCardType),
@@ -93,6 +100,9 @@ const SkillType = new GraphQLObjectType({
           axios.get(
             `${dbServer}/cards?specialSkillsIds_like=${parentValue.id}`
           ),
+          axios.get(
+            `${dbServer}/cards?evolutuonkillsIds_like=${parentValue.id}`
+          ),
         ])
           .then((res) => {
             const cards = [];
@@ -108,7 +118,8 @@ const SkillType = new GraphQLObjectType({
                     hasSkillsIds = [],
                     baseSkillsIds = [],
                     awakeningSkillsIds = [],
-                    specialSkillsIds = []
+                    specialSkillsIds = [],
+                    evolutuonkillsIds = [],
                   } = card;
 
                   const skills = _.concat(
@@ -117,7 +128,8 @@ const SkillType = new GraphQLObjectType({
                     hasSkillsIds,
                     baseSkillsIds,
                     awakeningSkillsIds,
-                    specialSkillsIds
+                    specialSkillsIds,
+                    evolutuonkillsIds
                   );
 
                   if (skills.includes(strID)) {

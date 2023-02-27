@@ -60,6 +60,7 @@ const AddSkill = () => {
       condition: "",
       imageSrc: iconData[0].value,
       tags: "",
+      evolutionConditions: "",
     }
   );
 
@@ -76,14 +77,17 @@ const AddSkill = () => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { ko, ja, tags, effect, condition, imageSrc } = formData;
+    const { ko, ja, tags, effect, condition, imageSrc, evolutionConditions } =
+      formData;
     const convertTags = tags.split(",");
+    const convertEvolutionSkills = evolutionConditions.split(",");
     const input = {
       effect,
       condition,
       imageSrc,
       name: { ko, ja },
       tags: convertTags,
+      evolutionConditions: convertEvolutionSkills,
     };
 
     addSkill({
@@ -139,6 +143,16 @@ const AddSkill = () => {
           label="태그 (쉼표로 구분, 공백이 없어야함)"
           onChange={handleChange}
         />
+
+        <TextField
+          className={clsx(classes.root)}
+          id="evolutionConditions"
+          name="evolutionConditions"
+          label="진화조건(쉼표로 구분)"
+          value={formData.evolutionConditions}
+          onChange={handleChange}
+        />
+
         <IconRadioGroups
           data={iconData}
           name={"imageSrc"}

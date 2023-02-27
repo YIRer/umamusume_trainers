@@ -9,6 +9,7 @@ export type SkillType = {
   imageSrc: string;
   tags: string[];
   condition: string;
+  evolutionConditions: string[];
 };
 
 export type RelatedSkillsType = {
@@ -18,4 +19,5 @@ export type RelatedSkillsType = {
   base: SkillType[];
   awakening: SkillType[];
   special: SkillType[];
+  evolution?: SkillType[];
 };
