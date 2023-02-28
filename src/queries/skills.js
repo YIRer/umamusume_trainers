@@ -12,6 +12,7 @@ export const GET_SKILLS = gql`
       imageSrc
       tags
       condition
+      evolutionConditions
     }
   }
 `;
@@ -36,6 +37,7 @@ export const GET_SKill = gql`
       imageSrc
       tags
       condition
+      evolutionConditions
     }
   }
 `;
@@ -52,6 +54,7 @@ export const ADD_Sklill = gql`
       imageSrc
       tags
       condition
+      evolutionConditions
     }
   }
 `;
@@ -68,6 +71,7 @@ export const EDIT_SKILL = gql`
       imageSrc
       tags
       condition
+      evolutionConditions
     }
   }
 `;

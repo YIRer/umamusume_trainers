@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { prefixImgSrc } from "helper";
 
 import { SkillModalProps } from "./types";
+import { circleIndexList } from "components/Skills/constants";
 
 const useStyles = makeStyles((_theme) => ({
   skillWrapper: {
@@ -21,6 +22,13 @@ const useStyles = makeStyles((_theme) => ({
     width: "80px",
     margin: "auto",
     display: "block",
+  },
+  horizon: {
+    border: "none",
+    width: "100%",
+    height: "1px",
+    backgroundColor: "#bbb",
+    marginBottom: "16px",
   },
 }));
 
@@ -39,6 +47,20 @@ export default function SkillModal(props: SkillModalProps) {
           </h3>
           <p>{data.effect}</p>
           <p>{data.condition}</p>
+          {data?.evolutionConditions?.length > 0 && (
+            <>
+              <hr className={classes.horizon} />
+              <p>
+                {data?.evolutionConditions?.map((condition, index) => (
+                  <span key={`condition_${condition}`}>
+                    {circleIndexList[index]}
+                    {condition} <br />
+                  </span>
+                ))}
+                <br />
+              </p>
+            </>
+          )}
           <div>
             {data.tags.map(
               (tag) =>

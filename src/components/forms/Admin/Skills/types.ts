@@ -20,6 +20,7 @@ export type skillInputType = {
   condition?: string;
   imageSrc?: string;
   tags?: string;
+  evolutionConditions?: string;
 };
 
 export type SearchSkills = {

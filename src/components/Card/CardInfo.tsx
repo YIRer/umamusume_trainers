@@ -41,6 +41,7 @@ import { formattedDescriptionForCards } from "./helper";
 
 import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
+import { circleIndexList } from "components/Skills/constants";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -183,6 +184,14 @@ const useStyles = makeStyles((theme) => ({
     color: "crimson",
     fontWeight: "bold",
   },
+
+  horizon: {
+    border: "none",
+    width: "100%",
+    height: "1px",
+    backgroundColor: "#bbb",
+    marginBottom: "16px",
+  },
 }));
 
 const CardInfo = ({ data, statusCode }) => {
@@ -214,6 +223,7 @@ const CardInfo = ({ data, statusCode }) => {
       baseSkillsIds,
       awakeningSkillsIds,
       specialSkillsIds,
+      evolutionSkillsIds,
       skills,
     } = cardData;
 
@@ -224,6 +234,7 @@ const CardInfo = ({ data, statusCode }) => {
       base: [],
       awakening: [],
       special: [],
+      evolution: [],
     };
 
     uniqueSkillsIds.forEach((sid) => {
@@ -256,6 +267,13 @@ const CardInfo = ({ data, statusCode }) => {
       }
     });
 
+    evolutionSkillsIds?.forEach((sid) => {
+      const skill = skills.find(({ id }) => id === sid);
+      if (skill) {
+        skillData.evolution.push(skill);
+      }
+    });
+
     setRelatedSkills(skillData);
   };
 
@@ -284,12 +302,21 @@ const CardInfo = ({ data, statusCode }) => {
 
   const handleDuplicate = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { id: _id, baseSkillsIds, awakeningSkillsIds, ...others } = data.card;
+    const {
+      id: _id,
+      skills: _skills,
+      baseSkillsIds,
+      awakeningSkillsIds,
+      evolutionSkillsIds,
+      ...others
+    } = data.card;
+
     addCard({
       variables: {
         input: {
           baseSkillsIds: baseSkillsIds ?? [],
           awakeningSkillsIds: awakeningSkillsIds ?? [],
+          evolutionSkillsIds: evolutionSkillsIds ?? [],
           ...others,
         },
       },
@@ -322,6 +349,16 @@ const CardInfo = ({ data, statusCode }) => {
                   {skill.name.ko}
                 </b>
                 <span>{skill.effect}</span>
+                <br />
+                {skill?.evolutionConditions?.length > 0 && (
+                  <hr className={classes.horizon} />
+                )}
+                {skill?.evolutionConditions?.map((condition, index) => (
+                  <span key={`condition_${condition}`}>
+                    {circleIndexList[index]}
+                    {condition} <br />
+                  </span>
+                ))}
               </div>
             </a>
           </Link>
@@ -449,9 +486,17 @@ const CardInfo = ({ data, statusCode }) => {
 
       {relatedSkills.special?.length > 0 && (
         <section className={classes.section}>
-          <h4>스폐셜/진화 스킬</h4>
+          <h4>스폐셜 스킬</h4>
           <div className={classes.skillCardsWrapper}>
             {relatedSkills.special.map((skill) => renderSkillCards(skill))}
+          </div>
+        </section>
+      )}
+      {relatedSkills.evolution?.length > 0 && (
+        <section className={classes.section}>
+          <h4>진화 스킬</h4>
+          <div className={classes.skillCardsWrapper}>
+            {relatedSkills.evolution.map((skill) => renderSkillCards(skill))}
           </div>
         </section>
       )}

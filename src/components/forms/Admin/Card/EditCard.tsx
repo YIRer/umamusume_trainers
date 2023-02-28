@@ -125,6 +125,7 @@ const EditCard = () => {
     base: [],
     awakening: [],
     special: [],
+    evolution: [],
   });
   const [selectedSkillType, setSelectedSkillType] =
     useState<SelectedSkillTypes>("");
@@ -212,6 +213,7 @@ const EditCard = () => {
         baseSkillsIds,
         awakeningSkillsIds,
         specialSkillsIds,
+        evolutionSkillsIds,
         trainingObjects,
         supportType,
         originalEffect,
@@ -251,6 +253,7 @@ const EditCard = () => {
       const baseSkills = [];
       const awakeningSkills = [];
       const specialSkills = [];
+      const evolutionSkills = [];
 
       uniqueSkillsIds?.forEach((sid) => {
         const findSkill = skills.find(({ id }) => id === sid);
@@ -293,6 +296,13 @@ const EditCard = () => {
           specialSkills.push(findSkill);
         }
       });
+      
+      evolutionSkillsIds?.forEach((sid) => {
+        const findSkill = skills.find(({ id }) => id === sid);
+        if (findSkill) {
+          evolutionSkills.push(findSkill);
+        }
+      });
 
       setRelatedSkills({
         unique: uniqueSkills,
@@ -301,6 +311,7 @@ const EditCard = () => {
         base: baseSkills,
         awakening: awakeningSkills,
         special: specialSkills,
+        evolution: evolutionSkills,
       });
       if (targetData) {
         setTarget(targetData.umamusume || null);
@@ -421,6 +432,7 @@ const EditCard = () => {
       baseSkillsIds: relatedSkills.base.map(({ id }) => id),
       awakeningSkillsIds: relatedSkills.awakening.map(({ id }) => id),
       specialSkillsIds: relatedSkills.special.map(({ id }) => id),
+      evolutionSkillsIds: relatedSkills.evolution.map(({ id }) => id),
       status: {
         ground: {
           turf,
@@ -570,6 +582,10 @@ const EditCard = () => {
   };
   const showSpecialSkillSearchModal = () => {
     setSelectedSkillType("special");
+    showSkillSearchModal();
+  };
+  const showEvolutionSkillSearchModal = () => {
+    setSelectedSkillType("evolution");
     showSkillSearchModal();
   };
 
@@ -879,13 +895,27 @@ const EditCard = () => {
 
         {relatedSkills.special.length > 0 && (
           <div>
-            <b>스폐셜/진화 스킬</b>
+            <b>스폐셜 스킬</b>
             {relatedSkills.special.map((skillData, index) => (
               <SkillIcons
                 name={skillData.name}
                 imageSrc={skillData.imageSrc}
                 effect={skillData.effect}
                 key={`special_skill_${index}`}
+              />
+            ))}
+          </div>
+        )}
+
+        {isTrainingType && relatedSkills.evolution.length > 0 && (
+          <div>
+            <b>진화 스킬</b>
+            {relatedSkills.evolution.map((skillData, index) => (
+              <SkillIcons
+                name={skillData.name}
+                imageSrc={skillData.imageSrc}
+                effect={skillData.effect}
+                key={`skill_evolution_${index}`}
               />
             ))}
           </div>
@@ -935,6 +965,15 @@ const EditCard = () => {
             className={classes.skillButton}
           >
             스페셜 스킬 선택
+          </Button>
+          <Button
+            type="button"
+            variant="outlined"
+            color="primary"
+            onClick={showEvolutionSkillSearchModal}
+            className={classes.skillButton}
+          >
+            진화 스킬 선택
           </Button>
         </div>
 

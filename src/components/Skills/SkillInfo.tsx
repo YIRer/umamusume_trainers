@@ -22,6 +22,7 @@ import { prefixImgSrc } from "helper";
 import Helmet from "Helmet/Helmet";
 
 import InFeed from "components/ADsense/InFeed";
+import { circleIndexList } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -76,6 +77,14 @@ const useStyles = makeStyles((_theme) => ({
     backgroundSize: "80%",
     backgroundRepeat: "no-repeat",
     marginBottom: "10px",
+  },
+
+  horizon: {
+    border: "none",
+    width: "100%",
+    height: "1px",
+    backgroundColor: "#bbb",
+    marginBottom: "16px",
   },
 }));
 
@@ -141,6 +150,20 @@ const SkillInfo = ({ data, statusCode }) => {
           {skill.name.ko}
         </h3>
         <p>{skill.effect}</p>
+        {skill?.evolutionConditions && (
+          <p>
+            {skill?.evolutionConditions?.length > 0 && (
+              <hr className={classes.horizon} />
+            )}
+            {skill?.evolutionConditions.map((condition, index) => (
+              <span key={condition + "_" + index}>
+                {circleIndexList[index]}
+                {condition}
+                <br />
+              </span>
+            ))}
+          </p>
+        )}
         <p>{skill.condition}</p>
         <div>
           {skill.tags.map(

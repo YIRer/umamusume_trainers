@@ -69,6 +69,7 @@ const DeckSkillItem = (props: DeckSkillItemProps) => {
       trainingSkills: [],
       hasSkills: [],
       special: [],
+      evolution: [],
     };
     const {
       skills,
@@ -77,7 +78,8 @@ const DeckSkillItem = (props: DeckSkillItemProps) => {
       awakeningSkillsIds,
       trainingSkillsIds,
       hasSkillsIds,
-      specialSkillsIds
+      specialSkillsIds,
+      evolutionSkillsIds,
     } = data;
 
     uniqueSkillsIds.forEach((sid) => {
@@ -106,6 +108,9 @@ const DeckSkillItem = (props: DeckSkillItemProps) => {
     specialSkillsIds?.forEach((sid) => {
       skillData.special.push(skills.find(({ id }) => id === sid));
     });
+    evolutionSkillsIds?.forEach((sid) => {
+      skillData.evolution.push(skills.find(({ id }) => id === sid));
+    });
 
     setSkills([
       ...skillData.uniqueSkills,
@@ -114,6 +119,7 @@ const DeckSkillItem = (props: DeckSkillItemProps) => {
       ...skillData.trainingSkills,
       ...skillData.hasSkills,
       ...skillData.special,
+      ...skillData.evolution,
     ]);
   };
 
