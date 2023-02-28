@@ -184,6 +184,14 @@ const useStyles = makeStyles((theme) => ({
     color: "crimson",
     fontWeight: "bold",
   },
+
+  horizon: {
+    border: "none",
+    width: "100%",
+    height: "1px",
+    backgroundColor: "#bbb",
+    marginBottom: "16px",
+  },
 }));
 
 const CardInfo = ({ data, statusCode }) => {
@@ -294,12 +302,21 @@ const CardInfo = ({ data, statusCode }) => {
 
   const handleDuplicate = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    const { id: _id, baseSkillsIds, awakeningSkillsIds, ...others } = data.card;
+    const {
+      id: _id,
+      skills: _skills,
+      baseSkillsIds,
+      awakeningSkillsIds,
+      evolutionSkillsIds,
+      ...others
+    } = data.card;
+
     addCard({
       variables: {
         input: {
           baseSkillsIds: baseSkillsIds ?? [],
           awakeningSkillsIds: awakeningSkillsIds ?? [],
+          evolutionSkillsIds: evolutionSkillsIds ?? [],
           ...others,
         },
       },
@@ -333,9 +350,13 @@ const CardInfo = ({ data, statusCode }) => {
                 </b>
                 <span>{skill.effect}</span>
                 <br />
-                {skill?.evolutionConditions?.map((condition,index) => (
+                {skill?.evolutionConditions?.length > 0 && (
+                  <hr className={classes.horizon} />
+                )}
+                {skill?.evolutionConditions?.map((condition, index) => (
                   <span key={`condition_${condition}`}>
-                    {circleIndexList[index]}{condition} <br />
+                    {circleIndexList[index]}
+                    {condition} <br />
                   </span>
                 ))}
               </div>

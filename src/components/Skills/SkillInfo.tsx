@@ -78,6 +78,14 @@ const useStyles = makeStyles((_theme) => ({
     backgroundRepeat: "no-repeat",
     marginBottom: "10px",
   },
+
+  horizon: {
+    border: "none",
+    width: "100%",
+    height: "1px",
+    backgroundColor: "#bbb",
+    marginBottom: "16px",
+  },
 }));
 
 const SkillInfo = ({ data, statusCode }) => {
@@ -144,6 +152,9 @@ const SkillInfo = ({ data, statusCode }) => {
         <p>{skill.effect}</p>
         {skill?.evolutionConditions && (
           <p>
+            {skill?.evolutionConditions?.length > 0 && (
+              <hr className={classes.horizon} />
+            )}
             {skill?.evolutionConditions.map((condition, index) => (
               <span key={condition + "_" + index}>
                 {circleIndexList[index]}
