@@ -129,14 +129,14 @@ const EditSkill = () => {
     const { tags, ko, ja, effect, condition, imageSrc, evolutionConditions } =
       formData;
     const convertTags = tags.split(",");
-    const convertEvolutionSkills = evolutionConditions.split(",");
+    const convertEvolutionSkills = evolutionConditions?.split(",");
     const input = {
       effect,
       condition,
       imageSrc,
       name: { ko, ja },
       tags: convertTags,
-      evolutionConditions: convertEvolutionSkills,
+      evolutionConditions: convertEvolutionSkills ?? [],
     };
 
     editSkill({
