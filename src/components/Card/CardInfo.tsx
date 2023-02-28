@@ -41,6 +41,7 @@ import { formattedDescriptionForCards } from "./helper";
 
 import InFeed from "components/ADsense/InFeed";
 import FooterAds from "components/ADsense/FooterAds";
+import { circleIndexList } from "components/Skills/constants";
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -332,9 +333,9 @@ const CardInfo = ({ data, statusCode }) => {
                 </b>
                 <span>{skill.effect}</span>
                 <br />
-                {skill?.evolutionConditions?.map((condition) => (
+                {skill?.evolutionConditions?.map((condition,index) => (
                   <span key={`condition_${condition}`}>
-                    {condition} <br />
+                    {circleIndexList[index]}{condition} <br />
                   </span>
                 ))}
               </div>

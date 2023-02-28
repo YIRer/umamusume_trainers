@@ -22,6 +22,7 @@ import { prefixImgSrc } from "helper";
 import Helmet from "Helmet/Helmet";
 
 import InFeed from "components/ADsense/InFeed";
+import { circleIndexList } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
   paperRoot: {
@@ -145,6 +146,7 @@ const SkillInfo = ({ data, statusCode }) => {
           <p>
             {skill?.evolutionConditions.map((condition, index) => (
               <span key={condition + "_" + index}>
+                {circleIndexList[index]}
                 {condition}
                 <br />
               </span>
