@@ -48,6 +48,7 @@ export default function SkillModal(props: SkillModalProps) {
           <p>{data.effect}</p>
           <p>{data.condition}</p>
           {data?.evolutionConditions &&
+            data?.evolutionConditions[0] &&
             data?.evolutionConditions[0].length > 0 && (
               <>
                 <hr className={classes.horizon} />

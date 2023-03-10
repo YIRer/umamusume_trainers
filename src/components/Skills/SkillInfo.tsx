@@ -151,6 +151,7 @@ const SkillInfo = ({ data, statusCode }) => {
         </h3>
         <p>{skill.effect}</p>
         {skill?.evolutionConditions &&
+          skill?.evolutionConditions[0] &&
           skill?.evolutionConditions[0].length > 0 && (
             <p>
               {skill?.evolutionConditions?.length > 0 && (

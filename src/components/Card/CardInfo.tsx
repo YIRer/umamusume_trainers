@@ -351,6 +351,7 @@ const CardInfo = ({ data, statusCode }) => {
                 <span>{skill.effect}</span>
                 <br />
                 {skill?.evolutionConditions &&
+                  skill?.evolutionConditions[0] &&
                   skill?.evolutionConditions[0].length > 0 && (
                     <>
                       <hr className={classes.horizon} />
