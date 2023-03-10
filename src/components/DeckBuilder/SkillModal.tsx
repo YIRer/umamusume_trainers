@@ -47,20 +47,21 @@ export default function SkillModal(props: SkillModalProps) {
           </h3>
           <p>{data.effect}</p>
           <p>{data.condition}</p>
-          {data?.evolutionConditions?.length > 0 && (
-            <>
-              <hr className={classes.horizon} />
-              <p>
-                {data?.evolutionConditions?.map((condition, index) => (
-                  <span key={`condition_${condition}`}>
-                    {circleIndexList[index]}
-                    {condition} <br />
-                  </span>
-                ))}
-                <br />
-              </p>
-            </>
-          )}
+          {data?.evolutionConditions &&
+            data?.evolutionConditions[0].length > 0 && (
+              <>
+                <hr className={classes.horizon} />
+                <p>
+                  {data?.evolutionConditions?.map((condition, index) => (
+                    <span key={`condition_${condition}`}>
+                      {circleIndexList[index]}
+                      {condition} <br />
+                    </span>
+                  ))}
+                  <br />
+                </p>
+              </>
+            )}
           <div>
             {data.tags.map(
               (tag) =>

@@ -350,15 +350,18 @@ const CardInfo = ({ data, statusCode }) => {
                 </b>
                 <span>{skill.effect}</span>
                 <br />
-                {skill?.evolutionConditions?.length > 0 && (
-                  <hr className={classes.horizon} />
-                )}
-                {skill?.evolutionConditions?.map((condition, index) => (
-                  <span key={`condition_${condition}`}>
-                    {circleIndexList[index]}
-                    {condition} <br />
-                  </span>
-                ))}
+                {skill?.evolutionConditions &&
+                  skill?.evolutionConditions[0].length > 0 && (
+                    <>
+                      <hr className={classes.horizon} />
+                      {skill?.evolutionConditions?.map((condition, index) => (
+                        <span key={`condition_${condition}`}>
+                          {circleIndexList[index]}
+                          {condition} <br />
+                        </span>
+                      ))}
+                    </>
+                  )}
               </div>
             </a>
           </Link>

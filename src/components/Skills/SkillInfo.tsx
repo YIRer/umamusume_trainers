@@ -150,20 +150,21 @@ const SkillInfo = ({ data, statusCode }) => {
           {skill.name.ko}
         </h3>
         <p>{skill.effect}</p>
-        {skill?.evolutionConditions && (
-          <p>
-            {skill?.evolutionConditions?.length > 0 && (
-              <hr className={classes.horizon} />
-            )}
-            {skill?.evolutionConditions.map((condition, index) => (
-              <span key={condition + "_" + index}>
-                {circleIndexList[index]}
-                {condition}
-                <br />
-              </span>
-            ))}
-          </p>
-        )}
+        {skill?.evolutionConditions &&
+          skill?.evolutionConditions[0].length > 0 && (
+            <p>
+              {skill?.evolutionConditions?.length > 0 && (
+                <hr className={classes.horizon} />
+              )}
+              {skill?.evolutionConditions.map((condition, index) => (
+                <span key={condition + "_" + index}>
+                  {circleIndexList[index]}
+                  {condition}
+                  <br />
+                </span>
+              ))}
+            </p>
+          )}
         <p>{skill.condition}</p>
         <div>
           {skill.tags.map(
