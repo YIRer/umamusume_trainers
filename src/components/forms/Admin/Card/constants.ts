@@ -1496,7 +1496,7 @@ export const commonOnceEvents = [
         ],
       },
     ],
-    condition: "킷카상 출주",
+    condition: "국화상(킷카상) 출주",
   },
   {
     title: {
