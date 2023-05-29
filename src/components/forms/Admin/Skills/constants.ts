@@ -60,6 +60,11 @@ export const iconData = [
     id: "i_skill_009",
   },
   {
+    value: "/image/skill/i_skill_079.png",
+    label: "스타트",
+    id: "i_skill_079",
+  },
+  {
     value: "/image/skill/i_skill_010.png",
     label: "스피드 버프",
     id: "i_skill_010",
