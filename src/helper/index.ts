@@ -150,10 +150,16 @@ export const filterSKillGroundType: FilterFnType<SkillType> = (
   searchOptions
 ) => {
   const { tags } = item;
-  if (!searchOptions.skillGroundType || searchOptions.skillGroundType === 'turf') {
+  if (
+    !searchOptions.skillGroundType ||
+    searchOptions.skillGroundType === "none"
+  ) {
     return true;
   }
-  return tags.includes('더트');;
+  if (searchOptions.skillGroundType === "turf") {
+    return tags.includes("잔디");
+  }
+  return tags.includes("더트");
 };
 
 export const filterKeywords: FilterFnType<
@@ -202,7 +208,7 @@ export const searchSkillsHelper: SearchFilterFnType = ({
     filterSKillRarity,
     filterSKillDistance,
     filterSKillStrategy,
-    filterSKillGroundType
+    filterSKillGroundType,
   ])(data, searchOptions);
 };
 

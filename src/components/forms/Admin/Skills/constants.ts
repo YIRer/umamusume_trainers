@@ -339,11 +339,11 @@ export const iconData = [
     label: "스태미나 버프 진화 스킬",
     id: "i_skill_067",
   },
-  // {
-  //   value: "/image/skill/i_skill_068.png",
-  //   label: "파워 버프 진화 스킬",
-  //   id: "i_skill_068",
-  // },
+  {
+    value: "/image/skill/i_skill_068.png",
+    label: "파워 버프 진화 스킬",
+    id: "i_skill_068",
+  },
   {
     value: "/image/skill/i_skill_069.png",
     label: "모든 스탯 버프 진화 스킬",

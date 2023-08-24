@@ -56,10 +56,10 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
       labels: ["도주", "선행", "선입", "추입"],
     },
     skillGroundType: {
-      type: "더트 마장 여부",
+      type: "마장 필터",
       selector: "radio",
-      values: ["turf", "duct"],
-      labels: ["모든 마장", "더트"],
+      values: ["none", "turf", "duct"],
+      labels: ["모든 마장", "잔디", "더트"],
     },
   },
 };

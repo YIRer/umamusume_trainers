@@ -352,6 +352,7 @@ function SearchFilter({
         ) {
           return null;
         }
+
         return (
           <div className={classes.filterGroupWrapper} key={`filter-${key}`}>
             <span>{filterOptions[key].type}</span>

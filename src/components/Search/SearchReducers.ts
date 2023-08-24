@@ -10,7 +10,7 @@ export type SeachFilterStateType = {
   skillRarity?: string[];
   skillDistance?: string[];
   skillStrategy?: string[];
-  skillGroundType?: "turf" | "duct";
+  skillGroundType?: "turf" | "duct" | "none";
 };
 
 export const initialState: SeachFilterStateType = {
@@ -22,7 +22,7 @@ export const initialState: SeachFilterStateType = {
   skillRarity: [],
   skillDistance: [],
   skillStrategy: [],
-  skillGroundType: "turf",
+  skillGroundType: "none",
 };
 
 export const ACTION_TYPES = {
@@ -151,9 +151,17 @@ export const reducer = (state, action) => {
           skillGroundType: "duct",
         };
       }
+
+      if (action.payload === "turf") {
+        return {
+          ...state,
+          skillGroundType: "turf",
+        };
+      }
+      
       return {
         ...state,
-        skillGroundType: 'turf',
+        skillGroundType: "none",
       };
 
     case ACTION_TYPES.CLEAR_KEYWORD_FILTER:
