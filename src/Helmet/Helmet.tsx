@@ -51,7 +51,7 @@ const RHelmet = ({
           "https://umamusume-trainers.s3.ap-northeast-2.amazonaws.com/image/logo.png"
         }
       />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:site"
         content={`https://umamusume-trainers.me${url ?? ""}`}
