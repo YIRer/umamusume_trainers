@@ -52,8 +52,8 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
     skillStrategy: {
       type: "작전",
       selector: "checkbox",
-      values: ["도주", "선행", "선입", "추입"],
-      labels: ["도주", "선행", "선입", "추입"],
+      values: ["대도주", "도주", "선행", "선입", "추입"],
+      labels: ["대도주", "도주", "선행", "선입", "추입"],
     },
     skillGroundType: {
       type: "마장 필터",

@@ -270,8 +270,7 @@ const AddCard = () => {
         ? `/image/ETC/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
-    const addedCommonEvents = addCommonEvents(events);
-    const addedOnceEvents = addOnceEvents(addedCommonEvents);
+    const addedOnceEvents = addOnceEvents(events);
     const addedMultipleEvents = addMultipleEvents(addedOnceEvents);
 
     const spType = playable ? "" : supportType ? supportType : "speed";
@@ -354,7 +353,7 @@ const AddCard = () => {
 
   const addCommonEvents = (events) => {
     if (formData.type === "training") {
-      events.common = [...commonEvents].concat(events.common);
+      events.common = [];
     }
 
     return events;

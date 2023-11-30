@@ -296,7 +296,7 @@ const EditCard = () => {
           specialSkills.push(findSkill);
         }
       });
-      
+
       evolutionSkillsIds?.forEach((sid) => {
         const findSkill = skills.find(({ id }) => id === sid);
         if (findSkill) {
@@ -418,13 +418,18 @@ const EditCard = () => {
         ? `/image/ETC/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
+    const removedCommonEvents = {
+      ...events,
+      common: [],
+    };
+
     const input = {
       ...formDatas,
       name: { ko, ja },
       type,
       imageSrc,
       targetID: targetInfo?.id,
-      events: removeEventTempIDs(events),
+      events: removeEventTempIDs(removedCommonEvents),
       bonus: removeBonusTempIDs(bonus),
       uniqueSkillsIds: relatedSkills.unique.map(({ id }) => id),
       trainingSkillsIds: relatedSkills.training.map(({ id }) => id),
@@ -476,15 +481,10 @@ const EditCard = () => {
   };
 
   const addEventTempIDs = (events: CardEventObjectType) => {
-    const commonEventList = events.common ?? [...commonEvents];
     const commonOnceEventList = events.once.length > 0 ? events.once : [];
     const commonMulitpleEventList =
       events.multipleTimes.length > 0 ? events.multipleTimes : [];
 
-    const common = commonEventList.map((d) => ({
-      ...d,
-      __tempID: _.uniqueId("common-event"),
-    }));
     const once = commonOnceEventList.map((d) => ({
       ...d,
       __tempID: _.uniqueId("once-event"),
@@ -495,7 +495,7 @@ const EditCard = () => {
     }));
 
     return {
-      common,
+      common: [],
       once,
       multipleTimes,
     };
