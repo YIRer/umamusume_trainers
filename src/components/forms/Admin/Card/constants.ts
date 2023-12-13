@@ -878,8 +878,7 @@ export const commonEvents = [
           },
           {
             condition: "실패",
-            result:
-              "랜덤 스탯 1개+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
+            result: "랜덤 스탯 1개+5~15(대결 Lv 따라 변경) 스킬 Pt+15",
           },
         ],
       },
@@ -913,6 +912,167 @@ export const commonEvents = [
       },
     ],
     condition: "URA파이널스 결승 우승",
+  },
+  {
+    title: {
+      ko: "모여라! 노래자랑",
+      ja: "集まれ！のど自慢",
+    },
+    eventType: "common",
+    tags: ["그랜드 라이브"],
+    choices: [
+      {
+        description: {
+          ko: "요람같은... 자장가를",
+          ja: "ゆりかごのように……子守唄を",
+        },
+        result: "체력+15",
+      },
+      {
+        description: {
+          ko: "뜨거운 열정을 불태워서! 성대하게 노래하자!",
+          ja: "激しく情熱を燃やして！盛大に歌う！",
+        },
+        result: "패션+20",
+      },
+    ],
+    condition: "그랜드 라이브",
+  },
+  {
+    title: {
+      ko: "제안! 신곡 프로듀스!",
+      ja: "提案ッ！新曲プロデュース！",
+    },
+    eventType: "common",
+    tags: ["그랜드 라이브"],
+    choices: [
+      {
+        description: {
+          ko: "팔콘의 마음을 맛본다거나?",
+          ja: "ファルコンの気持ちを味わってもらうとか？",
+        },
+        result: "패션+20 이사장과의 인연게이지+10",
+      },
+      {
+        description: {
+          ko: "초심으로 돌아가보죠!",
+          ja: "初心にかえりましょう！",
+        },
+        result: "멘탈+20 이사장과의 인연게이지+10",
+      },
+    ],
+    condition: "그랜드 라이브",
+  },
+  {
+    title: {
+      ko: "할 수 있는 일부터",
+      ja: "できることから",
+    },
+    eventType: "common",
+    tags: ["그랜드 라이브"],
+    choices: [
+      {
+        description: {
+          ko: "휴식용 음료를 사올게요",
+          ja: "休憩用の飲み物を買ってきますよ",
+        },
+        result: "체력+10",
+      },
+      {
+        description: {
+          ko: "저도 함께할게요!",
+          ja: "俺も付き合います！",
+        },
+        result: "근성+10",
+      },
+    ],
+    condition: "그랜드 라이브",
+  },
+  {
+    title: {
+      ko: "당신과 나를 이어주는 라이브",
+      ja: "あなたと私を繋げるライブ",
+    },
+    eventType: "common",
+    tags: ["그랜드 라이브"],
+    choices: [
+      {
+        description: {
+          ko: "『함께 서로를 부르는 노래』인가...",
+          ja: "『一緒に呼びかけあえる歌』か……(スマートファルコン)",
+        },
+        result: "",
+        results: [
+          {
+            condition: "스마트 팔콘 편성시",
+            result: '"全速前進！"(전속전진!!) 힌트 Lv+1',
+          },
+          {
+            condition: "스마트 팔콘 미편성시",
+            result: '"まっしぐら"(쏜살같이) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "『달리는 것에 대한 감사』인가...",
+          ja: "『走れることへの感謝』か……(ミホノブルボン)",
+        },
+        result: "",
+        results: [
+          {
+            condition: "미호노 부르봉 편성시",
+            result: '"コンセントレーション"(컨센트레이션) 힌트 Lv+1',
+          },
+          {
+            condition: "미호노 부르봉 미편성시",
+            result: '"集中力"(집중력) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "『다녀왔습니다』인가...",
+          ja: "『ただいま』か……(サイレンススズカ)",
+        },
+        result: "",
+        results: [
+          {
+            condition: "사일런스 스즈카 편성시",
+            result: '"切り開く者"(개척자) 힌트 Lv+1',
+          },
+          {
+            condition: "사일런스 스즈카 미편성시",
+            result: '"前途洋々"(전도유망) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "『타도하는 힘』인가...",
+          ja: "『打倒する力』か……(アグネスタキオン)",
+        },
+        result: "",
+        results: [
+          {
+            condition: "아그네스 타키온 편성시",
+            result: '"決死の覚悟"(결사의 각오) 힌트 Lv+1',
+          },
+          {
+            condition: "아그네스 타키온 미편성시",
+            result: '"ありったけ"(남김 없이) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "『노래로 잇는다』인가...",
+          ja: "『歌でつながる』か……",
+        },
+        result: '"レーンの魔術師"(레인의 마술사) 힌트 Lv+1',
+      },
+    ],
+    condition: "그랜드 라이브",
   },
 ];
 
