@@ -375,6 +375,7 @@ const CardInfo = ({ data, statusCode }) => {
     return <Error statusCode={statusCode} />;
   }
 
+  const commonEventList = card.events.common ?? commonEvents;
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
@@ -522,7 +523,7 @@ const CardInfo = ({ data, statusCode }) => {
         {card.type === "training" && (
           <div>
             <h4>공통 이벤트</h4>
-            {commonEvents.map((event, index) => (
+            {commonEventList.map((event, index) => (
               <EventItems
                 eventData={event}
                 editable={false}
