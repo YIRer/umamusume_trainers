@@ -300,6 +300,21 @@ export const iconData = [
     id: "i_skill_060",
   },
   {
+    value: "/image/skill/i_skill_080.png",
+    label: "속도상승(U.A.F 시나리오)",
+    id: "i_skill_080",
+  },
+  {
+    value: "/image/skill/i_skill_081.png",
+    label: "속도상승(U.A.F 시나리오)",
+    id: "i_skill_081",
+  },
+  {
+    value: "/image/skill/i_skill_082.png",
+    label: "속도상승(U.A.F 시나리오)",
+    id: "i_skill_082",
+  },
+  {
     value: "/image/skill/i_skill_061.png",
     label: "속도 상승 진화 스킬",
     id: "i_skill_061",

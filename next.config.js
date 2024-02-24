@@ -1,11 +1,8 @@
 const { hostname } = require("./constants");
 const WebpackBar = require("webpackbar");
-const isProd = process.env.NODE_ENV === "production";
 
 const images = {
-  domains: isProd
-    ? ["umamusume-trainers.s3.ap-northeast-2.amazonaws.com"]
-    : ["localhost"],
+  domains: ["umamusume-trainers.s3.ap-northeast-2.amazonaws.com"],
 };
 
 module.exports = {

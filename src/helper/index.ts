@@ -55,11 +55,7 @@ export const isMobile = (): boolean => {
 };
 
 export const prefixImgSrc = (url: string): string => {
-  if (isDev) {
-    return url;
-  } else {
-    return IMAGE_URL + url;
-  }
+  return IMAGE_URL + url;
 };
 
 export const filterCardRarity: FilterFnType<CardType> = (
