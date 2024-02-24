@@ -100,7 +100,7 @@ export const CardList = ({ data, statusCode }) => {
         {cardList.map(
           ({ name, id, imageSrc, star, type, limited, supportType }) => {
             return (
-              <Card className={clsx(classes.cardRoot)} key={`card-${id}`}>
+              <Card className={clsx(classes.cardRoot)} key={`card-${id}-${name.ko}`}>
                 {limited && (
                   <FilterVintageRoundedIcon
                     className={clsx(classes.limited)}

@@ -52,7 +52,8 @@ const useStyles = makeStyles((_theme) => ({
   linkWrapper: {
     width: "100%",
     maxWidth: "276px",
-    height: "64px",
+    height: "auto",
+    minHeight: "64px",
     marginRight: "16px",
     marginBottom: "16px",
   },
