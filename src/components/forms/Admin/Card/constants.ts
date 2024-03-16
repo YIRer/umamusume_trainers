@@ -180,7 +180,7 @@ export const commonEvents = [
         results: [
           {
             condition: "성공",
-            result: "체력의 최대치+12 체력+40 배드 컨디션이 낫는다",
+            result: "체력의 최대치+12 체력+40 배드 컨디션이 해소된다",
           },
           {
             condition: "실패",
