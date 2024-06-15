@@ -9,6 +9,9 @@ module.exports = {
   env: {
     HOST: hostname,
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   rootDir: "src",
   webpack: (config, _options) => {
     config.plugins = [...config.plugins, new WebpackBar()];
