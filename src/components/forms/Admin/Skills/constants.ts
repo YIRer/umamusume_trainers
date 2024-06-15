@@ -409,6 +409,26 @@ export const iconData = [
     label: "스태미나 회복 진화 스킬",
     id: "i_skill_077",
   },
+  {
+    value: "/image/skill/i_skill_084.png",
+    label: "리그 오브 히어로즈 전용 스킬",
+    id: "i_skill_084",
+  },
+  {
+    value: "/image/skill/i_skill_085.png",
+    label: "리그 오브 히어로즈 전용 스킬",
+    id: "i_skill_085",
+  },
+  {
+    value: "/image/skill/i_skill_086.png",
+    label: "리그 오브 히어로즈 전용 스킬",
+    id: "i_skill_086",
+  },
+  {
+    value: "/image/skill/i_skill_087.png",
+    label: "리그 오브 히어로즈 전용 스킬",
+    id: "i_skill_087",
+  },
 ];
 
 export const skillTypes = [
