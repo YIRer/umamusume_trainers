@@ -429,6 +429,31 @@ export const iconData = [
     label: "리그 오브 히어로즈 전용 스킬",
     id: "i_skill_087",
   },
+  {
+    value: "/image/skill/i_skill_088.png",
+    label: "대풍식제 스킬",
+    id: "i_skill_088",
+  },
+  {
+    value: "/image/skill/i_skill_089.png",
+    label: "대풍식제 스킬",
+    id: "i_skill_089",
+  },
+  {
+    value: "/image/skill/i_skill_090.png",
+    label: "대풍식제 스킬",
+    id: "i_skill_090",
+  },
+  {
+    value: "/image/skill/i_skill_091.png",
+    label: "대풍식제 스킬",
+    id: "i_skill_091",
+  },
+  {
+    value: "/image/skill/i_skill_092.png",
+    label: "대풍식제 스킬",
+    id: "i_skill_092",
+  },
 ];
 
 export const skillTypes = [

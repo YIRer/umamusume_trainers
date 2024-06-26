@@ -1120,6 +1120,119 @@ export const commonEvents = [
     ],
     condition: "U.A.F",
   },
+  {
+    title: {
+      ko: "",
+      ja: 'それぞれの"食"',
+    },
+    eventType: "common",
+    tags: ["대풍식제"],
+    choices: [
+      {
+        description: {
+          ko: "카츠라기 에이스",
+          ja: "カツラギエース",
+        },
+        result: "",
+        results: [
+          {
+            condition: "카츠라기 에이스 편성시",
+            result: '"シックスセンス"(식스센스) 힌트 Lv+1',
+          },
+          {
+            condition: "카츠라기 에이스 미편성시",
+            result: '"危険回避"(위험회피) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "스페셜 위크",
+          ja: "スペシャルウィーク",
+        },
+        result: "",
+        results: [
+          {
+            condition: "스페셜 위크 편성시",
+            result: '"食いしん坊"(먹보) 힌트 Lv+1',
+          },
+          {
+            condition: "스페셜 위크 미편성시",
+            result: '"栄養補給"(영양보급) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "니시노 플라워",
+          ja: "ニシノフラワー",
+        },
+        result: "",
+        results: [
+          {
+            condition: "니시노 플라워 편성시",
+            result: '"ハヤテ一文字"(한줄기 질풍) 힌트 Lv+1',
+          },
+          {
+            condition: "니시노 플라워 미편성시",
+            result: '"直線巧者"(직선 달인) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "히시 아케보노",
+          ja: "ヒシアケボノ",
+        },
+        result: "",
+        results: [
+          {
+            condition: "히시 아케보노 편성시",
+            result: '"電迅速攻"(전신속공) 힌트 Lv+1',
+          },
+          {
+            condition: "히시 아케보노 미편성시",
+            result: '"瞬発力"(순발력) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "라이스 샤워",
+          ja: "ライスシャワー",
+        },
+        result: "",
+        results: [
+          {
+            condition: "라이스 샤워 편성시",
+            result: '"決意の直滑降"(결의의 직활강) 힌트 Lv+1',
+          },
+          {
+            condition: "라이스 샤워 미편성시",
+            result: '"直滑降"(직활강) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "아키카와 야요이",
+          ja: "秋川理事長",
+        },
+        result: "",
+        results: [
+          {
+            condition: "아키카와 야요이 편성시",
+            result: '"風翔"(나는 바람) 힌트 Lv+1',
+          },
+          {
+            condition: "아키카와 야요이 미편성시",
+            result: '"風切り"(풍향기) 힌트 Lv+1',
+          },
+        ],
+      },
+    ],
+    condition: "대풍식제 시니어 10월 전반",
+  },
 ];
 
 export const commonMultipleEvent = [
