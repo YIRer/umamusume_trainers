@@ -1233,6 +1233,90 @@ export const commonEvents = [
     ],
     condition: "대풍식제 시니어 10월 전반",
   },
+  {
+    title: {
+      ko: "",
+      ja: '4.1 研究レポートの配布',
+    },
+    eventType: "common",
+    tags: ["달려라! 메카 우마무스메"],
+    choices: [
+      {
+        description: {
+          ko: "비와 하야히데",
+          ja: "ビワハヤヒデ",
+        },
+        result: "",
+        results: [
+          {
+            condition: "비와 하야히데 편성시",
+            result: '"熾烈の極み"(치열함의 극치) 힌트 Lv+1 "熱狂的"(열광적) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "나리타 타이신",
+          ja: "ナリタタイシン",
+        },
+        result: "",
+        results: [
+          {
+            condition: "나리타 타이신 편성시",
+            result: '"月影一閃"(월영일섬) 힌트 Lv+1 "追込直線◯"(추입 직선◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "에어 샤커",
+          ja: "エアシャカール",
+        },
+        result: "",
+        results: [
+          {
+            condition: "에어 샤커 편성시",
+            result: '"弧線のプロフェッサー"(호선의 프로페서) 힌트 Lv+1 "コーナー巧者◯"(코너 달인◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "심볼리 크리스에스",
+          ja: "シンボリクリスエス",
+        },
+        result: "",
+        results: [
+          {
+            condition: "심볼리 크리스에스 편성시",
+            result: '"迅速果断"(신속과감) 힌트 Lv+1 "位置取り押し上げ"(위치 선정 밀어붙이기) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "타니노 김렛",
+          ja: "タニノギムレット",
+        },
+        result: "",
+        results: [
+          {
+            condition: "타니노 김렛 편성시",
+            result: '"閃光"(섬광) 힌트 Lv+1 "光差す方へ"(빛을 향하여) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "슈가 라이츠 박사",
+          ja: "シュガーライツ博士",
+        },
+        result: '"キラーチューン"(킬러 튠) 힌트 Lv+1 "テンポアップ"(템포 업) 힌트 Lv+1',
+        results: [],
+      },
+    ],
+    condition: "달려라! 메카 우마무스메 시나리오에서 URA 개시시",
+  },
 ];
 
 export const commonMultipleEvent = [

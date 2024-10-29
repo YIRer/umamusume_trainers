@@ -454,6 +454,31 @@ export const iconData = [
     label: "대풍식제 스킬",
     id: "i_skill_092",
   },
+  {
+    value: "/image/skill/i_skill_093.png",
+    label: "달려라! 메카 우마무스메 스킬",
+    id: "i_skill_093",
+  },
+  {
+    value: "/image/skill/i_skill_094.png",
+    label: "달려라! 메카 우마무스메 스킬",
+    id: "i_skill_094",
+  },
+  {
+    value: "/image/skill/i_skill_095.png",
+    label: "달려라! 메카 우마무스메 스킬",
+    id: "i_skill_095",
+  },
+  {
+    value: "/image/skill/i_skill_096.png",
+    label: "달려라! 메카 우마무스메 스킬",
+    id: "i_skill_096",
+  },
+  {
+    value: "/image/skill/i_skill_097.png",
+    label: "달려라! 메카 우마무스메 스킬",
+    id: "i_skill_097",
+  },
 ];
 
 export const skillTypes = [
