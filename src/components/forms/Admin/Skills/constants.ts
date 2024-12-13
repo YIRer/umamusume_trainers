@@ -300,6 +300,16 @@ export const iconData = [
     id: "i_skill_060",
   },
   {
+    value: "/image/skill/i_skill_098.png",
+    label: "속도상승(Project L'Arc 시나리오)",
+    id: "i_skill_098",
+  },
+  {
+    value: "/image/skill/i_skill_099.png",
+    label: "속도상승(Project L'Arc 시나리오)",
+    id: "i_skill_099",
+  },
+  {
     value: "/image/skill/i_skill_080.png",
     label: "속도상승(U.A.F 시나리오)",
     id: "i_skill_080",
