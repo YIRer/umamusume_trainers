@@ -22,8 +22,8 @@ import { CardType } from "types/Card/card";
 
 import Helmet from "Helmet/Helmet";
 
-import InFeed from "components/ADsense/InFeed";
-import DisplayAds from "components/ADsense/DisplayAds";
+// import InFeed from "components/ADsense/InFeed";
+// import DisplayAds from "components/ADsense/DisplayAds";
 
 const useStyles = makeStyles((_theme) => ({
   root: {
@@ -143,7 +143,7 @@ const Umamusume = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
-      <InFeed />
+      {/* <InFeed /> */}
       <Helmet
         title={`${umamusume.name.ko}(${umamusume.name.ja})`}
         url={`/umamusume/${id}`}
@@ -187,7 +187,7 @@ const Umamusume = ({ data, statusCode }) => {
           {renderCards(umamusume.cards, "support")}
         </div>
       </section>
-      <DisplayAds />
+      {/* <DisplayAds /> */}
     </Paper>
   );
 };

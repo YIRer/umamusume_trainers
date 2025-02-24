@@ -17,8 +17,8 @@ import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
+// import InFeed from "components/ADsense/InFeed";
+// import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
   umamusumeListWrapper: {
@@ -70,7 +70,7 @@ export const UmamusumeList = ({ data, statusCode }) => {
 
   return (
     <div className={classes.umamusumeListWrapper}>
-      <InFeed />
+      {/* <InFeed /> */}
       <h1>우마무스메 리스트</h1>
       <SearchForm
         data={data.umamusumeList}
@@ -104,7 +104,7 @@ export const UmamusumeList = ({ data, statusCode }) => {
           </a>
         </Link>
       )}
-      <FooterAds />
+      {/* <FooterAds /> */}
     </div>
   );
 };

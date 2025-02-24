@@ -21,7 +21,7 @@ import { prefixImgSrc } from "helper";
 
 import Helmet from "Helmet/Helmet";
 
-import InFeed from "components/ADsense/InFeed";
+// import InFeed from "components/ADsense/InFeed";
 import { circleIndexList } from "./constants";
 
 const useStyles = makeStyles((_theme) => ({
@@ -200,7 +200,7 @@ const SkillInfo = ({ data, statusCode }) => {
           <span>없음</span>
         )}
       </section>
-      <InFeed />
+      {/* <InFeed /> */}
     </Paper>
   );
 };

@@ -15,8 +15,8 @@ import { DeckWithID } from "./types";
 import { CardType } from "types/Card/card";
 import Helmet from "Helmet/Helmet";
 
-import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
+// import InFeed from "components/ADsense/InFeed";
+// import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
   addDeckButton: {
@@ -191,7 +191,7 @@ const DeckBuilder = () => {
 
   return (
     <div className={classes.root}>
-      <InFeed />
+      {/* <InFeed /> */}
       <Helmet
         title={"덱 빌더"}
         url={"/deck-builder"}
@@ -252,7 +252,7 @@ const DeckBuilder = () => {
           쿠키 제거
         </Button>
       </div>
-      <FooterAds />
+      {/* <FooterAds /> */}
     </div>
   );
 };

@@ -304,7 +304,8 @@ const CardInfo = (props: CardInfoProps) => {
       )}
       <section className={classes.section} ref={selectionElement}>
         <span className={classes.warning}>
-          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.
+          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.<br /><br />
+          또한 4주년 업데이트 이후 추가되는 카드의 선택지는 업데이트 되지 않습니다.
         </span>
         {data.type === "training" && (
           <div>
@@ -338,6 +339,10 @@ const CardInfo = (props: CardInfoProps) => {
             ))}
           </div>
         )}
+        <span className={classes.warning}>
+          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.<br /><br />
+          또한 4주년 업데이트 이후 추가되는 카드의 선택지는 업데이트 되지 않습니다.
+        </span>
       </section>
       <SideButtons rootRef={props.rootRef} />
     </div>

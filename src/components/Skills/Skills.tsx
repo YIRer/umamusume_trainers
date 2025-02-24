@@ -16,8 +16,8 @@ import SearchForm from "components/Search/SearchForm";
 import { isDev } from "../../constants";
 import { prefixImgSrc } from "helper";
 
-import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
+// import InFeed from "components/ADsense/InFeed";
+// import FooterAds from "components/ADsense/FooterAds";
 
 const useStyles = makeStyles((_theme) => ({
   skillListWrapper: {
@@ -74,7 +74,7 @@ export const Skills = ({ data, statusCode }) => {
 
   return (
     <div className={classes.skillListWrapper}>
-      <InFeed />
+      {/* <InFeed /> */}
       <h1>스킬 리스트</h1>
       <SearchForm
         data={data.skills}
@@ -113,7 +113,7 @@ export const Skills = ({ data, statusCode }) => {
           </a>
         </Link>
       )}
-      <FooterAds />
+      {/* <FooterAds /> */}
     </div>
   );
 };

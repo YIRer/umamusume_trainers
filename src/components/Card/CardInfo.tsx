@@ -39,8 +39,8 @@ import { SkillType, RelatedSkillsType } from "types/Skill/skill";
 import Helmet from "Helmet/Helmet";
 import { formattedDescriptionForCards } from "./helper";
 
-import InFeed from "components/ADsense/InFeed";
-import FooterAds from "components/ADsense/FooterAds";
+// import InFeed from "components/ADsense/InFeed";
+// import FooterAds from "components/ADsense/FooterAds";
 import { circleIndexList } from "components/Skills/constants";
 
 const useStyles = makeStyles((theme) => ({
@@ -377,7 +377,7 @@ const CardInfo = ({ data, statusCode }) => {
 
   return (
     <Paper classes={{ root: classes.paperRoot }}>
-      <InFeed />
+      {/* <InFeed /> */}
       <Helmet
         title={`${card.name.ko}(${card.name.ja})`}
         url={`/cards/${id}`}
@@ -516,7 +516,8 @@ const CardInfo = ({ data, statusCode }) => {
       )}
       <section className={classes.section}>
         <span className={classes.warning}>
-          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.
+          한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.<br /><br />
+          또한 4주년 업데이트 이후 추가되는 카드의 선택지는 업데이트 되지 않습니다.
         </span>
         {card.type === "training" && (
           <div>
@@ -568,7 +569,11 @@ const CardInfo = ({ data, statusCode }) => {
           <span>없음</span>
         )}
       </section>
-      <FooterAds />
+      <span className={classes.warning}>
+        한국판과 선택지 결과로 얻는 보너스가 다를 수 있습니다.<br /><br />
+        또한 4주년 업데이트 이후 추가되는 카드의 선택지는 업데이트 되지 않습니다.
+      </span>
+      {/* <FooterAds /> */}
     </Paper>
   );
 };
