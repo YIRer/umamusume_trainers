@@ -489,6 +489,26 @@ export const iconData = [
     label: "달려라! 메카 우마무스메 스킬",
     id: "i_skill_097",
   },
+  {
+    value: "/image/skill/i_skill_100.png",
+    label: "The Twinkle Legends 스킬",
+    id: "i_skill_100",
+  },
+  {
+    value: "/image/skill/i_skill_101.png",
+    label: "The Twinkle Legends 스킬",
+    id: "i_skill_101",
+  },
+  {
+    value: "/image/skill/i_skill_102.png",
+    label: "The Twinkle Legends 스킬",
+    id: "i_skill_102",
+  },
+  {
+    value: "/image/skill/i_skill_103.png",
+    label: "The Twinkle Legends 스킬",
+    id: "i_skill_103",
+  },
 ];
 
 export const skillTypes = [

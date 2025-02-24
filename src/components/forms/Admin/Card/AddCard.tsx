@@ -270,8 +270,12 @@ const AddCard = () => {
         ? `/image/ETC/cards/${type}/${imageName}.png`
         : "/image/temp.png";
 
-    const addedOnceEvents = [];
-    const addedMultipleEvents = [];
+    // const addedOnceEvents = addOnceEvents(events);
+    const addedMultipleEvents = {
+      common:[],
+      once:[],
+      multipleTimes:[]
+    };
 
     const spType = playable ? "" : supportType ? supportType : "speed";
     const input = {
