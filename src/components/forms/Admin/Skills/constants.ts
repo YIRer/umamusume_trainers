@@ -509,6 +509,21 @@ export const iconData = [
     label: "The Twinkle Legends 스킬",
     id: "i_skill_103",
   },
+  {
+    value: "/image/skill/i_skill_104.png",
+    label: "무인도에 어서오세요 -DESIGN YOUR ISLAND- 스킬",
+    id: "i_skill_104",
+  },
+  {
+    value: "/image/skill/i_skill_105.png",
+    label: "무인도에 어서오세요 -DESIGN YOUR ISLAND- 스킬",
+    id: "i_skill_105",
+  },
+  {
+    value: "/image/skill/i_skill_106.png",
+    label: "무인도에 어서오세요 -DESIGN YOUR ISLAND- 스킬",
+    id: "i_skill_106",
+  },
 ];
 
 export const skillTypes = [
