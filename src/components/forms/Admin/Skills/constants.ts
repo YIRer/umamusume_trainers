@@ -115,6 +115,11 @@ export const iconData = [
     id: "i_skill_016",
   },
   {
+    value: "/image/skill/i_skill_107.png",
+    label: "지능 버프",
+    id: "i_skill_107",
+  },
+  {
     value: "/image/skill/i_skill_051.png",
     label: "대도주",
     id: "i_skill_051",
@@ -384,11 +389,11 @@ export const iconData = [
   //   label: "근성 버프 진화 스킬",
   //   id: "i_skill_070",
   // },
-  // {
-  //   value: "/image/skill/i_skill_071.png",
-  //   label: "지능 버프 진화 스킬",
-  //   id: "i_skill_071",
-  // },
+  {
+    value: "/image/skill/i_skill_108.png",
+    label: "지능 버프 진화 스킬",
+    id: "i_skill_108",
+  },
   {
     value: "/image/skill/i_skill_072.png",
     label: "스피드 디버프 진화 스킬",
