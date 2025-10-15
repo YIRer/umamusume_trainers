@@ -75,19 +75,19 @@ const SimpleBonusTable = ({
               보너스 이름
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              Lv 30
+              0돌
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              Lv 35
+              1돌
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              Lv 40
+              2돌
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              Lv 45
+              3돌
             </TableCell>
             <TableCell classes={{ root: clsx(classes.tableRow) }}>
-              Lv 50
+              풀돌
             </TableCell>
           </TableRow>
         </TableHead>

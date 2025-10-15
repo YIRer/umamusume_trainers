@@ -35,11 +35,11 @@ const BonusTableForm = ({ updateTableRow, initialData }: Props) => {
         <TableHead>
           <tr>
             <TableCell>효과</TableCell>
-            <TableCell>Lv 30</TableCell>
-            <TableCell>Lv 35</TableCell>
-            <TableCell>Lv 40</TableCell>
-            <TableCell>Lv 45</TableCell>
-            <TableCell>Lv 50</TableCell>
+            <TableCell>0돌</TableCell>
+            <TableCell>1돌</TableCell>
+            <TableCell>2돌</TableCell>
+            <TableCell>3돌</TableCell>
+            <TableCell>풀돌</TableCell>
           </tr>
         </TableHead>
         <TableBody>
