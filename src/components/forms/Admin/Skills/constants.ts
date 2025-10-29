@@ -529,6 +529,26 @@ export const iconData = [
     label: "무인도에 어서오세요 -DESIGN YOUR ISLAND- 스킬",
     id: "i_skill_106",
   },
+  {
+    value: "/image/skill/i_skill_112.png",
+    label: "극락♪ 유코마 온천향 시나리오에서 URA 개시시 스킬",
+    id: "i_skill_112",
+  },
+  {
+    value: "/image/skill/i_skill_109.png",
+    label: "극락♪ 유코마 온천향 시나리오에서 URA 개시시 스킬",
+    id: "i_skill_109",
+  },
+  {
+    value: "/image/skill/i_skill_110.png",
+    label: "극락♪ 유코마 온천향 시나리오에서 URA 개시시 스킬",
+    id: "i_skill_110",
+  },
+  {
+    value: "/image/skill/i_skill_111.png",
+    label: "극락♪ 유코마 온천향 시나리오에서 URA 개시시 스킬",
+    id: "i_skill_111",
+  },
 ];
 
 export const skillTypes = [
