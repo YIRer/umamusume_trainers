@@ -1255,7 +1255,7 @@ export const commonEvents = [
           },
           {
             condition: "아키카와 야요이 미편성시",
-            result: '"風切り"(풍향기) 힌트 Lv+1',
+            result: '"風切り"(바람을 가르고) 힌트 Lv+1',
           },
         ],
       },
