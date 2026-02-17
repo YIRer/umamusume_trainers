@@ -160,6 +160,14 @@ export const BUFF_LIST = {
       },
       result: "3~6턴 동안 턴시작시에 체력을 5회복",
     },
+    {
+      name: {
+        ko: "미래를 위한 개발 협력",
+        ja: "未来のための開発協力",
+      },
+      result:
+        "해당 상태를 유지 한 뒤, 클래식급 성적에 따라 시니어급 1월 전반 이벤트로 보상 획득(메카 우마무스메, 비와 하야히데 전용)",
+    },
   ],
   debuff: [
     {
@@ -279,13 +287,13 @@ export default function BuffModal(props: BuffModalProps) {
         <div>
           <h4>버프</h4>
           {BUFF_LIST.buff.map((buff, index) =>
-            reunderBuffs(buff, index, "buff")
+            reunderBuffs(buff, index, "buff"),
           )}
         </div>
         <div>
           <h4>디버프</h4>
           {BUFF_LIST.debuff.map((debuff, index) =>
-            reunderBuffs(debuff, index, "debuff")
+            reunderBuffs(debuff, index, "debuff"),
           )}
         </div>
       </DialogContent>
