@@ -549,6 +549,11 @@ export const iconData = [
     label: "극락♪ 유코마 온천향 시나리오에서 URA 개시시 스킬",
     id: "i_skill_111",
   },
+  {
+    value: "/image/skill/i_skill_113.png",
+    label: "전력 스퍼트 스킬",
+    id: "i_skill_113",
+  },
 ];
 
 export const skillTypes = [
