@@ -55,6 +55,12 @@ export const SEARCH_FILTTER_OPTIONS: SeachFilterOptionMap = {
       values: ["대도주", "도주", "선행", "선입", "추입"],
       labels: ["대도주", "도주", "선행", "선입", "추입"],
     },
+    skillVenueType: {
+      type: "경기장 타입",
+      selector: "checkbox",
+      values: ["해외"],
+      labels: ["해외"],
+    },
     skillGroundType: {
       type: "마장 필터",
       selector: "radio",

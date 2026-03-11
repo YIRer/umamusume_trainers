@@ -123,6 +123,9 @@ function CheckboxFilterItem({
         case "skillStrategy":
           type = ACTION_TYPES.UPDATE_SKILL_STRATEGY_FILTER;
           break;
+        case "skillVenueType":
+          type = ACTION_TYPES.UPDATE_SKILL_VENUE_FILTER;
+          break;
       }
     }
 

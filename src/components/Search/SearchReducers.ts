@@ -11,6 +11,7 @@ export type SeachFilterStateType = {
   skillDistance?: string[];
   skillStrategy?: string[];
   skillGroundType?: "turf" | "duct" | "none";
+  skillVenueType?: string[];
 };
 
 export const initialState: SeachFilterStateType = {
@@ -23,6 +24,7 @@ export const initialState: SeachFilterStateType = {
   skillDistance: [],
   skillStrategy: [],
   skillGroundType: "none",
+  skillVenueType: [],
 };
 
 export const ACTION_TYPES = {
@@ -46,6 +48,8 @@ export const ACTION_TYPES = {
   CLEAR_SKILL_DISTANCE_FILTER: "SearchForm/CLEAR_SKILL_RARITY_FILTER",
   CLEAR_SKILL_STRATEGY_FILTER: "SearchForm/CLEAR_SKILL_STRATEGY_FILTER",
   CLEAR_SKILL_GROUND_FILTER: "SearchForm/CLEAR_SKILL_GROUND_FILTER",
+  UPDATE_SKILL_VENUE_FILTER: "SearchForm/UPDATE_SKILL_VENUE_FILTER",
+  CLEAR_SKILL_VENUE_FILTER: "SearchForm/CLEAR_SKILL_VENUE_FILTER",
   CLEAR_ALL_FILTER: "SearchForm/CLEAR_ALL_FILTER",
   CLEAR_ALL_FILTER_BY_PAYLOAD: "SearchForm/CLEAR_ALL_FILTER_BY_PAYLOAD",
   CLEAR_ALL: "SearchForm/CLEAR_ALL",
@@ -204,6 +208,26 @@ export const reducer = (state, action) => {
         ...state,
         skillStrategy: [],
       };
+    case ACTION_TYPES.UPDATE_SKILL_VENUE_FILTER:
+      if (action.checked) {
+        return {
+          ...state,
+          skillVenueType: state.skillVenueType.filter(
+            (venue) => venue !== action.payload
+          ),
+        };
+      }
+      return {
+        ...state,
+        skillVenueType: [...state.skillVenueType, action.payload],
+      };
+
+    case ACTION_TYPES.CLEAR_SKILL_VENUE_FILTER:
+      return {
+        ...state,
+        skillVenueType: [],
+      };
+
     case ACTION_TYPES.CLEAR_ALL_FILTER:
       return {
         ...state,

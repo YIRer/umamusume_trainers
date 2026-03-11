@@ -141,6 +141,17 @@ export const filterSKillStrategy: FilterFnType<SkillType> = (
   });
 };
 
+export const filterSKillVenueType: FilterFnType<SkillType> = (
+  item,
+  searchOptions
+) => {
+  const { tags } = item;
+  if (!searchOptions.skillVenueType || searchOptions.skillVenueType.length === 0) {
+    return true;
+  }
+  return searchOptions.skillVenueType.some((venue) => tags.includes(venue));
+};
+
 export const filterSKillGroundType: FilterFnType<SkillType> = (
   item,
   searchOptions
@@ -204,6 +215,7 @@ export const searchSkillsHelper: SearchFilterFnType = ({
     filterSKillRarity,
     filterSKillDistance,
     filterSKillStrategy,
+    filterSKillVenueType,
     filterSKillGroundType,
   ])(data, searchOptions);
 };
