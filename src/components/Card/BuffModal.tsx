@@ -125,7 +125,7 @@ export const BUFF_LIST = {
     },
     {
       name: {
-        ko: "긍정적인 사고",
+        ko: "긍정적 사고",
         ja: "ポジティブ思考",
       },
       result: "의욕 DOWN을 한번만 막아준다",
