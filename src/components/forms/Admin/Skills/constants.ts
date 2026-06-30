@@ -559,6 +559,41 @@ export const iconData = [
     label: "전력 스퍼트 스킬",
     id: "i_skill_113",
   },
+  {
+    value: "/image/skill/i_skill_119.png",
+    label: "Beyond Dreams 함께 앞으로, 함께 빛을 스킬",
+    id: "i_skill_119",
+  },
+  {
+    value: "/image/skill/i_skill_120.png",
+    label: "Beyond Dreams 함께 앞으로, 함께 빛을 스킬",
+    id: "i_skill_120",
+  },
+  {
+    value: "/image/skill/i_skill_115.png",
+    label: "Beyond Dreams 함께 앞으로, 함께 빛을 스킬",
+    id: "i_skill_115",
+  },
+  {
+    value: "/image/skill/i_skill_118.png",
+    label: "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 스킬",
+    id: "i_skill_118",
+  },
+  {
+    value: "/image/skill/i_skill_121.png",
+    label: "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 스킬",
+    id: "i_skill_121",
+  },
+  {
+    value: "/image/skill/i_skill_116.png",
+    label: "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 스킬",
+    id: "i_skill_116",
+  },
+  {
+    value: "/image/skill/i_skill_117.png",
+    label: "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 스킬",
+    id: "i_skill_117",
+  },
 ];
 
 export const skillTypes = [
