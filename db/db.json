@@ -2033,6 +2033,28 @@
       "imageSrc": "/image/Genuine/main.png",
       "cards": [],
       "id": 169
+    },
+    {
+      "name": {
+        "default": "Efforia",
+        "ko": "에프포리아",
+        "ja": "エフフォーリア",
+        "en": "Efforia"
+      },
+      "imageSrc": "/image/Efforia/main.png",
+      "cards": [],
+      "id": 170
+    },
+    {
+      "name": {
+        "default": "Phalaenopsis",
+        "ko": "팔레놉시스",
+        "ja": "ファレノプシス",
+        "en": "Phalaenopsis"
+      },
+      "imageSrc": "/image/Phalaenopsis/main.png",
+      "cards": [],
+      "id": 171
     }
   ],
   "cards": [
