@@ -532102,6 +532102,881 @@
       ],
       "hiddenTitle": [],
       "id": 658
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "에피파네이아",
+        "ja": "エピファネイア"
+      },
+      "targetID": "162",
+      "imageSrc": "/image/Epiphaneia/cards/training/01.png",
+      "type": "training",
+      "supportType": "",
+      "trainingObjects": [
+        {
+          "object": "주니어 급 메이크데뷔에 출주",
+          "time": "",
+          "fan": "",
+          "raceCourse": ""
+        },
+        {
+          "object": "호프풀S (ホープフルS) 5착 이내",
+          "time": "주니어급 12월 후반",
+          "fan": "1000명 이상",
+          "raceCourse": "G1 / 나카야마 / 잔디 / 2000m(중거리) / 우내"
+        },
+        {
+          "object": "사츠키상 (皐月賞) 5착 이내",
+          "time": "클래식급 4월 전반",
+          "fan": "4500명 이상",
+          "raceCourse": "G1 / 나캬아마 / 잔디 / 2000m(중거리) / 우내"
+        },
+        {
+          "object": "일본 더비 (日本ダービー) 5착 이내",
+          "time": "클래식급 5월 후반",
+          "fan": "6000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        },
+        {
+          "object": "국화상 (菊花賞) 1착",
+          "time": "클래식급 10월 후반",
+          "fan": "7500명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 3000m(장거리) / 우외"
+        },
+        {
+          "object": "오사카배 (大阪杯) 3착 이내",
+          "time": "시니어급 3월 후반",
+          "fan": "20000명 이상",
+          "raceCourse": "G1 / 한신 / 잔디 / 2000m(중거리) / 우내"
+        },
+        {
+          "object": "천황상(가을) 天皇賞（秋）3착 이내",
+          "time": "시니어급 10월 후반",
+          "fan": "20000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2000m(중거리) / 좌"
+        },
+        {
+          "object": "재팬컵 (ジャパンC) 1착",
+          "time": "시니어급 11월 후반",
+          "fan": "25000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        },
+        {
+          "object": "아리마 기념 (有馬記念) 1착",
+          "time": "시니어급 12월 후반",
+          "fan": "25000명 이상",
+          "raceCourse": "G1 / 나카야마 / 잔디 / 2500m(장거리) / 우,내"
+        }
+      ],
+      "playable": true,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "F",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "E",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "A",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "D",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "B",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [
+        "1793"
+      ],
+      "trainingSkillsIds": [],
+      "hasSkillsIds": [],
+      "baseSkillsIds": [
+        "1116",
+        "1573",
+        "1794"
+      ],
+      "awakeningSkillsIds": [
+        "1704",
+        "1117",
+        "1789",
+        "1795"
+      ],
+      "specialSkillsIds": [],
+      "evolutionSkillsIds": [
+        "1796",
+        "1797",
+        "1798"
+      ],
+      "events": {
+        "common": [],
+        "once": [],
+        "multipleTimes": []
+      },
+      "originalEffect": {
+        "level": "",
+        "effect": ""
+      },
+      "bonusEffectTable": [],
+      "hiddenTitle": [
+        {
+          "name": "運命の寵児(운명의 총아)",
+          "condition": "사츠키상, 일본 더비, 국화상, 재팬컵(시니어급)에서 승리. 파워 1200 이상 달성 ",
+          "rewards": "칭호획득"
+        }
+      ],
+      "id": 659
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "미스터 시비",
+        "ja": "ミスターシービー"
+      },
+      "targetID": "56",
+      "imageSrc": "/image/MrCB/cards/support/02.png",
+      "type": "support",
+      "supportType": "speed",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "449",
+        "1392",
+        "1071",
+        "432",
+        "1802",
+        "1062",
+        "1034"
+      ],
+      "hasSkillsIds": [
+        "99",
+        "42",
+        "43",
+        "449",
+        "521",
+        "598",
+        "1033",
+        "1060",
+        "1075",
+        "1392",
+        "1484",
+        "1520",
+        "1799",
+        "1800",
+        "1801"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "specialSkillsIds": [],
+      "evolutionSkillsIds": [],
+      "events": {
+        "common": [],
+        "once": [],
+        "multipleTimes": []
+      },
+      "originalEffect": {
+        "level": "-",
+        "effect": "인연 게이지가 80 이상 일 때, 파워 보너스 및 득의율 UP"
+      },
+      "bonusEffectTable": [
+        {
+          "name": "우정 보너스",
+          "effects": [
+            "25%",
+            "-",
+            "-",
+            "-",
+            "35%"
+          ]
+        },
+        {
+          "name": "의욕에 의한 효과",
+          "effects": [
+            "40%",
+            "-",
+            "-",
+            "-",
+            "80%"
+          ]
+        },
+        {
+          "name": "트레이닝 효과",
+          "effects": [
+            "10%",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "초기 인연 게이지",
+          "effects": [
+            "1",
+            "-",
+            "-",
+            "-",
+            "30"
+          ]
+        },
+        {
+          "name": "레이스 보너스",
+          "effects": [
+            "5%",
+            "-",
+            "-",
+            "-",
+            "10%"
+          ]
+        },
+        {
+          "name": "팬 보너스",
+          "effects": [
+            "10%",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "힌트 Lv",
+          "effects": [
+            "1",
+            "-",
+            "-",
+            "-",
+            "2"
+          ]
+        },
+        {
+          "name": "힌트 발생률",
+          "effects": [
+            "60%",
+            "-",
+            "-",
+            "-",
+            "100%"
+          ]
+        },
+        {
+          "name": "득의율",
+          "effects": [
+            "10",
+            "-",
+            "-",
+            "-",
+            "120"
+          ]
+        },
+        {
+          "name": "스킬 Pt 보너스",
+          "effects": [
+            "1",
+            "-",
+            "-",
+            "-",
+            "2"
+          ]
+        },
+        {
+          "name": "초기 스킬Pt",
+          "effects": [
+            "30",
+            "-",
+            "-",
+            "-",
+            "40"
+          ]
+        }
+      ],
+      "hiddenTitle": [],
+      "id": 660
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "에프포리아",
+        "ja": "エフフォーリア"
+      },
+      "targetID": "170",
+      "imageSrc": "/image/Efforia/cards/support/01.png",
+      "type": "support",
+      "supportType": "speed",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "1704",
+        "1622",
+        "1805",
+        "1806",
+        "1807",
+        "1808",
+        "1475",
+        "1477"
+      ],
+      "hasSkillsIds": [
+        "134",
+        "47",
+        "45",
+        "31",
+        "32",
+        "896",
+        "1421",
+        "1503",
+        "1595",
+        "1648",
+        "1803",
+        "1804"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "specialSkillsIds": [],
+      "evolutionSkillsIds": [],
+      "events": {
+        "common": [],
+        "once": [],
+        "multipleTimes": []
+      },
+      "originalEffect": {
+        "level": "",
+        "effect": ""
+      },
+      "bonusEffectTable": [
+        {
+          "name": "우정 보너스",
+          "effects": [
+            "25%",
+            "-",
+            "-",
+            "-",
+            "40%"
+          ]
+        },
+        {
+          "name": "의욕에 의한 효과",
+          "effects": [
+            "20%",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "트레이닝 효과",
+          "effects": [
+            "10%",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "초기 스피드",
+          "effects": [
+            "25",
+            "-",
+            "-",
+            "-",
+            "30"
+          ]
+        },
+        {
+          "name": "초기 인연 게이지",
+          "effects": [
+            "25",
+            "-",
+            "-",
+            "-",
+            "35"
+          ]
+        },
+        {
+          "name": "레이스 보너스",
+          "effects": [
+            "5%",
+            "-",
+            "-",
+            "-",
+            "10%"
+          ]
+        },
+        {
+          "name": "팬 보너스",
+          "effects": [
+            "10%",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "힌트 Lv",
+          "effects": [
+            "2",
+            "-",
+            "-",
+            "-",
+            "4"
+          ]
+        },
+        {
+          "name": "힌트 발생률",
+          "effects": [
+            "60%",
+            "-",
+            "-",
+            "-",
+            "100%"
+          ]
+        },
+        {
+          "name": "득의율",
+          "effects": [
+            "10",
+            "-",
+            "-",
+            "-",
+            "120"
+          ]
+        },
+        {
+          "name": "스킬 Pt 보너스",
+          "effects": [
+            "1",
+            "-",
+            "-",
+            "-",
+            "2"
+          ]
+        },
+        {
+          "name": "초기 스킬Pt",
+          "effects": [
+            "10",
+            "-",
+            "-",
+            "-",
+            "50"
+          ]
+        }
+      ],
+      "hiddenTitle": [],
+      "id": 661
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "룰러쉽",
+        "ja": "ルーラーシップ"
+      },
+      "targetID": "166",
+      "imageSrc": "/image/Rulership/cards/support/01.png",
+      "type": "support",
+      "supportType": "stamina",
+      "trainingObjects": [],
+      "playable": false,
+      "limited": true,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "guts": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "intelligence": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [],
+      "trainingSkillsIds": [
+        "1363",
+        "410"
+      ],
+      "hasSkillsIds": [
+        "151",
+        "53",
+        "18",
+        "171",
+        "896",
+        "1252",
+        "1321",
+        "1648"
+      ],
+      "baseSkillsIds": [],
+      "awakeningSkillsIds": [],
+      "specialSkillsIds": [],
+      "evolutionSkillsIds": [],
+      "events": {
+        "common": [],
+        "once": [],
+        "multipleTimes": []
+      },
+      "originalEffect": {
+        "level": "-",
+        "effect": "인연 게이지가 80 이상 일 때, 스태미나 보너스 및 근성 보너스"
+      },
+      "bonusEffectTable": [
+        {
+          "name": "우정 보너스",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "30%"
+          ]
+        },
+        {
+          "name": "의욕에 의한 효과",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "60%"
+          ]
+        },
+        {
+          "name": "초기 인연 게이지",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "30"
+          ]
+        },
+        {
+          "name": "레이스 보너스",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "10%"
+          ]
+        },
+        {
+          "name": "팬 보너스",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "15%"
+          ]
+        },
+        {
+          "name": "힌트 Lv",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "1"
+          ]
+        },
+        {
+          "name": "힌트 발생률",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "20%"
+          ]
+        },
+        {
+          "name": "득의율",
+          "effects": [
+            "-",
+            "-",
+            "-",
+            "-",
+            "50"
+          ]
+        }
+      ],
+      "hiddenTitle": [],
+      "id": 662
     }
   ],
   "skills": [
@@ -566830,6 +567705,309 @@
         "중거리 스킬 2개 이상 소지"
       ],
       "id": 1792
+    },
+    {
+      "name": {
+        "ko": "빛나라! 터져라! 초신성 폭발! ",
+        "ja": "光れ！弾けろ！超新星爆発！"
+      },
+      "effect": "레이스 후반에 속도가 계속해서 다소 상승하며, 2000m 이상 레이스라면 그 후 라스트 스퍼트 중일 때 짧은 시간 동안 가속력이 다소 상승한다 <작전 도주><작전 선행>",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "고유스킬",
+        "후반",
+        "속도상승",
+        "2000m",
+        "도주",
+        "선행",
+        "에피파네이아",
+        "빛나라! 터져라! 초신성 폭발!",
+        "光れ！弾けろ！超新星爆発！"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1793
+    },
+    {
+      "name": {
+        "ko": "존재감",
+        "ja": "存在感"
+      },
+      "effect": "레이스 중반이 시작되는 어딘가에서 전방이라면 속도가 약간 상승하고 지구력을 아주 약간 회복한다 <중거리><장거리>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "속도상승",
+        "중반",
+        "중거리",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1794
+    },
+    {
+      "name": {
+        "ko": "초연",
+        "ja": "超然"
+      },
+      "effect": "레이스 중반이 시작되는 어딘가에서 전방이라면 속도가 상승하고 지구력을 약간 회복한다 <중거리><장거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "중거리",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1795
+    },
+    {
+      "name": {
+        "ko": "성분광천",
+        "ja": "星奔光天"
+      },
+      "effect": "레이스 종반이 다가오는 어딘가에서 전방이라면 속도가 상승하며, 2000m 이상 레이스라면 그 후 최종 직선에서 선두 그룹일 때 다소 앞으로 나간다 <작전 선행><잔디>",
+      "imageSrc": "/image/skill/i_skill_061.png",
+      "tags": [
+        "진화스킬",
+        "후반",
+        "속도상승",
+        "선행",
+        "잔디"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1796
+    },
+    {
+      "name": {
+        "ko": "천의의 저편",
+        "ja": "天意の彼方"
+      },
+      "effect": "레이스 중반이 시작되는 어딘가에서 전방이라면 속도가 다소 상승하며, 그 후 최종 코너 전의 제3 코너의 어딘가에서 다소 앞으로 나간다 <작전 선행><중거리>",
+      "imageSrc": "/image/skill/i_skill_061.png",
+      "tags": [
+        "진화스킬",
+        "중반",
+        "코너",
+        "속도상승",
+        "선행",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1797
+    },
+    {
+      "name": {
+        "ko": "영원의 하늘 끝",
+        "ja": "久遠の天際"
+      },
+      "effect": "레이스 중반이 시작되는 어딘가에서 전방이라면 속도가 많이 상승하고 지구력을 회복한다 <작전 선행><장거리>",
+      "imageSrc": "/image/skill/i_skill_061.png",
+      "tags": [
+        "진화스킬",
+        "중반",
+        "속도상승",
+        "선행",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1798
+    },
+    {
+      "name": {
+        "ko": "해류의 틈새를 포착해서",
+        "ja": "潮目を掴んで"
+      },
+      "effect": "레이스 중반의 어딘가에서 중위권 그룹 이후라면 속도가 약간 상승한다 <작전 추입>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "속도상승",
+        "중반",
+        "추입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1799
+    },
+    {
+      "name": {
+        "ko": "펼쳐지는 풍경",
+        "ja": "広がる景色"
+      },
+      "effect": "레이스 후반 코너에서 추월하면 약간 앞으로 나간다 <작전 추입><중거리>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "후반",
+        "코너",
+        "속도상승",
+        "추입",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1800
+    },
+    {
+      "name": {
+        "ko": "나의 발걸음",
+        "ja": "私の足取り"
+      },
+      "effect": "최종 코너 바깥쪽에서 추월하면 속도가 약간 상승한다 <작전 추입>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "후반",
+        "코너",
+        "추입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1801
+    },
+    {
+      "name": {
+        "ko": "당기입단",
+        "ja": "当機立断"
+      },
+      "effect": "레이스 중반의 어딘가에서 중위권 그룹 이후라면 속도가 상승한다 <작전 추입>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "추입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1802
+    },
+    {
+      "name": {
+        "ko": "그저 그 너머로",
+        "ja": "ただその先へ"
+      },
+      "effect": "레이스 후반의 어딘가에서 약간 앞으로 나간다 <작전 선행>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "선행"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1803
+    },
+    {
+      "name": {
+        "ko": "뚫고 나가는 달리기",
+        "ja": "突き抜ける走り"
+      },
+      "effect": "레이스 중반의 어딘가에서 한동안 아주 조금 앞으로 나간다",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "중반",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1804
+    },
+    {
+      "name": {
+        "ko": "화려한 파고들기",
+        "ja": "華麗な踏み込み"
+      },
+      "effect": "레이스 중반의 어딘가에서 약간 앞으로 나간다 <중거리>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1805
+    },
+    {
+      "name": {
+        "ko": "소질의 증명",
+        "ja": "素質の証明"
+      },
+      "effect": "레이스 중반의 어딘가에서 한동안 다소 앞으로 나간다",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1806
+    },
+    {
+      "name": {
+        "ko": "청려고아",
+        "ja": "清麗高雅"
+      },
+      "effect": "레이스 중반의 어딘가에서 앞으로 나간다 <중거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1807
+    },
+    {
+      "name": {
+        "ko": "순진무구",
+        "ja": "純真無垢"
+      },
+      "effect": "레이스 후반의 어딘가에서 앞으로 나간다 <작전 선행>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "선행"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1808
     }
   ],
   "conditions": []
