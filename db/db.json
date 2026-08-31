@@ -533577,7 +533577,7 @@
       "id": 665
     },
     {
-      "star": 2,
+      "star": 3,
       "name": {
         "ko": "비코 페가수스",
         "ja": "ビコーペガサス"
@@ -533695,8 +533695,8 @@
         "multipleTimes": []
       },
       "originalEffect": {
-        "level": "",
-        "effect": ""
+        "level": "-",
+        "effect": "인연게이지가 80 이상 일 때, 우정 보너스 및 파워 보너스"
       },
       "bonusEffectTable": [
         {
