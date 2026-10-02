@@ -504896,7 +504896,10 @@
         "1436"
       ],
       "specialSkillsIds": [],
-      "evolutionSkillsIds": [],
+      "evolutionSkillsIds": [
+        "1437",
+        "1438"
+      ],
       "events": {
         "common": [],
         "once": [],
