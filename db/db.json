@@ -569941,7 +569941,7 @@
         "ja": "彼方の呼び声"
       },
       "effect": "레이스 최종반이 시작되는 어딘가에서 라스트 스퍼트 중이면 속도가 약간 상승한다",
-      "imageSrc": "/image/skill/i_skill_001.png",
+      "imageSrc": "/image/skill/i_skill_122.png",
       "tags": [
         "후반",
         "속도상승",
@@ -569959,7 +569959,7 @@
         "ja": "名にし負う夢"
       },
       "effect": "레이스 최종반이 시작되는 어딘가에서 라스트 스퍼트 중이면 속도가 상승하며, 합계 공연 Lv이 30 이상이면 효과가 증가한다",
-      "imageSrc": "/image/skill/i_skill_002.png",
+      "imageSrc": "/image/skill/i_skill_123.png",
       "tags": [
         "후반",
         "속도상승",
