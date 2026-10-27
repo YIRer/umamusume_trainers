@@ -1772,7 +1772,7 @@ export const commonEvents = [
         results: [
           {
             condition: "링크 보상",
-            result: '"英俊豪傑"(영준호걸) 힌트 Lv+1',
+            result: '"英俊豪傑"(영웅호걸) 힌트 Lv+1',
           },
           {
             condition: "일반 보상",
@@ -1923,7 +1923,7 @@ export const commonEvents = [
           ja: "駿川たづな&ライトハロー",
         },
         condition: "시나리오 링크 캐릭터 미편성시",
-        result: '"英俊豪"(영준호걸) 힌트 Lv+1',
+        result: '"英俊豪傑"(영웅호걸) 힌트 Lv+1',
       },
     ],
     condition:
