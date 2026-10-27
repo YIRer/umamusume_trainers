@@ -517,7 +517,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "드디어 모인 팀 멤버!",
       ja: "ついに集まったチームメンバー！",
     },
     eventType: "common",
@@ -525,7 +525,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "타이키의 <HOP CHEERS>",
           ja: "タイキの＜HOP CHEERS＞",
         },
         result:
@@ -533,41 +533,41 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "후쿠키타루의 <경삿날 러너스>",
           ja: "フクキタルの＜ハレノヒ・ランナーズ＞",
         },
         result:
-          "팀 <ハレノヒ・ランナーズ>가 된다 *마치가네 후쿠키타루와 링크 편성해야할 필요가 있다",
+          "팀 <경삿날 러너스 ハレノヒ・ランナーズ>가 된다 *마치가네 후쿠키타루와 링크 편성해야할 필요가 있다",
       },
       {
         description: {
-          ko: "",
+          ko: "우라라의 <당근 푸딩>",
           ja: "ウララの＜にんじんぷりん＞",
         },
         result:
-          "팀 <にんじんぷりん>이 된다 *하루 우라라와 링크 편성해야할 필요가 있다",
+          "팀 <당근 푸딩 にんじんぷりん>이 된다 *하루 우라라와 링크 편성해야할 필요가 있다",
       },
       {
         description: {
-          ko: "",
+          ko: "라이스의 <블룸스>",
           ja: "ライスの＜ブルームス＞",
         },
         result:
-          "팀 <ブルームス>가 된다 *라이스 샤워와 링크 편성해야할 필요가 있다",
+          "팀 <블룸스 ブルームス>가 된다 *라이스 샤워와 링크 편성해야할 필요가 있다",
       },
       {
         description: {
-          ko: "",
+          ko: "팀 <캐럿츠>",
           ja: "チーム＜キャロッツ＞",
         },
-        result: "팀 <キャロッツ>이 된다",
+        result: "팀 <캐럿츠 キャロッツ>가 된다",
       },
     ],
     condition: "아오하루",
   },
   {
     title: {
-      ko: "",
+      ko: "아키카와 이사장의 보상!",
       ja: "秋川理事長のご褒美！",
     },
     eventType: "common",
@@ -575,7 +575,7 @@ export const commonEvents = [
     choices: [
       {
         description: {
-          ko: "",
+          ko: "타이키의 <HOP CHEERS>",
           ja: "タイキの＜HOP CHEERS＞",
         },
         result:
@@ -583,14 +583,14 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "후키타루의 <경삿날 러너스>",
           ja: "フクキタルの＜ハレノヒ・ランナーズ＞",
         },
         result: '랜덤 스탯 3개+10 스킬Pt+50 "千里眼"(천리안) 힌트 Lv+1',
       },
       {
         description: {
-          ko: "",
+          ko: "우라라의 <당근 푸딩>",
           ja: "ウララの＜にんじんぷりん＞",
         },
         result:
@@ -598,14 +598,14 @@ export const commonEvents = [
       },
       {
         description: {
-          ko: "",
+          ko: "라이스의 <블룸스>",
           ja: "ライスの＜ブルームス＞",
         },
         result: '랜덤 스탯 3개+10 스킬Pt+50 "クールダウン"(쿨다운) 힌트 Lv+1',
       },
       {
         description: {
-          ko: "",
+          ko: "팀 <캐럿츠>",
           ja: "チーム＜キャロッツ＞",
         },
         result:
@@ -616,7 +616,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "팀 종합력 업・최고의 선물",
       ja: "チーム総合力アップ・最高の差し入れ",
     },
     eventType: "common",
@@ -646,7 +646,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "팀 <퍼스트>의 선전포고",
       ja: "チーム＜ファースト＞の宣戦布告",
     },
     eventType: "common",
@@ -772,7 +772,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "해피미크와 대결!",
       ja: "ハッピーミークと勝負！",
     },
     eventType: "common",
@@ -1151,7 +1151,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "각자의 '요리'",
       ja: 'それぞれの"食"',
     },
     eventType: "common",
@@ -1264,7 +1264,7 @@ export const commonEvents = [
   },
   {
     title: {
-      ko: "",
+      ko: "4.1 연구 보고서 배포",
       ja: "4.1 研究レポートの配布",
     },
     eventType: "common",
@@ -1351,6 +1351,235 @@ export const commonEvents = [
       },
     ],
     condition: "달려라! 메카 우마무스메 시나리오에서 URA 개시시",
+  },
+  {
+    title: {
+      ko: "'나의' 레이스",
+      ja: "私のレースのこと",
+    },
+    eventType: "common",
+    tags: ["The Twinkle Legends"],
+    choices: [
+      {
+        description: {
+          ko: "오르페브르",
+          ja: "オルフェーヴル",
+        },
+        condition: "오르페브르 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"飛翔脚"(비상하는 다리) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"推力十分"(추력 충분) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "메지로 라모누",
+          ja: "メジロラモーヌ",
+        },
+        condition: "메지로 라모누 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"遮二無二"(마구마구) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"向こう見ず"(무모함) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "젠틸돈나",
+          ja: "ジェンティルドンナ",
+        },
+        condition: "젠틸돈나 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"光芒一閃"(광명일섬) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"中距離直線◯"(중거리 직선◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "시리우스 심볼리",
+          ja: "シリウスシンボリ",
+        },
+        condition: "시리우스 심볼리 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"猛追"(맹추격) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"食らいつき"(달려들기) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "스마트 팔콘",
+          ja: "スマートファルコン",
+        },
+        condition: "스마트 팔콘 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"砂塵円刃"(사진원인) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"ダートコーナー◯"(더트 코너◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "전설들",
+          ja: "レジェンドたち",
+        },
+        condition: "시나리오 링크 캐릭터 미편성시",
+        result: '"機先の勝負"(선점 승부) 힌트 Lv+1',
+      },
+    ],
+    condition: "The Twinkle Legends 시나리오에서 10월 전반",
+  },
+  {
+    title: {
+      ko: "트레센섬 인증마크",
+      ja: "トレセン島のススメ",
+    },
+    eventType: "common",
+    tags: ["무인도에 어서 오세요 -DESIGN YOUR ISLAND-"],
+    choices: [
+      {
+        description: {
+          ko: "아이네스 후진",
+          ja: "アイネスフウジン",
+        },
+        condition: "아이네스 후진 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"王道一途"(왕도일도) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"正面突破"(정면돌파) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "골드 시티",
+          ja: "ゴールドシチー",
+        },
+        condition: "골드 시티 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"昂る鼓動"(솟구치는 고동) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"込み上げる熱"(치밀어 오르는 열) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "메지로 라이언",
+          ja: "メジロライアン",
+        },
+        condition: "메지로 라이언 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"トップギア"(톱기어) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"キレる脚"(폭발하는 다리) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "사토노 치요노 오",
+          ja: "サクラチヨノオー",
+        },
+        condition: "사토노 치요노 오 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"影従打破"(영종타파) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"アグレッシブ"(어그레시브) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "타마모 크로스",
+          ja: "タマモクロス",
+        },
+        condition: "타마모 크로스 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"尻尾の滝登り"(꼬리 솟구쳐 오르기) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"尻尾上がり"(꼬리 올리기) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "터커 브라인",
+          ja: "タッカーブライン",
+        },
+        condition: "터커 브라인 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"アガッてきた！"(텐션 오르는데!) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"序盤巧者"(초반 달인) 힌트 Lv+1',
+          },
+        ],
+      },
+    ],
+    condition:
+      "무인도에 어서 오세요 -DESIGN YOUR ISLAND- 시나리오에서 9월 전반",
   },
   {
     title: {
@@ -1470,6 +1699,354 @@ export const commonEvents = [
       },
     ],
     condition: "극락♪ 유코마 온천향 시나리오에서 URA 개시시",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "決意表明・BC遠征を前に",
+    },
+    eventType: "common",
+    tags: ["Beyond Dreams 함께 앞으로, 함께 빛을"],
+    choices: [
+      {
+        description: {
+          ko: "에스푸아르 시티",
+          ja: "エスポワールシチー",
+        },
+        condition: "에스푸아르 시티 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"砂の開拓者"(모래의 개척자) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"パイオニア"(파이어니어) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "러브즈 온리 유",
+          ja: "ラヴズオンリーユー",
+        },
+        result: "",
+        condition: "러브즈 온리 유 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"行雲流水"(행운유수) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"淀みなし"(막힘 없음) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "레드 디자이어",
+          ja: "レッドディザイア",
+        },
+        result: "",
+        condition: "레드 디자이어 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"気炎万丈"(기염만장) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"闘争心"(투쟁심) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "포에버 영",
+          ja: "フォーエバーヤング",
+        },
+        condition: "포에버 영 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"英俊豪傑"(영준호걸) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"比類なき"(비할 바 없는) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "마르슈 로렌",
+          ja: "マルシュロレーヌ",
+        },
+        condition: "마르슈 로렌 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"砂塵円刃"(사진원인) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"ダートコーナー◯"(더트 코너◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "카지노 드라이브",
+          ja: "カジノドライヴ",
+        },
+        condition: "카지노 드라이브 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"お先に失礼っ！"(먼저 갑니다!) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"遊びはおしまいっ！"(장난은 끝이야!) 힌트 Lv+1',
+          },
+        ],
+      },
+    ],
+    condition: "Beyond Dreams 함께 앞으로, 함께 빛을 시나리오에서 9월 후반",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "貴方と私とラーメンと",
+    },
+    eventType: "common",
+    tags: ["어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~"],
+    choices: [
+      {
+        description: {
+          ko: "파인 모션",
+          ja: "ファインモーション",
+        },
+        condition: "파인 모션 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"勇迅一閃"(용신일섬) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"先行直線◯"(선행 직선 ◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "나리타 탑 로드",
+          ja: "ナリタトップロード",
+        },
+        result: "",
+        condition: "나리타 탑 로드 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"烈風一閃"(영풍일섬) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"長距離直線◯"(장거리 직선◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "칼스톤 라이트 오",
+          ja: "カルストンライトオ",
+        },
+        result: "",
+        condition: "칼스톤 라이트 오 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"閃く雷光"(번쩐이는 전광) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"弾ける足取り"(튀어나가는 발걸음) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "메이쇼 도토",
+          ja: "メイショウドトウ",
+        },
+        condition: "메이쇼 도토 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"ネバーギブアップ"(네버 기브 업) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"折れない心"(굴하지 않는 마음) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "나이스 네이처",
+          ja: "ナイスネイチャ",
+        },
+        condition: "나이스 네이처 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"光芒一閃"(광양일섬) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"中距離直線◯"(중거리 직선 ◯) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "하야카와 타즈나&라이트 할로",
+          ja: "駿川たづな&ライトハロー",
+        },
+        condition: "시나리오 링크 캐릭터 미편성시",
+        result: '"英俊豪"(영준호걸) 힌트 Lv+1',
+      },
+    ],
+    condition:
+      "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 시나리오에서 9월 전반",
+  },
+  {
+    title: {
+      ko: "",
+      ja: "本番前のひと時",
+    },
+    eventType: "common",
+    tags: ["벗, 역사를 풀다 -오식 준대제-"],
+    choices: [
+      {
+        description: {
+          ko: "다이와 스칼렛",
+          ja: "ダイワスカーレット",
+        },
+        condition: "다이와 스칼렛 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"先手必勝"(선수필승) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"先駆け"(앞장서기) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "마야노 탑 건",
+          ja: "マヤノトップガン",
+        },
+        result: "",
+        condition: "마야노 탑 건 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"順風満帆"(순풍만범) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"気持ちを乗せて"(마음을 담아) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "유키노비진",
+          ja: "ユキノビジン",
+        },
+        result: "",
+        condition: "유키노비진 편성시",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"閃く雷光"(번쩐이는 전광) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"灯を胸に"(등불을 가슴에 품고) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "노리즌",
+          ja: "ノーリーズン",
+        },
+        condition: "노리즌 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"ネバーギブアップ"(네버 기브 업) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"間隙を突いて"(간극을 파고들어서) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "블래스트 원피스",
+          ja: "ブラストワンピース",
+        },
+        condition: "블래스트 원피스 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"ウママニア"(우마무스메 마니아) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"ウマ好み"(우마무스메 애호가) 힌트 Lv+1',
+          },
+        ],
+      },
+      {
+        description: {
+          ko: "아즈마",
+          ja: "吾妻",
+        },
+        condition: "아즈마 편성시",
+        result: "",
+        results: [
+          {
+            condition: "링크 보상",
+            result: '"螺旋のエキスパート"(나선의 익스퍼트) 힌트 Lv+1',
+          },
+          {
+            condition: "일반 보상",
+            result: '"弧を描いて"(호를 그리머) 힌트 Lv+1',
+          },
+        ],
+      },
+    ],
+    condition: "벗, 역사를 풀다 -오식 준대제- 시나리오에서 9월 전반",
   },
 ];
 

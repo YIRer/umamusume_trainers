@@ -2055,6 +2055,17 @@
       "imageSrc": "/image/Phalaenopsis/main.png",
       "cards": [],
       "id": 171
+    },
+    {
+      "name": {
+        "default": "Azuma",
+        "ko": "아즈마",
+        "ja": "吾妻",
+        "en": "Azuma"
+      },
+      "imageSrc": "/image/Azuma/main.png",
+      "cards": [],
+      "id": 172
     }
   ],
   "cards": [
@@ -493304,7 +493315,7 @@
       ],
       "awakeningSkillsIds": [
         "206",
-        "1338",
+        "1236",
         "487",
         "1339"
       ],
@@ -559083,24 +559094,6 @@
     },
     {
       "name": {
-        "ko": "재빠른 솜씨",
-        "ja": "早業"
-      },
-      "effect": "레이스 중반에 전방에 있으면 한동안 속도가 다소 상승한다 <작전 도주>",
-      "imageSrc": "/image/skill/i_skill_002.png",
-      "tags": [
-        "중반",
-        "속도상승",
-        "도주"
-      ],
-      "condition": "",
-      "evolutionConditions": [
-        ""
-      ],
-      "id": 1338
-    },
-    {
-      "name": {
         "ko": "이니셔티브",
         "ja": "イニシアチブ"
       },
@@ -569227,6 +569220,305 @@
         "선입 스킬 2개 이상 소지 또는 추입 스킬 2개 이상 소지"
       ],
       "id": 1846
+    },
+    {
+      "name": {
+        "ko": "호를 그리며",
+        "ja": "弧を描いて"
+      },
+      "effect": "아무 코너의 어딘가에서 속도가 약간 상승한다",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "코너",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1847
+    },
+    {
+      "name": {
+        "ko": "나선의 엑스퍼트",
+        "ja": "螺旋のエキスパート"
+      },
+      "effect": "아무 코너의 어딘가에서 속도가 상승한다",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "코너",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1848
+    },
+    {
+      "name": {
+        "ko": "사진원인",
+        "ja": "砂塵円刃"
+      },
+      "effect": "아무 코너의 어딘가에서 속도가 상승한다 <더트>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "코너",
+        "더트",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1849
+    },
+    {
+      "name": {
+        "ko": "저편에서 부르는 소리",
+        "ja": "彼方の呼び声"
+      },
+      "effect": "레이스 최종반이 시작되는 어딘가에서 라스트 스퍼트 중이면 속도가 약간 상승한다",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "벗 역사를 풀다 -오식 준대제-"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1850
+    },
+    {
+      "name": {
+        "ko": "이름에 걸맞은 꿈",
+        "ja": "名にし負う夢"
+      },
+      "effect": "레이스 최종반이 시작되는 어딘가에서 라스트 스퍼트 중이면 속도가 상승하며, 합계 공연 Lv이 30 이상이면 효과가 증가한다",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "벗 역사를 풀다 -오식 준대제-"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1851
+    },
+    {
+      "name": {
+        "ko": "궁극의 활솜씨",
+        "ja": "究竟の弓勢"
+      },
+      "effect": "중반이 시작되는 어딘가에서 선두 그룹이라면 속도가 계속해서 상승하며, 장거리 레이스라면 그 후 전력 스퍼트 중인 어딘가에서 3위 이내일 때 짧은 시간 동안 다소 뻗어 나간다 <작전 도주><잔디>",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "고유스킬",
+        "속도상승",
+        "중반",
+        "장거리",
+        "도주",
+        "잔디",
+        "다이와 스칼렛",
+        "궁극의 활솜씨",
+        "究竟の弓勢"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1852
+    },
+    {
+      "name": {
+        "ko": "마음먹은 대로",
+        "ja": "直情"
+      },
+      "effect": "레이스 중반의 어딘가에서 속도가 약간 상승하며, 늦은 출발을 하지 않은 경우 속도가 다소 상승한다 <작전 도주>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "도주"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1853
+    },
+    {
+      "name": {
+        "ko": "신의 시대에도 듣지 못한 이 위업",
+        "ja": "神代も聞かず、この御業"
+      },
+      "effect": "중반의 어딘가에서 전방이라면 한동안 속도가 다소 상승하며, 늦은 출발을 하지 않은 경우 그 후 최종 직선에 들어왔을 때 3위 이내라면 속도가 상승한다 <중거리><장거리>",
+      "imageSrc": "/image/skill/i_skill_061.png",
+      "tags": [
+        "진화스킬",
+        "중반",
+        "속도상승",
+        "중거리",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        "「切れ者 수완가」 상태로 육성 종료 또는 스태미나 600 이상 달성",
+        "속도가 상승하는 스킬 3개 이상 소지"
+      ],
+      "id": 1854
+    },
+    {
+      "name": {
+        "ko": "봐 주시길, 다홍빛 질풍",
+        "ja": "御覧じろ、緋色の疾風"
+      },
+      "effect": "2000m 이상 레이스라면 라스트 스퍼트 중일 때 가속력이 상승한다 <작전 도주><잔디>",
+      "imageSrc": "/image/skill/i_skill_062.png",
+      "tags": [
+        "진화스킬",
+        "2000m",
+        "가속도상승",
+        "도주",
+        "잔디",
+        "중거리",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        "「작전 도주」로 G1 3승 이상 또는 파워 800 이상 달성",
+        "지능 800 이상 달성"
+      ],
+      "id": 1855
+    },
+    {
+      "name": {
+        "ko": "소홀함 없음",
+        "ja": "如才なし"
+      },
+      "effect": "레이스 후반에 추월하려고 하거나 누군가 따라붙으면 한동안 속도가 아주 조금 상승한다 <중거리>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "속도상승",
+        "후반",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1856
+    },
+    {
+      "name": {
+        "ko": "직감력",
+        "ja": "直感力"
+      },
+      "effect": "레이스 초반 혹은 중반에 추월당하거나 경합하면 약간 앞으로 나간다 <장거리>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "속도상승",
+        "초반",
+        "중반",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1857
+    },
+    {
+      "name": {
+        "ko": "주도권",
+        "ja": "主導権"
+      },
+      "effect": "레이스 중반이 다가오는 어딘가에서 전방이라면 속도가 약간 상승한다",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "중반",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1858
+    },
+    {
+      "name": {
+        "ko": "사력을 다하여",
+        "ja": "死力を尽くして"
+      },
+      "effect": "전력 스퍼트 중인 어딘가에서 약간 뻗어 나간다 <장거리>",
+      "imageSrc": "/image/skill/i_skill_113.png",
+      "tags": [
+        "전력스퍼트",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1859
+    },
+    {
+      "name": {
+        "ko": "기지",
+        "ja": "機転"
+      },
+      "effect": "레이스 후반에 추월하려고 하거나 누군가 따라붙으면 한동안 속도가 다소 상승한다 <중거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1860
+    },
+    {
+      "name": {
+        "ko": "희대의 재치",
+        "ja": "希代の才覚"
+      },
+      "effect": "레이스 초반 혹은 중반에 추월당하거나 경합하면 앞으로 나간다 <장거리>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "초반",
+        "중반",
+        "속도상승",
+        "장거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1861
+    },
+    {
+      "name": {
+        "ko": "어드밴티지",
+        "ja": "アドバンテージ"
+      },
+      "effect": "레이스 중반이 다가오는 어딘가에서 전방이라면 속도가 상승한다",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1862
     }
   ],
   "conditions": []

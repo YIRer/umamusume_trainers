@@ -594,6 +594,16 @@ export const iconData = [
     label: "어서옵쇼! 트레센켄! ~은혜갚기, 시작했습니다~ 스킬",
     id: "i_skill_117",
   },
+  {
+    value: "/image/skill/i_skill_122.png",
+    label: "벗, 역사를 풀다 -오식 준대제- 스킬",
+    id: "i_skill_122",
+  },
+  {
+    value: "/image/skill/i_skill_123.png",
+    label: "벗, 역사를 풀다 -오식 준대제- 스킬",
+    id: "i_skill_123",
+  },
 ];
 
 export const skillTypes = [
