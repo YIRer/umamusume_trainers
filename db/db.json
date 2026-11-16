@@ -534851,6 +534851,198 @@
       ],
       "hiddenTitle": [],
       "id": 682
+    },
+    {
+      "star": 3,
+      "name": {
+        "ko": "데어링 택트",
+        "ja": "デアリングタクト"
+      },
+      "targetID": "92",
+      "imageSrc": "/image/DaringTact/cards/training/01.png",
+      "type": "training",
+      "supportType": "",
+      "trainingObjects": [
+        {
+          "object": "주니어 급 메이크데뷔에 출주",
+          "time": "",
+          "fan": "",
+          "raceCourse": ""
+        },
+        {
+          "object": "엘핀 스테이크스(エルフィンS) 1착",
+          "time": "클래식급 2월 전반",
+          "fan": "350명 이상",
+          "raceCourse": "OP / 교토 / 잔디 / 1600m(마일) / 우외"
+        },
+        {
+          "object": "벚꽃상 (桜花賞) 1착",
+          "time": "클래식급 4월 전반",
+          "fan": "4500명 이상",
+          "raceCourse": "G1 / 한신 / 잔디 / 1600m(마일) / 우외"
+        },
+        {
+          "object": "오크스 (オークス) 1착",
+          "time": "클래식급 5월 후반",
+          "fan": "6000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        },
+        {
+          "object": "추화상 (秋華賞) 1착",
+          "time": "클래스급 10월 후반",
+          "fan": "7500명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2000m(중거리) / 우내"
+        },
+        {
+          "object": "재팬컵 (ジャパンC) 3착 이내",
+          "time": "클래식급 11월 후반",
+          "fan": "25000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        },
+        {
+          "object": "킨코상 (金鯱賞) 3착 이내",
+          "time": "시니어급 3월 전반",
+          "fan": "2000명 이상",
+          "raceCourse": "G2 / 츄쿄 / 잔디 / 2000m(중거리) / 좌"
+        },
+        {
+          "object": "빅토리아 마일 (ヴィクトリアマイル) 3착 이내",
+          "time": "시니어급 5월 전반",
+          "fan": "10000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 1600m(마일) / 좌"
+        },
+        {
+          "object": "타카라즈카 기념 (宝塚記念) 3착 이내",
+          "time": "시니어급 6월 후반",
+          "fan": "20000명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우, 외"
+        },
+        {
+          "object": "엘리자베스 여왕배 (エリザベス女王杯) 1착",
+          "time": "시니어급 11월 전반",
+          "fan": "10000명 이상",
+          "raceCourse": "G1 / 교토 / 잔디 / 2200m(중거리) / 우외"
+        },
+        {
+          "object": "재팬컵(ジャパンC) 1착",
+          "time": "시니어급 11월 후반",
+          "fan": "25000명 이상",
+          "raceCourse": "G1 / 도쿄 / 잔디 / 2400m(중거리) / 좌"
+        }
+      ],
+      "playable": true,
+      "limited": false,
+      "status": {
+        "ground": {
+          "turf": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "duct": {
+            "rank": "G",
+            "bonus": "0"
+          }
+        },
+        "status": {
+          "speed": {
+            "rank": "F",
+            "bonus": "0"
+          },
+          "stamina": {
+            "rank": "G+",
+            "bonus": "0"
+          },
+          "power": {
+            "rank": "F",
+            "bonus": "10"
+          },
+          "guts": {
+            "rank": "G+",
+            "bonus": "10"
+          },
+          "intelligence": {
+            "rank": "F",
+            "bonus": "15"
+          }
+        },
+        "distance": {
+          "short": {
+            "rank": "F",
+            "bonus": "0"
+          },
+          "mile": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "medium": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "long": {
+            "rank": "F",
+            "bonus": "0"
+          }
+        },
+        "strategy": {
+          "escape": {
+            "rank": "G",
+            "bonus": "0"
+          },
+          "leading": {
+            "rank": "D",
+            "bonus": "0"
+          },
+          "between": {
+            "rank": "A",
+            "bonus": "0"
+          },
+          "pushing": {
+            "rank": "F",
+            "bonus": "0"
+          }
+        }
+      },
+      "bonus": {
+        "unique": [],
+        "support": []
+      },
+      "uniqueSkillsIds": [
+        "1868"
+      ],
+      "trainingSkillsIds": [],
+      "hasSkillsIds": [],
+      "baseSkillsIds": [
+        "1397",
+        "1683",
+        "1869"
+      ],
+      "awakeningSkillsIds": [
+        "1870",
+        "1871",
+        "1493",
+        "1398"
+      ],
+      "specialSkillsIds": [],
+      "evolutionSkillsIds": [
+        "1872",
+        "1873",
+        "1874"
+      ],
+      "events": {
+        "common": [],
+        "once": [],
+        "multipleTimes": []
+      },
+      "originalEffect": null,
+      "bonusEffectTable": null,
+      "hiddenTitle": [
+        {
+          "name": "純白のティアラ(순백의 티아라)",
+          "condition": "벚꽃상, 오크스, 추화상, 빅토리아 마일, 엘리자베스 여왕배에서 우승하고, 무패로 육성을 종료한다",
+          "rewards": "칭호획득"
+        }
+      ],
+      "id": 683
     }
   ],
   "skills": [
@@ -571039,6 +571231,145 @@
         ""
       ],
       "id": 1867
+    },
+    {
+      "name": {
+        "ko": "잿빛 눈의 왕관",
+        "ja": "灰雪の冠"
+      },
+      "effect": "종반이 다가올 때, 중간 지점, 최종반의 3회, 짧은 시간 동안 속도가 다소 상승하며, 마일이나 중거리라면 효과가 증가한다 <잔디>",
+      "imageSrc": "/image/skill/i_skill_003.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "마일",
+        "중거리",
+        "잔디",
+        "데어링 택트",
+        "잿빛 눈의 왕관",
+        "灰雪の冠"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1868
+    },
+    {
+      "name": {
+        "ko": "정적을 가르고",
+        "ja": "静寂を裂いて"
+      },
+      "effect": "레이스 종반이 다가오는 어딘가에서 중위권 그룹 이후라면 한동안 속도가 약간 상승한다 <작전 선입>",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "선입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1869
+    },
+    {
+      "name": {
+        "ko": "연면",
+        "ja": "連綿"
+      },
+      "effect": "레이스 중반 어딘가에서 속도가 약간 상승한다. 속도가 상승하는 스킬을 3개 이상 소지하면 효과가 상승한다",
+      "imageSrc": "/image/skill/i_skill_001.png",
+      "tags": [
+        "중반",
+        "속도상승"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1870
+    },
+    {
+      "name": {
+        "ko": "Wild Hunt",
+        "ja": "ワイルドハント"
+      },
+      "effect": "레이스 종반이 다가오는 어딘가에서 중위권 그룹 이후라면 한동안 속도가 다소 상승한다 <작전 선입>",
+      "imageSrc": "/image/skill/i_skill_002.png",
+      "tags": [
+        "중반",
+        "속도상승",
+        "선입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        ""
+      ],
+      "id": 1871
+    },
+    {
+      "name": {
+        "ko": "디아나의 활과 화살",
+        "ja": "ディアナの弓矢"
+      },
+      "effect": "종반이 다가오는 어딘가에서 한동안 속도가 상승하며, 마일이나 중거리라면 그 후 전력 스퍼트 중인 어딘가에서 중위권 그룹일 때 뻗어 나간다 <작전 선입>",
+      "imageSrc": "/image/skill/i_skill_061.png",
+      "tags": [
+        "후반",
+        "속도상승",
+        "마일",
+        "중거리",
+        "전력스퍼트",
+        "선입"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        "「切れ者 수완가」 상태에서 육성 종료 또는 속도가 상승하는 스킬 3개 이상 소지",
+        "지능 800 이상 소지"
+      ],
+      "id": 1872
+    },
+    {
+      "name": {
+        "ko": "눈 속의 송백",
+        "ja": "雪中の松柏"
+      },
+      "effect": "라스트 스퍼트 중이면 가속력이 다소 상승하며, 그 후 레이스 최종반이 시작되는 어딘가에서 많이 앞으로 나간다 <작전 선입><중거리>",
+      "imageSrc": "/image/skill/i_skill_062.png",
+      "tags": [
+        "후반",
+        "가속도 상승",
+        "전력스퍼트",
+        "선입",
+        "중거리"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        "파워 800 이상 소지",
+        "중거리 스킬 2개 이상 소지"
+      ],
+      "id": 1873
+    },
+    {
+      "name": {
+        "ko": "잊을 수 없는 설경",
+        "ja": "忘れじの雪景色"
+      },
+      "effect": "레이스 종반이 시작되는 어딘가에서 가속력이 상승하며, 그 후 레이스 최종반이 시작되는 어딘가에서 약간 앞으로 나간다 <작전 선입><마일>",
+      "imageSrc": "/image/skill/i_skill_062.png",
+      "tags": [
+        "중반",
+        "가속도 상승",
+        "선입",
+        "마일"
+      ],
+      "condition": "",
+      "evolutionConditions": [
+        "근성 600 이상 소지",
+        "마일 스킬 2개 이상 소지"
+      ],
+      "id": 1874
     }
   ],
   "conditions": []
